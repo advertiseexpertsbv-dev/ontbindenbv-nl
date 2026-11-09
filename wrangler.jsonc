@@ -41,9 +41,8 @@
 		}
 	],
 	"vars": {
-		// Tijdelijk vanaf info@advertisexperts.com (geverifieerd in Resend), zoals BB voor de livegang. ontbindenbv.nl staat nog
-		// niet in Resend; na de DNS-verhuizing naar Cloudflare toevoegen en terugzetten naar info@ontbindenbv.nl.
-		"RESEND_FROM": "OntbindenBV.nl <info@advertisexperts.com>",
+		// ontbindenbv.nl is geverifieerd in Resend.
+		"RESEND_FROM": "OntbindenBV.nl <info@ontbindenbv.nl>",
 		// Zelfde ontvangers als belastingbemiddelaar.nl (besluit Steven 2026-11-09: "zelfde koppelingen")
 		"NOTIFICATIE_EMAIL": "info@ontbindenbv.nl,maurice@sea-experts.nl",
 		"INTAKE_NOTIFICATIE_EMAIL": "info@ontbindenbv.nl"
