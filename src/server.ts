@@ -8,7 +8,7 @@ import { schoonOp } from './server/bewaartermijn'
 import { verwerkCrmBericht, type CrmBericht } from './server/crm'
 import { appEnv } from './server/env'
 import { llmsTxt } from './server/llms'
-import { REDIRECTS } from './content/redirects'
+import { doelVoor } from './content/redirects'
 
 const APEX_HOST = site.domain
 const SITE = 'obv' // sleutel in de Advertisexperts-hub (bezoekersmeting)
@@ -109,7 +109,7 @@ async function route(request: Request): Promise<Response> {
   }
 
   // Vaste redirects (content/redirects.ts) → 301 naar het doel (vóór de slash-redirect, dus geen keten)
-  const doel = REDIRECTS[pad]
+  const doel = doelVoor(pad)
   if (doel) return Response.redirect(`${site.url}${doel}`, 301)
 
   // Pagina-URL's altijd mét trailing slash (301, niet de 307 van de router)
