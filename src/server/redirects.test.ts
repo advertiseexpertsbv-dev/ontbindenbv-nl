@@ -61,3 +61,46 @@ test('bestaande vaste redirects blijven gelijk en laten de querystring vallen', 
   assert.equal(cat.status, 301)
   assert.equal(cat.location, 'https://ontbindenbv.nl/kennisbank/')
 })
+
+test('oude WordPress-kernsitemaps gaan permanent naar /sitemap.xml, zonder querystring', async () => {
+  const paden = [
+    '/wp-sitemap.xml',
+    '/wp-sitemap-posts-post-1.xml',
+    '/wp-sitemap-posts-page-1.xml',
+    '/wp-sitemap-pages-page-1.xml',
+    '/wp-sitemap-posts-dienst-1.xml',
+    '/wp-sitemap-taxonomies-category-1.xml',
+    '/wp-sitemap-users-1.xml',
+    // Zelfde patroon, niet stuk voor stuk in de map: latere pagina en een andere taxonomie
+    '/wp-sitemap-posts-post-2.xml',
+    '/wp-sitemap-taxonomies-post_tag-1.xml',
+  ]
+  for (const pad of paden) {
+    for (const variant of [pad, `${pad}/`, `${pad}/?utm=oud`]) {
+      const r = await locatie(variant)
+      assert.equal(r.status, 301, variant)
+      assert.equal(r.location, 'https://ontbindenbv.nl/sitemap.xml', variant)
+    }
+  }
+  const dev = await locatie('/wp-sitemap.xml/', 'https://ontbindenbv-nl.advertisexperts.workers.dev')
+  assert.equal(dev.status, 301)
+  assert.equal(dev.location, 'https://ontbindenbv.nl/sitemap.xml')
+})
+
+test('sitemap_index.xml blijft de sitemap zelf; stylesheet en overige /wp- paden blijven 404', async () => {
+  const index = await worker.fetch(new Request('https://ontbindenbv.nl/sitemap_index.xml'))
+  assert.equal(index.status, 200)
+  assert.equal(index.headers.get('location'), null)
+  assert.match(index.headers.get('content-type') ?? '', /xml/)
+  assert.match(await index.text(), /<urlset/)
+
+  const bestaand = await locatie('/post-sitemap.xml')
+  assert.equal(bestaand.status, 301)
+  assert.equal(bestaand.location, 'https://ontbindenbv.nl/sitemap.xml')
+
+  for (const pad of ['/wp-sitemap.xsl', '/wp-login.php']) {
+    const r = await locatie(pad)
+    assert.equal(r.status, 404, pad)
+    assert.equal(r.location, null, pad)
+  }
+})
