@@ -1,0 +1,44 @@
+/**
+ * Cloudflare Workers-configuratie voor ontbindenbv.nl (TanStack Start).
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ontbindenbv-nl",
+	"compatibility_date": "2025-09-02",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"main": "src/server.ts",
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	// Nog niet live. Livegang zoals belastingbemiddelaar.nl: worker-routes ontbindenbv.nl/* en www.ontbindenbv.nl/* met Proxied
+	// A-records (geen custom domains). Tot die tijd alleen workers.dev als test-URL (robots: Disallow, X-Robots-Tag noindex).
+	"workers_dev": true,
+	// Dagelijks om 03:15 UTC: persoonsgegevens ouder dan de bewaartermijn (5 jaar) opschonen, zie src/server/bewaartermijn.ts
+	"triggers": {
+		"crons": ["15 3 * * *"]
+	},
+	// Cookieloze bezoekersmeting; dataset gedeeld met de andere sites, uitgelezen door de Advertisexperts-hub (site-sleutel 'obv')
+	"analytics_engine_datasets": [
+		{ "binding": "BEZOEKEN", "dataset": "site_bezoeken" }
+	],
+	// CRM-wachtrij (zoals belastingbemiddelaar-crm) pas toevoegen als blijkt dat ontbindenbv.nl leads naar BBase stuurt.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "ontbindenbv-db",
+			"database_id": "TODO-aanmaken-met-wrangler-d1-create",
+			"migrations_dir": "migrations"
+		}
+	],
+	"vars": {
+		// TODO: afzender en ontvangers bevestigen (oude site: nalopen in WP-beheer)
+		"RESEND_FROM": "OntbindenBV.nl <info@advertisexperts.com>",
+		"NOTIFICATIE_EMAIL": "info@ontbindenbv.nl",
+		"INTAKE_NOTIFICATIE_EMAIL": "info@ontbindenbv.nl"
+	}
+	// Secrets (wrangler secret put …): RESEND_API_KEY, CRM_WEBHOOK_URL (CRM BBase), HUBSPOT_FORMS_API ("aan" = leads naar HubSpot; bewust geen var, want vars gelden ook lokaal), ZAPIER_WEBHOOK_URL (optioneel)
+}

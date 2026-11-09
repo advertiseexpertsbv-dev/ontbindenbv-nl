@@ -1,0 +1,1388 @@
+[
+ {
+  "id": "69",
+  "type": "email",
+  "label": "Klant"
+ },
+ {
+  "id": "1",
+  "type": "section",
+  "label": "STAP 1 · KLANTPROFIEL"
+ },
+ {
+  "id": "3",
+  "type": "radio",
+  "label": "Wat voor type klant is dit?",
+  "options": [
+   "Privé / particulier",
+   "Eenmanszaak",
+   "VOF",
+   "BV",
+   "Anders / weet niet"
+  ]
+ },
+ {
+  "id": "4",
+  "type": "section",
+  "label": "STAP 2 · HOOFDREDEN"
+ },
+ {
+  "id": "6",
+  "type": "radio",
+  "label": "Wat is de hoofdreden van het contact?",
+  "options": [
+   "Belastingschuld / betalingsregeling",
+   "Aangifte / controle / second opinion",
+   "Bezwaar / beroep",
+   "Overige fiscale vraag"
+  ],
+  "cond": {
+   "action": "hide",
+   "logic": "all",
+   "rules": [
+    {
+     "field": "3",
+     "value": "BV"
+    }
+   ]
+  }
+ },
+ {
+  "id": "77",
+  "type": "radio",
+  "label": "Wat is de hoofdreden van het contact?",
+  "options": [
+   "Belastingschuld / betalingsregeling",
+   "Aangifte / controle / second opinion",
+   "Bezwaar / beroep",
+   "Stoppen onderneming / turbo-liquidatie",
+   "Belastingschuld + stoppen (turbo-liquidatie)",
+   "Overige fiscale vraag"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "all",
+   "rules": [
+    {
+     "field": "3",
+     "value": "BV"
+    }
+   ]
+  }
+ },
+ {
+  "id": "7",
+  "type": "section",
+  "label": "STAP 3 · URGENTIE"
+ },
+ {
+  "id": "8",
+  "type": "radio",
+  "label": "Hoe urgent ervaart de klant de situatie?",
+  "options": [
+   "Hoog – deurwaarder / beslag / harde termijn",
+   "Normaal – geen directe dreiging"
+  ]
+ },
+ {
+  "id": "10",
+  "type": "textarea",
+  "label": "Toelichting bij deurwaarder / beslag / harde termijn",
+  "desc": "Noteer kort wat er speelt: deurwaarder, beslag, looninhouding, dagvaarding, uiterste datum, etc.",
+  "ph": "Bijv.: Deurwaarder is al langs geweest, loonbeslag aangezegd, uiterste betaaldatum over 5 dagen.",
+  "cond": {
+   "action": "show",
+   "logic": "all",
+   "rules": [
+    {
+     "field": "8",
+     "value": "Hoog – deurwaarder / beslag / harde termijn"
+    }
+   ]
+  }
+ },
+ {
+  "id": "11",
+  "type": "section",
+  "label": "STAP 3B · VERWACHTING"
+ },
+ {
+  "id": "78",
+  "type": "checkbox",
+  "label": "Wat verwacht de klant van Belastingbemiddelaar?",
+  "options": [
+   "Volledige overname contact BD",
+   "Alleen advies / second opinion",
+   "Betalingsregeling treffen",
+   "Kwijtschelding / sanering",
+   "Hulp bij bezwaar/beroep",
+   "Nog niet duidelijk"
+  ]
+ },
+ {
+  "id": "80",
+  "type": "section",
+  "label": "STAP 3C · PERSOONLIJKE SITUATIE"
+ },
+ {
+  "id": "83",
+  "type": "radio",
+  "label": "Bent u persoonlijk failliet verklaard, betrokken bij een WSNP-traject (schuldsanering) of staat u onder bewindvoering?",
+  "options": [
+   "Nee",
+   "Ja – persoonlijk failliet",
+   "Ja – WSNP-traject",
+   "Ja – onder bewindvoering",
+   "Ja – meerdere van toepassing"
+  ]
+ },
+ {
+  "id": "82",
+  "type": "textarea",
+  "label": "3C Toelichting",
+  "hideLabel": true,
+  "ph": "Toelichting (optioneel): bijv. sinds wanneer, bij welke instantie, naam bewindvoerder.",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "83",
+     "value": "Ja – persoonlijk failliet"
+    },
+    {
+     "field": "83",
+     "value": "Ja – WSNP-traject"
+    },
+    {
+     "field": "83",
+     "value": "Ja – onder bewindvoering"
+    },
+    {
+     "field": "83",
+     "value": "Ja – meerdere van toepassing"
+    }
+   ]
+  }
+ },
+ {
+  "id": "22",
+  "type": "section",
+  "label": "STAP 4 · JAREN MET ACHTERSTAND",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "79",
+  "type": "checkbox",
+  "label": "Over welke jaren is er een achterstand bij de Belastingdienst?",
+  "desc": "Selecteer wat van toepassing is. Meerdere keuzes mogelijk.",
+  "options": [
+   "Vóór 2017",
+   "2017",
+   "2018",
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "2025",
+   "2026"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "24",
+  "type": "radio",
+  "label": "Is er van alle bovenstaande jaren aangifte gedaan?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "25",
+  "type": "section",
+  "label": "STAP 5 · OMVANG VAN DE SCHULD",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "26",
+  "type": "radio",
+  "label": "Hoe hoog is de totale belastingschuld (schatting)?",
+  "options": [
+   "< € 5.000",
+   "€ 5.000 - € 100.000",
+   "€ 100.000 - € 300.000",
+   "> € 300.000"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "27",
+  "type": "text",
+  "label": "bedrag in euro",
+  "hideLabel": true,
+  "ph": "Optioneel: bedrag in euro's, indien bekend",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "28",
+  "type": "section",
+  "label": "STAP 6 · SOORTEN BELASTING",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "29",
+  "type": "checkbox",
+  "label": "Over welke soorten belasting gaat de schuld?",
+  "desc": "Meerdere keuzes mogelijk.",
+  "options": [
+   "Inkomstenbelasting",
+   "Omzetbelasting (btw)",
+   "Vennootschapsbelasting",
+   "Loonheffingen",
+   "Toeslagen",
+   "Overig / nog onduidelijk"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "31",
+  "type": "text",
+  "label": "Hoeveel van de totale schuld betreft de toeslagen?",
+  "hideLabel": true,
+  "ph": "Hoeveel van de totale schuld betreft de toeslagen?",
+  "cond": {
+   "action": "show",
+   "logic": "all",
+   "rules": [
+    {
+     "field": "29",
+     "value": "Toeslagen"
+    }
+   ]
+  }
+ },
+ {
+  "id": "32",
+  "type": "section",
+  "label": "STAP 6B · CORONA-GERELATEERDE SCHULDEN",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "33",
+  "type": "radio",
+  "label": "Betreft dit (deels) een coronagerelateerde schuld?",
+  "options": [
+   "Ja",
+   "Nee",
+   "Onbekent"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "34",
+  "type": "checkbox",
+  "label": "Welke corona-regelingen?",
+  "desc": "Meerdere keuzes mogelijk.",
+  "options": [
+   "NOW-schuld",
+   "TVL-schuld",
+   "Bijzonder uitstel van betaling",
+   "TOZO",
+   "Andere corona-regeling"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "33",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "35",
+  "type": "text",
+  "label": "Geschat bedrag coronaschuld",
+  "ph": "Bedrag in euro's (optioneel)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "33",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "36",
+  "type": "section",
+  "label": "STAP 7 · AFLOSSINGSCAPACITEIT",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "37",
+  "type": "text",
+  "label": "Wat is volgens de klant maximaal haalbaar aan aflossing per maand?",
+  "ph": "Bedrag in euro's per maand",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "38",
+  "type": "section",
+  "label": "AANVULLEND · FINANCIERINGSOPTIE",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "39",
+  "type": "radio",
+  "label": "Is er onderzocht of financiering mogelijk is?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "40",
+  "type": "text",
+  "label": "Bedrag en instantie",
+  "hideLabel": true,
+  "ph": "Bedrag en instantie (optioneel)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "41",
+  "type": "section",
+  "label": "STAP 8 · EIGEN VERMOGEN",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "42",
+  "type": "radio",
+  "label": "Beschikt de klant over eigen vermogen dat eventueel kan worden ingezet?",
+  "options": [
+   "Geen eigen vermogen",
+   "Beperkt eigen vermogen",
+   "Aanzienlijk eigen vermogen",
+   "Onbekend / niet besproken",
+   "Eigen woning"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "43",
+  "type": "text",
+  "label": "Schatting eigen vermogen in euro's (buiten woning)",
+  "hideLabel": true,
+  "ph": "Schatting eigen vermogen in euro's (buiten woning)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "44",
+  "type": "text",
+  "label": "Waarde woning",
+  "ph": "Waarde eigen woning",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "42",
+     "value": "Eigen woning"
+    }
+   ]
+  }
+ },
+ {
+  "id": "45",
+  "type": "text",
+  "label": "Hypotheek",
+  "ph": "Hoogte hypotheek",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "42",
+     "value": "Eigen woning"
+    }
+   ]
+  }
+ },
+ {
+  "id": "46",
+  "type": "text",
+  "label": "Overwaarde (berekend)",
+  "ph": "Geschatte overwaarde",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "42",
+     "value": "Eigen woning"
+    }
+   ]
+  }
+ },
+ {
+  "id": "47",
+  "type": "radio",
+  "label": "Is er een vast netto inkomen?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "48",
+  "type": "text",
+  "label": "Hoogte netto inkomen per maand",
+  "hideLabel": true,
+  "ph": "Hoogte netto inkomen per maand",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "47",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "49",
+  "type": "section",
+  "label": "AANVULLEND · OVERIGE SCHULDEN",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "50",
+  "type": "radio",
+  "label": "Zijn er naast de belastingschuld nog andere schulden?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "51",
+  "type": "textarea",
+  "label": "Bij wie? Hoeveel? Welke soort schulden?",
+  "hideLabel": true,
+  "ph": "Bij wie? Hoeveel? Welke soort schulden?",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "50",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "52",
+  "type": "section",
+  "label": "AANVULLEND · EERDERE BETALINGSREGELING",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "53",
+  "type": "radio",
+  "label": "Is er eerder een regeling afgesproken die niet is nagekomen?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "71",
+  "type": "section",
+  "label": "STAP 9 · TURBO-LIQUIDATIE (BV)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "72",
+  "type": "radio",
+  "label": "Denkt de klant aan stoppen / turbo-liquidatie van de BV?",
+  "options": [
+   "Ja",
+   "Nee / nog niet zeker"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "73",
+  "type": "radio",
+  "label": "Hoe wil de klant verder ondernemen (na stoppen)?",
+  "options": [
+   "Verder gaan in andere BV",
+   "Verder gaan in eenmanszaak",
+   "Volledig stoppen met ondernemen"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "74",
+  "type": "checkbox",
+  "label": "Situatie van de onderneming (voor turbo-liquidatie)",
+  "options": [
+   "Onderneming is nog actief",
+   "Geen activiteiten meer",
+   "Er zijn nog schuldeisers",
+   "Geen schuldeisers meer",
+   "Er zijn nog activa/bezittingen",
+   "Geen activa/bezittingen meer",
+   "Er zijn (nog) werknemers",
+   "Geen werknemers meer",
+   "Administratie is op orde",
+   "Administratie is deels op orde",
+   "Administratie is niet op orde"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "76",
+  "type": "textarea",
+  "label": "Bijzonderheden rondom turbo-liquidatie (korte notitie)",
+  "ph": "Bijv.: klant wil zo snel mogelijk stoppen, maar er zijn nog lopende contracten en een kleine btw-schuld.",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld + stoppen (turbo-liquidatie)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "54",
+  "type": "section",
+  "label": "STAP 10 · BRIEVEN EN BELASTINGDIENST",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    }
+   ]
+  }
+ },
+ {
+  "id": "55",
+  "type": "radio",
+  "label": "Is er een brief of aanslag van de Belastingdienst ontvangen?",
+  "options": [
+   "Ja",
+   "Nee / niet bij de hand"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    }
+   ]
+  }
+ },
+ {
+  "id": "58",
+  "type": "text",
+  "label": "Datum van de brief/aanslag (bij benadering ook goed)",
+  "hideLabel": true,
+  "ph": "Datum van de brief/aanslag (bij benadering ook goed)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "55",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "59",
+  "type": "text",
+  "label": "Uiterste datum reageren/betalen (indien genoemd)",
+  "hideLabel": true,
+  "ph": "Uiterste datum reageren/betalen (indien genoemd)",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "55",
+     "value": "Ja"
+    }
+   ]
+  }
+ },
+ {
+  "id": "56",
+  "type": "radio",
+  "label": "Heeft de klant zelf al contact gehad met de Belastingdienst?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    }
+   ]
+  }
+ },
+ {
+  "id": "57",
+  "type": "textarea",
+  "label": "Kort noteren wat de Belastingdienst heeft gezegd (indien bekend).",
+  "hideLabel": true,
+  "ph": "Kort noteren wat de Belastingdienst heeft gezegd (indien bekend).",
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    }
+   ]
+  }
+ },
+ {
+  "id": "60",
+  "type": "radio",
+  "label": "Heeft de klant behoefte aan een (nieuwe) boekhouder?",
+  "options": [
+   "Ja",
+   "Nee"
+  ],
+  "cond": {
+   "action": "show",
+   "logic": "any",
+   "rules": [
+    {
+     "field": "6",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "6",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Belastingschuld / betalingsregeling"
+    },
+    {
+     "field": "77",
+     "value": "Bezwaar / beroep"
+    },
+    {
+     "field": "77",
+     "value": "Stoppen onderneming / turbo-liquidatie"
+    }
+   ]
+  }
+ },
+ {
+  "id": "62",
+  "type": "section",
+  "label": "AANVULLEND · ZAKELIJKE LENING"
+ },
+ {
+  "id": "63",
+  "type": "radio",
+  "label": "Heeft de klant behoefte aan een zakelijke lening voor de onderneming?",
+  "desc": "Niet privé en niet voor het aflossen van belastingschulden. Deze leningen zijn doorgaans relatief duur en alleen zinvol als zij aantoonbaar bijdragen aan de continuïteit of groei van het bedrijf.",
+  "options": [
+   "Ja, laten beoordelen of zinvol",
+   "Nee, niet passend",
+   "Twijfel, later bespreken"
+  ]
+ },
+ {
+  "id": "64",
+  "type": "section",
+  "label": "AANVULLEND · DOORLOPENDE BEGELEIDING"
+ },
+ {
+  "id": "65",
+  "type": "radio",
+  "label": "Heeft de klant behoefte aan doorlopende financiële en fiscale begeleiding?",
+  "desc": "Met vaste maandelijkse ondersteuning door een vaste zaakbehandelaar, naast de huidige boekhouder of accountant.",
+  "options": [
+   "Ja, daar is behoefte aan",
+   "Nee, huidige begeleiding is voldoende",
+   "Misschien, eerst weten wat dit oplevert"
+  ]
+ },
+ {
+  "id": "66",
+  "type": "section",
+  "label": "STAP 11 · SAMENVATTING DOOR BELLER"
+ },
+ {
+  "id": "68",
+  "type": "textarea",
+  "label": "Vat in je eigen woorden samen wat er speelt.",
+  "ph": "Bijv.: Klant heeft al jaren achterstand, wil nu regeling treffen en denkt ook aan stoppen met de BV."
+ },
+ {
+  "id": "70",
+  "type": "textarea",
+  "label": "Samenvatting"
+ }
+]

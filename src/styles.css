@@ -1,0 +1,399 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Montserrat, zelf gehost (variabel 400–800) */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/montserrat-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/montserrat-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  /* Merkblauw uit het logo (#03689c) */
+  --color-brand-50: #f2f8fc;
+  --color-brand-100: #e0eff8;
+  --color-brand-200: #bddcee;
+  --color-brand-300: #86bedd;
+  --color-brand-400: #3f9ac8;
+  --color-brand-500: #167fb2;
+  --color-brand-600: #04729f;
+  --color-brand-700: #03689c;
+  --color-brand-800: #025580;
+  --color-brand-900: #023f5f;
+  --color-brand-950: #022a40;
+
+  /* Geel CTA van de oude site (#ffb611), hover #e69a00 */
+  --color-accent: #ffb611;
+  --color-accent-dark: #e69a00;
+  --color-accent-light: #ffc63d;
+
+  --color-ink: #0f2330;
+  /* Lopende tekst van de oude site (rgb 64,64,64) */
+  --color-body: #404040;
+  --color-muted: #5f7280;
+  --color-line: #dbe5ec;
+  --color-light: #f4f8fc;
+  --color-star: #fcb410;
+
+  /* Overige waarden van de oude site: lichte vlakken, navigatietekst, knop-hover, headerschaduw */
+  --color-bkg-light: #f6fbff;
+  --color-text: #010101;
+  --color-brand-hover: #03396c;
+  --shadow-header: 0 3px 6px rgba(0, 54, 103, 0.16);
+
+  /* Cookiebanner (oude Complianz-banner): grijze knoppen, donkere tekst, Arial in de knoppen, schaduw van de kaart */
+  --color-banner-knop: #f9f9f9;
+  --color-banner-knop-hover: #ececec;
+  --color-banner-tekst: #222222;
+  --color-banner-actief: #0b7a24;
+  --color-schakel-uit: #6f7f8b;
+  --font-banner: Arial, Helvetica, sans-serif;
+  --shadow-banner: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  --radius-s: 10px;
+}
+
+/* Basis zoals de oude site: 14px onder 768px, 17px vanaf 768px, regelhoogte 1.8.
+   Koppen: 30/24/18/16px onder 768px; vanaf 768px h1 en h2 40px, h3 20px, h4 18px (regelhoogte 1.3). */
+@layer base {
+  /* Geen scroll-behavior: smooth: oude site springt direct, en een routewissel mag niet zichtbaar naar boven animeren */
+  html {
+    overflow-x: clip;
+  }
+  body {
+    background-color: #fff;
+    color: var(--color-body);
+    overflow-x: clip;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-brand-700);
+    line-height: 1.3;
+  }
+  h1 { font-size: 30px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 18px; font-weight: 700; }
+  h4 { font-size: 16px; font-weight: 700; }
+  @media (min-width: 768px) {
+    body { font-size: 17px; }
+    h1, h2 { font-size: 40px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+  }
+  /* Lange woorden ('belastingbemiddelaar') mogen op 320px niet buiten de kolom lopen (WCAG 1.4.10). break-word grijpt
+     alleen in als het woord niet past; 'anywhere' in knoppen binnen een kop laat de gridkolom krimpen (FAQ-vragen).
+     Onder 381px mag een woord van 12+ tekens met streepje afbreken; op bredere schermen blijft de afbreking als oud. */
+  h1, h2, h3, h4 { overflow-wrap: break-word; }
+  :is(h1, h2, h3, h4) > button { overflow-wrap: anywhere; }
+  @media (max-width: 380px) {
+    h1, h2, h3, h4 { hyphens: auto; hyphenate-limit-chars: 12 4 4; }
+  }
+  /* Tailwind 4 zet knoppen op cursor: default; klikbare knoppen (FAQ-vragen, reviewpijlen, menu) tonen een handje */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) { cursor: pointer; }
+  /* De plakkende header (vanaf 992px) mag ankers niet afdekken */
+  @media (min-width: 992px) {
+    html { scroll-padding-top: 190px; }
+  }
+}
+
+/* Lichte vlakken met de bg-full-textuur van de oude site (reviewbalk, dropdown, kaarten) */
+.bg-textuur {
+  background-color: var(--color-bkg-light);
+  background-image: url("/images/bg-full.webp");
+  background-size: cover;
+  background-blend-mode: luminosity;
+}
+
+/* Pijltje in knoppen: zelfde 10px-masker als de oude site; schuift bij hover van rechts naar links */
+.btn-pijl {
+  width: 10px;
+  height: 10px;
+  background-color: currentColor;
+  -webkit-mask: url("/images/brand/btn-arrow.svg") center / 10px no-repeat;
+  mask: url("/images/brand/btn-arrow.svg") center / 10px no-repeat;
+}
+
+::selection {
+  background-color: color-mix(in oklab, var(--color-brand-500) 24%, transparent);
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Onzichtbaar groter tikvlak (RSP-24, WCAG 2.5.5): rond een klein element ligt een transparant vlak van minimaal 44x44px dat
+   de tik opvangt. Het uiterlijk en de indeling veranderen niet. Staat in @layer components, zodat utilities als `absolute`
+   of `fixed` op hetzelfde element de `relative` hieronder overschrijven. Gebruik op blok- of flex-elementen (niet inline). */
+@layer components {
+  .tik { position: relative; }
+  .tik::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Focusring (WCAG 1.4.11/2.4.11, min. 3:1): merkblauw op lichte vlakken (6,06:1 op wit), wit op de donkerblauwe vlakken
+   (footer, CtaBand, hero, paginakop, header). Geen border-radius: de ring volgt de vorm, pilknoppen blijven pillen.
+   In @layer base, zodat utilities (focus:outline-none) en de veldstijl van de formulieren winnen. */
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-brand-700);
+    outline-offset: 2px;
+  }
+  :is(footer, .bg-brand-700, .bg-brand-800, .bg-brand-900, .bg-brand-950, .bg-diep, .text-white) :focus-visible {
+    outline-color: var(--color-white, #fff);
+  }
+  /* Lichte kaart binnen een donker vlak (formulier in de hero): weer de blauwe ring */
+  :is(.bg-white, .bg-bkg-light, .bg-textuur, .bg-soft, .bg-light, .text-body) :focus-visible {
+    outline-color: var(--color-brand-700);
+  }
+}
+
+/* Vloeiende zachte achtergrond zoals de oude site (bg-full) */
+.bg-soft {
+  background-color: var(--color-light);
+  background-image: url("/images/bg-full.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ==== BEGIN BLOK-C (artikelen, dienstpagina's, titelbalk): alleen agent C ==== */
+/* Lopende tekst van blogartikelen (afkomstig uit WordPress) */
+.artikel { color: var(--color-body); font-size: 1.0625rem; line-height: 1.8; }
+.artikel > * + * { margin-top: 1.1em; }
+.artikel h2 { font-size: 1.75rem; margin-top: 1.8em; }
+.artikel h3 { font-size: 1.35rem; margin-top: 1.6em; }
+.artikel h4 { font-size: 1.1rem; margin-top: 1.4em; }
+.artikel a { color: var(--color-brand-700); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.artikel ul, .artikel ol { padding-left: 1.4em; }
+.artikel ul { list-style: disc; }
+.artikel ol { list-style: decimal; }
+.artikel li + li { margin-top: 0.4em; }
+.artikel strong { color: var(--color-ink); }
+.artikel img { border-radius: 14px; height: auto; max-width: 100%; margin-inline: auto; }
+.artikel hr { border: 0; border-top: 1px solid var(--color-line); margin-block: 2em; }
+.artikel table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
+.artikel td, .artikel th { border: 1px solid var(--color-line); padding: 0.6rem 0.8rem; vertical-align: top; min-width: 8rem; }
+.artikel tr:first-child td { background: var(--color-brand-50); }
+.artikel .video { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; }
+.artikel .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Montserrat 900 voor de koppen in blogartikelen: WordPress zet elke kop in <strong> en de oude site toont die in weight 900
+   (de zelf gehoste variabele font hierboven loopt tot 800). Wordt alleen geladen waar weight 900 voorkomt. */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/fonts/montserrat-900-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/fonts/montserrat-900-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Titelbalk van blogartikelen: foto met 50% overlay in --color-diep (zoals de oude site); zonder foto blijft de balk wit */
+.artikel-foto {
+  background-image: linear-gradient(color-mix(in srgb, var(--color-diep) 50%, transparent), color-mix(in srgb, var(--color-diep) 50%, transparent)), var(--artikel-foto-url);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Tekst van blogartikelen (WordPress-inhoud), maten 1-op-1 met de oude site. Basisgrootte en regelhoogte
+   komen van body (14px onder 768px, 17px erboven, 1,8). Marges in em en samenvallend: 1em tussen blokken, koppen zonder marge.
+   De privacy- en cookiepagina's gebruiken nog .artikel (hierboven), niet deze klasse. */
+.artikel-post {
+  --artikel-link: #0074db;
+  color: var(--color-body);
+  overflow-wrap: break-word;
+  /* eigen marge-context: de eerste alinea valt niet samen met de marge van de uitgelichte afbeelding (oud: 16 + 17px) */
+  display: flow-root;
+}
+.artikel-post > * { margin-block: 1em; }
+.artikel-post :is(h2, h3, h4) { margin: 0; line-height: 1.3; }
+/* Lange woorden in koppen: de globale regel (h1-h4: overflow-wrap break-word, onder 381px afbreekstreepje) geldt hier ook.
+   Eerder stond hier hyphens: auto op alle breedtes; dat brak woorden af waar de oude site het woord naar de volgende regel zette
+   (koppen op desktop 1 regel korter dan oud). Onder 768px, waar de oude site de tekst buiten de kaart liet lopen
+   ('belastingproblemen' stak over de rand), mag de titel (smalle kaart) en een lange h2-woord met streepje afbreken. */
+@media (max-width: 767px) {
+  .artikel-titel { hyphens: auto; hyphenate-limit-chars: 12 4 4; }
+  .artikel-post h2 { hyphens: auto; hyphenate-limit-chars: 16 4 4; }
+}
+.artikel-post h2 { font-size: 30px; }
+.artikel-post h3 { font-size: 20px; font-weight: 700; }
+.artikel-post h4 { font-size: 18px; font-weight: 700; }
+@media (min-width: 768px) {
+  .artikel-post h2 { font-size: 40px; }
+}
+/* Koppen die scripts/bouw-blog.py een niveau omhoog heeft gezet (h3 -> h2, h4 -> h3: de titel is h1, dus geen overgeslagen kopniveau)
+   behouden de opmaak van het oude niveau (class kop-<oud niveau>); ook de afbreekregels van een h3 resp. h4. */
+.artikel-post .kop-3 { font-size: 20px; font-weight: 700; }
+.artikel-post .kop-4 { font-size: 18px; font-weight: 700; }
+@media (max-width: 767px) {
+  .artikel-post .kop-3, .artikel-post .kop-4 { hyphens: manual; hyphenate-limit-chars: auto; }
+}
+@media (max-width: 380px) {
+  .artikel-post .kop-3, .artikel-post .kop-4 { hyphens: auto; hyphenate-limit-chars: 12 4 4; }
+}
+/* WordPress zet elke kop in <strong>: kleur van de kop behouden (oud: ook 900 dik) */
+.artikel-post strong { color: inherit; }
+.artikel-post a { color: var(--artikel-link); text-decoration: none; }
+.artikel-post a:hover, .artikel-post a:focus-visible { text-decoration: underline; }
+.artikel-post ul, .artikel-post ol { padding-left: 40px; }
+.artikel-post ul { list-style: disc; }
+.artikel-post ol { list-style: decimal; }
+.artikel-post hr { height: 0; margin-block: 0.5em; border: 0; border-top: 2px solid gray; }
+.artikel-post img { display: block; max-width: 100%; height: auto; }
+.artikel-post .m1-figuur { margin-inline: 0; }
+.artikel-post .m1-figuur img { border-radius: 4px; max-height: 520px; width: auto; }
+.artikel-post .m1-tabel { overflow-x: auto; }
+.artikel-post .m1-tabel table { border-collapse: collapse; width: 100%; }
+.artikel-post .m1-tabel :is(th, td) { border: 1px solid #d6dde6; padding: 8px 12px; text-align: left; vertical-align: top; }
+.artikel-post figure { margin: 1em 40px; overflow-x: auto; }
+/* Tabellen: WordPress 'has-fixed-layout' (gelijke kolommen), scrollen binnen de figure als er toch niets past */
+.artikel-post table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.artikel-post td, .artikel-post th { border: 1px solid var(--color-body); padding: 0.5em; overflow-wrap: anywhere; }
+.artikel-post .video { position: relative; margin: 1em 40px; aspect-ratio: 16 / 9; }
+.artikel-post .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* ==== EINDE BLOK-C ==== */
+
+.js [data-reveal] { opacity: 0; transform: translateY(16px); }
+.js [data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ==== BEGIN BLOK-B (secties en losse pagina's): alleen agent B ==== */
+/* Extra tokens uit de oude site voor de secties: hero-overlay en contacticonen, dunne randen, groene "bereikbaar"-stip */
+@theme {
+  --color-diep: #04538c;
+  --color-oud-rand: #e4e7ec;
+  --color-online: #31d937;
+}
+/* ==== EINDE BLOK-B ==== */
+
+/* ==== BEGIN BLOK-D (formulieren, intake): alleen agent D ==== */
+/* Tokens uit de Gravity Forms van de oude site: rand van de velden, foutrood, placeholder, lijn onder intake-koppen */
+@theme {
+  --color-form-rand: #010101;
+  --color-form-fout: #c02b0a;
+  --color-form-placeholder: #757575;
+  --color-form-kop: #cccccc;
+  --color-form-berekend: #f1f3f5;
+}
+
+/* Invoerveld en tekstvak zoals de oude site: zwarte rand, 4px hoeken, 52px (tekstvak 100px) hoog, padding 16px 32px.
+   Staat bewust buiten @layer, zodat de focusstijl (blauwe rand + 1px outline) wint van de globale :focus-visible-regel. */
+.form-invoer {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 16px 32px;
+  border: 1px solid var(--color-form-rand);
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  line-height: 15px;
+}
+textarea.form-invoer { height: 100px; line-height: 22.5px; }
+@media (min-width: 768px) {
+  textarea.form-invoer { line-height: 17.25px; }
+}
+/* Onder 768px 16px i.p.v. 15px: iOS Safari zoomt bij focus op velden kleiner dan 16px de hele pagina in. De regelhoogte volgt de
+   binnenruimte van het veld (52px - 2px rand - 32px padding = 18px) zodat de tekst niet wordt afgesneden. */
+@media (max-width: 767px) {
+  .form-invoer { font-size: 16px; line-height: 18px; }
+  textarea.form-invoer { line-height: 24px; }
+}
+/* Berekend veld (intake: overwaarde uit woning min hypotheek): niet te typen en lichtgrijs, zodat het niet als invulveld oogt */
+.form-invoer[readonly] { background-color: var(--color-form-berekend); }
+.form-invoer::placeholder { color: var(--color-form-placeholder); opacity: 1; }
+.form-invoer:focus,
+.form-invoer:focus-visible {
+  border-color: var(--color-brand-700);
+  border-radius: 4px;
+  outline: 1px solid var(--color-brand-700);
+  outline-offset: 0;
+}
+
+/* Versturen-knop van Gravity Forms: Arial 17px (14px onder 768px) in gewone dikte, blauwe pil van 53,5px (50,1px) hoog.
+   Hover: alleen de vulling wordt donker, de rand blijft merkblauw. Tijdens het verzenden blijft de knop blauw en komt er een
+   draaiend icoon in het midden (de tekst blijft staan voor de breedte en wordt onzichtbaar). */
+@theme {
+  --color-form-lijn: #e4e7ec;
+  --font-form-knop: Arial, Helvetica, sans-serif;
+}
+.form-knop {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: 1px solid var(--color-brand-700);
+  border-radius: 9999px;
+  background-color: var(--color-brand-700);
+  color: white;
+  font-family: var(--font-form-knop);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.1px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+@media (min-width: 768px) {
+  .form-knop { font-size: 17px; line-height: 19.55px; }
+}
+.form-knop:hover { background-color: var(--color-brand-hover); }
+.form-knop[aria-busy="true"] { cursor: progress; }
+.form-spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgb(0 0 0 / 0.25);
+  border-top-color: black;
+  border-radius: 9999px;
+  animation: form-draai 0.8s linear infinite;
+}
+@keyframes form-draai { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .form-spinner { animation-duration: 2.4s; }
+}
+/* ==== EINDE BLOK-D ==== */

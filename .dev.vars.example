@@ -1,0 +1,12 @@
+# Kopieer dit bestand naar .dev.vars en vul de waarden in (wordt NIET gecommit).
+# Zonder deze sleutels werken de formulieren ook: leads worden alleen in de (lokale) D1 opgeslagen.
+RESEND_API_KEY=
+NOTIFICATIE_EMAIL=info@belastingbemiddelaar.nl
+RESEND_FROM=Belasting Bemiddelaar <info@belastingbemiddelaar.nl>
+# HubSpot Forms API: "aan" = leads ook server-side naar HubSpot (portaal en formulieren in src/lib/site.ts).
+# Lokaal leeg laten, anders komen testaanvragen in HubSpot (HubSpot accepteert alles, ook testdata).
+HUBSPOT_FORMS_API=
+ZAPIER_WEBHOOK_URL=
+# CRM BBase: volledige webhook-URL incl. ?secret=… (staat in WP-beheer bij de Gravity Forms-webhooks). Leeg = niet doorsturen.
+# Lokaal NIET de echte URL invullen, anders komen testaanvragen in het CRM.
+CRM_WEBHOOK_URL=
