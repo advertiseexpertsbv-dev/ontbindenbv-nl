@@ -19,20 +19,20 @@ const BLOG_BREEDTES = [480, 800, 1200]
 /** Overige beelden: breedtes afgestemd op wat de pagina's werkelijk nodig hebben (zie `sizes` in src/lib/beeld.ts).
  *  Hero: 1200 en 1440 (op smalle schermen schaalt object-cover het beeld juist op, dus daar blijft het origineel van 1600). */
 const SITE_BREEDTES = {
-  'site/hero.webp': [1200, 1440],
-  'site/page-banner.webp': [1200],
-  'site/contact.webp': [240, 480, 800],
-  'site/team.webp': [480, 800, 1200],
   'site/intro.webp': [480, 800, 1200],
-  'site/peter-schilderij.webp': [480, 800, 1200],
-  'site/peter.webp': [300],
+  'site/team.webp': [480, 800, 1200],
+  'site/contact.webp': [240, 480, 800],
+  'site/team-contact.webp': [480, 800, 1200],
+  'site/cta.webp': [375],
+  'site/banner-bv.webp': [600],
+  'site/peter.webp': [480, 640],
   'site/heleen.webp': [480, 640],
-  'site/gerard.webp': [480, 640],
   'site/kevin.webp': [480, 640],
   'site/michael.webp': [480, 640],
+  'site/daisy.webp': [480, 640],
   'site/bas.webp': [480, 640],
-  'brand/2024-06-belasting-bemiddelaar-logo-420.webp': [210],
-  'brand/2024-07-belasting-bemiddelaar-logo-white-480.webp': [240],
+  'brand/logo.webp': [212],
+  'brand/logo-wit.webp': [290],
 }
 
 const isVariant = (f) => /-\d+w\.webp$/.test(f)

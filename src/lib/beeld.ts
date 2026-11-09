@@ -29,38 +29,28 @@ export function beeld(src: string, sizes: string): { src: string; srcSet?: strin
   return srcSet ? { src, srcSet, sizes } : { src }
 }
 
-/**
- * Foto in een vlak van min(75vw, 350px) hoog en (volle breedte - 32px) breed onder 992px, object-cover. Een liggende foto (16:9)
- * wordt op de hoogte geschaald en heeft dan meer nodig dan de breedte: 1,334x de schermbreedte tot 467px, 622px tot 655px, daarna de breedte.
- */
-const VLAK_16_9 = '(min-width: 655px) calc(100vw - 32px), (min-width: 467px) 622px, calc(100vw * 1.334)'
-
-/** Gemeenschappelijke `sizes` per plek, in de breekpunten van de pagina's (768, 992, 1100, 1239/1240) */
+/** Gemeenschappelijke `sizes` per plek (getoonde breedte bij 1x; bij object-cover de breedte die de hoogte vraagt) */
 export const SIZES = {
   /** Header- en footerlogo: vaste getoonde breedte */
-  logoHeader: '191px',
-  logoFooter: '238px',
-  /** Hero: object-cover op een hoge sectie, dus onder 992px meer dan de schermbreedte (origineel van 1600 blijft dan nodig) */
-  hero: '(min-width: 992px) max(100vw, 1200px), 2100px',
-  /** Titelbalk van onderliggende pagina's (cover op een lage balk, op smal scherm ca. 750-950px nodig) */
-  paginaBanner: '(min-width: 992px) 100vw, 960px',
-  /** CtaBand: foto van Peter, 300px breed (alleen vanaf 768px zichtbaar) */
-  peterCta: '300px',
+  logoHeader: '212px',
+  logoFooter: '290px',
+  /** Hero (1806x819, cover op een sectie van ca. 730px hoog): bijna altijd het origineel nodig */
+  hero: '(min-width: 1800px) 100vw, 1806px',
+  /** De letters "BV" in de blauwe titelbalk */
+  bannerBv: '600px',
+  /** Vrijstaande foto boven de CTA-band (375px breed) */
+  cta: '375px',
+  /** Home: Peter naast de intro (40% kolom, cover) en het team naast "Geen zorgen" */
+  intro: '(min-width: 992px) 760px, 620px',
+  team: '(min-width: 992px) 660px, 620px',
   /** ContactBlok: ronde foto van 200px (vanaf 768px), op een telefoon een banner over de volle breedte */
-  contactFoto: '(min-width: 768px) 212px, calc(100vw - 32px)',
-  /** /over-ons/: contactfoto groot naast de tekst */
-  contactGroot: '(min-width: 992px) 770px, calc(100vw - 32px)',
-  /** /contact/ en /gratis-intakegesprek/: teamfoto (cover, 16:9); erboven 992px 480px (contact) of 610px (intake) breed nodig */
-  teamContact: `(min-width: 992px) 480px, ${VLAK_16_9}`,
-  teamIntake: `(min-width: 992px) 610px, ${VLAK_16_9}`,
-  /** Home: eerste foto naast de tekst */
-  intro: '(min-width: 1100px) 660px, (min-width: 992px) 750px, (min-width: 557px) calc(100vw - 32px), (min-width: 467px) 525px, calc(100vw * 1.125)',
-  /** Home: Peter bij het schilderij */
-  schilderijHome: `(min-width: 1239px) 800px, (min-width: 992px) 930px, ${VLAK_16_9}`,
-  /** Dienstpagina: Peter bij het schilderij onder het formulier */
-  schilderijDienst: `(min-width: 1239px) 770px, (min-width: 1100px) 910px, (min-width: 992px) 1170px, ${VLAK_16_9}`,
-  /** Afbeelding in een artikel: kolom van 728px vanaf 1240px, 60% van de container tussen 992 en 1239px, anders de volle breedte */
-  artikel: '(min-width: 1240px) 728px, (min-width: 992px) calc((100vw - 32px) * 0.6 - 16px), calc(100vw - 32px)',
+  contactFoto: '(min-width: 768px) 300px, calc(100vw - 32px)',
+  /** /contact/ en /gratis-intakegesprek/: teamfoto in de rechterkolom */
+  teamContact: '(min-width: 992px) 620px, calc(100vw - 32px)',
+  /** /over-ons/: teamfoto naast de tekst */
+  teamOverOns: '(min-width: 992px) 520px, calc(100vw - 32px)',
+  /** Afbeelding in een artikel: kolom van 745px vanaf 1300px, 60% van de container tussen 992 en 1299px, anders de volle breedte */
+  artikel: '(min-width: 1300px) 745px, (min-width: 992px) calc((100vw - 32px) * 0.6 - 16px), calc(100vw - 32px)',
 } as const
 
 /**

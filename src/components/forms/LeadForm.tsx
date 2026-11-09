@@ -113,7 +113,7 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
           telefoon: v('telefoon'),
           bericht: v('bericht'),
           velden: variant === 'gratis' && v('moment') ? { 'Gewenst contactmoment': v('moment') } : {},
-          controle: v('bb_controle_veld'),
+          controle: v('obv_controle_veld'),
           hutk: hubspotUtk(),
           pagina: pathname,
           attributie: haalAttributie(),
@@ -185,7 +185,7 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
         {/* Bewust geen herkenbare naam (zoals 'website'): browsers en wachtwoordmanagers vullen dit veld dan niet automatisch in */}
         <label>
           Laat leeg
-          <input name="bb_controle_veld" type="text" tabIndex={-1} autoComplete="new-password" />
+          <input name="obv_controle_veld" type="text" tabIndex={-1} autoComplete="new-password" />
         </label>
       </div>
       {/* Knop zoals Gravity Forms: 32,2px onder het tekstvak (op 768px+ 55,6px), 53,5px hoog (op mobiel 50,1px) */}

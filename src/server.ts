@@ -31,7 +31,7 @@ function sitemap(): string {
 }
 
 /*
- * Bewust geen Disallow voor de interne pagina's (/bedankt/, /intake-nieuwe-klant/, /bizzi/): ze staan op noindex (meta én
+ * Bewust geen Disallow voor de interne pagina /bedankt/: die staat op noindex (meta én
  * X-Robots-Tag, zie NOINDEX_PADEN) en niet in de sitemap. Google leest een noindex alleen op een pagina die het mag ophalen;
  * bij een Disallow kan een extern gelinkte URL toch als kale URL in de index komen. Crawlen is veilig: bots tellen niet mee
  * in de bezoekersmeting en een conversie komt alleen uit de sessionStorage van een bezoeker die het formulier verstuurde.
@@ -42,11 +42,9 @@ Allow: /
 Sitemap: ${site.url}/sitemap.xml
 `
 
-/** Interne pagina's: nooit indexeren, gelijk aan hun meta robots (de statische /bizzi/ krijgt dezelfde header in public/_headers) */
+/** Interne pagina's: nooit indexeren, gelijk aan hun meta robots */
 const NOINDEX_PADEN: Record<string, string> = {
   '/bedankt': 'noindex',
-  '/intake-nieuwe-klant': 'noindex',
-  '/bizzi': 'noindex, nofollow',
 }
 
 /*
@@ -110,7 +108,7 @@ async function route(request: Request): Promise<Response> {
     })
   }
 
-  // SEO-opschoning: samengevoegde/dubbele artikelen → 301 naar het doel (vóór de slash-redirect, dus geen keten)
+  // Vaste redirects (content/redirects.ts) → 301 naar het doel (vóór de slash-redirect, dus geen keten)
   const doel = REDIRECTS[pad]
   if (doel) return Response.redirect(`${site.url}${doel}`, 301)
 
@@ -146,7 +144,6 @@ async function route(request: Request): Promise<Response> {
   }
 
   // Oude WordPress-paden
-  if (pad === '/bizzyphone') return Response.redirect(`${site.url}/bizzi/`, 301)
   if (pad === '/category/uncategorized') return Response.redirect(`${site.url}/kennisbank/`, 301)
   if (NAAR_HOME.some((o) => pad === o || pad.startsWith(`${o}/`))) return Response.redirect(`${site.url}/`, 301)
   if (pad.startsWith('/wp-') || pad.startsWith('/xmlrpc.php') || pad.endsWith('.php')) {

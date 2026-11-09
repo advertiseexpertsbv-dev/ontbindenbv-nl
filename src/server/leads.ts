@@ -16,7 +16,7 @@ export type LeadInput = {
   attributie?: Attributie
   /** HubSpot-bezoekerscookie (alleen aanwezig na toestemming) */
   hutk?: string
-  /** Honeypot (veld bb_controle_veld): moet leeg zijn */
+  /** Honeypot (veld obv_controle_veld): moet leeg zijn */
   controle?: string
   /** Oude honeypotnaam, nog geaccepteerd voor pagina's die vóór de wijziging geladen zijn */
   website?: string
@@ -120,7 +120,7 @@ export async function stuurNotificatie(lead: LeadInput, id: number): Promise<voi
       headers: {
         Authorization: `Bearer ${e.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
-        'Idempotency-Key': `bb-lead-${id}`,
+        'Idempotency-Key': `obv-lead-${id}`,
       },
       body: JSON.stringify({
         from: e.RESEND_FROM ?? `${site.name} <${site.email}>`,

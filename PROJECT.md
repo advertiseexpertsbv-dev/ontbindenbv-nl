@@ -19,46 +19,55 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Reviews | 4,9 uit 5, 391 reviews (Google) |
 | Hub | site-sleutel `obv` (voorstel), project nog te kiezen (eigen project of onder Belasting Bemiddelaar, id 19) |
 
-## Pagina's van de oude site (109 URL's, sitemap 2026-11-09)
+## Pagina's van de oude site (116 URL's in `ref/seo/seo.json`)
 
 - 9 pagina's: `/`, `/over-ons/`, `/onze-werkwijze/`, `/contact/`, `/gratis-intakegesprek/`, `/bedankt/`, `/privacyverklaring-eu/`,
-  `/cookiebeleid-eu/`, `/sample-page/` (WP-standaard)
-- 18 diensten onder `/dienst/<slug>/` (CPT `dienst`)
-- 80 artikelen op `/<slug>/`, overzicht op `/kennisbank/` (page_for_posts 55), 1 categorie `/category/uncategorized/`
+  `/cookiebeleid-eu/`, `/sample-page/` (WP-standaard, nu 301 naar `/`)
+- 18 diensten onder `/dienst/<slug>/` (CPT `dienst`, Oxygen)
+- 80 artikelen op `/<slug>/` (ook de twee "landingspagina's" `/turboliquidatie-bv/` en
+  `/bv-ontbinding-turboliquidatie-bv-beeindiging/` zijn gewone posts), overzicht `/kennisbank/` + `/kennisbank/page/2-8/`
+  (10 per pagina), `/category/uncategorized/` (nu 301 naar `/kennisbank/`)
 
 ## Stand
 
-- [x] Sjabloon overgenomen, identiteit, `/kennisbank/` en `/privacyverklaring-eu/` als routes (2026-11-09)
-- [ ] Inhoud importeren via de WP REST API (cloud-sessie moet ontbindenbv.nl kunnen bereiken)
-- [ ] Ontwerp 1-op-1 (kleuren, logo, lettertype, secties) vanaf screenshots van de oude site
-- [ ] Formulierkoppelingen nalopen in WP-beheer (plugin, HubSpot-portaal, BBase, ontvangers)
-- [ ] GTM-container, D1 `ontbindenbv-db`, Resend, hub-koppeling
-- [ ] Parity 109/109, livegang (DNS-zone, nameservers, worker-routes), nazorg
+- [x] Sjabloon overgenomen, identiteit (2026-11-09)
+- [x] Inhoud geïmporteerd: pagina's, 18 diensten (`scripts/bouw-diensten.py`), 80 artikelen (`scripts/bouw-blog.py`),
+      beelden (`scripts/site-beelden.mjs`, `scripts/beelden.mjs`, `scripts/beelden-varianten.mjs`) (2026-11-09)
+- [x] Ontwerp 1-op-1: Oxygen + Twenty Twenty-Five-typografie (Manrope 300, koppen 400), kleuren, knoppen, verloop, alle secties
+- [x] URL-check: `node scripts/parity.mjs http://localhost:3000` → 116/116 (status, titel, canonical, één h1)
+- [ ] Formulierkoppelingen nalopen in WP-beheer (Gravity Forms: ontvangers, HubSpot-portaal?, BBase?, Zapier?)
+- [ ] GTM-container (oud: GTM-MB27H2SF) in `site.gtmId`, HubSpot alleen als de oude site die gebruikte (`site.hubspotId`)
+- [ ] D1 `ontbindenbv-db` aanmaken + migraties, Resend (afzender/ontvangers), hub-koppeling (`obv`)
+- [ ] Livegang (DNS-zone, nameservers, worker-routes) alleen na expliciet akkoord van Steven, nazorg
 
-## Overdracht: import in de omgeving `ontbindenbv-nl` (2026-11-09)
+## Bewuste verschillen met de oude site
 
-De eerste sessie kon ontbindenbv.nl niet bereiken (netwerkbeleid). De import gebeurt in een cloud-sessie op de persoonlijke
-omgeving **ontbindenbv-nl**, die alleen `ontbindenbv.nl` en `www.ontbindenbv.nl` extra toestaat (package managers wel).
-Externe hosts zoals fonts.googleapis.com of HubSpot-CDN's staan daar níet open: haal alleen van ontbindenbv.nl zelf.
+- Reviews naast elkaar (3 kolommen vanaf 992px); oud stonden ze onder elkaar in een halve kolom.
+- Veelgestelde vragen: alle antwoorden open zoals oud, maar per vraag in- en uitklapbaar.
+- "Wat is je situatie?" toont de 7 hoofddiensten als tegels; de lijst was op de oude site leeg.
+- Tweede h1 op een pagina (homepage, over ons, bedankt) is een h2 in dezelfde maat.
+- "Volg ons online" in de footer weggelaten: de links (Facebook, Instagram, LinkedIn) wezen naar `#`. Echte URL's nodig.
+- Tabel "Voordelen / Wat wij doen" op de dienstpagina's: witte tekst op blauw (oud donker op blauw, slecht leesbaar).
+- Artikelen: auteur "Peter Brouwers" (oud: typfout "Bouwers"), datum in het Nederlands, werkende inhoudsopgave (oud leeg),
+  geen kapotte avatar. Het FAQPage-schema dat in 17 artikelen als `<script>` in de tekst stond, staat nu in de head.
+- Juridische pagina's: titelbalk met h1 (oud geen h1); teksten beschrijven de nieuwe site i.p.v. de Complianz-standaardtekst
+  (door de eigenaar te bevestigen).
+- Lege `#`-links in dienstteksten: "Bel…" → `tel:`, overige → `/gratis-intakegesprek/`; kapotte link `/gratis-intakesprek/` hersteld.
+- Adres: nieuw adres (Houtzaagmolen 99, Ridderkerk) i.p.v. Nieuwerkerk aan den IJssel (te bevestigen).
+- Mobiele balk onderaan (Bel direct / Gratis intake) is een toevoeging uit het sjabloon.
+- `/bedankt/` staat op noindex (oud: index).
 
-Volgorde:
+## Werkwijze import (reproduceerbaar)
 
-1. `pnpm install`, dan de WP REST API dumpen naar `ref/api/` (gitignored), zoals bij belastingbemiddelaar-nl:
-   `pages-1.json` (`/wp-json/wp/v2/pages?per_page=100`), `dienst-1.json` (`/wp-json/wp/v2/dienst?per_page=100`),
-   `posts-1.json` (`/wp-json/wp/v2/posts?per_page=100`, 80 posts), `media-N.json` (`/wp-json/wp/v2/media?per_page=100&page=N`).
-2. `scripts/ref-capture.mjs` aanpassen: basis-URL `https://ontbindenbv.nl`, paden = de 9 pagina's + `/kennisbank/` + 18 diensten
-   + een paar artikelen (de BB-paden `/intake-nieuwe-klant/`, `/bizzi/`, `/bizzyphone/` en de BB-artikelen eruit). Het script
-   schrijft `ref/seo.json`; `parity.mjs`, `bouw-blog.py` en `bouw-diensten.py` lezen `ref/seo/seo.json` (verplaatsen of pad gelijktrekken).
-   SEO voor álle 109 URL's (title, description, canonical) ophalen, ook voor elk artikel, want parity vergelijkt per URL.
-3. Importscripts: `bouw-blog.py` werkt op de REST-content en is grotendeels herbruikbaar. `bouw-diensten.py` leest Oxygen-HTML
-   (`ct-inner-content`) van de oude BB-site; ontbindenbv.nl is een block theme, dus die parser moet opnieuw voor block-markup.
-   Beelden: originelen naar `ref/images/`, dan `node scripts/beelden.mjs` en `node scripts/beelden-varianten.mjs`.
-4. Ontwerp 1-op-1 vanaf de screenshots: kleuren en lettertype in `@theme` (`src/styles.css`), logo's in `public/images/brand/`
-   (de BB-logo's en BB-teamfoto's die niet op ontbindenbv.nl staan verwijderen), secties van de homepage nalopen
-   (hero met formulier, "Dé specialist in BV ontbinden", "Wat is je situatie?", werkwijze in 6 stappen, reviews, FAQ, contact).
-5. BB-specifieke onderdelen weghalen of hergebruiken na controle: `/intake-nieuwe-klant/` + `IntakeFormulier` + `content/intake.json`,
-   BBase-CRM (`server/crm.ts`), teksten in `content/juridisch.ts`, `content/home.ts`, `content/footer.ts`, `content/redirects.ts`.
-6. `pnpm typecheck && pnpm lint && pnpm build`, dan `node scripts/parity.mjs http://localhost:<poort>` tot 109/109.
+`ref/` (gitignored) bevat de dump: `ref/api/*.json` (WP REST: pages, dienst, posts, media), `ref/html/*.html` (gerenderde pagina's),
+`ref/diensten/*.html`, `ref/seo/seo.json` (title/description/canonical/robots per URL), `ref/images/` (originelen) en
+`ref/screens/` (screenshots oud). Opnieuw opbouwen:
 
-Daarna (buiten de import): formulierkoppelingen nalopen in WP-beheer, GTM, D1 `ontbindenbv-db`, Resend, hub (`obv`), livegang.
+1. `python3 scripts/bouw-diensten.py` → `src/content/diensten.json`
+2. `node scripts/beelden.mjs` (artikelbeelden + `ref/beeldkaart.json`) en `python3 scripts/bouw-blog.py` → `src/content/blog.json`
+3. `node scripts/site-beelden.mjs && node scripts/beelden-varianten.mjs` (vaste beelden, favicons, og.jpg, srcset-varianten)
+4. `pnpm typecheck && pnpm lint && pnpm build`, dan `pnpm dev` en `node scripts/parity.mjs http://localhost:3000`
+
+De interne BB-intake (`/intake-nieuwe-klant/`) is verwijderd. De BBase/HubSpot-code in `src/server/` blijft slapend (alleen actief
+met secrets); `intake_link` in de HubSpot/CRM-velden wijst nog naar die BB-pagina: bij de formulierkoppeling beslissen.
 De open vragen voor Steven staan in het migratieplan (Claude Doc, link bovenaan).

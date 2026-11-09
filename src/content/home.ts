@@ -1,148 +1,172 @@
 import { site } from '../lib/site'
 
-/* Teksten en data die op meerdere pagina's terugkomen. Overgenomen van de oude site. */
+/* Teksten en data die op meerdere pagina's terugkomen. 1-op-1 overgenomen van de oude site (ontbindenbv.nl). */
 
-export const vertrouwen = ['Gratis Intakegesprek', '25 Jaar Ervaring', 'Persoonlijke Aanpak', 'Brede Expertise'] as const
+/** Vinkjes in de hero en bij "Daarom kiezen ondernemers voor ons" */
+export const vertrouwen = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vanaf 1 week geregeld', 'Vaste prijs vooraf'] as const
+
+/** Vinkjes op de kaart naast de titelbalk (over ons, gratis intakegesprek) */
+export const vertrouwenKaart = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vanaf 2 werkdagen geregeld', 'Vaste prijs vooraf'] as const
+
+/** Rij met blauwe vinkjes boven de tekst van de dienstpagina's */
+export const vertrouwenDienst = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vaste prijs vooraf'] as const
+
+export const hero = {
+  titel: 'BV ontbinden?',
+  sub: 'Wij regelen het snel, veilig en juridisch correct',
+} as const
+
+/** Formulierkaart (hero, dienstpagina's, artikelen) */
+export const kaart = {
+  titel: 'Direct kosteloos advies.',
+  sub: 'Altijd kosteloos en vrijblijvend advies gesprek.',
+} as const
+
+export const introHome = {
+  titel: 'Dé specialist in BV ontbinden',
+  alinea:
+    'Welkom bij OntbindenBV.nl, dé expert in Nederland voor het beëindigen en liquideren van jouw BV. Of het nu gaat om een lege BV, een BV met activa of zelfs een BV met schulden – wij staan voor je klaar. Wij begrijpen dat het ontbinden van een onderneming vaak gepaard gaat met stress en onzekerheid. Juist in die periode wil je een partij die alles uit handen neemt en jou volledig ontzorgt.',
+  vraag: 'En wat doen wij dan?',
+  /** HTML: de vette woorden zoals op de oude site */
+  antwoord:
+    'Met meer dan 25 jaar ervaring en ruim <b>1.200 ondernemers die je voorgingen</b>, weten wij exact hoe we jouw situatie moeten aanpakken. Van turbo-liquidatie tot complexe liquidaties: ons team vindt altijd de beste oplossing.<br><br><b>Jij houdt je hoofd vrij, terwijl wij zorgen voor de juridische kant, de KVK-uitschrijving en de communicatie met alle betrokken instanties.</b>',
+  titel2: 'Geen zorgen, OntbindenBV.nl regelt het',
+  alinea2:
+    'Als familiebedrijf combineren wij persoonlijke betrokkenheid met diepgaande expertise. We werken transparant en beginnen altijd met een gratis intake, waarin we jouw situatie in kaart brengen. Op basis daarvan ontvang je direct een helder plan én een vaste prijs vooraf. Geen verrassingen achteraf – alleen zekerheid en duidelijkheid.',
+  waarom: 'Daarom kiezen ondernemers voor ons',
+} as const
+
+export const situatie = {
+  titel: 'Wat is je situatie?',
+  tekst:
+    'Elke BV of stichting heeft een unieke situatie. Wij zorgen voor de juiste aanpak en begeleiden je van A tot Z. Selecteer hieronder wat het beste bij je past.',
+} as const
+
+export const werkwijzeIntro =
+  'OntbindenBV.nl werkt transparant en efficiënt. Wij willen het proces van het ontbinden van jouw BV zo soepel en stressvrij mogelijk maken. Of het nu gaat om een lege BV, een BV met activa of met schulden: wij nemen alles uit handen. Daarom volgen we de volgende stappen om jouw BV veilig en correct te beëindigen:'
 
 export const werkwijze = [
   {
-    titel: 'Kosteloze intake',
+    titel: 'Gratis intake',
     tekst:
-      'We beginnen altijd met een kosteloze intake. Hierin brengen we jouw situatie in kaart en bepalen we of en hoe we jou kunnen helpen.',
+      'We starten altijd met een gratis intake. Hierin brengen we jouw situatie in kaart en bekijken we of het gaat om een lege BV, een BV met activa of schulden.',
   },
   {
     titel: 'Plan van aanpak',
     tekst:
-      'Als blijkt dat we jou kunnen helpen, stellen we een plan van aanpak op. Hierin staat duidelijk beschreven wat onze aanpak is en welke stappen we gaan nemen om jouw fiscale problemen op te lossen.',
+      'Op basis van de intake stellen we direct een duidelijk plan op. Hierin staat welke vorm van liquidatie geschikt is en welke stappen we gaan nemen om jouw BV veilig te ontbinden.',
   },
   {
-    titel: 'Contact met de Belastingdienst',
-    tekst:
-      'Wij nemen al het contact met de Belastingdienst op ons. Dit betekent dat je geen ingewikkelde gesprekken hoeft te voeren of brieven meer hoeft te schrijven met de Belastingdienst. Wij nemen dit volledig uit handen en onderhouden het contact namens jou.',
+    titel: 'Contact met KVK en instanties',
+    tekst: 'Wij nemen al het contact met de KVK en overige instanties volledig over. Geen ingewikkelde formulieren of gesprekken – wij regelen alles namens jou.',
   },
   {
     titel: 'Inzetten van onze expertise',
     tekst:
-      'Dankzij onze jarenlange ervaring en kennis van het belastingstelsel weten wij precies welke uitzonderingen, regels en wetten we kunnen inzetten om jouw boetes en aanslagen te verlagen. Wij gebruiken al onze expertise om het beste resultaat voor jou te behalen.',
+      'Dankzij onze jarenlange ervaring en kennis van wet- en regelgeving weten we exact hoe we jouw situatie het beste aanpakken. Ook in complexe gevallen zorgen wij voor de juiste oplossing.',
   },
   {
-    titel: 'Afhandeling',
-    tekst:
-      'Wij streven ernaar om jouw fiscale problemen zo snel mogelijk op te lossen. Zodra het probleem is afgehandeld, brengen we je op de hoogte en bespreken we het eindresultaat met je.',
+    titel: 'Afronding en bevestiging',
+    tekst: 'Zodra de BV officieel is ontbonden, ontvang je van ons de bevestiging. We zorgen dat je volledig compliant bent en geen losse eindjes meer hebt.',
   },
 ] as const
+
+/** Korte stappenlijst op /gratis-intakegesprek/ (zo stond hij op de oude site) */
+export const intakeStappen = ['Kosteloze intake', 'Plan van aanpak', 'Contact met de Belastingdienst', 'Inzetten van onze expertise', 'Afhandeling'] as const
+
+export const cta = {
+  titel: 'Dus waar wacht je nog op?',
+  tekst: 'Laat het stressvolle proces van een BV-ontbinding aan ons over, zodat jij je kunt focussen op wat écht belangrijk is: jouw onderneming en je toekomst.',
+} as const
 
 export const reviews = [
   {
-    "bedrijf": "Kyka Holding BV",
-    "datum": "24 januari 2024",
-    "naam": "Karta Miardjo",
-    "tekst": "Ik heb een geweldige ervaring gehad met de Belastingbemiddelaar Ze hebben ons ontzettend goed geholpen met onze belastingzaken en hebben alles snel en efficiënt afgehandeld. Dankzij hun expertise en professionele aanpak hoefde ik mij geen zorgen te maken over mijn belastingaangifte. Een echte aanrader!"
+    bedrijf: 'Kyka Holding BV',
+    datum: '2 januari 2025',
+    naam: 'Karta Miardjo',
+    tekst:
+      '"OntbindenBV.nl heeft ons uitstekend geholpen bij de turbo-liquidatie van onze BV. Dankzij hun deskundigheid en efficiënte aanpak was het proces binnen korte tijd afgerond. Ze namen ons alle zorgen uit handen en zorgden voor een foutloze afwikkeling. Absoluut een aanrader voor iedereen die een BV snel en veilig wil beëindigen."',
   },
   {
-    "bedrijf": "OMNIS - IT",
-    "datum": "6 maart 2024",
-    "naam": "Nijs Stam",
-    "tekst": "Als ondernemer ben ik erg tevreden over de Belastingbemiddelaar van OMNIS - IT. Ze hebben mij uitstekend geholpen met mijn fiscale vraagstukken en advies gegeven op maat. De communicatie verliep altijd prettig en ze hebben mij goed op de hoogte gehouden van de voortgang. Ik kan de Belastingbemiddelaar zeker aanraden voor andere ondernemers."
+    bedrijf: 'Nut Tree Holding B.V',
+    datum: '12 juni 2024',
+    naam: 'M.C.A. Nootenboom',
+    tekst:
+      '"Ik ben ontzettend tevreden over OntbindenBV.nl. Zij hebben onze turbo-liquidatie perfect begeleid en alles snel en duidelijk geregeld. Voor het eerst voelde dit proces niet stressvol, omdat ik wist dat alles juridisch en administratief goed werd afgehandeld. Echt topservice – ik zou ze zeker aanraden!"',
   },
   {
-    "bedrijf": "KVO",
-    "datum": "10 april 2024",
-    "naam": "Kees van Elzelingen",
-    "tekst": "Ik ben zeer tevreden over de Belastingbemiddelaar. Ze hebben mij geholpen bij het optimaliseren van mijn belastingzaken en hebben ervoor gezorgd dat ik een stuk meer geld overhoud aan het einde van het jaar. Ze zijn zeer kundig en betrokken en denken altijd met mij mee. Ik ben blij dat ik hun hulp heb ingeschakeld."
+    bedrijf: 'Broers Logistics B.V.',
+    datum: '9 april 2025',
+    naam: 'H.T. Kaplan',
+    tekst:
+      '"OntbindenBV.nl heeft onze turbo-liquidatie volledig zorgeloos geregeld. Vanaf het eerste contact gaven ze duidelijkheid over de stappen en namen ze alles uit handen. Het hele traject verliep snel, professioneel en zonder verrassingen. Heel fijn om met zulke betrouwbare specialisten te werken."',
   },
-  {
-    "bedrijf": "IT & Beheer",
-    "datum": "21 april 2024",
-    "naam": "Pham",
-    "tekst": "De Belastingbemiddelaar heeft Pham IT & Beheer uitstekend geholpen met onze fiscale uitdagingen. Ze hebben veel kennis en ervaring op het gebied van belastingen en hebben mij voorzien van goed advies. Daarnaast waren ze altijd bereikbaar voor vragen en deden ze hun uiterste best om mij te ontzorgen. Ik kan ze zeker aanbevelen!"
-  },
-  {
-    "bedrijf": "Cape to Cairo BV",
-    "datum": "23 mei 2024",
-    "naam": "Peter Swarttouw",
-    "tekst": "Ik ben erg tevreden over de Belastingbemiddelaar. Ze hebben mij goed geadviseerd en geholpen met mijn belastingzaken. Dankzij hun professionele aanpak en flexibele houding verliep alles soepel en kon ik mij volledig focussen op mijn onderneming. Ik kan de Belastingbemiddelaar zeker aanraden aan andere ondernemers."
-  }
 ] as const
 
-export const faq = [
+export type FaqItem = { v: string; a: string }
+
+/** Veelgestelde vragen van de homepage, over ons en onze werkwijze (a = HTML) */
+export const faq: FaqItem[] = [
   {
-    "v": "Wat doet een belastingbemiddelaar precies?",
-    "a": "Een belastingbemiddelaar helpt particulieren en bedrijven bij het oplossen van belastinggerelateerde vraagstukken, zoals het invullen van belastingaangiften, bezwaar- en beroepsprocedures, en advisering over belastingzaken."
+    v: 'Wanneer moet ik een specialist inschakelen?',
+    a: '<p>Zodra je BV geen activiteiten meer heeft, of wanneer schulden en risico’s het verstandig maken om te stoppen.</p><p><a href="/gratis-intakegesprek/"><em>Vraag een intake aan en ontdek de beste route.</em></a></p>',
   },
   {
-    "v": "Wanneer zou ik een belastingbemiddelaar moeten inschakelen?",
-    "a": "U kunt een belastingbemiddelaar raadplegen als u complexe belastingvragen heeft, als u hulp nodig heeft bij het opstellen van bezwaarschriften, of als u belastingadvies nodig heeft voor uw persoonlijke of zakelijke situatie."
+    v: 'Wat zijn de voordelen van OntbindenBV.nl?',
+    a: '<p>Transparante vaste prijs vooraf, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href="/gratis-intakegesprek/"><em>Plan je gratis intake vandaag nog.</em></a></p>',
   },
   {
-    "v": "Wat zijn de voordelen van het inschakelen van een belastingbemiddelaar?",
-    "a": "Belastingbemiddelaars zijn experts in belastingwetgeving en -procedures, wat kan leiden tot het maximaliseren van belastingvoordelen, het minimaliseren van fiscale risico's en het besparen van tijd en moeite bij het omgaan met belastingzaken."
+    v: 'Hoe kan OntbindenBV.nl helpen bij een turbo-liquidatie?',
+    a: '<p>Wij checken of jouw BV voldoet aan de voorwaarden, stellen alle documenten op en zorgen dat je snel bent uitgeschreven bij de KVK.</p><p><a href="/gratis-intakegesprek/"><em>Laat ons gratis je BV checken.</em></a></p>',
   },
   {
-    "v": "Hoe kan een belastingbemiddelaar helpen bij belastingaangiften?",
-    "a": "Een belastingbemiddelaar kan uw belastingaangiften nauwkeurig invullen om ervoor te zorgen dat u geen aftrekposten of voordelen mist, en om mogelijke fouten te vermijden die kunnen leiden tot boetes of naheffingen."
+    v: 'Wat is het verschil tussen een turbo- en een reguliere liquidatie?',
+    a: '<p>Turbo is alleen mogelijk zonder activa en schulden. In alle andere gevallen begeleiden wij de reguliere route.</p><p><a href="/gratis-intakegesprek/"><em>Gratis intake: wij adviseren welke vorm geschikt is.</em></a></p>',
   },
   {
-    "v": "Wat is het verschil tussen een belastingadviseur en een belastingbemiddelaar?",
-    "a": "Een belastingadviseur geeft advies over fiscale planning en strategieën, terwijl een belastingbemiddelaar zich vaak richt op het oplossen van belastingproblemen en geschillen, zoals bezwaarprocedures en vertegenwoordiging bij de Belastingdienst."
+    v: 'Wat kost het om mijn BV te ontbinden?',
+    a: '<p>De kosten hangen af van jouw situatie (lege BV, activa, schulden). Je krijgt altijd vooraf een vaste prijs.</p><p><a href="/gratis-intakegesprek/"><em>Vraag vandaag nog je vrijblijvende offerte aan.</em></a></p>',
   },
   {
-    "v": "Hoe kan ik een afspraak maken met een belastingbemiddelaar?",
-    "a": "U kunt een afspraak maken door telefonisch contact op te nemen, een e-mail te sturen of het contactformulier op onze website in te vullen. Onze belastingexperts nemen dan zo spoedig mogelijk contact met u op."
+    v: 'Kan ik zelf een BV ontbinden?',
+    a: '<p>In theorie wel, maar de risico’s zijn groot (aansprakelijkheid, fouten bij schulden). Met ons weet je zeker dat het goed en veilig gebeurt.</p><p><a href="/gratis-intakegesprek/"><em>Bespreek je situatie gratis met ons team.</em></a></p>',
   },
   {
-    "v": "Wat zijn de kosten voor het inschakelen van een belastingbemiddelaar?",
-    "a": "De kosten kunnen variëren op basis van de complexiteit van uw zaak en de benodigde diensten. Wij bieden vaak een eerste gratis consultatie aan om uw situatie te bespreken en de mogelijke kosten te bespreken."
+    v: 'Hoe lang duurt het gemiddeld?',
+    a: '<p>Een turbo-liquidatie kan vaak binnen 5 werkdagen rond zijn. Complexere trajecten duren langer, maar wij zorgen voor de snelst mogelijke afronding.</p><p><a href="tel:+31850048369"><em>Bel ons voor een inschatting.</em></a></p>',
   },
-  {
-    "v": "Hoe kan een belastingbemiddelaar helpen bij bezwaar- en beroepsprocedures?",
-    "a": "Een belastingbemiddelaar kan u helpen bij het opstellen en indienen van bezwaarschriften tegen belastingaanslagen en andere beslissingen van de Belastingdienst. Indien nodig kunnen zij u ook vertegenwoordigen bij beroepsprocedures voor de rechtbank."
-  },
-  {
-    "v": "Biedt u ook diensten aan voor expats of internationale belastingzaken?",
-    "a": "Ja, wij bieden diensten aan voor expats en voor internationale belastingzaken, zoals het invullen van aangiften voor buitenlandse inkomsten, advies over belastingverdragen en hulp bij het oplossen van dubbele belastingheffing."
-  },
-  {
-    "v": "Hoe lang duurt het gemiddeld voordat een belastinggeschil wordt opgelost?",
-    "a": "De duur kan variëren afhankelijk van de complexiteit van het geschil en de betrokken instanties. Wij streven ernaar om uw zaak zo snel en efficiënt mogelijk af te handelen, met aandacht voor een zorgvuldige afweging en grondige voorbereiding."
-  }
-] as const
+]
 
 export const team = [
-  { naam: 'Peter Brouwers', rol: 'Expert belastingzaken, Fiscaal adviseur en accountant', foto: '/images/site/peter-schilderij.webp' },
+  { naam: 'Peter Brouwers', rol: 'Expert belastingzaken, Fiscaal adviseur en accountant', foto: '/images/site/peter.webp' },
   { naam: 'Heleen Brouwers', rol: 'Adviseur belastingschulden en fiscale denktank', foto: '/images/site/heleen.webp' },
-  { naam: 'Gerard van den Berg', rol: 'Intakecoördinator', foto: '/images/site/gerard.webp' },
   { naam: 'Kevin Quik', rol: 'Specialist in het begeleiden van fiscale controles', foto: '/images/site/kevin.webp' },
   { naam: 'Michael Bhattoe', rol: 'Fiscaal communicatie specialist', foto: '/images/site/michael.webp' },
+  { naam: 'Daisy Taylor', rol: 'Financieel specialist', foto: '/images/site/daisy.webp' },
   { naam: 'Bas de Graaf', rol: 'Expert schuldhulp verlening', foto: '/images/site/bas.webp' },
 ] as const
 
-export const introHome = {
-  titel: 'Dé Belastingbemiddelaar',
-  alinea1: [
-    'Welkom bij Dé Belastingbemiddelaar, dé specialist in het bemiddelen met de belastingdienst. Want laten we eerlijk zijn, als ondernemer heb je al genoeg aan je hoofd. Het laatste waar je op zit te wachten is een conflict met de belastingdienst. Maar helaas komt dit vaak genoeg voor.',
+export const overOns = {
+  titel: 'jouw partner in BV-ontbinding',
+  alineas: [
+    'OntbindenBV.nl is een betrokken familiebedrijf met meer dan 25 jaar ervaring in het ontbinden van ondernemingen. Wij ondersteunen ondernemers in heel Nederland—of je nu een lege BV hebt, één met activa of zelfs schulden—met een persoonlijke en complete aanpak.',
+    'Onze missie: jouw ontzorgen tijdens het vaak lastige proces van BV-ontbinding. Van intake tot KVK-uitschrijving: wij staan naast je, zorgen dat alles juridisch correct gebeurt en jij krijgt vanaf dag één van ons een vaste prijs en helder plan.',
   ],
-  vraag: 'En wat doe je dan?',
-  alinea2: [
-    'Je vertrouwt op je eigen boekhouder, maar die heeft vaak niet voldoende kennis en ervaring op dit gebied. Voor je het weet, sta je voor een vervelende situatie met hoge boetes en opgelegde aanslagen.',
-  ],
-  slot: 'Maar geen paniek, want het team van Dé Belastingbemiddelaar staat voor je klaar.',
-  alinea3: [
-    'Met meer dan 25 jaar ervaring op het gebied van bemiddelen met de belastingdienst, weten wij als geen ander hoe we jou kunnen helpen met jouw fiscale problemen. Onze experts zijn gespecialiseerd in het oplossen en verlagen van boetes en aanslagen. Zo hoef jij je geen zorgen meer te maken en kun jij je weer volledig focussen op jouw onderneming.',
-    'Bij Dé Belastingbemiddelaar werken we op een transparante wijze. We beginnen altijd met een kosteloze intake, waarin we jouw situatie in kaart brengen. Op basis hiervan bepalen we of en hoe we jou kunnen helpen. Als we overtuigd zijn dat we jouw problemen kunnen oplossen, stellen we een plan van aanpak op en nemen we het contact over met de belastingdienst.',
-    'Wij kennen alle ins en outs van het belastingstelsel en weten precies welke uitzonderingen, regels en wetten we kunnen inzetten om jouw boetes en aanslagen te verlagen.',
+  waarom: 'Waarom kies je voor OntbindenBV.nl?',
+  /** HTML (vette woorden zoals de oude site) */
+  punten: [
+    'Meer dan <b>1.200 ontbindingen</b> succesvol afgerond',
+    '<b>Familiebedrijf</b>, met persoonlijke service en heldere communicatie',
+    'Direct inzicht: <b>gratis intake</b>, plan &amp; vaste prijs vooraf',
+    'Expertise in elk scenario: van eenvoudig tot complex (zoals activa of schulden)',
+    'Volledig compliance: je bent verzekerd dat het proces correct en foutloos verloopt',
   ],
 } as const
 
-export const overOns = [
-  'Welkom bij Dé Belastingbemiddelaar, opgericht door Peter Brouwers. Met jarenlange ervaring als belastingdeskundige en bemiddelaar is Peter uitgegroeid tot een begrip in de wereld van fiscale problemen. Sinds de oprichting van Dé Belastingbemiddelaar heeft Peter duizenden ondernemers geholpen met het oplossen van hun belastingissues en hen zo veel geld en kopzorgen bespaard.',
-  'Het team van Peter bestaat uit strategisch samengestelde experts, die allemaal hun eigen specialiteiten hebben op het gebied van belastingen en bemiddeling. Dankzij deze diversiteit aan kennis en ervaring kunnen wij onze klanten de optimale ondersteuning bieden bij hun fiscale problemen met de belastingdienst.',
-  'Wij begrijpen dat issues met de Belastingdienst nooit leuk zijn en vaak veel stress en zorgen met zich mee brengen. Daarom staan wij klaar om jou de professionele hulp te bieden die je nodig hebt. Wij nemen het contact met de Belastingdienst op ons en zorgen ervoor dat jouw problemen op een efficiënte en effectieve manier worden opgelost.',
-  'Met Dé Belastingbemiddelaar sta je er nooit meer alleen voor als het gaat om fiscale problemen. Wij zijn er voor jou en zorgen ervoor dat jij je kunt richten op wat echt belangrijk is: jouw onderneming. Neem vandaag nog contact met ons op en laat ons jou helpen met het oplossen van jouw belastingzaken.',
-] as const
-
 export const contactBlok = {
   tekst: 'U kunt ons telefonisch bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
+  formTitel: 'Wij helpen je graag verder met al je vragen',
+  formTekst: 'Neem vandaag nog contact op met ons voor een kosteloze intake en laat ons jou helpen met het oplossen van jouw fiscale problemen.',
   telefoon: site.phone,
   email: site.email,
 } as const

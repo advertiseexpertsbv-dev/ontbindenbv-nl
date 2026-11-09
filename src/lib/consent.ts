@@ -1,6 +1,6 @@
 /* Cookie-consent + Google Consent Mode v2.
  *
- * De keuze staat in localStorage onder `bb-cookie-consent` en wordt bij het
+ * De keuze staat in localStorage onder `obv-cookie-consent` en wordt bij het
  * laden al in de <head> uitgelezen (zie routes/__root.tsx), zodat GTM met de
  * juiste consent-status start. Zonder keuze start alles op 'denied'.
  *
@@ -9,7 +9,7 @@
  *   marketing    → ad_storage, ad_user_data, ad_personalization
  *   voorkeuren   → personalization_storage
  */
-export const CONSENT_STORAGE_KEY = 'bb-cookie-consent'
+export const CONSENT_STORAGE_KEY = 'obv-cookie-consent'
 
 export type Keuzes = {
   voorkeuren: boolean

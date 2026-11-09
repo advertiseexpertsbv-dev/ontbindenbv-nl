@@ -1,16 +1,15 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { seo } from '../../lib/seo'
-import { beeld, SIZES } from '../../lib/beeld'
 import { diensten, vindDienst, type DienstBlok } from '../../content/diensten'
-import { vertrouwen } from '../../content/home'
+import { vertrouwenDienst } from '../../content/home'
 import { site } from '../../lib/site'
 import PaginaKop from '../../components/sections/PaginaKop'
 import KaartFormulier from '../../components/sections/KaartFormulier'
-import MobielFormulier from '../../components/sections/MobielFormulier'
+import Vinken, { Vink } from '../../components/sections/Vinken'
 import Werkwijze from '../../components/sections/Werkwijze'
 import CtaBand from '../../components/sections/CtaBand'
 import Reviews from '../../components/sections/Reviews'
-import Faq from '../../components/sections/Faq'
+import Faq, { faqSchema } from '../../components/sections/Faq'
 import ContactBlok from '../../components/sections/ContactBlok'
 import { Button, Container } from '../../components/ui'
 
@@ -22,117 +21,117 @@ export const Route = createFileRoute('/dienst/$dienst')({
   },
   head: ({ loaderData, params }) => {
     const d = loaderData ?? diensten[0]
-    return seo({ title: d.seoTitle, description: d.description, path: `/dienst/${params.dienst}/` })
+    const h = seo({ title: d.seoTitle, description: d.description, path: `/dienst/${params.dienst}/` })
+    if (!d.faq.length) return h
+    return { ...h, scripts: [...h.scripts, { type: 'application/ld+json', children: JSON.stringify(faqSchema(d.faq)) }] }
   },
   component: Dienstpagina,
 })
 
-/** Ronde vink (wit vinkje in gekleurde cirkel, 26px) zoals op de oude site */
-function Vink({ className }: { className: string }) {
-  return (
-    <span className={`grid size-[26px] shrink-0 place-items-center rounded-full p-[5px] ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 28 28" className="size-4 fill-white">
-        <path d="M26.109 8.844c0 0.391-0.156 0.781-0.438 1.062l-13.438 13.438c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-7.781-7.781c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.609 10.25-10.266c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062z" />
-      </svg>
-    </span>
-  )
+/** Ruimte onder een blok zoals de oude site: tussenkop 16px, tekst 32px, lijst, tabel en knoppen 48px; niets onder het laatste blok */
+const ruimte: Record<DienstBlok['t'], string> = { h: 'mb-4', p: 'mb-8', b: 'mb-8', ul: 'mb-12', tabel: 'mb-12', knoppen: 'mb-12' }
+
+function Blok({ b, laatste }: { b: DienstBlok; laatste: boolean }) {
+  const mb = laatste ? '' : ruimte[b.t]
+  switch (b.t) {
+    case 'h':
+      return <h2 className={mb}>{b.x}</h2>
+    case 'b':
+      return (
+        <p className={mb}>
+          <b>{b.x}</b>
+        </p>
+      )
+    case 'p':
+      return (
+        <div className={`tekst-html flex flex-col gap-[1.4em] ${mb}`}>
+          {b.alineas.map((a, i) => (
+            <p key={i} dangerouslySetInnerHTML={{ __html: a }} />
+          ))}
+        </div>
+      )
+    case 'ul':
+      return <Vinken items={b.items} className={`tekst-html ${mb}`} />
+    case 'tabel':
+      // Oude site: blauw raster (auto/1fr), kopregel en cellen 8px/16px binnenruimte. De celtekst was daar donker op blauw;
+      // hier wit, zodat hij leesbaar is.
+      return (
+        <table className={`w-full overflow-hidden rounded-sm bg-brand-700 text-white ${mb}`}>
+          <thead>
+            <tr>
+              {b.kop.map((k) => (
+                <th key={k} scope="col" className="px-4 py-2 text-left align-top font-light">
+                  {k}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {b.rijen.map(([a, c]) => (
+              <tr key={a}>
+                <th scope="row" className="w-[45%] px-4 py-2 text-left align-top font-normal">
+                  {a}
+                </th>
+                <td className="px-4 py-2 align-top">{c}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )
+    case 'knoppen':
+      return (
+        <div className={`flex flex-col items-start gap-4 min-[992px]:flex-row min-[992px]:flex-wrap min-[992px]:items-center ${mb}`}>
+          <Button href="/gratis-intakegesprek/" arrow>
+            Gratis intakegesprek
+          </Button>
+          <Button href={site.afspraakHref} variant="yellow" arrow>
+            Online afspraak inplannen
+          </Button>
+        </div>
+      )
+  }
 }
 
-/** Ruimte onder een blok, zoals de oude site: alinea's in 1 tekstblok 1 regel wit, tussenkoppen 16px, rest 32px */
-function ruimteOnder(b: DienstBlok, volgende?: DienstBlok) {
-  if (!volgende) return ''
-  if (b.t === 'h' || b.t === 'b') return 'mb-4'
-  if (b.t === 'p' && volgende.t === 'p') return 'mb-[1.8em]'
-  return 'mb-8'
-}
-
-function Blok({ b, volgende }: { b: DienstBlok; volgende?: DienstBlok }) {
-  const mb = ruimteOnder(b, volgende)
-  if (b.t === 'h')
-    return <h2 className={`text-[18px] font-bold leading-[1.3] md:text-[20px] ${mb}`}>{b.x}</h2>
-  if (b.t === 'b') return <p className={`font-bold ${mb}`}>{b.x}</p>
-  if (b.t === 'ul')
-    return (
-      <ul className={`flex flex-col gap-4 ${mb}`}>
-        {b.items.map((it) => {
-          const lead = typeof it === 'string' ? null : it.lead
-          const tekst = typeof it === 'string' ? it : it.x
-          return (
-            <li key={lead ?? tekst} className="flex items-center gap-4">
-              <Vink className="bg-accent" />
-              <span>
-                {lead && (
-                  <>
-                    <b className="font-bold">{lead}</b>
-                    <br />
-                  </>
-                )}
-                {tekst}
-              </span>
-            </li>
-          )
-        })}
-      </ul>
-    )
-  return <p className={mb}>{b.x}</p>
-}
-
+/**
+ * Dienstpagina zoals de oude site: blauwe titelbalk (bij de hoofddiensten met vinkjes), een rij met drie blauwe vinkjes die
+ * de balk raakt, de tekstkolom (60%) met de formulierkaart ernaast (40%, blijft staan bij scrollen), dan bij de hoofddiensten
+ * de werkwijze en de CTA-band, en daarna reviews, de eigen veelgestelde vragen en het contactblok.
+ */
 function Dienstpagina() {
   const d = Route.useLoaderData()
   return (
     <>
-      <PaginaKop titel={d.h1} sub={d.sub} />
-      <div className="px-4 pt-6 md:hidden">
-        <MobielFormulier formulier={`Dienst: ${d.naam}`} />
-      </div>
+      <PaginaKop titel={d.h1} sub={d.sub}>
+        {d.bannerPunten.length > 0 && <Vinken items={d.bannerPunten} licht className="mt-8" />}
+      </PaginaKop>
       <section className="py-[72px]">
-        <Container className="grid gap-10 min-[992px]:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] min-[992px]:gap-0">
-          <div className="min-w-0 min-[992px]:pr-4">
-            <ul className="-mt-12 mb-16 flex flex-wrap justify-between gap-4 text-[14px] leading-[1.8]">
-              {vertrouwen.map((t) => (
+        <Container className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:items-start min-[992px]:gap-0">
+          <div className="min-w-0 min-[992px]:w-[60%] min-[992px]:pr-4">
+            <ul className="tekst-vink -mt-12 mb-16 flex flex-wrap items-center justify-between gap-4">
+              {vertrouwenDienst.map((t) => (
                 <li key={t} className="flex items-center">
-                  <Vink className="mr-2 bg-brand-700" />
+                  <Vink kleur="blauw" className="mr-2" />
                   {t}
                 </li>
               ))}
             </ul>
-            <div className="mb-8">
-              {d.blokken.map((b, i) => (
-                <Blok key={i} b={b} volgende={d.blokken[i + 1]} />
-              ))}
-            </div>
-            <div className="flex flex-col gap-4 min-[992px]:flex-row min-[992px]:flex-wrap">
-              <Button href="/gratis-intakegesprek/" arrow>
-                Gratis intakegesprek
-              </Button>
-              <Button href={site.afspraakHref} variant="yellow" arrow>
-                Online afspraak inplannen
-              </Button>
-            </div>
+            {d.blokken.map((b, i) => (
+              <Blok key={i} b={b} laatste={i === d.blokken.length - 1} />
+            ))}
           </div>
-          <div className="flex min-w-0 flex-col min-[992px]:pl-4">
-            <KaartFormulier
-              formulier={`Dienst: ${d.naam}`}
-              className="relative z-10 mb-8 max-md:hidden max-[992px]:p-8! min-[992px]:-mt-[125px]"
-            />
-            <div className="relative h-[min(75vw,350px)] min-[992px]:h-auto min-[992px]:max-h-[750px] min-[992px]:flex-1">
-              <img
-                {...beeld('/images/site/peter-schilderij.webp', SIZES.schilderijDienst)}
-                alt=""
-                width={1600}
-                height={900}
-                loading="lazy"
-                decoding="async"
-                className="size-full rounded-[4px] object-cover min-[992px]:absolute min-[992px]:inset-0"
-              />
-            </div>
+          <div className="min-w-0 min-[992px]:sticky min-[992px]:top-[13rem] min-[992px]:w-[40%] min-[992px]:pl-4">
+            <KaartFormulier formulier={`Dienst: ${d.naam}`} />
           </div>
         </Container>
       </section>
-      <Werkwijze compact />
-      <CtaBand />
+      {d.uitgebreid && (
+        <>
+          <Werkwijze />
+          <CtaBand bel />
+        </>
+      )}
       <Reviews />
-      <Faq />
+      {d.faq.length > 0 && <Faq items={d.faq} />}
       <ContactBlok />
     </>
   )

@@ -3,19 +3,20 @@
 import { chromium } from 'playwright'
 import { mkdir, writeFile } from 'node:fs/promises'
 
-const base = process.argv[2] ?? 'https://belastingbemiddelaar.nl'
+const base = process.argv[2] ?? 'https://ontbindenbv.nl'
 const dienstSlugs = process.env.DIENSTEN ? process.env.DIENSTEN.split(',') : []
 const paden = [
-  '/', '/over-ons/', '/onze-werkwijze/', '/gratis-intakegesprek/', '/intake-nieuwe-klant/', '/contact/',
-  '/bedankt/', '/kennisbank/', '/privacyverklaring-eu/', '/cookiebeleid-eu/', '/bizzi/', '/bizzyphone/',
-  '/belastingschuld-oplossen/', '/betalingsregeling-belastingdienst/',
+  '/', '/over-ons/', '/onze-werkwijze/', '/gratis-intakegesprek/', '/contact/',
+  '/bedankt/', '/kennisbank/', '/kennisbank/page/2/', '/privacyverklaring-eu/', '/cookiebeleid-eu/',
+  '/bv-ontbinding-turboliquidatie-bv-beeindiging/', '/turboliquidatie-bv/',
   ...dienstSlugs.map((s) => `/dienst/${s}/`),
 ]
 const naam = (p) => (p === '/' ? 'home' : p.replace(/^\/|\/$/g, '').replace(/\//g, '--'))
 
 await mkdir('ref/screens', { recursive: true })
+const executablePath = process.env.PW_CHROMIUM || undefined
 await mkdir('ref/html', { recursive: true })
-const browser = await chromium.launch()
+const browser = await chromium.launch({ executablePath })
 const ctx = await browser.newContext({
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36',
 })
@@ -49,5 +50,7 @@ for (const pad of paden) {
     await page.close()
   }
 }
-await writeFile('ref/seo.json', JSON.stringify(seo, null, 2))
+// Volledige SEO van alle sitemap-URL's (status, title, description, canonical) komt uit de HTML-dump in ref/seo/seo.json;
+// dit bestand bevat alleen de gerenderde title/description/h1 van de vastgelegde pagina's.
+await writeFile('ref/seo-gerenderd.json', JSON.stringify(seo, null, 2))
 await browser.close()

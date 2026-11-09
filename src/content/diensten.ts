@@ -1,24 +1,39 @@
 import data from './diensten.json'
+import type { FaqItem } from './home'
 
-/** Lijstitem: gewone tekst, of een vet kopje (lead) met de omschrijving op de regel eronder (x) */
-export type DienstLijstItem = string | { lead: string; x: string }
-
+/**
+ * Blokken van de tekstkolom van een dienstpagina, in de volgorde van de oude site (scripts/bouw-diensten.py).
+ * HTML-velden bevatten alleen b, em, a en br.
+ */
 export type DienstBlok =
-  | { t: 'p'; x: string }
+  /** Tekstblok: alinea's (HTML) die op de oude site met een witregel gescheiden waren */
+  | { t: 'p'; alineas: string[] }
+  /** Tussenkop */
   | { t: 'h'; x: string }
-  /** Vette tussenregel in lopende tekst, bijvoorbeeld "Voor de Werknemer:" */
+  /** Vette tussenregel */
   | { t: 'b'; x: string }
-  | { t: 'ul'; items: DienstLijstItem[] }
+  /** Vinkjeslijst (items als HTML) */
+  | { t: 'ul'; items: string[] }
+  /** Tabel "Voordelen / Wat wij doen" */
+  | { t: 'tabel'; kop: string[]; rijen: string[][] }
+  /** Knoppen "Gratis intakegesprek" en "Online afspraak inplannen" */
+  | { t: 'knoppen' }
 
 export type Dienst = {
   slug: string
-  /** Korte naam (menu, tegels, footer) */
+  /** Naam van de dienst (titel in WordPress) */
   naam: string
   h1: string
   sub: string
   seoTitle: string
   description: string
+  /** Vinkjes in de titelbalk (HTML), alleen bij de zeven hoofddiensten */
+  bannerPunten: string[]
+  /** Hoofddienst: met werkwijze en CTA-band onder de tekst */
+  uitgebreid: boolean
   blokken: DienstBlok[]
+  /** Eigen veelgestelde vragen (antwoorden als HTML) */
+  faq: FaqItem[]
 }
 
 export const diensten = data as Dienst[]
@@ -26,10 +41,3 @@ export const diensten = data as Dienst[]
 export function vindDienst(slug: string): Dienst | undefined {
   return diensten.find((d) => d.slug === slug)
 }
-
-/** Volgorde in de footer en in "Veel voorkomende problemen" (zoals op de oude site, Schijn Zelfstandigheid als laatste in de footer) */
-const FOOTER = diensten.filter((d) => d.slug !== 'schijn-zelfstandigheid').slice(0, 15)
-export const footerDiensten = [...FOOTER, ...diensten.filter((d) => d.slug === 'schijn-zelfstandigheid')]
-
-/** Menu "Veel voorkomende problemen": gesorteerd op slug (URL), zoals de oude site (Aansprakelijkheid, Belastingcontrole, Hulp bij belastingschuld, ...) */
-export const menuDiensten = [...diensten].sort((a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0))

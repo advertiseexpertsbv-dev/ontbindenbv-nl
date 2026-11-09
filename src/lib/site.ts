@@ -5,9 +5,11 @@ export const site = {
   legalName: 'OntbindenBV.nl', // TODO: juridische naam bevestigen (KvK 96464054)
   kvk: '96464054',
   domain: 'ontbindenbv.nl',
+  /** Achtervoegsel van de paginatitels, zoals de oude site (Rank Math): 'Contact - BV ontbinden?' */
+  titelSuffix: 'BV ontbinden?',
   url: 'https://ontbindenbv.nl',
   description:
-    'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Gratis intakegesprek en een vaste prijs vooraf.', // TODO: 1-op-1 uit de oude site
+    'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Gratis intakegesprek en een vaste prijs vooraf.',
   phone: '+31 85 004 8369',
   phoneHref: 'tel:+31850048369',
   email: 'info@ontbindenbv.nl',

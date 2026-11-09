@@ -50,7 +50,7 @@ const categorieen = [
 const bannerTekst =
   "Om de beste ervaringen te bieden, gebruiken wij technologieën zoals cookies om informatie over je apparaat op te slaan en/of te raadplegen. Door in te stemmen met deze technologieën kunnen wij gegevens zoals surfgedrag of unieke ID's op deze site verwerken. Als je geen toestemming geeft of je toestemming intrekt, kan dit een nadelige invloed hebben op bepaalde functies en mogelijkheden."
 
-/* Knoppen zoals de oude Complianz-banner: pil van 45px, Arial 15px/500, grijs (Accepteren blauw) */
+/* Knoppen zoals de oude Complianz-banner: pil van 45px, 15px/500, grijs (Accepteren blauw) */
 /* Onder 640px compact: drie knoppen naast elkaar (40px, 13px), zodat de banner maximaal ~30% van het scherm beslaat */
 const knop =
   'h-10 min-w-0 flex-1 shrink-0 whitespace-nowrap rounded-full border border-transparent px-1 font-banner text-[13px] font-medium transition-colors duration-200 sm:h-[45px] sm:w-auto sm:px-2 sm:text-[15px]'

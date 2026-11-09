@@ -53,12 +53,12 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'theme-color', content: '#03689c' },
+      { name: 'theme-color', content: '#11558c' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
-      { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/montserrat-latin.woff2', crossOrigin: 'anonymous' },
+      { rel: 'preload', as: 'font', type: 'font/woff2', href: '/fonts/manrope-latin.woff2', crossOrigin: 'anonymous' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/brand/favicon-32.png' },
       { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/images/brand/favicon-192.png' },
       // Op de standaardlocatie, met witte achtergrond (iOS maakt transparantie zwart)
@@ -68,7 +68,7 @@ export const Route = createRootRoute({
       { children: INIT_SCRIPT, type: 'text/javascript' },
       { children: CONSENT_SCRIPT, type: 'text/javascript' },
       ...(site.gtmId ? [{ children: GTM_SCRIPT, type: 'text/javascript' }] : []),
-      { children: HUBSPOT_SCRIPT, type: 'text/javascript' },
+      ...(site.hubspotId ? [{ children: HUBSPOT_SCRIPT, type: 'text/javascript' }] : []),
       {
         type: 'application/ld+json',
         children: JSON.stringify({
@@ -77,9 +77,9 @@ export const Route = createRootRoute({
           name: site.name,
           description: site.description,
           url: site.url,
-          logo: `${site.url}/images/brand/2024-06-belasting-bemiddelaar-logo.png`,
+          logo: `${site.url}/images/brand/logo.png`,
           image: `${site.url}/images/og.jpg`,
-          telephone: '+31851300867',
+          telephone: site.phoneHref.replace('tel:', ''),
           email: site.email,
           address: {
             '@type': 'PostalAddress',
@@ -95,7 +95,7 @@ export const Route = createRootRoute({
             closes: '17:30',
           },
           areaServed: 'NL',
-          sameAs: [site.linkedin],
+          ...(site.linkedin ? { sameAs: [site.linkedin] } : {}),
           // Bewust geen aggregateRating: zelf-bediende reviews in structured data kunnen door Google worden afgekeurd
         }),
       },
@@ -107,8 +107,8 @@ export const Route = createRootRoute({
 function NotFound() {
   return (
     <div className="mx-auto max-w-xl px-5 py-24 text-center">
-      {/* React 19 tilt title en meta naar de <head>: oude site had 'Page Not Found - Belasting Bemiddelaar' en noindex */}
-      <title>Pagina niet gevonden - Belasting Bemiddelaar</title>
+      {/* React 19 tilt title en meta naar de <head>: oude site had 'Page Not Found - BV ontbinden?' en noindex */}
+      <title>Pagina niet gevonden - BV ontbinden?</title>
       <meta name="robots" content="noindex, follow" />
       <p className="text-6xl font-bold text-brand-500">404</p>
       <h1 className="mt-4">Deze pagina bestaat niet</h1>

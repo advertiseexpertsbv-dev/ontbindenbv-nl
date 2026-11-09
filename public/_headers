@@ -26,9 +26,3 @@
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 /apple-touch-icon.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
-
-# Interne beslisboom: niet indexeren. De pagina heeft ook een noindex-meta; robots.txt blokkeert hem bewust NIET meer,
-# want Google leest een noindex alleen op een pagina die het mag ophalen (SEO-03). De worker-pagina's /bedankt/ en
-# /intake-nieuwe-klant/ krijgen dezelfde header in src/server.ts.
-/bizzi/*
-  X-Robots-Tag: noindex, nofollow

@@ -20,7 +20,7 @@ export default function MobieleBalk() {
       <div className="h-[64px] md:hidden" aria-hidden="true" />
       <nav
         aria-label="Snel contact"
-        className="fixed inset-x-0 bottom-0 z-90 flex gap-2 border-t border-form-lijn bg-white px-3 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-90 flex gap-2 border-t border-line bg-white px-3 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden"
       >
         <a
           href={site.phoneHref}
@@ -43,7 +43,7 @@ export default function MobieleBalk() {
               doel.querySelector<HTMLInputElement>('input[name="naam"]')?.focus({ preventScroll: true })
             }
           }}
-          className="flex h-12 flex-1 items-center justify-center rounded-full bg-brand-700 font-semibold text-white"
+          className="knop-blauw flex h-12 flex-1 items-center justify-center rounded-full font-semibold text-white"
         >
           Gratis intake
         </a>

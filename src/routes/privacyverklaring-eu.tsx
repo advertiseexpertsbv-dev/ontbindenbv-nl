@@ -6,5 +6,5 @@ import JuridischePagina from '../components/sections/JuridischePagina'
 
 export const Route = createFileRoute('/privacyverklaring-eu')({
   head: () => seo(paginas.privacyverklaring),
-  component: () => <JuridischePagina titel="Privacyverklaring" html={privacyverklaring} />,
+  component: () => <JuridischePagina titel="Privacyverklaring (EU)" html={privacyverklaring} />,
 })

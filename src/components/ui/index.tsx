@@ -2,12 +2,12 @@ import type { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 
 /**
- * Zelfde kader als de oude site: max 1272px breed met 16px zijmarge (dus 1240px inhoud), op elke breedte.
+ * Zelfde kader als de oude site: max 1300px breed met 16px zijmarge (dus 1268px inhoud), op elke breedte.
  * Heeft de className zelf een max-w-, dan geldt die (smalle tekstkolom) in plaats van de standaardbreedte.
  */
 export function Container({ children, className = '' }: { children: ReactNode; className?: string }) {
   const eigenBreedte = /(^|\s)(?:[\w-]+:)*max-w-/.test(className)
-  return <div className={`mx-auto w-full px-4 ${eigenBreedte ? '' : 'max-w-[1272px]'} ${className}`}>{children}</div>
+  return <div className={`mx-auto w-full px-4 ${eigenBreedte ? '' : 'max-w-[1300px]'} ${className}`}>{children}</div>
 }
 
 export function Section({
@@ -45,27 +45,26 @@ type ButtonProps = {
   arrow?: boolean
 }
 
-/* Knop van de oude site: pil, padding 16px 32px + 1px rand, tekst 14px (onder 768px) of 17px in gewone dikte, regelhoogte 1.8.
-   Kleurwissel bij hover is direct (oud: transition 0s); alleen het pijltje schuift in 0,3s (zie `arrow` hieronder). */
+/* Knop van de oude site: pil, padding 16px 32px, Manrope 18px halfvet, regelhoogte 1,4. Blauw en geel met een verloop van boven
+   naar beneden; bij hover verandert alleen het pijltje (schuift in 0,3s van rechts naar links), zoals de oude site. */
 const base =
-  'group inline-flex items-center justify-center rounded-full border font-normal leading-[1.8] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-px whitespace-nowrap'
+  'group inline-flex items-center justify-center rounded-full font-semibold leading-[1.4] tracking-[-0.1px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-px whitespace-nowrap'
 const variants = {
-  // Oude site: bij hover wordt alleen de vulling donker (#03396c), de rand blijft merkblauw
-  blue: 'border-brand-700 bg-brand-700 text-white hover:bg-brand-hover',
-  yellow: 'border-accent bg-accent text-brand-950 hover:border-accent-dark hover:bg-accent-dark',
-  // Oude site: bij hover wordt de vulling blauw en de tekst wit, de witte rand blijft staan
-  white: 'border-white bg-white text-brand-700 hover:bg-brand-700 hover:text-white',
-  outline: 'border-transparent bg-transparent text-brand-700 ring-2 ring-brand-700 hover:bg-brand-700 hover:text-white',
-  outlineLight: 'border-transparent bg-transparent text-white ring-2 ring-white/80 hover:bg-white hover:text-brand-700',
-  ghost: 'border-transparent text-brand-700 hover:bg-brand-50',
+  blue: 'knop-blauw text-white',
+  yellow: 'knop-geel text-text',
+  // Wit met blauwe tekst; bij hover blauw met witte tekst
+  white: 'bg-white text-brand-700 hover:bg-brand-700 hover:text-white',
+  outline: 'bg-transparent text-brand-700 ring-2 ring-brand-700 hover:bg-brand-700 hover:text-white',
+  outlineLight: 'bg-transparent text-white ring-2 ring-white/80 hover:bg-white hover:text-brand-700',
+  ghost: 'text-brand-700 hover:bg-brand-50',
 }
 const sizes = {
   sm: 'px-6 py-2.5 text-[14px]',
-  md: 'px-8 py-4 text-[14px] md:text-[17px]',
+  md: 'px-8 py-4 text-[18px]',
   // De oude site kent één knopmaat; lg blijft beschikbaar voor bestaande aanroepen
-  lg: 'px-8 py-4 text-[14px] md:text-[17px]',
+  lg: 'px-8 py-4 text-[18px]',
   // Header op 992-1239px: compacter, zodat logo, telefoon en beide knoppen op één regel passen (de oude header loopt daar over)
-  header: 'px-5 py-4 text-[14px] min-[992px]:text-[15px] min-[1100px]:px-6 min-[1200px]:px-8 min-[1200px]:text-[17px]',
+  header: 'px-5 py-4 text-[15px] min-[1100px]:px-6 min-[1240px]:px-8 min-[1240px]:text-[18px]',
 }
 
 export function Button({ children, href, onClick, variant = 'blue', size = 'md', type = 'button', className = '', disabled, arrow }: ButtonProps) {

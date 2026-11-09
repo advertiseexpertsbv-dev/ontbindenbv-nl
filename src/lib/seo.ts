@@ -45,7 +45,7 @@ export function kruimelsVoor(path: string, title: string, article: boolean): Kru
   const home: Kruimel = { name: 'Home', path: '/' }
   const nieuws: Kruimel = { name: 'Kennisbank', path: '/kennisbank/' }
   if (PAGINANAMEN[pad]) return pad === '/kennisbank/' ? [home, nieuws] : [home, { name: PAGINANAMEN[pad], path: pad }]
-  const nieuwsPagina = /^\/nieuws\/page\/(\d+)\/$/.exec(pad)
+  const nieuwsPagina = /^\/kennisbank\/page\/(\d+)\/$/.exec(pad)
   if (nieuwsPagina) return [home, nieuws, { name: `Pagina ${nieuwsPagina[1]}`, path: pad }]
   const dienst = /^\/dienst\/([^/]+)\/$/.exec(pad)
   if (dienst) return [home, { name: vindDienst(dienst[1])?.naam ?? title, path: pad }]
@@ -63,7 +63,7 @@ export function breadcrumbJsonLd(crumbs: Kruimel[]): string {
 }
 
 export function seo({ title, description, path = '/', ogImage, ogImageMeta, noindex, exact, article, crumbs }: SeoInput) {
-  const fullTitle = exact || title.includes(site.name) ? title : `${title} - ${site.name}`
+  const fullTitle = exact ? title : `${title} - ${site.titelSuffix}`
   const url = `${site.url}${metSlash(path)}`
   const img = ogImage ?? '/images/og.jpg'
   const kruimels = noindex ? [] : (crumbs ?? kruimelsVoor(path, title, Boolean(article)))

@@ -1,41 +1,45 @@
+import type { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import { beeld, SIZES } from '../../lib/beeld'
 import { Container } from '../ui'
 
 /**
- * Titelbalk van onderliggende pagina's, kruimelpad en titel. Maten zoals de oude site (padding 72px,
- * titel 30/40px extra bold met regelhoogte 1,3, kruimelpad en ondertitel 14/17px met regelhoogte 1,8,
- * omslag bij 768px).
+ * Titelbalk van onderliggende pagina's, zoals de oude site: padding 72px, kruimelpad ("Home" halfvet) en titel (h1).
  *
- * variant="foto" (standaard): foto met 50% blauwe laag en witte tekst (over ons, contact, diensten, juridisch).
- * variant="licht": lichte balk met de bg-full-textuur en blauwe tekst, zoals de oude nieuwspagina's
- * (gebruik <PaginaKop variant="licht" ... />).
+ * variant="blauw" (standaard): het blauwe verloop met rechtsonder de grote letters "BV" (600px, vanaf 768px), witte tekst
+ * (over ons, contact, diensten, juridisch). Onder de titel optioneel een ondertitel (22px) en vinkjes (dienstpagina's).
+ * variant="licht": lichte balk met de bg-full-textuur en blauwe tekst (kennisbank).
  */
 export default function PaginaKop({
   titel,
   kruimels = [],
   sub,
-  variant = 'foto',
+  variant = 'blauw',
+  children,
 }: {
   titel: string
   kruimels?: { label: string; to?: string }[]
   sub?: string
-  variant?: 'foto' | 'licht'
+  variant?: 'blauw' | 'licht'
+  children?: ReactNode
 }) {
   const licht = variant === 'licht'
   const tekst = licht ? 'text-brand-700' : 'text-white'
   return (
-    <section className={licht ? 'bg-textuur relative' : 'relative isolate overflow-hidden bg-diep text-white'}>
+    <section className={licht ? 'bg-textuur relative' : 'bg-verloop relative isolate overflow-hidden text-white'}>
       {!licht && (
-        <>
-          {/* Bovenaan de pagina en het grootste beeld in beeld: de LCP-afbeelding, dus niet lazy en fetchPriority high */}
-          <img {...beeld('/images/site/page-banner.webp', SIZES.paginaBanner)} alt="" width={1600} height={445} fetchPriority="high" decoding="async" className="absolute inset-0 -z-20 size-full object-cover" />
-          <div className="absolute inset-0 -z-10 bg-diep/50" />
-        </>
+        <img
+          {...beeld('/images/site/banner-bv.webp', SIZES.bannerBv)}
+          alt=""
+          width={600}
+          height={475}
+          decoding="async"
+          className="pointer-events-none absolute right-0 bottom-0 -z-10 hidden h-auto w-[600px] md:block"
+        />
       )}
       <Container className="py-[72px]">
         {kruimels.length > 0 && (
-          <nav aria-label="Kruimelpad" className={`text-[14px] leading-[1.8] md:text-[17px] ${tekst}`}>
+          <nav aria-label="Kruimelpad" className={tekst}>
             <Link to="/" className="tik inline-block font-semibold hover:underline">
               Home
             </Link>
@@ -53,9 +57,9 @@ export default function PaginaKop({
             ))}
           </nav>
         )}
-        {/* w-fit: net als de oude site (flex-item) krijgt de kop de breedte van het langste woord als dat net niet in de kolom past, zodat een kop als 'Navorderingsaanslag?' op 390px niet met een los vraagteken afbreekt */}
-        <h1 className={`w-fit text-[30px] font-extrabold leading-[1.3] md:text-[40px] ${licht ? '!text-brand-700' : '!text-white'}`}>{titel}</h1>
-        {sub && <p className={`mt-4 text-[14px] leading-[1.8] md:text-[17px] ${tekst}`}>{sub}</p>}
+        <h1 className={`w-fit ${licht ? '!text-brand-700' : '!text-white'} ${sub || children ? 'mb-4' : ''}`}>{titel}</h1>
+        {sub && <p className={`text-[18px] leading-[1.125] font-normal md:text-[22px] ${tekst}`}>{sub}</p>}
+        {children}
       </Container>
     </section>
   )

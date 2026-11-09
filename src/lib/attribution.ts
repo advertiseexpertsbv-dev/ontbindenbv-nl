@@ -12,10 +12,10 @@ export type Attributie = {
   landingspagina: string
 }
 
-const FIRST = 'bb-first-touch'
-const LAST = 'bb-last-touch'
-const UTM = 'bb-utm'
-const LANDING = 'bb-landing'
+const FIRST = 'obv-first-touch'
+const LAST = 'obv-last-touch'
+const UTM = 'obv-utm'
+const LANDING = 'obv-landing'
 
 type Touch = { source: string; medium: string }
 

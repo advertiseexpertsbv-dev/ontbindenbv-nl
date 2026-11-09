@@ -2,8 +2,9 @@ import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { Link, useLocation } from '@tanstack/react-router'
 import { site } from '../../lib/site'
 import { beeld, SIZES } from '../../lib/beeld'
-import { diensten, footerDiensten, vindDienst } from '../../content/diensten'
+import { footerDiensten, hoofdmenu, mobielNav } from '../../content/menu'
 import { Button, Container, PhoneFill, StarFill } from '../ui'
+import { GoogleG } from '../sections/icons'
 
 /*
  * Header zoals de oude site:
@@ -11,73 +12,11 @@ import { Button, Container, PhoneFill, StarFill } from '../ui'
  *  - onder 992px: logo, telefoon (vanaf 768px) en hamburger; het menu klapt open onder de header
  *
  * Bediening (naast de oude site):
+ *  - drie dropdowns (BV ontbinden, BV met Schulden, Bedrijf herstructureren), elk één kolom zoals de oude site
  *  - dropdown: muis (hover), tik (wisselt), toetsenbord (Enter/spatie, pijltjestoetsen, Escape sluit en geeft de focus terug)
  *  - mobiel menu: scrollt de pagina niet mee (scrollslot), het paneel scrolt zelf als het niet in beeld past;
  *    Escape sluit het en geeft de focus terug, de pagina erachter is inert (Tab blijft in het menu)
  */
-
-/** Volgorde van "Veel voorkomende problemen" op de oude site (WordPress-menu, 3 kolommen) */
-const DROPDOWN_VOLGORDE = [
-  'hulp-bij-aansprakelijkheid-voor-schulden',
-  'hulp-bij-belastingcontrole',
-  'hulp-bij-belastingschuld',
-  'hulp-bij-beslaglegging',
-  'hulp-bij-bezwaar-maken',
-  'hulp-bij-conservatoir-beslag',
-  'hulp-bij-de-corona-regeling',
-  'hulp-bij-een-bedrijfsopvolging',
-  'hulp-bij-een-coronaschuld',
-  'hulp-bij-een-definitieve-aanslag',
-  'hulp-bij-een-deurwaarder',
-  'hulp-bij-een-naheffingsaanslag',
-  'hulp-bij-een-navorderingsaanslag',
-  'hulp-bij-een-now-schuld',
-  'hulp-bij-een-tvl-schuld',
-  'hulp-bij-een-voorlopige-aanslag',
-  'hulp-bij-een-vooroverleg',
-  'hulp-bij-een-vragenbrief',
-  'hulp-bij-executoriaal-beslag',
-  'hulp-bij-internationaal-belastingrecht',
-  'hulp-bij-invordering',
-  'hulp-bij-jouw-belasting-audit',
-  'hulp-bij-loonbeslag',
-  'hulp-bij-saneren-belastingschuld',
-  'hulp-kwijtschelding-belastingschuld',
-  'hulp-met-in-beroep-gaan',
-  'schijn-zelfstandigheid',
-]
-const dropdownDiensten = [
-  ...DROPDOWN_VOLGORDE.map((slug) => vindDienst(slug)).filter((d) => d !== undefined),
-  ...diensten.filter((d) => !DROPDOWN_VOLGORDE.includes(d.slug)),
-]
-/** Het dropdownpaneel heeft 3 kolommen: pijltje omhoog/omlaag springt een rij */
-const DROPDOWN_KOLOMMEN = 3
-
-const nav = [
-  { label: 'Home', to: '/' },
-  { label: 'Veel voorkomende problemen', menu: true },
-  { label: 'Over ons', to: '/over-ons/' },
-  { label: 'Onze werkwijze', to: '/onze-werkwijze/' },
-  { label: 'Kennisbank', to: '/kennisbank/' },
-  { label: 'Gratis intakegesprek', to: '/gratis-intakegesprek/' },
-  { label: 'Contact', to: '/contact/' },
-] as const
-
-/** Mobiel menu: geen Home, Contact en losse intake-link; die zitten niet in het menu van de oude site */
-const mobielNav = [
-  { label: 'Over ons', to: '/over-ons/' },
-  { label: 'Onze werkwijze', to: '/onze-werkwijze/' },
-  { label: 'Kennisbank', to: '/kennisbank/' },
-] as const
-
-/** Het mobiele menu van de oude site schrijft vijf diensten met een kleine letter (eigen menulabels, anders dan de dienstnamen) */
-const MOBIEL_LABELS: Record<string, string> = {
-  'hulp-bij-de-corona-regeling': 'Corona regeling',
-  'hulp-kwijtschelding-belastingschuld': 'Kwijtschelding belastingschuld',
-  'hulp-bij-saneren-belastingschuld': 'Saneren belastingschuld',
-  'hulp-bij-conservatoir-beslag': 'Conservatoir beslag',
-  'hulp-bij-aansprakelijkheid-voor-schulden': 'Aansprakelijkheid voor schulden',
-}
 
 const mobielRij = 'w-[calc(100%+2rem)] -mx-4 border-b border-white p-4 text-left text-[18px] text-brand-700'
 
@@ -85,20 +24,22 @@ export default function Header() {
   const { pathname } = useLocation()
   // Menu's onthouden bij welke pagina ze geopend zijn; navigeren sluit ze dus vanzelf
   const [mobielPad, setMobielPad] = useState<string | null>(null)
+  // Welke dropdown open is, met de pagina waarop hij geopend werd ("<pad>|<label>")
   const [menuPad, setMenuPad] = useState<string | null>(null)
   const [mobielDiensten, setMobielDiensten] = useState(false)
   // Onderkant van de header op het moment van openen (px vanaf de bovenkant van het scherm) en hoogte van het dienstenpaneel
   const [menuTop, setMenuTop] = useState(103)
   const [dienstenHoogte, setDienstenHoogte] = useState(0)
   const mobielOpen = mobielPad === pathname
-  const menuOpen = menuPad === pathname
+  const menuOpen = menuPad?.startsWith(`${pathname}|`) ?? false
+  const openLabel = menuOpen ? menuPad!.slice(pathname.length + 1) : null
   const setMobielOpen = (open: boolean) => setMobielPad(open ? pathname : null)
-  const setMenuOpen = (open: boolean) => setMenuPad(open ? pathname : null)
+  const setMenuOpen = (label: string | null) => setMenuPad(label ? `${pathname}|${label}` : null)
 
   const headerRef = useRef<HTMLElement>(null)
   const navRef = useRef<HTMLElement>(null)
-  const dropdownKnopRef = useRef<HTMLButtonElement>(null)
-  const dropdownPaneelRef = useRef<HTMLDivElement>(null)
+  const dropdownKnoppen = useRef<Record<string, HTMLButtonElement | null>>({})
+  const dropdownPanelen = useRef<Record<string, HTMLDivElement | null>>({})
   const mobielKnopRef = useRef<HTMLButtonElement>(null)
   const dienstenKnopRef = useRef<HTMLButtonElement>(null)
   const dienstenPaneelRef = useRef<HTMLDivElement>(null)
@@ -113,8 +54,9 @@ export default function Header() {
     const toets = (e: globalThis.KeyboardEvent) => {
       if (e.key !== 'Escape') return
       if (menuOpen) {
+        const knop = openLabel ? dropdownKnoppen.current[openLabel] : null
         setMenuPad(null)
-        dropdownKnopRef.current?.focus()
+        knop?.focus()
       }
       if (mobielOpen) {
         setMobielPad(null)
@@ -130,7 +72,7 @@ export default function Header() {
       document.removeEventListener('keydown', toets)
       document.removeEventListener('pointerdown', buiten)
     }
-  }, [menuOpen, mobielOpen])
+  }, [menuOpen, mobielOpen, openLabel])
 
   // Scrollslot achter het open mobiele menu. De pagina staat op html (overflow-x: clip in styles.css),
   // dus het slot moet daar op. Een eventuele scrollbalk wordt opgevangen zodat de pagina niet verspringt.
@@ -160,7 +102,7 @@ export default function Header() {
     }
   }, [mobielOpen])
 
-  // Focus volgt het tweede paneel van het mobiele menu: naar de terugknop bij openen, terug naar "Veel voorkomende problemen" bij sluiten
+  // Focus volgt het tweede paneel van het mobiele menu: naar de terugknop bij openen, terug naar "Diensten" bij sluiten
   useEffect(() => {
     if (!mobielOpen) {
       inDienstenPaneel.current = false
@@ -186,13 +128,14 @@ export default function Header() {
     setMobielDiensten(true)
   }
 
-  // Pijltjestoetsen in het dropdownpaneel: omlaag/omhoog = een rij, links/rechts = een item, Home/End = eerste/laatste
-  const dropdownToets = (e: KeyboardEvent<HTMLDivElement>) => {
-    const links = Array.from(dropdownPaneelRef.current?.querySelectorAll<HTMLAnchorElement>('a') ?? [])
-    if (e.target === dropdownKnopRef.current) {
+  // Pijltjestoetsen in een dropdown (één kolom): omlaag/omhoog = volgend/vorig item, Home/End = eerste/laatste
+  const dropdownToets = (label: string) => (e: KeyboardEvent<HTMLDivElement>) => {
+    const knop = dropdownKnoppen.current[label]
+    const links = Array.from(dropdownPanelen.current[label]?.querySelectorAll<HTMLAnchorElement>('a') ?? [])
+    if (e.target === knop) {
       if (e.key === 'ArrowDown') {
         e.preventDefault()
-        setMenuOpen(true)
+        setMenuOpen(label)
         requestAnimationFrame(() => links[0]?.focus())
       }
       return
@@ -202,21 +145,15 @@ export default function Header() {
     let volgende = nu
     switch (e.key) {
       case 'ArrowDown':
-        if (nu + DROPDOWN_KOLOMMEN < links.length) volgende = nu + DROPDOWN_KOLOMMEN
-        break
-      case 'ArrowUp':
-        if (nu - DROPDOWN_KOLOMMEN >= 0) volgende = nu - DROPDOWN_KOLOMMEN
-        else {
-          e.preventDefault()
-          dropdownKnopRef.current?.focus()
-          return
-        }
-        break
-      case 'ArrowRight':
         volgende = Math.min(nu + 1, links.length - 1)
         break
-      case 'ArrowLeft':
-        volgende = Math.max(nu - 1, 0)
+      case 'ArrowUp':
+        if (nu === 0) {
+          e.preventDefault()
+          knop?.focus()
+          return
+        }
+        volgende = nu - 1
         break
       case 'Home':
         volgende = 0
@@ -238,7 +175,7 @@ export default function Header() {
       {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg */}
       <div className="bg-textuur hidden min-[992px]:block">
         <Container className="flex items-center gap-2 py-2 text-[14px]">
-          <span className="flex text-text" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
+          <span className="flex text-star" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
             {[0, 1, 2, 3, 4].map((i) => (
               <StarFill key={i} className="size-4" />
             ))}
@@ -250,13 +187,14 @@ export default function Header() {
               {site.reviews.count} reviews
             </Link>
           </span>
+          <GoogleG className="size-5" />
         </Container>
       </div>
 
       <header ref={headerRef} className="relative z-50 bg-white min-[992px]:sticky min-[992px]:top-0 min-[992px]:shadow-header">
         <Container className="flex items-center justify-between py-6">
           <Link to="/" aria-label={`${site.name}, naar de homepage`} className="shrink-0">
-            <img {...beeld('/images/brand/2024-06-belasting-bemiddelaar-logo-420.webp', SIZES.logoHeader)} alt={site.name} width={191} height={55} className="aspect-[420/121] h-[55px] w-auto" />
+            <img {...beeld('/images/brand/logo.webp', SIZES.logoHeader)} alt={site.name} width={212} height={55} className="aspect-[424/110] h-[55px] w-auto" />
           </Link>
 
           <div className="flex items-center gap-4 min-[768px]:gap-12 min-[992px]:gap-6 min-[1200px]:gap-12">
@@ -264,13 +202,13 @@ export default function Header() {
             <div className="hidden items-center gap-4 min-[768px]:flex">
               <PhoneFill className="size-4 shrink-0 text-brand-700" />
               <div>
-                <p className="text-[20px] leading-[1.3] font-medium whitespace-nowrap text-brand-700">
+                <p className="text-[22px] leading-[1.125] font-medium whitespace-nowrap text-brand-700">
                   <a href={site.phoneHref}>
                     <span className="min-[992px]:max-[1099px]:hidden">Bel direct op: </span>
                     {site.phone}
                   </a>
                 </p>
-                <span className="flex items-center gap-1 text-[12px] text-muted">
+                <span className="flex items-center gap-1 text-[12px] text-bereikbaar">
                   <span className="size-2 rounded-full bg-[#31d937]" aria-hidden="true" />
                   {site.belTijden}
                 </span>
@@ -288,7 +226,7 @@ export default function Header() {
 
             <div className="hidden items-center gap-4 min-[992px]:flex">
               <Button href="/gratis-intakegesprek/" arrow variant="blue" size="header">
-                Gratis intakegesprek
+                Gratis adviesgesprek
               </Button>
               <Button href={site.afspraakHref} arrow variant="yellow" size="header">
                 Online afspraak inplannen
@@ -317,67 +255,82 @@ export default function Header() {
         {/* Hoofdmenu desktop */}
         <nav ref={navRef} aria-label="Hoofdmenu" className="hidden border-t border-bkg-light min-[992px]:block">
           <Container className="relative flex items-center justify-between">
-            {nav.map((item) =>
-              'menu' in item ? (
-                <div
-                  key={item.label}
-                  className="min-[1100px]:relative"
-                  onPointerEnter={(e) => e.pointerType === 'mouse' && setMenuOpen(true)}
-                  onPointerLeave={(e) => e.pointerType === 'mouse' && setMenuOpen(false)}
-                  onKeyDown={dropdownToets}
-                  onBlur={(e) => {
-                    // Toetsenbord: focus die buiten het menu belandt sluit het menu
-                    if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget as Node)) setMenuOpen(false)
-                  }}
-                >
-                  <button
-                    ref={dropdownKnopRef}
-                    type="button"
-                    className={`flex cursor-pointer items-center py-4 text-[17px] transition-colors duration-300 hover:text-brand-700 ${menuOpen ? 'text-brand-700' : 'text-text'}`}
-                    aria-expanded={menuOpen}
-                    aria-controls="dropdown-diensten"
-                    onPointerDown={(e) => {
-                      laatsteInvoer.current = e.pointerType
-                    }}
-                    onClick={() => {
-                      // Muis: de hover opende het al, een klik laat het menu staan. Tik of toets: wisselen.
-                      if (laatsteInvoer.current === 'mouse') setMenuOpen(true)
-                      else setMenuOpen(!menuOpen)
-                      laatsteInvoer.current = ''
-                    }}
-                  >
-                    {item.label}
-                    <span aria-hidden="true" className="ml-[0.5em] size-[0.35em] rotate-135 border-t-[0.1em] border-r-[0.1em] border-current" />
-                  </button>
-                  {/* Altijd aanwezig (zoals de verborgen submenu's van de oude site), zodat aria-controls klopt en de links in de HTML staan */}
+            {hoofdmenu.map((item) => {
+              if ('menu' in item) {
+                const open = openLabel === item.label
+                const id = `dropdown-${item.label.toLowerCase().replace(/[^a-z]+/g, '-')}`
+                return (
                   <div
-                    id="dropdown-diensten"
-                    ref={dropdownPaneelRef}
-                    className={`bg-textuur absolute top-full left-4 z-[60] max-h-[calc(100vh-176px)] w-max grid-cols-[repeat(3,auto)] gap-x-20 overflow-y-auto rounded-b-sm p-8 whitespace-nowrap min-[1100px]:left-0 min-[1100px]:-ml-8 ${menuOpen ? 'grid' : 'hidden'}`}
+                    key={item.label}
+                    className="relative"
+                    onPointerEnter={(e) => e.pointerType === 'mouse' && setMenuOpen(item.label)}
+                    onPointerLeave={(e) => e.pointerType === 'mouse' && setMenuOpen(null)}
+                    onKeyDown={dropdownToets(item.label)}
+                    onBlur={(e) => {
+                      // Toetsenbord: focus die buiten het menu belandt sluit het menu
+                      if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget as Node)) setMenuOpen(null)
+                    }}
                   >
-                    {dropdownDiensten.map((d) => (
-                      <Link
-                        key={d.slug}
-                        to="/dienst/$dienst/"
-                        params={{ dienst: d.slug }}
-                        className="block py-4 text-text transition-colors duration-300 hover:text-brand-700"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {d.naam}
-                      </Link>
-                    ))}
+                    <button
+                      ref={(el) => {
+                        dropdownKnoppen.current[item.label] = el
+                      }}
+                      type="button"
+                      className={`flex cursor-pointer items-center py-4 text-[18px] font-semibold transition-colors duration-300 hover:text-brand-700 ${open ? 'text-brand-700' : 'text-text'}`}
+                      aria-expanded={open}
+                      aria-controls={id}
+                      onPointerDown={(e) => {
+                        laatsteInvoer.current = e.pointerType
+                      }}
+                      onClick={() => {
+                        // Muis: de hover opende het al, een klik laat het menu staan. Tik of toets: wisselen.
+                        if (laatsteInvoer.current === 'mouse') setMenuOpen(item.label)
+                        else setMenuOpen(open ? null : item.label)
+                        laatsteInvoer.current = ''
+                      }}
+                    >
+                      {item.label}
+                      <span aria-hidden="true" className="ml-[0.5em] size-[0.35em] rotate-135 border-t-[0.1em] border-r-[0.1em] border-current" />
+                    </button>
+                    {/* Altijd aanwezig (zoals de verborgen submenu's van de oude site), zodat aria-controls klopt en de links in de HTML staan */}
+                    <div
+                      id={id}
+                      ref={(el) => {
+                        dropdownPanelen.current[item.label] = el
+                      }}
+                      className={`bg-textuur absolute top-full left-0 z-[60] -ml-8 max-h-[calc(100vh-176px)] w-max flex-col overflow-y-auto rounded-b-sm px-8 py-4 whitespace-nowrap ${open ? 'flex' : 'hidden'}`}
+                    >
+                      {item.menu.map((d) => (
+                        <Link
+                          key={d.label}
+                          to="/dienst/$dienst/"
+                          params={{ dienst: d.slug }}
+                          className="block py-3 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700"
+                          onClick={() => setMenuOpen(null)}
+                        >
+                          {d.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <Link key={item.label} to={item.to} className="py-4 text-text transition-colors duration-300 hover:text-brand-700">
+                )
+              }
+              if ('dienst' in item)
+                return (
+                  <Link key={item.label} to="/dienst/$dienst/" params={{ dienst: item.dienst }} className="py-4 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700">
+                    {item.label}
+                  </Link>
+                )
+              return (
+                <Link key={item.label} to={item.to} className="py-4 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700">
                   {item.label}
                 </Link>
-              ),
-            )}
+              )
+            })}
           </Container>
         </nav>
 
-        {/* Mobiel menu: lichtblauw vlak onder de header; "Veel voorkomende problemen" schuift een tweede paneel in.
+        {/* Mobiel menu: lichtblauw vlak onder de header; "Diensten" schuift een tweede paneel in.
             Een tik op een link sluit het menu, ook als je al op die pagina bent. */}
         {mobielOpen && (
           <div
@@ -398,7 +351,7 @@ export default function Header() {
                   aria-controls="mobiel-diensten"
                   onClick={openDiensten}
                 >
-                  Veel voorkomende problemen
+                  Diensten
                   <span aria-hidden="true" className="h-3 w-2 bg-brand-700 [clip-path:polygon(40%_0,100%_50%,40%_100%,0_100%,60%_50%,0_0)]" />
                 </button>
                 {mobielNav.map((item, i) => (
@@ -435,16 +388,16 @@ export default function Header() {
                   <span className="absolute inset-x-0 top-[9px] h-0.5 -rotate-45 rounded-full bg-brand-700" />
                 </span>
               </button>
-              <nav aria-label="Veel voorkomende problemen">
+              <nav aria-label="Diensten">
                 <ul>
                   {footerDiensten.map((d, i) => (
-                    <li key={d.slug}>
+                    <li key={d.label}>
                       <Link
                         to="/dienst/$dienst/"
                         params={{ dienst: d.slug }}
                         className={`${mobielRij} block ${i === footerDiensten.length - 1 ? 'border-b-0' : ''}`}
                       >
-                        {MOBIEL_LABELS[d.slug] ?? d.naam}
+                        {d.label}
                       </Link>
                     </li>
                   ))}

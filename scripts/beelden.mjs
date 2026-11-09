@@ -1,24 +1,51 @@
-// Zet de originele beelden van de oude site (ref/images) om naar WebP in public/images.
-// Logo's en favicon blijven PNG. Gebruik: node scripts/beelden.mjs
-// Draai daarna node scripts/beelden-varianten.mjs: dat maakt de kleinere srcset-varianten (<naam>-<breedte>w.webp) en de manifesten.
+// Zet de beelden die de artikelen gebruiken (uitgelichte afbeelding en afbeeldingen in de tekst) van de oude site (ref/images)
+// om naar WebP in public/images/blog, en schrijft ref/beeldkaart.json (WordPress-pad -> lokaal pad) voor scripts/bouw-blog.py.
+// De vaste beelden van de pagina's maakt scripts/site-beelden.mjs.
+// Gebruik: node scripts/beelden.mjs   en daarna   node scripts/beelden-varianten.mjs   (srcset-varianten en manifesten)
 import sharp from 'sharp'
-import { readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 
 const bron = 'ref/images'
-const bestanden = (await readdir(bron)).filter((f) => /\.(png|jpe?g|webp|gif)$/i.test(f))
+const DOEL = 'public/images/blog'
+const posts = JSON.parse(await readFile('ref/api/posts-1.json', 'utf8'))
+const media = [...JSON.parse(await readFile('ref/api/media-1.json', 'utf8')), ...JSON.parse(await readFile('ref/api/media-2.json', 'utf8'))]
+const bestanden = new Set(await readdir(bron))
+
+// WordPress-URL -> bestandsnaam in ref/images ('2025/08/x-1024x683.jpg' -> '2025_08_x.jpg'; grote originelen heten '-scaled')
+function bestandVan(url) {
+  const k = url.replace(/-\d+x\d+(?=\.[a-z]+$)/i, '').split('/uploads/').pop().replace(/\//g, '_')
+  if (bestanden.has(k)) return k
+  const scaled = k.replace(/(\.[a-z]+)$/i, '-scaled$1')
+  return bestanden.has(scaled) ? scaled : null
+}
+
+const gebruikt = new Map() // url-sleutel -> bestand
+for (const p of posts) {
+  const urls = [...p.content.rendered.matchAll(/<img\b[^>]*?(?:data-src|\ssrc)="(https?:\/\/[^"]+\/uploads\/[^"]+)"/g)].map((m) => m[1])
+  const f = media.find((m) => m.id === p.featured_media)
+  if (f) urls.push(f.source_url)
+  for (const u of urls) {
+    const b = bestandVan(u)
+    if (b) gebruikt.set(b, b)
+    else console.warn('ontbreekt:', u)
+  }
+}
+
+await mkdir(DOEL, { recursive: true })
+for (const f of await readdir(DOEL)) await rm(`${DOEL}/${f}`)
+const naamVan = (f) =>
+  f
+    .replace(/^(\d{4})_(\d{2})_/, '$1-$2-')
+    .replace(/\.[a-z]+$/i, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
 const kaart = {}
-const naamVan = (f) => f.replace(/^(\d{4})_(\d{2})_/, '$1-$2-').replace(/\.[a-z]+$/i, '').toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
-for (const f of bestanden) {
-  const n = naamVan(f)
-  const logo = /logo|favi/i.test(f)
-  const uit = logo ? `brand/${n}.png` : `blog/${n}.webp`
-  const img = sharp(`${bron}/${f}`)
-  const meta = await img.metadata()
-  const max = logo ? 900 : 1600
-  const pipe = img.resize({ width: Math.min(meta.width ?? max, max), withoutEnlargement: true })
-  await (logo ? pipe.png({ compressionLevel: 9 }) : pipe.webp({ quality: 78 })).toFile(`public/images/${uit}`)
-  kaart[f.replace(/_/g, '/').replace(/^(\d{4}\/\d{2})\//, '$1/')] = `/images/${uit}`
-  kaart[f] = `/images/${uit}`
+for (const f of gebruikt.keys()) {
+  const uit = `${naamVan(f)}.webp`
+  await sharp(`${bron}/${f}`).rotate().resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 78, effort: 5 }).toFile(`${DOEL}/${uit}`)
+  kaart[f] = `/images/blog/${uit}`
 }
 await writeFile('ref/beeldkaart.json', JSON.stringify(kaart, null, 1))
-console.log(bestanden.length, 'beelden')
+console.log(Object.keys(kaart).length, 'artikelbeelden')

@@ -1,47 +1,55 @@
 /**
  * Vaste pagina's: titel en meta description (seo() in de head() van de route) en pad, in de volgorde van de sitemap.
  * Eén bron voor de routes, de sitemap (src/server.ts) en /llms.txt (src/server/llms.ts), zodat ze niet uit elkaar lopen.
+ * Titels 1-op-1 van de oude site (seo() zet er ' - BV ontbinden?' achter, behalve bij exact). De oude site had alleen op de
+ * homepage een meta description; de andere zijn nieuw geschreven.
  */
 export const paginas = {
   home: {
-    title: 'Belastingbemiddelaar: hulp bij belastingschuld & -zaken',
+    title: 'BV Ontbinden? Snelle & Complete begeleiding | OntbindenBV.nl',
     description:
-      'Hulp bij belastingzaken nodig? Dé Belastingbemiddelaar neemt het contact met de Belastingdienst over. Meer dan 25 jaar ervaring. Plan een kosteloze intake.',
+      'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Ontdek hoe OntbindenBV.nl je stap voor stap helpt bij het ontbinden van je BV.',
     path: '/',
   },
   overOns: {
     title: 'Over ons',
-    description: 'Ontmoet het team van Dé Belastingbemiddelaar: ervaren fiscalisten rond oprichter Peter Brouwers die voor jou met de Belastingdienst bemiddelen.',
+    description:
+      'OntbindenBV.nl is een betrokken familiebedrijf met meer dan 25 jaar ervaring in het ontbinden van ondernemingen. Maak kennis met ons team.',
     path: '/over-ons/',
   },
   werkwijze: {
     title: 'Onze werkwijze',
-    description: 'In vijf stappen van kosteloze intake naar afhandeling: zo lost Dé Belastingbemiddelaar jouw zaak met de Belastingdienst op.',
+    description:
+      'Van gratis intake tot bevestiging van de ontbinding: in vijf stappen ontbindt OntbindenBV.nl jouw BV veilig en juridisch correct.',
     path: '/onze-werkwijze/',
   },
   intakegesprek: {
     title: 'Gratis intakegesprek',
-    description: 'Boek een gratis intakegesprek met Dé Belastingbemiddelaar. Laat je gegevens achter en wij regelen een moment dat jou uitkomt.',
+    description:
+      'Boek een gratis intakegesprek met OntbindenBV.nl. Laat je gegevens achter en wij bespreken hoe we jouw BV het beste kunnen ontbinden.',
     path: '/gratis-intakegesprek/',
   },
   contact: {
     title: 'Contact',
-    description: 'Neem contact op met Dé Belastingbemiddelaar voor een kosteloze intake. Bel +31 85 130 0867 of stuur ons een bericht.',
+    description:
+      'Neem contact op met OntbindenBV.nl voor een gratis intakegesprek over het ontbinden van jouw BV. Bel +31 85 004 8369 of stuur ons een bericht.',
     path: '/contact/',
   },
-  nieuws: {
-    title: 'Nieuws',
-    description: 'Het laatste nieuws en praktische artikelen over belastingschulden, betalingsregelingen, BV-zaken en de Belastingdienst.',
+  kennisbank: {
+    title: 'Kennisbank',
+    description:
+      'Artikelen over BV ontbinden, turboliquidatie, BV opheffen met schulden, stichting opheffen en de verplichtingen bij de KvK en de Belastingdienst.',
     path: '/kennisbank/',
   },
   privacyverklaring: {
-    title: 'Privacyverklaring',
-    description: 'Lees hoe Belasting Bemiddelaar omgaat met je persoonsgegevens: welke gegevens we verwerken, waarom, met wie we ze delen en welke rechten je hebt.',
+    title: 'Privacyverklaring (EU)',
+    description:
+      'Lees hoe OntbindenBV.nl omgaat met je persoonsgegevens: welke gegevens we verwerken, waarom, met wie we ze delen en welke rechten je hebt.',
     path: '/privacyverklaring-eu/',
   },
   cookiebeleid: {
     title: 'Cookiebeleid (EU)',
-    description: 'Welke cookies Belasting Bemiddelaar gebruikt, waarvoor, en hoe je je toestemming wijzigt of intrekt.',
+    description: 'Welke cookies OntbindenBV.nl gebruikt, waarvoor, en hoe je je toestemming wijzigt of intrekt.',
     path: '/cookiebeleid-eu/',
   },
 }

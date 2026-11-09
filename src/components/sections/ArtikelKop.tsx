@@ -1,27 +1,25 @@
-import type { CSSProperties } from 'react'
 import { datumNL } from '../../content/blog-types'
+import { beeld, SIZES } from '../../lib/beeld'
 import { Container } from '../ui'
 
 /**
- * Titelbalk van een artikel zoals de oude site: een fotobanner van 250px met de afbeelding van het
- * artikel (blauwe overlay), waaroverheen een lichte kaart hangt (120px onder de banner) met de titel
- * in merkblauw en daaronder avatar en 'Geplaatst door'-regel. De sectie na deze kop geeft 184px
- * bovenruimte (zie $slug.tsx). Stijlen: .artikel-foto in styles.css (BLOK-C).
+ * Titelbalk van een artikel zoals de oude site: de blauwe balk (verloop met de letters "BV", 250px hoog) met daaroverheen een
+ * lichte kaart die 120px onder de balk uitsteekt, met de titel en daaronder avatar en de regel "Geplaatst door". De sectie
+ * na deze kop geeft 184px bovenruimte (zie $slug.tsx).
  */
-export default function ArtikelKop({ titel, image, datum, taal }: { titel: string; image: string | null; datum: string; taal?: string }) {
+export default function ArtikelKop({ titel, datum, taal }: { titel: string; datum: string; taal?: string }) {
   return (
-    <section
-      className={`relative z-[1] flex min-h-[250px] items-end ${image ? 'artikel-foto' : ''}`}
-      style={image ? ({ '--artikel-foto-url': `url("${image}")` } as CSSProperties) : undefined}
-    >
-      {/* Kaart hangt 120px onder de banner. Bij een lange titel (kaart hoger dan 394px) groeit de banner mee, zodat de titel leesbaar
-          blijft; -mt-6: tot 24px mag de kaart achter de header schuiven, net als op de oude site (daar tot de titel zelf afgekapt wordt). */}
-      <Container className="relative -mb-[120px] -mt-6">
-        <div className="rounded-[4px] bg-textuur p-12">
-          <h1 lang={taal} className="artikel-titel mb-4">{titel}</h1>
+    <section className="bg-verloop relative isolate flex min-h-[250px] items-end">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+        <img {...beeld('/images/site/banner-bv.webp', SIZES.bannerBv)} alt="" width={600} height={475} decoding="async" className="absolute right-0 bottom-0 hidden h-auto w-[600px] md:block" />
+      </div>
+      <Container className="relative -mb-[120px] pt-10">
+        <div className="bg-textuur rounded-sm p-12 max-[767px]:px-8">
+          <h1 lang={taal} className="mb-4 hyphens-auto [hyphenate-limit-chars:12_4_4] md:hyphens-manual">
+            {titel}
+          </h1>
           <div className="flex items-center gap-4 text-text">
-            {/* Avatar zoals de oude site: de foto van Peter voor het schilderij, vierkant bijgesneden (100px, voor scherpe weergave op 50px) */}
-            <img src="/images/blog/auteur-peter-100.webp" alt="" width={50} height={50} className="size-[50px] shrink-0 rounded-full object-cover" />
+            <img src="/images/site/auteur.webp" alt="" width={50} height={50} className="size-[50px] shrink-0 rounded-full object-cover" />
             <p>
               <b>Geplaatst door:</b>
               <br />

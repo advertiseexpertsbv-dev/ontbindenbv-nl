@@ -15,7 +15,6 @@ import { Route as BedanktRouteImport } from './routes/bedankt'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiebeleidEuRouteImport } from './routes/cookiebeleid-eu'
 import { Route as GratisIntakegesprekRouteImport } from './routes/gratis-intakegesprek'
-import { Route as IntakeNieuweKlantRouteImport } from './routes/intake-nieuwe-klant'
 import { Route as OnzeWerkwijzeRouteImport } from './routes/onze-werkwijze'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as PrivacyverklaringEuRouteImport } from './routes/privacyverklaring-eu'
@@ -51,11 +50,6 @@ const CookiebeleidEuRoute = CookiebeleidEuRouteImport.update({
 const GratisIntakegesprekRoute = GratisIntakegesprekRouteImport.update({
   id: '/gratis-intakegesprek',
   path: '/gratis-intakegesprek',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IntakeNieuweKlantRoute = IntakeNieuweKlantRouteImport.update({
-  id: '/intake-nieuwe-klant',
-  path: '/intake-nieuwe-klant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnzeWerkwijzeRoute = OnzeWerkwijzeRouteImport.update({
@@ -96,7 +90,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookiebeleid-eu': typeof CookiebeleidEuRoute
   '/gratis-intakegesprek': typeof GratisIntakegesprekRoute
-  '/intake-nieuwe-klant': typeof IntakeNieuweKlantRoute
   '/onze-werkwijze': typeof OnzeWerkwijzeRoute
   '/over-ons': typeof OverOnsRoute
   '/privacyverklaring-eu': typeof PrivacyverklaringEuRoute
@@ -111,7 +104,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookiebeleid-eu': typeof CookiebeleidEuRoute
   '/gratis-intakegesprek': typeof GratisIntakegesprekRoute
-  '/intake-nieuwe-klant': typeof IntakeNieuweKlantRoute
   '/onze-werkwijze': typeof OnzeWerkwijzeRoute
   '/over-ons': typeof OverOnsRoute
   '/privacyverklaring-eu': typeof PrivacyverklaringEuRoute
@@ -127,7 +119,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookiebeleid-eu': typeof CookiebeleidEuRoute
   '/gratis-intakegesprek': typeof GratisIntakegesprekRoute
-  '/intake-nieuwe-klant': typeof IntakeNieuweKlantRoute
   '/onze-werkwijze': typeof OnzeWerkwijzeRoute
   '/over-ons': typeof OverOnsRoute
   '/privacyverklaring-eu': typeof PrivacyverklaringEuRoute
@@ -144,7 +135,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookiebeleid-eu'
     | '/gratis-intakegesprek'
-    | '/intake-nieuwe-klant'
     | '/onze-werkwijze'
     | '/over-ons'
     | '/privacyverklaring-eu'
@@ -159,7 +149,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookiebeleid-eu'
     | '/gratis-intakegesprek'
-    | '/intake-nieuwe-klant'
     | '/onze-werkwijze'
     | '/over-ons'
     | '/privacyverklaring-eu'
@@ -174,7 +163,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookiebeleid-eu'
     | '/gratis-intakegesprek'
-    | '/intake-nieuwe-klant'
     | '/onze-werkwijze'
     | '/over-ons'
     | '/privacyverklaring-eu'
@@ -190,7 +178,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiebeleidEuRoute: typeof CookiebeleidEuRoute
   GratisIntakegesprekRoute: typeof GratisIntakegesprekRoute
-  IntakeNieuweKlantRoute: typeof IntakeNieuweKlantRoute
   OnzeWerkwijzeRoute: typeof OnzeWerkwijzeRoute
   OverOnsRoute: typeof OverOnsRoute
   PrivacyverklaringEuRoute: typeof PrivacyverklaringEuRoute
@@ -241,13 +228,6 @@ declare module '@tanstack/react-router' {
       path: '/gratis-intakegesprek'
       fullPath: '/gratis-intakegesprek'
       preLoaderRoute: typeof GratisIntakegesprekRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/intake-nieuwe-klant': {
-      id: '/intake-nieuwe-klant'
-      path: '/intake-nieuwe-klant'
-      fullPath: '/intake-nieuwe-klant'
-      preLoaderRoute: typeof IntakeNieuweKlantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onze-werkwijze': {
@@ -302,7 +282,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiebeleidEuRoute: CookiebeleidEuRoute,
   GratisIntakegesprekRoute: GratisIntakegesprekRoute,
-  IntakeNieuweKlantRoute: IntakeNieuweKlantRoute,
   OnzeWerkwijzeRoute: OnzeWerkwijzeRoute,
   OverOnsRoute: OverOnsRoute,
   PrivacyverklaringEuRoute: PrivacyverklaringEuRoute,

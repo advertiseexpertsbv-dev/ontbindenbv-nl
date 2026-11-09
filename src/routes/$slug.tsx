@@ -2,9 +2,11 @@ import { createFileRoute, notFound } from '@tanstack/react-router'
 import { seo } from '../lib/seo'
 import { haalPost } from '../server/blog'
 import { site } from '../lib/site'
+import { vertrouwenKaart } from '../content/home'
 import ArtikelKop from '../components/sections/ArtikelKop'
 import KaartFormulier from '../components/sections/KaartFormulier'
-import { PostKaart } from '../components/sections/NieuwsOverzicht'
+import Vinken from '../components/sections/Vinken'
+import { FaqIcoon } from '../components/sections/icons'
 import CtaBand from '../components/sections/CtaBand'
 import Reviews from '../components/sections/Reviews'
 import Faq from '../components/sections/Faq'
@@ -51,7 +53,7 @@ export const Route = createFileRoute('/$slug')({
                 ? `${site.url}${p.image}`
                 : undefined,
             author: { '@type': 'Person', name: 'Peter Brouwers' },
-            publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${site.url}/images/brand/2024-06-belasting-bemiddelaar-logo.png` } },
+            publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${site.url}/images/brand/logo.png` } },
             mainEntityOfPage: `${site.url}/${params.slug}/`,
           }),
         },
@@ -73,19 +75,38 @@ export const Route = createFileRoute('/$slug')({
   component: Artikel,
 })
 
+/**
+ * Artikel zoals de oude site: blauwe titelbalk met de titelkaart, links de inhoudsopgave (ingeklapt), de uitgelichte afbeelding en
+ * de tekst (60%), rechts de vinkjeskaart en het formulier; daaronder de CTA-band, reviews, veelgestelde vragen en het contactblok.
+ */
 function Artikel() {
-  const { post: p, meer } = Route.useLoaderData()
+  const { post: p } = Route.useLoaderData()
   return (
     <>
-      <ArtikelKop titel={p.title} image={p.image} datum={p.date} taal={p.taal} />
-      {/* 184px: de titelkaart hangt 120px onder de fotobanner (zoals de oude site) */}
-      <section className="pb-[72px] pt-[184px]">
-        <Container className="grid grid-cols-[minmax(0,1fr)] items-start gap-10 min-[992px]:grid-cols-[minmax(0,744fr)_minmax(0,496fr)] min-[992px]:gap-0">
-          {/* lang: vier artikelen zijn volledig Engelstalig; de rest van de pagina (formulier, menu) blijft Nederlands */}
-          <article lang={p.taal} className="min-w-0 min-[992px]:pr-4">
+      <ArtikelKop titel={p.title} datum={p.date} taal={p.taal} />
+      {/* 184px: de titelkaart hangt 120px onder de balk, daarna 64px ruimte (zoals de oude site) */}
+      <section className="pt-[184px] pb-[72px]">
+        <Container className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:items-start min-[992px]:gap-0">
+          {/* lang: vijf artikelen zijn Engelstalig; de rest van de pagina (formulier, menu) blijft Nederlands */}
+          <article lang={p.taal} className="min-w-0 min-[992px]:w-[60%] min-[992px]:pr-4">
+            {p.toc.length > 1 && (
+              <details className="group mb-8">
+                <summary className="flex w-fit cursor-pointer list-none items-center gap-3 [&::-webkit-details-marker]:hidden">
+                  {p.taal === 'en' ? 'Table of contents' : 'Inhoudsopgave'}
+                  <FaqIcoon open={false} className="size-3 text-brand-700 transition-transform group-open:rotate-45" />
+                </summary>
+                <ol className="mt-4 flex list-decimal flex-col gap-2 pl-6">
+                  {p.toc.map((t) => (
+                    <li key={t.id}>
+                      <a href={`#${t.id}`} className="underline-offset-2 hover:text-brand-700 hover:underline">
+                        {t.tekst}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
             {p.image && (
-              // Bewust zonder srcset: de fotobanner erboven (ArtikelKop, CSS-achtergrond) gebruikt hetzelfde origineel, dus de browser
-              // haalt het beeld maar één keer op. Een kleinere variant hier zou een tweede download naast de banner geven.
               <img
                 src={p.image}
                 alt={p.imageAlt ?? ''}
@@ -93,29 +114,19 @@ function Artikel() {
                 height={p.imageH ?? undefined}
                 fetchPriority="high"
                 decoding="async"
-                className="mb-4 block h-auto max-h-[450px] w-auto max-w-full rounded-[4px]"
+                className="mb-8 block h-auto max-h-[1024px] w-auto max-w-full"
               />
             )}
-            {/* Geen apart 'Over de auteur'-blok: de oude site had het niet en in 123 artikelen staat de bio al in de tekst zelf */}
             <div className="artikel-post" dangerouslySetInnerHTML={{ __html: p.html }} />
           </article>
-          <div className="min-w-0 min-[992px]:pl-4">
-            <KaartFormulier formulier={`Artikel: ${p.slug}`} />
+          <div className="min-w-0 min-[992px]:w-[40%] min-[992px]:pl-4">
+            <div className="bg-textuur mb-8 rounded-sm border border-bkg-light p-8 min-[992px]:p-12">
+              <Vinken items={vertrouwenKaart} />
+            </div>
+            <KaartFormulier formulier={`Artikel: ${p.slug}`} titel="Waar kunnen we je mee helpen?" />
           </div>
         </Container>
       </section>
-      {meer.length > 0 && (
-        <section className="py-[72px]">
-          <Container>
-            <h2 className="mb-4">Gerelateerd nieuws</h2>
-            <div className="grid gap-x-4 gap-y-12 min-[768px]:grid-cols-2 min-[992px]:grid-cols-3">
-              {meer.map((m) => (
-                <PostKaart key={m.slug} p={m} niveau="h3" />
-              ))}
-            </div>
-          </Container>
-        </section>
-      )}
       <CtaBand />
       <Reviews />
       <Faq />

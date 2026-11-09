@@ -1,99 +1,83 @@
 import { Link } from '@tanstack/react-router'
 import { site } from '../../lib/site'
 import { beeld, SIZES } from '../../lib/beeld'
-import { footerDiensten } from '../../content/diensten'
-import { footerLabels } from '../../content/footer'
-import { Container, Linkedin } from '../ui'
+import { footerDiensten, footerOver } from '../../content/menu'
+import { Container } from '../ui'
 
-const over = [
-  { label: 'Home', to: '/' },
-  { label: 'Over ons', to: '/over-ons/' },
-  { label: 'Onze werkwijze', to: '/onze-werkwijze/' },
-  { label: 'Kennisbank', to: '/kennisbank/' },
-  { label: 'Gratis intakegesprek', to: '/gratis-intakegesprek/' },
-  { label: 'Contact', to: '/contact/' },
-] as const
+/** Tekst links in de footer, regel voor regel zoals de oude site (adres: het nieuwe adres) */
+const footerRegels = [
+  'Wij bieden adviesdiensten aan ondernemers.',
+  'Wij bieden geen krediet, schuldafkoop of schuldverwerking.',
+  'Wij adviseren uitsluitend over bedrijfsbeëindiging, herstructurering en schuldhulptrajecten.',
+  `Kamer van Koophandel: ${site.kvk}`,
+  `Adres: ${site.address.street}, ${site.address.postalCode} ${site.address.city}`,
+  'Kosten: Advies gesprek is altijd kosteloos en eventuele kosten zullen vooraf worden besproken.',
+]
 
 /*
- * Footer zoals de oude site: band "Volg ons online" (rand boven en onder, 48px padding), hoofdblok met 72px padding
- * (logo + tekst max 300px, daarnaast Diensten in 2 kolommen en Over), onderbalk met 48px padding.
- * Vanaf 1124px zijn de kolombreedtes die van de oude site (1fr, 616,4 en 175,1px bij 1240px inhoud). Tussen 992 en 1123px
- * is de linkerkolom op de oude site te smal voor het logo en het mailadres; daar staat de introtekst boven de linklijsten,
- * zodat geen dienstnaam over twee regels breekt. Onder 992px staat alles onder elkaar.
+ * Footer zoals de oude site: merkblauw, hoofdblok met 72px padding (logo + tekst max 300px links, rechts de kolommen Diensten
+ * en Over), onderbalk met witte rand en 48px padding. Tekst en links in de gewone tekstmaat (22px op desktop, 14px mobiel).
+ * De band "Volg ons online" van de oude site linkte nergens heen (#) en staat er daarom (nog) niet.
  */
 export default function Footer() {
   return (
     <footer className="bg-brand-700 text-white">
-      <div className="border-y border-white">
-        <Container className="flex flex-wrap items-center gap-4 py-12">
-          <span>Volg ons online</span>
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener"
-            aria-label="Belasting Bemiddelaar op LinkedIn (opent in nieuw venster)"
-            className="tik grid size-[34px] place-items-center rounded-full bg-white text-brand-700 transition-opacity hover:opacity-80"
-          >
-            <Linkedin className="size-[17px]" />
-          </a>
-        </Container>
-      </div>
-
-      <Container className="grid grid-cols-1 gap-12 py-18 min-[992px]:grid-cols-[568.4px_175.1px] min-[992px]:justify-between min-[1124px]:grid-cols-[minmax(0,1fr)_616.4px_175.1px] min-[1124px]:gap-0">
-        <div className="max-w-[300px] min-[992px]:col-span-2 min-[1124px]:col-span-1">
-          {/* 2x-variant van het logo (480px, 15 KB i.p.v. 900px PNG van 38 KB), met een 240px-variant voor 1x-schermen; onder de vouw, dus lazy */}
+      <Container className="grid grid-cols-1 gap-12 py-18 min-[992px]:grid-cols-[minmax(0,300px)_auto] min-[992px]:justify-between">
+        <div className="max-w-[300px]">
           <img
-            {...beeld('/images/brand/2024-07-belasting-bemiddelaar-logo-white-480.webp', SIZES.logoFooter)}
+            {...beeld('/images/brand/logo-wit.webp', SIZES.logoFooter)}
             alt={site.name}
-            width={237}
+            width={290}
             height={75}
             loading="lazy"
             decoding="async"
-            className="aspect-[480/151] h-[75px] w-auto"
+            className="aspect-[580/150] h-[75px] w-auto"
           />
-          <p className="mt-8">Neem vandaag nog contact op met ons voor een kosteloze intake en laat ons jou helpen met het oplossen van jouw fiscale problemen.</p>
-          <a href={site.phoneHref} className="tik mt-6 block text-[20px] font-semibold">
-            {site.phone}
-          </a>
-          <a href={`mailto:${site.email}`} className="tik mt-1 block underline underline-offset-4">
-            {site.email}
-          </a>
+          <p className="mt-8">Neem vandaag nog contact op voor een kosteloze intake en laat ons je helpen met het veilig en snel beëindigen van jouw BV.</p>
+          <p className="mt-[1.4em]">
+            {footerRegels.map((r, i) => (
+              <span key={r}>
+                {i > 0 && <br />}
+                {r}
+              </span>
+            ))}
+          </p>
         </div>
 
-        <div className="min-[1124px]:pr-12">
-          <h3 className="mb-4 text-white">Diensten</h3>
-          <ul className="grid grid-cols-1 gap-4 min-[992px]:grid-cols-2 min-[992px]:gap-x-4">
-            {footerDiensten.map((d) => (
-              <li key={d.slug}>
-                <Link to="/dienst/$dienst/" params={{ dienst: d.slug }} className="tik block hover:underline">
-                  {footerLabels[d.slug] ?? d.naam}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-white">Over</h3>
-          <ul className="flex flex-col gap-4">
-            {over.map((l) => (
-              <li key={l.label}>
-                <Link to={l.to} className="tik block hover:underline">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="flex flex-col gap-12 min-[768px]:flex-row">
+          <nav aria-label="Diensten">
+            <h2 className="mb-4 text-[18px] !text-white md:text-[22px]">Diensten</h2>
+            <ul className="flex flex-col gap-4">
+              {footerDiensten.map((d) => (
+                <li key={d.slug}>
+                  <Link to="/dienst/$dienst/" params={{ dienst: d.slug }} className="tik block hover:underline">
+                    {d.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="Over">
+            <h2 className="mb-4 text-[18px] !text-white md:text-[22px]">Over</h2>
+            <ul className="flex flex-col gap-4">
+              {footerOver.map((l) => (
+                <li key={l.label}>
+                  <Link to={l.to} className="tik block hover:underline">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </Container>
 
       <div className="border-t border-white">
         <Container className="flex flex-col flex-wrap justify-between gap-4 py-12 min-[992px]:flex-row">
-          <p>©{new Date().getFullYear()} Belasting Bemiddelaar - Alle rechten voorbehouden</p>
-          {/* Onder 480px staat Cookievoorkeuren op een eigen regel, zonder los streepje aan het eind van de regel erboven */}
+          <p>©{new Date().getFullYear()} Ontbinden BV - Alle rechten voorbehouden</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <Link to="/cookiebeleid-eu/" className="tik hover:underline">
-              Cookiebeleid (EU)
+              Cookiebeleid
             </Link>
             <span aria-hidden="true">-</span>
             <Link to="/privacyverklaring-eu/" className="tik hover:underline">

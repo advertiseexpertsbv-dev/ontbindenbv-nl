@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 export const inputClass = 'form-invoer'
 
 /**
- * Veld met label (16px, 14px onder 768px, grijs), klein rood sterretje en een eventuele foutmelding direct onder het veld.
+ * Veld met label (16px, 14px onder 768px), klein rood sterretje en een eventuele foutmelding direct onder het veld.
  * Bij een fout wordt het label rood, zoals bij Gravity Forms. Het veld zelf krijgt aria-invalid en aria-describedby van de aanroeper.
  */
 export function Veld({
@@ -24,7 +24,7 @@ export function Veld({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className={`mb-2 block text-[14px] font-normal leading-[1.8] md:text-[16px] ${fout ? 'text-form-fout' : 'text-body'}`}>
+      <label htmlFor={htmlFor} className={`mb-2 block text-[14px] font-normal leading-[1.4] md:text-[16px] ${fout ? 'text-form-fout' : 'text-body'}`}>
         <span className="pe-[0.125em]">{label}</span>
         {required && (
           <span className="ml-0.5 text-[13.008px] text-form-fout" aria-hidden="true">
@@ -43,7 +43,7 @@ export function Veld({
 }
 
 /**
- * Versturen-knop zoals Gravity Forms (Arial, blauwe pil; stijl in BLOK-D van src/styles.css).
+ * Versturen-knop zoals de oude site (blauwe verlooppil; stijl .form-knop in src/styles.css).
  * Tijdens het verzenden blijft de knop blauw met een draaiend icoon (aria-busy) en krijgt hij geen disabled: een disabled knop
  * verliest de focus, waardoor toetsenbordgebruikers niet weten waar ze zijn. Dubbel verzenden blokkeert de aanroeper met `bezig`.
  * De statusmelding voor schermlezers staat naast de knop, zodat de naam van de knop 'Versturen' blijft.
@@ -52,10 +52,7 @@ export function VerstuurKnop({ bezig, className = '' }: { bezig: boolean; classN
   return (
     <>
       <button type="submit" className={`form-knop ${className}`} aria-busy={bezig ? 'true' : undefined} aria-disabled={bezig ? 'true' : undefined}>
-        <span className={bezig ? 'invisible' : undefined}>
-          <span className="md:hidden">Plan gratis intakegesprek</span>
-          <span className="max-md:hidden">Versturen</span>
-        </span>
+        <span className={bezig ? 'invisible' : undefined}>Versturen</span>
         {bezig && <span className="form-spinner" aria-hidden="true" />}
       </button>
       <p role="status" className="sr-only">

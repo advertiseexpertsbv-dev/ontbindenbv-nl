@@ -76,7 +76,7 @@ export function ContactRijen({ blauw = false }: { blauw?: boolean }) {
  * Contactblok onderaan de pagina's, zoals de oude site: links de ronde foto (200px) naast kop, tekst en contactgegevens,
  * rechts het formulier in een lichtblauwe kaart met patroon. Onder 768px staat de foto als brede banner boven de kop.
  */
-export default function ContactBlok({ titel = 'Wij helpen je graag verder met al je vragen' }: { titel?: string }) {
+export default function ContactBlok({ titel = contactBlok.formTitel }: { titel?: string }) {
   return (
     <section id="contact" className="py-[72px]" data-reveal suppressHydrationWarning>
       <Container>
@@ -85,11 +85,11 @@ export default function ContactBlok({ titel = 'Wij helpen je graag verder met al
             <div className="mb-8 mt-4 grid md:grid-cols-[auto_1fr] md:gap-8">
               <img
                 {...beeld('/images/site/contact.webp', SIZES.contactFoto)}
-                alt="Peter en Heleen van Dé Belastingbemiddelaar"
+                alt="Peter Brouwers van OntbindenBV.nl"
                 loading="lazy"
                 decoding="async"
-                width={1223}
-                height={1152}
+                width={1200}
+                height={800}
                 className="h-[50vw] min-h-[200px] w-full rounded-sm object-cover md:aspect-square md:h-auto md:min-h-0 md:w-[200px] md:self-start md:rounded-full"
               />
               <div className="pt-8">
@@ -102,7 +102,7 @@ export default function ContactBlok({ titel = 'Wij helpen je graag verder met al
           <div className="min-[992px]:w-1/2 min-[992px]:pl-4">
             <div className="bg-textuur rounded-sm border border-bkg-light p-8 md:p-12">
               <h2 className="mb-4">{titel}</h2>
-              <p className="mb-8">Neem vandaag nog contact op met ons voor een kosteloze intake en laat ons jou helpen met het oplossen van jouw fiscale problemen.</p>
+              <p className="mb-8">{contactBlok.formTekst}</p>
               <LeadForm formulier="Contact" className="mb-6" />
             </div>
           </div>
