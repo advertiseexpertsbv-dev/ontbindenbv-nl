@@ -7,7 +7,7 @@ export const BEWAARTERMIJN_JAREN = 5
  * Wist persoonsgegevens ouder dan de bewaartermijn. Leads worden geanonimiseerd: naam, contactgegevens, bericht, extra velden
  * en de IP-code gaan eruit, maar formulier, pagina, bron en datum blijven staan zodat de tellingen in de hub kloppen.
  * Intakes worden verwijderd (die tellen nergens mee). Draait dagelijks via de cron in wrangler.jsonc.
- * BBase en HubSpot vallen hierbuiten; daar regelt Belasting Bemiddelaar de termijn zelf.
+ * BBase valt hierbuiten; daar regelt het kantoor (zelfde team als Belasting Bemiddelaar) de termijn zelf.
  */
 export async function schoonOp(): Promise<{ leads: number; intakes: number }> {
   const db = appEnv().DB

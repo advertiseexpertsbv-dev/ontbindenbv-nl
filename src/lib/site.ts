@@ -26,14 +26,16 @@ export const site = {
   linkedin: '', // oude site linkte naar '#'
   /** Google Tag Manager (Consent Mode v2, zie routes/__root.tsx). Leeg = GTM niet laden. */
   gtmId: 'GTM-MB27H2SF', // bestaande container van de oude site ontbindenbv.nl
-  /** HubSpot-tracking (EU-portaal van ontbindenbv.nl, niet dat van BB). Wordt pas na toestemming (marketing/statistieken) geladen. */
-  hubspotId: '146798603', // uit js-eu1.hs-scripts.com/146798603.js op de oude site
-  /** HubSpot-formulieren per formulier (EU-portaal), aangemaakt door de Gravity Forms HubSpot-add-on van de oude site */
-  // TODO: GUID's uit WP-beheer (Gravity Forms > HubSpot-feeds) of HubSpot > Formulieren. Zonder GUID slaat de server HubSpot over.
+  /**
+   * HubSpot staat uit: niet meer nodig (besluit Steven 2026-11-09). De oude site had een eigen EU-portaal (146798603).
+   * Leeg = geen trackingscript, niets naar de Forms API en HubSpot niet in de privacyverklaring.
+   */
+  hubspotId: '',
+  /** HubSpot-formulier-GUID's per formulier (alleen als HubSpot weer aan gaat) */
   hubspotFormulieren: {} as Partial<Record<'Hero' | 'Contact' | 'Gratis intakegesprek', string>>,
   /**
    * Interne intake van de bellers, gedeeld met belastingbemiddelaar.nl (zelfde team en CRM BBase). ontbindenbv.nl heeft die
-   * pagina zelf niet; de link gaat als intake_link mee naar BBase en HubSpot.
+   * pagina zelf niet; de link gaat als intake_link mee naar BBase.
    */
   intakeUrl: 'https://belastingbemiddelaar.nl/intake-nieuwe-klant/',
   reviews: { score: '4,9', count: 391 },

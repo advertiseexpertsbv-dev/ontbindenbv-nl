@@ -38,8 +38,10 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - [x] Koppelingen zoals belastingbemiddelaar.nl (besluit Steven 2026-11-09), zie "Formulieren en koppelingen"
 - [x] D1 `ontbindenbv-db` aangemaakt (WEUR) met migraties 0001–0004, ook geregistreerd in `d1_migrations` (2026-11-09)
 - [x] Deploy-workflow `.github/workflows/deploy.yml` (zoals BB); deployt alleen als de repo-secret `CLOUDFLARE_API_TOKEN` er is
-- [ ] Repo-secret `CLOUDFLARE_API_TOKEN` (Steven) en Worker-secrets `RESEND_API_KEY`, `CRM_WEBHOOK_URL`, `HUBSPOT_FORMS_API=aan`
-- [ ] HubSpot-formulier-GUID's van portaal 146798603 in `site.hubspotFormulieren` (WP-beheer: Gravity Forms > HubSpot-feeds)
+- [x] Repo-secret `CLOUDFLARE_API_TOKEN` en Worker-secret `RESEND_API_KEY` gezet door Steven; eerste deploy naar
+      https://ontbindenbv-nl.advertisexperts.workers.dev, Queue `ontbindenbv-crm` door de workflow aangemaakt (2026-11-09)
+- [ ] Worker-secret `CRM_WEBHOOK_URL` (BBase) volgt later (Steven)
+- [x] HubSpot uit: niet meer nodig (besluit Steven 2026-11-09), `site.hubspotId` leeg
 - [ ] GTM-MB27H2SF vóór de livegang aanpassen (zie "Formulieren en koppelingen"): leadtags op Custom Event `generate_lead`
 - [ ] Hub-koppeling (`obv`) en Resend-domein ontbindenbv.nl (na de DNS-verhuizing)
 - [ ] Livegang (DNS-zone, nameservers, worker-routes) alleen na expliciet akkoord van Steven, nazorg
@@ -74,7 +76,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 
 ## Formulieren en koppelingen (zoals belastingbemiddelaar.nl)
 
-Elke inzending → D1-tabel `leads` → Resend-mail, HubSpot Forms API en Zapier, en CRM BBase via de Queue `ontbindenbv-crm`
+Elke inzending → D1-tabel `leads` → Resend-mail (en Zapier, niet in gebruik) en CRM BBase via de Queue `ontbindenbv-crm`
 (elk alleen als de bijbehorende secret is gezet). Werking, retry en logging: zie PROJECT.md van belastingbemiddelaar-nl, de
 code in `src/server/leads.ts` en `src/server/crm.ts` is gelijk.
 
@@ -85,8 +87,9 @@ code in `src/server/leads.ts` en `src/server/crm.ts` is gelijk.
 - **CRM BBase**: secret `CRM_WEBHOOK_URL` (volledige URL incl. `?secret=…`, waarde uit de Gravity Forms-webhook van ontbindenbv.nl;
   bij BB `crm.belastingbemiddelaar.nl`). Payload gelijk aan BB. `intake_link` gaat naar de interne intake van BB
   (`site.intakeUrl`, https://belastingbemiddelaar.nl/intake-nieuwe-klant/): ontbindenbv.nl heeft die pagina niet.
-- **HubSpot**: eigen EU-portaal `146798603` (oude site: `js-eu1.hs-scripts.com/146798603.js`), dus niet het BB-portaal 145379326.
-  Tracking na toestemming. Server-side alleen voor formulieren met een GUID in `site.hubspotFormulieren` (nu leeg: overgeslagen).
+- **HubSpot**: uit, niet meer nodig (besluit Steven 2026-11-09). De oude site had een eigen EU-portaal `146798603` (niet het
+  BB-portaal). Met `site.hubspotId` leeg laadt er geen trackingscript, gaat er niets naar de Forms API (ook niet als de secret
+  `HUBSPOT_FORMS_API` er staat) en noemt de privacyverklaring HubSpot niet. De code blijft voor als het ooit terug moet.
 - **GTM**: bestaande container `GTM-MB27H2SF` (`site.gtmId`), Consent Mode v2 in `__root.tsx`, alleen op het echte domein.
   Inhoud (gelezen uit gtm.js, 2026-11-09): Google tag GA4 `G-742VS3JNKX` en conversielinker op alle pagina's; GA4-event `OBV_lead`
   en Google Ads-conversie `AW-17511513426` (label `25vGCLuB5rUbENL6kZ5B`, waarde 300, enhanced conversions uit) op **gtm.js +

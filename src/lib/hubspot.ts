@@ -7,10 +7,12 @@
  * een gesplitste naam zou daar dwars doorheen schrijven. De formulieren hebben `data-hs-do-not-collect`,
  * zodat "formulieren verzamelen" van het trackingscript geen tweede inzending maakt.
  */
+import { site } from './site'
+
 type W = Window & { _hsq?: unknown[][] }
 
 export function hubspotIdentify(email: string, telefoon: string): void {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !site.hubspotId) return
   const w = window as W
   w._hsq = w._hsq || []
   w._hsq.push(['identify', { email, phone: telefoon }])

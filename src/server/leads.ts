@@ -155,7 +155,7 @@ type HubspotFormulier = 'Hero' | 'Contact' | 'Gratis intakegesprek'
  * Let op: HubSpot antwoordt ook bij ongeldige gegevens met 200 en valideert pas later.
  */
 export async function naarHubspot(formulier: HubspotFormulier, velden: Record<string, string>, context: Record<string, string>, label: string): Promise<string> {
-  if (appEnv().HUBSPOT_FORMS_API !== 'aan') return ''
+  if (!site.hubspotId || appEnv().HUBSPOT_FORMS_API !== 'aan') return ''
   const guid = site.hubspotFormulieren[formulier]
   if (!guid) {
     console.error(`[hubspot] geen HubSpot-formulier voor ${formulier}, ${label} overgeslagen`)
