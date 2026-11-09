@@ -25,19 +25,27 @@
 	"analytics_engine_datasets": [
 		{ "binding": "BEZOEKEN", "dataset": "site_bezoeken" }
 	],
-	// CRM-wachtrij (zoals belastingbemiddelaar-crm) pas toevoegen als blijkt dat ontbindenbv.nl leads naar BBase stuurt.
+	// CRM BBase buiten het request-pad, zoals belastingbemiddelaar.nl: de submit zet alleen het lead-id in de wachtrij, deze Worker
+	// is ook de consumer (`queue` in src/server.ts → src/server/crm.ts). Zonder secret CRM_WEBHOOK_URL gaat er niets naar BBase.
+	// De wachtrij maakt de deploy-workflow aan als hij nog niet bestaat.
+	"queues": {
+		"producers": [{ "binding": "CRM_QUEUE", "queue": "ontbindenbv-crm" }],
+		"consumers": [{ "queue": "ontbindenbv-crm", "max_batch_size": 1, "max_batch_timeout": 1, "max_retries": 6, "max_concurrency": 2 }]
+	},
 	"d1_databases": [
 		{
 			"binding": "DB",
 			"database_name": "ontbindenbv-db",
-			"database_id": "TODO-aanmaken-met-wrangler-d1-create",
+			"database_id": "5c4f8c21-690b-48ce-b303-c797ed246e86",
 			"migrations_dir": "migrations"
 		}
 	],
 	"vars": {
-		// TODO: afzender en ontvangers bevestigen (oude site: nalopen in WP-beheer)
+		// Tijdelijk vanaf info@advertisexperts.com (geverifieerd in Resend), zoals BB voor de livegang. ontbindenbv.nl staat nog
+		// niet in Resend; na de DNS-verhuizing naar Cloudflare toevoegen en terugzetten naar info@ontbindenbv.nl.
 		"RESEND_FROM": "OntbindenBV.nl <info@advertisexperts.com>",
-		"NOTIFICATIE_EMAIL": "info@ontbindenbv.nl",
+		// Zelfde ontvangers als belastingbemiddelaar.nl (besluit Steven 2026-11-09: "zelfde koppelingen")
+		"NOTIFICATIE_EMAIL": "info@ontbindenbv.nl,maurice@sea-experts.nl",
 		"INTAKE_NOTIFICATIE_EMAIL": "info@ontbindenbv.nl"
 	}
 	// Secrets (wrangler secret put …): RESEND_API_KEY, CRM_WEBHOOK_URL (CRM BBase), HUBSPOT_FORMS_API ("aan" = leads naar HubSpot; bewust geen var, want vars gelden ook lokaal), ZAPIER_WEBHOOK_URL (optioneel)

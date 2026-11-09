@@ -144,10 +144,10 @@ export async function stuurNotificatie(lead: LeadInput, id: number): Promise<voi
 }
 
 /** Link naar de interne intake met het e-mailadres van de lead (zoals het verborgen veld "Intake link" op de oude site) */
-const intakeLink = (email: string) => `${site.url}/intake-nieuwe-klant/?klant=${encodeURIComponent(email)}`
+const intakeLink = (email: string) => `${site.intakeUrl}?klant=${encodeURIComponent(email)}`
 const paginaUrl = (lead: LeadInput) => (lead.pagina ? `${site.url}${lead.pagina}` : `${site.url}/`)
 
-type HubspotFormulier = keyof typeof site.hubspotFormulieren
+type HubspotFormulier = 'Hero' | 'Contact' | 'Gratis intakegesprek'
 
 /**
  * HubSpot Forms API (anoniem, EU-portaal). Alleen actief als de secret HUBSPOT_FORMS_API 'aan' is; geen var in
@@ -156,8 +156,13 @@ type HubspotFormulier = keyof typeof site.hubspotFormulieren
  */
 export async function naarHubspot(formulier: HubspotFormulier, velden: Record<string, string>, context: Record<string, string>, label: string): Promise<string> {
   if (appEnv().HUBSPOT_FORMS_API !== 'aan') return ''
+  const guid = site.hubspotFormulieren[formulier]
+  if (!guid) {
+    console.error(`[hubspot] geen HubSpot-formulier voor ${formulier}, ${label} overgeslagen`)
+    return 'geen formulier'
+  }
   try {
-    const res = await fetch(`https://api-eu1.hsforms.com/submissions/v3/integration/submit/${site.hubspotId}/${site.hubspotFormulieren[formulier]}`, {
+    const res = await fetch(`https://api-eu1.hsforms.com/submissions/v3/integration/submit/${site.hubspotId}/${guid}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

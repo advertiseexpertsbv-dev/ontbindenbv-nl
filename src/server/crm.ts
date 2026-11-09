@@ -51,7 +51,7 @@ export type CrmLead = {
   created_at: string
 }
 
-const intakeLink = (email: string) => `${site.url}/intake-nieuwe-klant/?klant=${encodeURIComponent(email)}`
+const intakeLink = (email: string) => `${site.intakeUrl}?klant=${encodeURIComponent(email)}`
 
 function velden(gegevens: string): Record<string, string> {
   try {

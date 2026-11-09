@@ -31,6 +31,7 @@ export const privacyverklaring = `
 <h2>Met wie delen wij gegevens?</h2>
 <p>Wij verkopen je gegevens niet. We delen ze alleen met partijen die ze voor ons verwerken, op basis van een verwerkersovereenkomst of de standaardvoorwaarden van die partij:</p>
 <ul>
+<li><strong>BBase</strong>: ons eigen klantsysteem, dat bij een externe cloudpartij draait. Hierin beheren we aanvragen en dossiers; elke aanvraag via de website komt hierin terecht.</li>
 ${site.hubspotId ? '<li><strong>HubSpot</strong> (Europese servers): contactbeheer. Je aanvraag wordt bij je contactgegevens vastgelegd. Alleen met jouw toestemming meet HubSpot ook je bezoeken aan de site.</li>\n' : ''}<li><strong>Cloudflare</strong>: hosting van de website, opslag van formulierinzendingen en de paginastatistieken.</li>
 <li><strong>Resend</strong>: verzenden van de e-mailmelding aan ons kantoor wanneer je een formulier invult.</li>
 <li><strong>Advertise Experts</strong>: ons marketingbureau, dat de website en onze advertenties beheert en daarvoor aanvragen inziet om te beoordelen welke kanalen werken.</li>
