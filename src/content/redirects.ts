@@ -5,4 +5,6 @@
 export const REDIRECTS: Record<string, string> = {
   // Standaardpagina van WordPress die op de oude site nog bereikbaar was
   '/sample-page': '/',
+  // Typo van de oude WordPress-site (404). De echte pagina is /gratis-intakegesprek/.
+  '/gratis-intakesprek': '/',
 }
