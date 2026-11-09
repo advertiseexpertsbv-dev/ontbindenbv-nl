@@ -34,3 +34,31 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - [ ] Formulierkoppelingen nalopen in WP-beheer (plugin, HubSpot-portaal, BBase, ontvangers)
 - [ ] GTM-container, D1 `ontbindenbv-db`, Resend, hub-koppeling
 - [ ] Parity 109/109, livegang (DNS-zone, nameservers, worker-routes), nazorg
+
+## Overdracht: import in de omgeving `ontbindenbv-nl` (2026-11-09)
+
+De eerste sessie kon ontbindenbv.nl niet bereiken (netwerkbeleid). De import gebeurt in een cloud-sessie op de persoonlijke
+omgeving **ontbindenbv-nl**, die alleen `ontbindenbv.nl` en `www.ontbindenbv.nl` extra toestaat (package managers wel).
+Externe hosts zoals fonts.googleapis.com of HubSpot-CDN's staan daar níet open: haal alleen van ontbindenbv.nl zelf.
+
+Volgorde:
+
+1. `pnpm install`, dan de WP REST API dumpen naar `ref/api/` (gitignored), zoals bij belastingbemiddelaar-nl:
+   `pages-1.json` (`/wp-json/wp/v2/pages?per_page=100`), `dienst-1.json` (`/wp-json/wp/v2/dienst?per_page=100`),
+   `posts-1.json` (`/wp-json/wp/v2/posts?per_page=100`, 80 posts), `media-N.json` (`/wp-json/wp/v2/media?per_page=100&page=N`).
+2. `scripts/ref-capture.mjs` aanpassen: basis-URL `https://ontbindenbv.nl`, paden = de 9 pagina's + `/kennisbank/` + 18 diensten
+   + een paar artikelen (de BB-paden `/intake-nieuwe-klant/`, `/bizzi/`, `/bizzyphone/` en de BB-artikelen eruit). Het script
+   schrijft `ref/seo.json`; `parity.mjs`, `bouw-blog.py` en `bouw-diensten.py` lezen `ref/seo/seo.json` (verplaatsen of pad gelijktrekken).
+   SEO voor álle 109 URL's (title, description, canonical) ophalen, ook voor elk artikel, want parity vergelijkt per URL.
+3. Importscripts: `bouw-blog.py` werkt op de REST-content en is grotendeels herbruikbaar. `bouw-diensten.py` leest Oxygen-HTML
+   (`ct-inner-content`) van de oude BB-site; ontbindenbv.nl is een block theme, dus die parser moet opnieuw voor block-markup.
+   Beelden: originelen naar `ref/images/`, dan `node scripts/beelden.mjs` en `node scripts/beelden-varianten.mjs`.
+4. Ontwerp 1-op-1 vanaf de screenshots: kleuren en lettertype in `@theme` (`src/styles.css`), logo's in `public/images/brand/`
+   (de BB-logo's en BB-teamfoto's die niet op ontbindenbv.nl staan verwijderen), secties van de homepage nalopen
+   (hero met formulier, "Dé specialist in BV ontbinden", "Wat is je situatie?", werkwijze in 6 stappen, reviews, FAQ, contact).
+5. BB-specifieke onderdelen weghalen of hergebruiken na controle: `/intake-nieuwe-klant/` + `IntakeFormulier` + `content/intake.json`,
+   BBase-CRM (`server/crm.ts`), teksten in `content/juridisch.ts`, `content/home.ts`, `content/footer.ts`, `content/redirects.ts`.
+6. `pnpm typecheck && pnpm lint && pnpm build`, dan `node scripts/parity.mjs http://localhost:<poort>` tot 109/109.
+
+Daarna (buiten de import): formulierkoppelingen nalopen in WP-beheer, GTM, D1 `ontbindenbv-db`, Resend, hub (`obv`), livegang.
+De open vragen voor Steven staan in het migratieplan (Claude Doc, link bovenaan).
