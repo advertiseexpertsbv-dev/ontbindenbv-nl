@@ -20,8 +20,10 @@ export default function Reviews() {
             </h2>
             <p>Lees wat onze tevreden klanten over ons zeggen</p>
           </div>
+          {/* Score met Google-logo alleen als het Google-profiel gekoppeld is (site.reviews.googleUrl), anders niet controleerbaar */}
+          {site.reviews.googleUrl && (
           <div className="flex items-start justify-end">
-            <div className="flex items-center gap-2 text-[14px]">
+            <a href={site.reviews.googleUrl} target="_blank" rel="noopener" className="flex items-center gap-2 text-[14px]">
               <span className="flex text-star" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
                 {[0, 1, 2, 3, 4].map((i) => (
                   <FaStar key={i} className="size-4" />
@@ -31,8 +33,9 @@ export default function Reviews() {
                 <b>{site.reviews.score}</b> uit 5
               </span>
               <GoogleG className="size-5" />
-            </div>
+            </a>
           </div>
+          )}
         </div>
         <ul className="grid gap-8 min-[992px]:grid-cols-3">
           {reviews.map((r) => (

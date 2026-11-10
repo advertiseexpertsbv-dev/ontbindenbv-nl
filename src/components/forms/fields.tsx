@@ -46,13 +46,14 @@ export function Veld({
  * Versturen-knop zoals de oude site (blauwe verlooppil; stijl .form-knop in src/styles.css).
  * Tijdens het verzenden blijft de knop blauw met een draaiend icoon (aria-busy) en krijgt hij geen disabled: een disabled knop
  * verliest de focus, waardoor toetsenbordgebruikers niet weten waar ze zijn. Dubbel verzenden blokkeert de aanroeper met `bezig`.
- * De statusmelding voor schermlezers staat naast de knop, zodat de naam van de knop 'Versturen' blijft.
+ * De statusmelding voor schermlezers staat naast de knop, zodat de naam van de knop gelijk blijft. Tekst 'Vraag gratis advies aan'
+ * i.p.v. 'Versturen': zegt wat er gebeurt (campagnecontrole 2026-11-10).
  */
-export function VerstuurKnop({ bezig, className = '' }: { bezig: boolean; className?: string }) {
+export function VerstuurKnop({ bezig, className = '', tekst = 'Vraag gratis advies aan' }: { bezig: boolean; className?: string; tekst?: string }) {
   return (
     <>
       <button type="submit" className={`form-knop ${className}`} aria-busy={bezig ? 'true' : undefined} aria-disabled={bezig ? 'true' : undefined}>
-        <span className={bezig ? 'invisible' : undefined}>Versturen</span>
+        <span className={bezig ? 'invisible' : undefined}>{tekst}</span>
         {bezig && <span className="form-spinner" aria-hidden="true" />}
       </button>
       <p role="status" className="sr-only">

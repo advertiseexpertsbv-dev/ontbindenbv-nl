@@ -3,7 +3,7 @@ import { seo } from '../lib/seo'
 import { paginas } from '../content/paginas'
 import { beeld, SIZES } from '../lib/beeld'
 import { introHome, vertrouwen } from '../content/home'
-import Hero from '../components/sections/Hero'
+import Hero, { HERO_PRELOADS } from '../components/sections/Hero'
 import Situatie from '../components/sections/Situatie'
 import Werkwijze from '../components/sections/Werkwijze'
 import CtaBand from '../components/sections/CtaBand'
@@ -17,7 +17,11 @@ import { Container } from '../components/ui'
 export const Route = createFileRoute('/')({
   head: () => {
     const h = seo({ ...paginas.home, exact: true })
-    return { ...h, scripts: [...h.scripts, { type: 'application/ld+json', children: JSON.stringify(faqSchema()) }] }
+    return {
+      ...h,
+      links: [...h.links, ...HERO_PRELOADS],
+      scripts: [...h.scripts, { type: 'application/ld+json', children: JSON.stringify(faqSchema()) }],
+    }
   },
   component: Home,
 })

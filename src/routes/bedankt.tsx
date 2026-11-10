@@ -21,10 +21,10 @@ function Bedankt() {
         <Container>
           <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
             <div className="min-[992px]:w-[60%] min-[992px]:pr-4">
-              <h2 className="kop-h1 mb-4">Bedankt voor uw bericht</h2>
+              <h2 className="kop-h1 mb-4">Bedankt voor je bericht</h2>
               <p className="mb-8">
-                Bedankt voor uw bericht. We zullen spoedig contact met u opnemen. Heeft u in de tussentijd nog vragen, aarzel dan niet om contact op te
-                nemen.
+                Bedankt voor je bericht. We nemen zo snel mogelijk contact met je op. Heb je in de tussentijd nog vragen? Aarzel dan niet om contact
+                op te nemen.
               </p>
               <Button href="/" arrow className="w-full min-[992px]:w-auto">
                 Terug naar home

@@ -7,7 +7,8 @@ import { hubspotIdentify, hubspotUtk } from '../../lib/hubspot'
 import { site } from '../../lib/site'
 import { Foutmelding, Veld, VerstuurKnop, inputClass } from './fields'
 
-const MOMENTEN = ['Maandag t/m vrijdag tussen 8.00 - 17.00', 'Maandag t/m vrijdag na 17.00', 'Weekend'] as const
+/** Terugbelmomenten, in lijn met de openingstijden (ma-vr 08:30-17:30); avond en weekend alleen op afspraak (campagnecontrole 2026-11-10) */
+const MOMENTEN = ['Maandag t/m vrijdag tussen 8.30 - 17.30', 'Maandag t/m vrijdag na 17.30 (op afspraak)', 'Weekend (op afspraak)'] as const
 
 /** Meldingen zoals Gravity Forms op de oude site, direct onder het veld */
 const VERPLICHT = 'Dit veld is vereist.'
@@ -196,6 +197,13 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
           </div>
         )}
         <VerstuurKnop bezig={bezig} />
+        <p className="mt-3 text-[13px] leading-[1.5] text-muted">
+          We gebruiken je gegevens alleen om contact met je op te nemen over je aanvraag. Lees onze{' '}
+          <a href="/privacyverklaring-eu/" className="underline">
+            privacyverklaring
+          </a>
+          .
+        </p>
       </div>
     </form>
   )

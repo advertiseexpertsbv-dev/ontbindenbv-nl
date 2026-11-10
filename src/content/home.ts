@@ -6,7 +6,7 @@ import { site } from '../lib/site'
 export const vertrouwen = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vanaf 1 week geregeld', 'Kosten vooraf besproken'] as const
 
 /** Vinkjes op de kaart naast de titelbalk (over ons, gratis intakegesprek) */
-export const vertrouwenKaart = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vanaf 2 werkdagen geregeld', 'Kosten vooraf besproken'] as const
+export const vertrouwenKaart = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Vanaf 1 week geregeld', 'Kosten vooraf besproken'] as const
 
 /** Rij met blauwe vinkjes boven de tekst van de dienstpagina's */
 export const vertrouwenDienst = ['1.200 ontbindingen', 'Gratis intakegesprek', 'Kosten vooraf besproken'] as const
@@ -19,7 +19,7 @@ export const hero = {
 /** Formulierkaart (hero, dienstpagina's, artikelen) */
 export const kaart = {
   titel: 'Direct kosteloos advies.',
-  sub: 'Altijd kosteloos en vrijblijvend advies gesprek.',
+  sub: 'Altijd kosteloos en vrijblijvend adviesgesprek.',
 } as const
 
 export const introHome = {
@@ -105,6 +105,15 @@ export const reviews = [
 
 export type FaqItem = { v: string; a: string }
 
+/**
+ * Kern van de turboliquidatie, gedeeld door de FAQ's (homepage en dienstpagina's). Voorwaarde is dat de BV op het moment van
+ * ontbinding geen baten meer heeft; schulden mogen er dan nog zijn (art. 2:19 lid 4 BW). Sinds 15 november 2023 moet het bestuur
+ * binnen 14 dagen na de ontbinding een balans, een staat van baten en lasten en een toelichting deponeren bij het handelsregister
+ * en de schuldeisers daarover informeren (Tijdelijke wet transparantie turboliquidatie, art. 2:19b BW). Controle 2026-11-10.
+ */
+export const TURBO_UITLEG =
+  'Een turboliquidatie kan als de BV op het moment van ontbinding geen bezittingen (baten) meer heeft. Er mogen dan nog schulden zijn. Wel moet het bestuur binnen 14 dagen na de ontbinding een balans, een staat van baten en lasten en een toelichting bij de KVK deponeren en de schuldeisers daarover informeren. Wij beoordelen vooraf of deze route bij jouw BV past.'
+
 /** Veelgestelde vragen van de homepage, over ons en onze werkwijze (a = HTML) */
 export const faq: FaqItem[] = [
   {
@@ -121,7 +130,7 @@ export const faq: FaqItem[] = [
   },
   {
     v: 'Wat is het verschil tussen een turbo- en een reguliere liquidatie?',
-    a: '<p>Een turboliquidatie kan als de BV geen bezittingen meer heeft, ook als er nog schulden zijn. Bij een reguliere liquidatie worden eerst de bezittingen verdeeld. Wij zijn gespecialiseerd in turboliquidatie, ook van een BV met schulden.</p><p><a href="/gratis-intakegesprek/"><em>Gratis intake: wij kijken of turboliquidatie bij jouw BV kan.</em></a></p>',
+    a: `<p>${TURBO_UITLEG} Bij een reguliere liquidatie worden eerst de bezittingen te gelde gemaakt en verdeeld. Wij zijn gespecialiseerd in turboliquidatie, ook van een BV met schulden.</p><p><a href="/gratis-intakegesprek/"><em>Gratis intake: wij kijken of turboliquidatie bij jouw BV kan.</em></a></p>`,
   },
   {
     v: 'Wat kost het om mijn BV te ontbinden?',
@@ -129,7 +138,7 @@ export const faq: FaqItem[] = [
   },
   {
     v: 'Kan ik zelf een BV ontbinden?',
-    a: '<p>In theorie wel, maar de risico’s zijn groot (aansprakelijkheid, fouten bij schulden). Met ons weet je zeker dat het goed en veilig gebeurt.</p><p><a href="/gratis-intakegesprek/"><em>Bespreek je situatie gratis met ons team.</em></a></p>',
+    a: '<p>In theorie wel, maar de risico’s zijn groot (aansprakelijkheid, fouten bij schulden). Met ons gebeurt het zorgvuldig en volgens de regels.</p><p><a href="/gratis-intakegesprek/"><em>Bespreek je situatie gratis met ons team.</em></a></p>',
   },
   {
     v: 'Hoe lang duurt het gemiddeld?',
@@ -150,7 +159,7 @@ export const overOns = {
   titel: 'jouw partner in BV-ontbinding',
   alineas: [
     'OntbindenBV.nl is een betrokken familiebedrijf met meer dan 25 jaar ervaring in het ontbinden van ondernemingen. Wij ondersteunen ondernemers in heel Nederland—of je nu een lege BV hebt of een BV met schulden—met een persoonlijke en complete aanpak.',
-    'Onze missie: jouw ontzorgen tijdens het vaak lastige proces van BV-ontbinding. Van intake tot KVK-uitschrijving: wij staan naast je, zorgen dat alles juridisch correct gebeurt en jij krijgt vanaf dag één een helder plan. De kosten bespreken we vooraf met je.',
+    'Onze missie: jou ontzorgen tijdens het vaak lastige proces van BV-ontbinding. Van intake tot KVK-uitschrijving: wij staan naast je, zorgen dat alles juridisch correct gebeurt en jij krijgt vanaf dag één een helder plan. De kosten bespreken we vooraf met je.',
   ],
   waarom: 'Waarom kies je voor OntbindenBV.nl?',
   /** HTML (vette woorden zoals de oude site) */
@@ -159,14 +168,14 @@ export const overOns = {
     '<b>Familiebedrijf</b>, met persoonlijke service en heldere communicatie',
     'Direct inzicht: <b>gratis intake</b> en een helder plan, de kosten bespreken we vooraf met je',
     'Expertise in elk scenario: van eenvoudig tot complex (zoals een BV met schulden)',
-    'Volledig compliance: je bent verzekerd dat het proces correct en foutloos verloopt',
+    'Alles volgens de regels: wij zorgen dat het proces zorgvuldig en correct verloopt',
   ],
 } as const
 
 export const contactBlok = {
-  tekst: 'U kunt ons bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
+  tekst: 'Je kunt ons bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
   formTitel: 'Wij helpen je graag verder met al je vragen',
-  formTekst: 'Neem vandaag nog contact op met ons voor een kosteloze intake en laat ons jou helpen met het oplossen van jouw fiscale problemen.',
+  formTekst: 'Neem vandaag nog contact met ons op voor een kosteloze intake. Wij helpen je graag bij het ontbinden van je BV.',
   telefoon: site.phone,
   email: site.email,
 } as const

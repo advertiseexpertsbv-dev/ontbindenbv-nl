@@ -6,6 +6,16 @@ import KaartFormulier from './KaartFormulier'
 import Vinken from './Vinken'
 import MobielFormulier from './MobielFormulier'
 
+const HERO = '/images/site/hero.webp'
+const HERO_MOBIEL = '/images/site/hero-mobiel.webp'
+const HERO_MOBIEL_MEDIA = '(max-width: 599px)'
+
+/** Preloads van de hero voor de head van de homepage: per schermbreedte precies het beeld dat de <picture> kiest */
+export const HERO_PRELOADS = [
+  { rel: 'preload', as: 'image', href: HERO_MOBIEL, media: HERO_MOBIEL_MEDIA, fetchPriority: 'high' },
+  { rel: 'preload', as: 'image', href: HERO, media: '(min-width: 600px)', fetchPriority: 'high' },
+]
+
 /**
  * Hero van de homepage, opgebouwd zoals de oude site: foto met een egale blauwe laag van 30% (links uitgelijnd), tekst links (60%)
  * en de formulierkaart rechts (40%) die 150px onder de hero uitsteekt. Onder 992px staan de kolommen onder elkaar.
@@ -14,8 +24,13 @@ export default function Hero() {
   return (
     <section className="relative isolate text-white">
       <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-        {/* LCP-afbeelding: niet lazy, fetchPriority high */}
-        <img {...beeld('/images/site/hero.webp', SIZES.hero)} alt="" width={1806} height={819} fetchPriority="high" decoding="async" className="size-full object-cover object-left" />
+        {/* LCP-afbeelding: niet lazy, fetchPriority high. Tot 599px de linker uitsnede (scripts/hero-mobiel.mjs): door object-left
+            is daar alleen dat deel zichtbaar. React zet een <img> in een <picture> niet zelf als preload; de preloads (met media)
+            staan daarom in de head van de homepage (routes/index.tsx, HERO_PRELOADS). */}
+        <picture>
+          <source media={HERO_MOBIEL_MEDIA} srcSet={HERO_MOBIEL} width={480} height={819} />
+          <img {...beeld(HERO, SIZES.hero)} alt="" width={1806} height={819} fetchPriority="high" decoding="async" className="size-full object-cover object-left" />
+        </picture>
         <div className="absolute inset-0 bg-diep/30" />
       </div>
       <Container className="py-[72px]">
@@ -30,7 +45,7 @@ export default function Hero() {
                 Gratis adviesgesprek
               </Button>
               <Button href={site.afspraakHref} variant="yellow" arrow className="w-full min-[992px]:w-auto">
-                Online afspraak inplannen
+                {site.afspraakKnop}
               </Button>
             </div>
           </div>
