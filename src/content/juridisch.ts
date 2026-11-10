@@ -10,7 +10,7 @@ const privacyBijgewerkt = '10 november 2026'
 const adres = `${site.address.street}, ${site.address.postalCode} ${site.address.city}`
 
 export const privacyverklaring = `
-<p>${site.name} is een handelsnaam van ${site.legalName} (KvK ${site.kvk}). ${site.legalName} (${adres}) is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring. Heb je vragen? Mail ons via <a href="mailto:${site.email}">${site.email}</a> of bel <a class="whitespace-nowrap" href="${site.phoneHref}">${site.phone}</a>.</p>
+<p>${site.name} is een handelsnaam van ${site.legalName} (KvK ${site.kvk}). ${site.legalName} is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring. Bezoekadres: ${adres}. Heb je vragen? Mail ons via <a href="mailto:${site.email}">${site.email}</a> of bel <a class="whitespace-nowrap" href="${site.phoneHref}">${site.phone}</a>.</p>
 
 <h2>Welke gegevens verwerken wij?</h2>
 <ul>
