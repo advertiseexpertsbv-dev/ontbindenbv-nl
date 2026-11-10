@@ -12,7 +12,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Sitenaam | OntbindenBV.nl (REST-sitenaam "BV ontbinden?"; og:site_name stond op "My WordPress") |
 | Juridische naam | BCF Advies B.V. OntbindenBV.nl is een handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10) |
 | Domein | ontbindenbv.nl (www → apex 301 in `src/server.ts`) |
-| Telefoon | +31 85 004 8369 (`tel:+31850048369`), "Bereikbaar tussen 08:00 en 18:00" |
+| Telefoon | **Tijdelijk geen nummer** (Steven 2026-11-10): +31 85 004 8369 is nu van subsidiehulp.nl, nieuw nummer via Goedemorgen-Goedemiddag volgt. `site.phone` en `site.phoneHref` zijn leeg; dan verdwijnen header-telefoon, "Bel direct", bel-knoppen en de telefoonrij in het contactblok, en staat er e-mail. Nieuw nummer = beide velden invullen. Ook het BB-nummer (+31 85 130 0867) is uit 14 artikelen gehaald |
 | Contactblok | ma t/m vr 08:30–17:30 (zo op de oude site; intakeformulier noemt 8.00–17.00) |
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |

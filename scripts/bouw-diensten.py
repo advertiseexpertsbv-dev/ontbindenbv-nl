@@ -50,8 +50,8 @@ def inline_html(nodes):
                 uit.append(f'<em>{binnen}</em>' if schoon(n.get_text()) else binnen)
             elif naam == 'a' and n.get('href'):
                 href = interne_href(n['href'])
-                if href in ('#', ''):  # lege placeholder-links van de oude site: bellen of een intake plannen
-                    href = 'tel:+31850048369' if schoon(n.get_text()).lower().startswith('bel') else '/gratis-intakegesprek/'
+                if href in ('#', ''):  # lege placeholder-links van de oude site: een intake plannen
+                    href = '/gratis-intakegesprek/'
                 uit.append(f'<a href="{html.escape(href)}">{binnen}</a>')
             elif naam == 'br':
                 uit.append('<br>')

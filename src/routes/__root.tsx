@@ -79,7 +79,7 @@ export const Route = createRootRoute({
           url: site.url,
           logo: `${site.url}/images/brand/logo.png`,
           image: `${site.url}/images/og.jpg`,
-          telephone: site.phoneHref.replace('tel:', ''),
+          ...(site.phone ? { telephone: site.phoneHref.replace('tel:', '') } : {}),
           email: site.email,
           address: {
             '@type': 'PostalAddress',
@@ -113,9 +113,9 @@ function NotFound() {
       <p className="text-6xl font-bold text-brand-500">404</p>
       <h1 className="mt-4">Deze pagina bestaat niet</h1>
       <p className="mt-3">
-        Misschien is de pagina verplaatst. Ga terug naar de homepage of bel ons:{' '}
-        <a href={site.phoneHref} className="font-bold whitespace-nowrap text-brand-700">
-          {site.phone}
+        Misschien is de pagina verplaatst. Ga terug naar de homepage of {site.phone ? 'bel' : 'mail'} ons:{' '}
+        <a href={site.phone ? site.phoneHref : `mailto:${site.email}`} className="font-bold whitespace-nowrap text-brand-700">
+          {site.phone || site.email}
         </a>
       </p>
       <Button href="/" className="mt-8" arrow>

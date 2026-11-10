@@ -41,12 +41,12 @@ export const verzendLead = createServerFn({ method: 'POST' })
     try {
       const hash = await ipHash(getRequestHeader('cf-connecting-ip'))
       if (await teVeelAanvragen(hash)) {
-        return { ok: false, fout: `Je hebt al meerdere aanvragen verstuurd. Bel ons gerust: ${site.phone}.` }
+        return { ok: false, fout: `Je hebt al meerdere aanvragen verstuurd. ${site.phone ? `Bel ons gerust: ${site.phone}` : `Mail ons gerust: ${site.email}`}.` }
       }
       const id = await slaLeadOp(lead, hash)
       await verwerkNa(lead, id)
       return { ok: true }
     } catch {
-      return { ok: false, fout: `Er ging iets mis. Bel ons gerust, dan lossen we het direct op: ${site.phone}.` }
+      return { ok: false, fout: site.phone ? `Er ging iets mis. Bel ons gerust, dan lossen we het direct op: ${site.phone}.` : `Er ging iets mis. Mail ons gerust, dan lossen we het direct op: ${site.email}.` }
     }
   })
