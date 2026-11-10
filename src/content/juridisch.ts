@@ -5,11 +5,12 @@ import { site } from '../lib/site'
    Door de eigenaar te laten bevestigen (zie PROJECT.md). */
 
 export const bijgewerkt = '9 november 2026'
+const privacyBijgewerkt = '10 november 2026'
 
 const adres = `${site.address.street}, ${site.address.postalCode} ${site.address.city}`
 
 export const privacyverklaring = `
-<p>${site.name} (${adres}) is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring. Heb je vragen? Mail ons via <a href="mailto:${site.email}">${site.email}</a> of bel <a class="whitespace-nowrap" href="${site.phoneHref}">${site.phone}</a>.</p>
+<p>${site.name} is een handelsnaam van ${site.legalName} (KvK ${site.kvk}). ${site.legalName} is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze privacyverklaring. Bezoekadres: ${adres}. Heb je vragen? Mail ons via <a href="mailto:${site.email}">${site.email}</a> of bel <a class="whitespace-nowrap" href="${site.phoneHref}">${site.phone}</a>.</p>
 
 <h2>Welke gegevens verwerken wij?</h2>
 <ul>
@@ -53,7 +54,7 @@ ${site.hubspotId ? '<li><strong>HubSpot</strong> (Europese servers): contactbehe
 <h2>Beveiliging</h2>
 <p>Het verkeer met onze website verloopt versleuteld (https) en formuliergegevens worden opgeslagen in een afgeschermde database. Vermoed je misbruik of heb je een beveiligingsmelding? Neem dan direct contact met ons op.</p>
 
-<p><em>Laatst bijgewerkt: ${bijgewerkt}.</em></p>
+<p><em>Laatst bijgewerkt: ${privacyBijgewerkt}.</em></p>
 `
 
 export const cookiebeleid = `

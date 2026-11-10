@@ -10,12 +10,13 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Veld | Waarde |
 |---|---|
 | Sitenaam | OntbindenBV.nl (REST-sitenaam "BV ontbinden?"; og:site_name stond op "My WordPress") |
+| Juridische naam | BCF Advies B.V. OntbindenBV.nl is een handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10) |
 | Domein | ontbindenbv.nl (www → apex 301 in `src/server.ts`) |
 | Telefoon | +31 85 004 8369 (`tel:+31850048369`), "Bereikbaar tussen 08:00 en 18:00" |
 | Contactblok | ma t/m vr 08:30–17:30 (zo op de oude site; intakeformulier noemt 8.00–17.00) |
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |
-| Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Oude site: Hoogeveenenweg 100, unit 2.11 (soms 2.01), 2913 LV Nieuwerkerk aan den IJssel |
+| Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |
 | Reviews | 4,9 uit 5, 391 reviews (Google) |
 | Hub | site-sleutel `obv` (voorstel), project nog te kiezen (eigen project of onder Belasting Bemiddelaar, id 19) |
 
