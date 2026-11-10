@@ -1,6 +1,12 @@
 /*
  * Doorsturen van leads naar CRM BBase (crm.belastingbemiddelaar.nl), buiten het request-pad.
  *
+ * Eigen hook voor ontbindenbv.nl (gegevens van de BBase-beheerder, 2026-11-10): POST naar CRM_WEBHOOK_URL
+ * (https://crm.belastingbemiddelaar.nl/api/public/hooks/ontbindenbv, var in wrangler.jsonc) met de header `x-obv-secret`
+ * (secret CRM_WEBHOOK_SECRET) en JSON {name, email, phone, message, submission_id, company?, kvk?}; alle verplicht behalve
+ * company en kvk. Antwoorden: 200 ontvangen, 400 velden kloppen niet, 401 geheim klopt niet, 503 later opnieuw (zelfde
+ * submission_id). Zonder URL of geheim gaat er niets naar BBase; de leadmail (src/server/leads.ts) gaat altijd, als vangnet.
+ *
  * Waarom een Queue en geen ctx.waitUntil: BBase doet er bij een nieuwe lead vaak langer dan 8 s over (okt–nov 2026: 29 van 32
  * leads liepen in de oude 8s-timeout). waitUntil mag na het antwoord maar 30 s doorlopen, gedeeld door alle taken van dat request;
  * een timeout van 30 s plus herhaalpogingen past daar niet in. De Queue-consumer (zelfde Worker, `queue` in src/server.ts) heeft
@@ -9,20 +15,17 @@
  * Het wachtrijbericht bevat alleen het lead-id; de gegevens komen uit D1. Zo staan er geen persoonsgegevens in de wachtrij en
  * kan een oud lead-id nooit (per ongeluk) opnieuw naar BBase: alleen leads van de afgelopen CRM_MAX_LEEFTIJD_UUR worden verstuurd.
  *
- * Idempotentie: BBase heeft geen gedocumenteerd dedupe-veld (submission_id is alleen een kenmerk, zie PROJECT.md) en geen
- * opzoek-API; het ontdubbelt zelf op telefoonnummer (bekend contact → activity_logged_on_existing). Daarom:
+ * Idempotentie: submission_id is per lead vast (lead-id plus aanmaaktijd, zie submissionId) en bij elke nieuwe poging gelijk,
+ * zodat BBase een herhaling herkent. Daarom:
  * - kolom leads.crm_status: vóór elke poging wordt de lead atomair op 'bezig N' gezet; een dubbel afgeleverd wachtrijbericht of
- *   een lead met een eindstatus (ok / fout / timeout) wordt overgeslagen;
- * - opnieuw proberen alleen als het verzoek BBase zeker niet verwerkt heeft: een snelle verbindingsfout of HTTP 429/502/503;
- * - NOOIT opnieuw na een timeout, HTTP 500/504 of een trage verbindingsfout: dan kan BBase de lead al hebben aangemaakt.
+ *   een lead met een eindstatus (ok / fout) wordt overgeslagen;
+ * - opnieuw proberen bij alles wat tijdelijk kan zijn: verbindingsfout, timeout en HTTP 429/500/502/503/504;
+ * - niet opnieuw bij een andere 4xx (400 velden, 401 geheim): een herhaling lost dat niet op, dat staat in de logs.
  *
  * Logregels bevatten alleen lead-id, poging, uitkomst, HTTP-status, duur en de 'action' van BBase: geen naam, e-mail, telefoon of URL.
  */
 import { site } from '../lib/site'
 
-/* Inzendingsnummers voor het CRM krijgen een vaste opslag, zodat ze niet botsen met de entry-id's van
-   Gravity Forms die de oude site al naar het CRM stuurde (die lopen in de duizenden). */
-export const CRM_ID_OPSLAG = 1_000_000
 /** Timeout per poging vanuit de wachtrij */
 export const CRM_TIMEOUT_MS = 30_000
 /** Timeout als de wachtrij niet beschikbaar is en we via waitUntil versturen (moet binnen de 30 s na het antwoord passen) */
@@ -30,12 +33,10 @@ export const CRM_TIMEOUT_WAITUNTIL_MS = 25_000
 export const CRM_MAX_POGINGEN = 4
 /** Wachttijd (s) vóór poging 2, 3 en 4 */
 export const CRM_WACHTTIJDEN_S = [60, 300, 900]
-/** Een verbindingsfout binnen deze tijd betekent: BBase niet bereikt, dus veilig om opnieuw te proberen */
-export const SNELLE_FOUT_MS = 5_000
 /** Alleen leads die zo recent zijn worden verstuurd (geen backfill van oude leads) */
 export const CRM_MAX_LEEFTIJD_UUR = 24
-/** HTTP-statussen waarbij BBase (of de proxy ervoor) het verzoek zeker niet verwerkt heeft */
-const OPNIEUW_STATUSSEN = new Set([429, 502, 503])
+/** HTTP-statussen die tijdelijk kunnen zijn: opnieuw proberen met hetzelfde submission_id */
+const OPNIEUW_STATUSSEN = new Set([429, 500, 502, 503, 504])
 
 export type CrmBericht = { id: number }
 
@@ -51,8 +52,6 @@ export type CrmLead = {
   created_at: string
 }
 
-const intakeLink = (email: string) => `${site.intakeUrl}?klant=${encodeURIComponent(email)}`
-
 function velden(gegevens: string): Record<string, string> {
   try {
     const v = JSON.parse(gegevens || '{}')
@@ -62,27 +61,28 @@ function velden(gegevens: string): Record<string, string> {
   }
 }
 
+/** Vast inzendingsnummer per lead (ook na een nieuwe database uniek door de aanmaaktijd), bv. 'ontbindenbv-12-20261110045012' */
+export const submissionId = (id: number, createdAt: string) => `ontbindenbv-${id}-${createdAt.replace(/\D/g, '')}`
+
 /**
- * Zelfde JSON als de Gravity Forms-webhooks van de oude site, per formulier met dezelfde sleutels en formuliertitel:
- * Hero = "Banner Contact" (form 2), Contact = "Contact" (form 1), Gratis intakegesprek = "Intake gesprek" (form 3).
+ * Body voor de hook van ontbindenbv.nl. `message` is verplicht: het bericht van de bezoeker, aangevuld met het gekozen
+ * contactmoment (gratis intakegesprek), het formulier en de pagina. company en kvk vragen de formulieren niet uit.
  */
 export function crmBody(lead: CrmLead, id: number): Record<string, string> {
-  const basis = {
+  const extra = velden(lead.gegevens)
+  const pagina = lead.pagina_url ? `${site.url}${lead.pagina_url}` : `${site.url}/`
+  const regels = [
+    (lead.bericht ?? '').trim(),
+    extra['Gewenst contactmoment'] ? `Gewenst contactmoment: ${extra['Gewenst contactmoment']}` : '',
+    `Formulier: ${lead.formulier || 'onbekend'} (${pagina})`,
+  ].filter(Boolean)
+  return {
     name: lead.naam,
     email: lead.email,
     phone: lead.telefoon,
-    message: lead.bericht ?? '',
-    intake_link: intakeLink(lead.email),
-    // Zoals date_created van Gravity Forms: UTC, 'JJJJ-MM-DD UU:MM:SS' (created_at van D1 heeft precies dat formaat)
-    submitted_at: lead.created_at,
-    source_url: lead.pagina_url ? `${site.url}${lead.pagina_url}` : `${site.url}/`,
+    message: regels.join('\n\n'),
+    submission_id: submissionId(id, lead.created_at),
   }
-  const submission_id = String(CRM_ID_OPSLAG + id)
-  return lead.formulier === 'Gratis intakegesprek'
-    ? { ...basis, preferred_time: velden(lead.gegevens)['Gewenst contactmoment'] ?? '', submission_id, form_title: 'Intake gesprek' }
-    : lead.formulier === 'Contact'
-      ? { ...basis, form_title: 'Contact', submission_id }
-      : { ...basis, form_name: 'Banner Contact' }
 }
 
 export type Uitkomst = {
@@ -106,12 +106,19 @@ function leesActie(tekst: string): string {
 type Fetcher = (url: string, init: RequestInit) => Promise<Response>
 
 /** Eén poging; gooit nooit */
-export async function crmPoging(url: string, body: unknown, timeoutMs: number, fetcher: Fetcher = fetch, nu: () => number = Date.now): Promise<Uitkomst> {
+export async function crmPoging(
+  url: string,
+  geheim: string,
+  body: unknown,
+  timeoutMs: number,
+  fetcher: Fetcher = fetch,
+  nu: () => number = Date.now,
+): Promise<Uitkomst> {
   const start = nu()
   try {
     const res = await fetcher(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'x-obv-secret': geheim },
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(timeoutMs),
     })
@@ -123,9 +130,8 @@ export async function crmPoging(url: string, body: unknown, timeoutMs: number, f
   } catch (err) {
     const ms = nu() - start
     const naam = err instanceof Error || (typeof err === 'object' && err && 'name' in err) ? String((err as { name: unknown }).name) : ''
-    if (naam === 'TimeoutError' || naam === 'AbortError') return { soort: 'fout', reden: 'timeout', status: 0, ms, actie: '' }
-    if (ms < SNELLE_FOUT_MS) return { soort: 'opnieuw', reden: 'verbinding', status: 0, ms, actie: '' }
-    return { soort: 'fout', reden: 'verbinding_traag', status: 0, ms, actie: '' }
+    if (naam === 'TimeoutError' || naam === 'AbortError') return { soort: 'opnieuw', reden: 'timeout', status: 0, ms, actie: '' }
+    return { soort: 'opnieuw', reden: 'verbinding', status: 0, ms, actie: '' }
   }
 }
 
@@ -134,6 +140,8 @@ export type Logger = { log: (regel: string) => void; error: (regel: string) => v
 export type CrmDeps = {
   db: D1Database
   url?: string
+  /** Waarde voor de header x-obv-secret (secret CRM_WEBHOOK_SECRET) */
+  geheim?: string
   timeoutMs?: number
   fetcher?: Fetcher
   logger?: Logger
@@ -159,8 +167,8 @@ export async function verwerkCrmBericht(bericht: CrmBericht, poging: number, dep
     log.error('[crm] ongeldig wachtrijbericht overgeslagen')
     return { actie: 'ack' }
   }
-  if (!deps.url) {
-    log.error(regel_('overgeslagen, CRM_WEBHOOK_URL ontbreekt'))
+  if (!deps.url || !deps.geheim) {
+    log.error(regel_(`overgeslagen, ${deps.url ? 'CRM_WEBHOOK_SECRET' : 'CRM_WEBHOOK_URL'} ontbreekt`))
     return { actie: 'ack' }
   }
   const lead = await deps.db
@@ -184,7 +192,7 @@ export async function verwerkCrmBericht(bericht: CrmBericht, poging: number, dep
     return { actie: 'ack' }
   }
 
-  const u = await crmPoging(deps.url, crmBody(lead, id), deps.timeoutMs ?? CRM_TIMEOUT_MS, deps.fetcher)
+  const u = await crmPoging(deps.url, deps.geheim, crmBody(lead, id), deps.timeoutMs ?? CRM_TIMEOUT_MS, deps.fetcher)
   const details = `HTTP ${u.status || '-'} in ${u.ms} ms${u.actie ? ` action=${u.actie}` : ''}`
   let status: string
   let besluit: Besluit = { actie: 'ack' }
@@ -197,13 +205,15 @@ export async function verwerkCrmBericht(bericht: CrmBericht, poging: number, dep
     besluit = { actie: 'retry', delaySeconds }
     log.error(regel_(`mislukt (${u.reden}) ${details}, nieuwe poging over ${delaySeconds} s`))
   } else {
-    status = `${u.reden === 'timeout' ? 'timeout' : 'fout'} ${u.reden} poging ${poging}`
+    status = `fout ${u.reden} poging ${poging}`
     const waarom =
       u.soort === 'opnieuw'
         ? 'geen pogingen meer'
-        : u.reden === 'timeout' || u.reden === 'verbinding_traag' || u.status === 500 || u.status === 504
-          ? 'niet opnieuw, BBase kan de lead al hebben aangemaakt'
-          : 'niet opnieuw'
+        : u.status === 401
+          ? 'niet opnieuw, geheim (CRM_WEBHOOK_SECRET) klopt niet'
+          : u.status === 400
+            ? 'niet opnieuw, BBase keurt de velden af'
+            : 'niet opnieuw'
     log.error(regel_(`NIET doorgestuurd (${u.reden}) ${details}, ${waarom}`))
   }
   await deps.db.prepare('UPDATE leads SET crm_status = ? WHERE id = ?').bind(status, id).run()

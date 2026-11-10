@@ -41,7 +41,8 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - [x] Deploy-workflow `.github/workflows/deploy.yml` (zoals BB); deployt alleen als de repo-secret `CLOUDFLARE_API_TOKEN` er is
 - [x] Repo-secret `CLOUDFLARE_API_TOKEN` en Worker-secret `RESEND_API_KEY` gezet door Steven; eerste deploy naar
       https://ontbindenbv-nl.advertisexperts.workers.dev, Queue `ontbindenbv-crm` door de workflow aangemaakt (2026-11-09)
-- [ ] Worker-secret `CRM_WEBHOOK_URL` (BBase) volgt later (Steven)
+- [x] BBase-hook van ontbindenbv.nl ingebouwd (2026-11-10), lokaal getest met een nagebootste BBase
+- [ ] Worker-secret `CRM_WEBHOOK_SECRET` (waarde van `OBV_WEBHOOK_SECRET` van de BBase-beheerder) zetten (Steven)
 - [x] HubSpot uit: niet meer nodig (besluit Steven 2026-11-09), `site.hubspotId` leeg
 - [ ] GTM-MB27H2SF vóór de livegang aanpassen (zie "Formulieren en koppelingen"): leadtags op Custom Event `generate_lead`
 - [ ] Hub-koppeling (`obv`) en Resend-domein ontbindenbv.nl (na de DNS-verhuizing)
@@ -78,16 +79,20 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 ## Formulieren en koppelingen (zoals belastingbemiddelaar.nl)
 
 Elke inzending → D1-tabel `leads` → Resend-mail (en Zapier, niet in gebruik) en CRM BBase via de Queue `ontbindenbv-crm`
-(elk alleen als de bijbehorende secret is gezet). Werking, retry en logging: zie PROJECT.md van belastingbemiddelaar-nl, de
-code in `src/server/leads.ts` en `src/server/crm.ts` is gelijk.
+(elk alleen als de bijbehorende secret is gezet). Wachtrij en logging zoals bij belastingbemiddelaar-nl; de BBase-hook en de
+herhaalregels verschillen (zie hieronder).
 
 - **Oude site**: Gravity Forms 1 (Contact, op `/contact/` en de homepage), 2 (Banner Contact, de kaart) en 3 (Intake gesprek,
   `/gratis-intakegesprek/`), dezelfde opbouw als de oude BB-site. Feeds (webhook naar BBase, HubSpot) niet gezien: WP-beheer.
-- **Resend**: afzender tijdelijk `info@advertisexperts.com` (ontbindenbv.nl staat niet in het Resend-account), ontvangers
-  `info@ontbindenbv.nl,maurice@sea-experts.nl` zoals BB. Na de DNS-verhuizing ontbindenbv.nl toevoegen in Resend en terugzetten.
-- **CRM BBase**: secret `CRM_WEBHOOK_URL` (volledige URL incl. `?secret=…`, waarde uit de Gravity Forms-webhook van ontbindenbv.nl;
-  bij BB `crm.belastingbemiddelaar.nl`). Payload gelijk aan BB. `intake_link` gaat naar de interne intake van BB
-  (`site.intakeUrl`, https://belastingbemiddelaar.nl/intake-nieuwe-klant/): ontbindenbv.nl heeft die pagina niet.
+- **Resend**: afzender `info@ontbindenbv.nl` (domein geverifieerd in Resend), ontvangers `info@ontbindenbv.nl,maurice@sea-experts.nl`
+  zoals BB. Blijft ook met BBase aan, als vangnet (wens Steven 2026-11-10).
+- **CRM BBase**: eigen hook (gegevens van de BBase-beheerder, 2026-11-10): `POST https://crm.belastingbemiddelaar.nl/api/public/hooks/ontbindenbv`
+  (var `CRM_WEBHOOK_URL`), header `x-obv-secret` = secret `CRM_WEBHOOK_SECRET`, JSON `name`, `email`, `phone`, `message`,
+  `submission_id` (verplicht) en `company`, `kvk` (optioneel, vragen de formulieren niet uit). `message` = bericht + gekozen
+  contactmoment + "Formulier: … (pagina)". `submission_id` = `ontbindenbv-<lead-id>-<aanmaaktijd>`, vast per lead. Antwoorden:
+  200 ontvangen, 400 velden kloppen niet, 401 geheim klopt niet, 503 later opnieuw. Omdat `submission_id` bij elke poging gelijk is,
+  probeert de wachtrij het opnieuw bij verbindingsfouten, timeouts en 429/500/502/503/504 (4 pogingen: na 1, 5 en 15 min), niet bij
+  400/401. Status per lead in `leads.crm_status`, logregels `[crm] lead N poging …` zonder persoonsgegevens.
 - **HubSpot**: uit, niet meer nodig (besluit Steven 2026-11-09). De oude site had een eigen EU-portaal `146798603` (niet het
   BB-portaal). Met `site.hubspotId` leeg laadt er geen trackingscript, gaat er niets naar de Forms API (ook niet als de secret
   `HUBSPOT_FORMS_API` er staat) en noemt de privacyverklaring HubSpot niet. De code blijft voor als het ooit terug moet.
