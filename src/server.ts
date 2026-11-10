@@ -173,12 +173,12 @@ export default {
   async scheduled(_controller: ScheduledController, _env: unknown, ctx: ExecutionContext) {
     ctx.waitUntil(schoonOp())
   },
-  /* Wachtrij belastingbemiddelaar-crm: leads doorsturen naar CRM BBase buiten het request-pad (server/crm.ts) */
+  /* Wachtrij ontbindenbv-crm: leads doorsturen naar CRM BBase buiten het request-pad (server/crm.ts) */
   async queue(batch: MessageBatch<CrmBericht>) {
     const e = appEnv()
     for (const bericht of batch.messages) {
       try {
-        const besluit = await verwerkCrmBericht(bericht.body, bericht.attempts, { db: e.DB, url: e.CRM_WEBHOOK_URL })
+        const besluit = await verwerkCrmBericht(bericht.body, bericht.attempts, { db: e.DB, url: e.CRM_WEBHOOK_URL, geheim: e.CRM_WEBHOOK_SECRET })
         if (besluit.actie === 'retry') bericht.retry({ delaySeconds: besluit.delaySeconds })
         else bericht.ack()
       } catch {

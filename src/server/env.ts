@@ -8,8 +8,10 @@ export type AppEnv = Cloudflare.Env & {
   /** HubSpot Forms API (portaal en formulieren in lib/site.ts): 'aan' = leads ook server-side naar HubSpot. Alleen als secret. */
   HUBSPOT_FORMS_API?: string
   ZAPIER_WEBHOOK_URL?: string
-  /** CRM BBase: volledige webhook-URL inclusief ?secret=… (zelfde als de Gravity Forms-webhooks van de oude site) */
+  /** CRM BBase: hook van ontbindenbv.nl (var in wrangler.jsonc) */
   CRM_WEBHOOK_URL?: string
+  /** CRM BBase: geheim voor de header x-obv-secret (alleen als secret, `wrangler secret put CRM_WEBHOOK_SECRET`) */
+  CRM_WEBHOOK_SECRET?: string
   /** Wachtrij voor het doorsturen naar BBase (alleen het lead-id), consumer = deze Worker (src/server.ts → server/crm.ts) */
   CRM_QUEUE?: Queue<{ id: number }>
 }

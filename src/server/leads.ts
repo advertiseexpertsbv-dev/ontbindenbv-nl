@@ -240,7 +240,7 @@ export async function stuurZapier(lead: LeadInput, id: number): Promise<void> {
  */
 export async function zetCrmInWachtrij(id: number): Promise<void> {
   const e = appEnv()
-  if (!e.CRM_WEBHOOK_URL) return
+  if (!e.CRM_WEBHOOK_URL || !e.CRM_WEBHOOK_SECRET) return
   if (e.CRM_QUEUE) {
     try {
       await e.CRM_QUEUE.send({ id } satisfies CrmBericht)
@@ -253,7 +253,7 @@ export async function zetCrmInWachtrij(id: number): Promise<void> {
     console.error(`[crm] lead ${id}: binding CRM_QUEUE ontbreekt, directe poging via waitUntil`)
   }
   waitUntil(
-    verwerkCrmBericht({ id }, 1, { db: e.DB, url: e.CRM_WEBHOOK_URL, timeoutMs: CRM_TIMEOUT_WAITUNTIL_MS, eenmalig: true }).catch(() =>
+    verwerkCrmBericht({ id }, 1, { db: e.DB, url: e.CRM_WEBHOOK_URL, geheim: e.CRM_WEBHOOK_SECRET, timeoutMs: CRM_TIMEOUT_WAITUNTIL_MS, eenmalig: true }).catch(() =>
       console.error(`[crm] lead ${id} (direct): onverwachte fout`),
     ),
   )
