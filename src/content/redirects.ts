@@ -16,6 +16,22 @@ export const REDIRECTS: Record<string, string> = {
   '/wp-sitemap-posts-dienst-1.xml': '/sitemap.xml',
   '/wp-sitemap-taxonomies-category-1.xml': '/sitemap.xml',
   '/wp-sitemap-users-1.xml': '/sitemap.xml',
+  // Verwijderde artikelen (klant 2026-11-10). Stichtingen heffen we niet op: naar de homepage.
+  '/stichting-liquideren': '/',
+  '/stichting-opheffen-eenvoudig-zonder-notaris': '/',
+  '/stichting-opheffen-met-schulden': '/',
+  '/automatische-conceptenstichting-opheffen-ontbinden-kvk': '/',
+  '/stichting-opheffen-kvk-ontbinden-2025': '/',
+  '/stichting-opheffen-ontbinden-kvk-2025': '/',
+  '/stichting-liquideren-kvk-vereffening-2025': '/',
+  // Liquidatiegids met prijzen ("turboliquidatie vanaf €289", "reguliere liquidatie €750–€1.000"): naar turboliquidatie
+  '/ontbindenbv-nl-bv-liquideren': '/dienst/lege-bv-turbo-liquidatie/',
+  // Dubbele kostenartikelen met bedragen: naar het ene kostenartikel (zonder bedragen)
+  '/wat-kost-het-ontbinden-van-een-bv-2': '/wat-kost-het-ontbinden-van-een-bv/',
+  '/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289': '/wat-kost-het-ontbinden-van-een-bv/',
+  '/wat-kost-het-ontbinden-van-een-bv-2025-kosten-tips': '/wat-kost-het-ontbinden-van-een-bv/',
+  // Door de verwijderde artikelen is de kennisbank een pagina korter (69 artikelen, 7 pagina's)
+  '/kennisbank/page/8': '/kennisbank/',
 }
 
 /**

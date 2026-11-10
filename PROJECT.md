@@ -13,7 +13,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Juridische naam | BCF Advies B.V. OntbindenBV.nl is een handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10) |
 | Domein | ontbindenbv.nl (www → apex 301 in `src/server.ts`) |
 | Telefoon | **Tijdelijk geen nummer** (Steven 2026-11-10): +31 85 004 8369 is nu van subsidiehulp.nl, nieuw nummer via Goedemorgen-Goedemiddag volgt. `site.phone` en `site.phoneHref` zijn leeg; dan verdwijnen header-telefoon, "Bel direct", bel-knoppen en de telefoonrij in het contactblok, en staat er e-mail. Nieuw nummer = beide velden invullen. Ook het BB-nummer (+31 85 130 0867) is uit 14 artikelen gehaald |
-| Contactblok | ma t/m vr 08:30–17:30 (zo op de oude site; intakeformulier noemt 8.00–17.00) |
+| Openingstijden | ma t/m vr 08:30–17:30, overal één versie (klant 2026-11-10, gelijk aan het blok Openingstijden op belastingbemiddelaar.nl). Ook `site.belTijden` naast het telefoonnummer; het terugbelmoment in het intakeformulier noemt nog 8.00–17.00 |
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |
 | Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |

@@ -38,7 +38,7 @@ export const paginas = {
   kennisbank: {
     title: 'Kennisbank',
     description:
-      'Artikelen over BV ontbinden, turboliquidatie, BV opheffen met schulden, stichting opheffen en de verplichtingen bij de KvK en de Belastingdienst.',
+      'Artikelen over BV ontbinden, turboliquidatie, BV opheffen met schulden en de verplichtingen bij de KvK en de Belastingdienst.',
     path: '/kennisbank/',
   },
   privacyverklaring: {

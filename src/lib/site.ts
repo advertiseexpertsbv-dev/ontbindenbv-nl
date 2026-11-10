@@ -10,7 +10,7 @@ export const site = {
   titelSuffix: 'BV ontbinden?',
   url: 'https://ontbindenbv.nl',
   description:
-    'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Gratis intakegesprek en een vaste prijs vooraf.',
+    'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Gratis intakegesprek, de kosten bespreken we vooraf met je.',
   /**
    * Telefoonnummer: tijdelijk leeg (besluit Steven 2026-11-10). Het oude nummer +31 85 004 8369 is nu van subsidiehulp.nl;
    * een nieuw nummer (Goedemorgen-Goedemiddag) volgt. Leeg = nergens een nummer of bel-knop, wel e-mail en formulieren.
@@ -25,8 +25,8 @@ export const site = {
     city: 'Ridderkerk',
     country: 'Nederland',
   },
-  /** Zichtbaar naast het telefoonnummer (header, hero, CTA's) */
-  belTijden: 'Bereikbaar tussen 08:00 en 18:00',
+  /** Zichtbaar naast het telefoonnummer (header, hero, CTA's). Gelijk aan de openingstijden (klant 2026-11-10: één versie) */
+  belTijden: 'Bereikbaar tussen 08:30 en 17:30',
   /** Contactblok */
   openingstijden: { dagen: 'maandag tot en met vrijdag', tijden: '08:30 uur tot 17:30' },
   linkedin: '', // oude site linkte naar '#'
