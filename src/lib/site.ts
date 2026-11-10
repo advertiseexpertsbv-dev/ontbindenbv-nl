@@ -44,9 +44,19 @@ export const site = {
    * pagina zelf niet; de link gaat als intake_link mee naar BBase.
    */
   intakeUrl: 'https://belastingbemiddelaar.nl/intake-nieuwe-klant/',
-  reviews: { score: '4,9', count: 391 },
-  /** Afspraken online inplannen (zelfde doel als de knop op de oude site: /contact/) */
+  /**
+   * Google-score uit de oude site. Wordt alleen getoond (reviewbalk boven de header, score bij de reviews) als googleUrl naar het
+   * openbare Google-profiel van OntbindenBV.nl wijst, zodat een bezoeker score en aantal kan controleren. Er was geen profiel te
+   * vinden en de oude link ging naar de drie reviews op de eigen pagina (campagnecontrole 2026-11-10). Profiel-URL invullen =
+   * score en aantal staan weer overal (controleer dan ook of 4,9 en 391 nog kloppen).
+   */
+  reviews: { score: '4,9', count: 391, googleUrl: '' as string },
+  /**
+   * Gele knop naar het contactformulier. Op de oude site heette hij "Online afspraak inplannen", maar er is geen agenda: het is een
+   * gewoon formulier. Daarom "Neem contact op" (campagnecontrole 2026-11-10). De blauwe knop gaat naar /gratis-intakegesprek/.
+   */
   afspraakHref: '/contact/',
+  afspraakKnop: 'Neem contact op',
 } as const
 
 export type Site = typeof site

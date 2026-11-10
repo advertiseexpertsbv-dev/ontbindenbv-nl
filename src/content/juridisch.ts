@@ -4,7 +4,7 @@ import { site } from '../lib/site'
    WordPress-installatie; deze teksten beschrijven de werking van de nieuwe site (formulieren, opslag, cookies).
    Door de eigenaar te laten bevestigen (zie PROJECT.md). */
 
-export const bijgewerkt = '9 november 2026'
+export const bijgewerkt = '10 november 2026'
 const privacyBijgewerkt = '10 november 2026'
 
 const adres = `${site.address.street}, ${site.address.postalCode} ${site.address.city}`
@@ -64,8 +64,10 @@ export const cookiebeleid = `
 <p>Noodzakelijk voor het werken van de site. Hiervoor is geen toestemming nodig.</p>
 <ul>
 <li><strong>obv-cookie-consent</strong> (browseropslag): onthoudt je cookiekeuze.</li>
-<li><strong>obv-first-touch, obv-last-touch</strong> (browseropslag) en <strong>obv-utm, obv-landing</strong> (sessie): onthouden via welke bron en op welke pagina je op de site kwam, zodat we dit bij een aanvraag kunnen vastleggen.</li>
 </ul>
+
+<h2>Herkomst van een aanvraag (altijd actief)</h2>
+<p>Om te zien welke kanalen werken, onthouden we in je browser via welke bron en op welke pagina je op de site kwam: <strong>obv-first-touch, obv-last-touch</strong> (browseropslag) en <strong>obv-utm, obv-landing</strong> (sessie). Er staat alleen een algemene bron in, zoals "google / cpc" of "direct", met de campagnenaam en de eerste pagina. Er zit geen nummer of kenmerk in waarmee je herkend kunt worden, het wordt niet met anderen gedeeld en het gaat alleen naar ons mee als je zelf een formulier verstuurt. Dit valt onder de uitzondering voor meting zonder of met geringe gevolgen voor je privacy; daarom vragen we er geen toestemming voor. Je kunt deze opslag altijd wissen via de instellingen van je browser.</p>
 
 <h2>Voorkeuren</h2>
 <p>Voor het onthouden van instellingen die je niet zelf hebt gevraagd. Alleen met jouw toestemming.</p>

@@ -13,11 +13,11 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Juridische naam | BCF Advies B.V. OntbindenBV.nl is een handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10) |
 | Domein | ontbindenbv.nl (www → apex 301 in `src/server.ts`) |
 | Telefoon | **Tijdelijk geen nummer** (Steven 2026-11-10): +31 85 004 8369 is nu van subsidiehulp.nl, nieuw nummer via Goedemorgen-Goedemiddag volgt. `site.phone` en `site.phoneHref` zijn leeg; dan verdwijnen header-telefoon, "Bel direct", bel-knoppen en de telefoonrij in het contactblok, en staat er e-mail. Nieuw nummer = beide velden invullen. Ook het BB-nummer (+31 85 130 0867) is uit 14 artikelen gehaald |
-| Openingstijden | ma t/m vr 08:30–17:30, overal één versie (klant 2026-11-10, gelijk aan het blok Openingstijden op belastingbemiddelaar.nl). Ook `site.belTijden` naast het telefoonnummer; het terugbelmoment in het intakeformulier noemt nog 8.00–17.00 |
+| Openingstijden | ma t/m vr 08:30–17:30, overal één versie (klant 2026-11-10, gelijk aan het blok Openingstijden op belastingbemiddelaar.nl). Ook `site.belTijden` naast het telefoonnummer en de terugbelmomenten in het intakeformulier (ma-vr 8.30-17.30; avond en weekend "op afspraak") |
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |
 | Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |
-| Reviews | 4,9 uit 5, 391 reviews (Google) |
+| Reviews | 4,9 uit 5, 391 reviews (Google), van de oude site. **Niet getoond** zolang `site.reviews.googleUrl` leeg is: er was geen Google-profiel van OntbindenBV.nl te vinden en de oude link ging naar de eigen reviews (campagnecontrole 2026-11-10). Profiel-URL invullen = reviewbalk en score terug (cijfers dan nakijken). De drie klantreviews op de pagina blijven |
 | Hub | project 26 "OntbindenBV", site-sleutel `obv` (aangemaakt 2026-11-10; code-koppeling in hub-PR #30) |
 
 ## Pagina's van de oude site (116 URL's in `ref/seo/seo.json`)
@@ -64,6 +64,15 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - Lege `#`-links in dienstteksten: "Bel…" → `tel:`, overige → `/gratis-intakegesprek/`; kapotte link `/gratis-intakesprek/` hersteld.
 - Adres: nieuw adres (Houtzaagmolen 99, Ridderkerk) i.p.v. Nieuwerkerk aan den IJssel.
 - Mobiele balk onderaan (Bel direct / Gratis intake) is een toevoeging uit het sjabloon.
+- Campagnecontrole 2026-11-10 (externe audit, door Claude beoordeeld): gele knop "Online afspraak inplannen" heet nu "Neem contact op"
+  (`site.afspraakKnop`; er is geen agenda, het is het contactformulier); verstuurknop "Vraag gratis advies aan" met een privacyregel
+  eronder; geen garanties op het uitblijven van bestuurdersaansprakelijkheid; FAQ en turbopagina noemen de deponering binnen 14 dagen
+  en het informeren van schuldeisers (`TURBO_UITLEG` in `content/home.ts`); doorlooptijd overal "binnen 24 uur van start" en
+  "vaak binnen een week geregeld"; garantie- en 9,4-claims uit de artikelen. Telefoons krijgen een uitsnede van de hero
+  (`hero-mobiel.webp`, `scripts/hero-mobiel.mjs`, 39 kB i.p.v. 107 kB).
+- Open uit die controle: ruim 20 kennisbankartikelen noemen nog "geen schulden" als voorwaarde voor turboliquidatie (juridisch onjuist:
+  het gaat om baten op het moment van ontbinding, en de dienst is juist turboliquidatie mét schulden); artikelen gebruiken u, de rest
+  van de site je; dubbele artikelen (o.a. turbo vs reguliere liquidatie, -2) nog samenvoegen met 301's.
 - `/bedankt/` staat op noindex (oud: index).
 
 ## Werkwijze import (reproduceerbaar)

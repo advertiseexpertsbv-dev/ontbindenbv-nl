@@ -16,7 +16,7 @@ export type DienstBlok =
   | { t: 'ul'; items: string[] }
   /** Tabel "Voordelen / Wat wij doen" */
   | { t: 'tabel'; kop: string[]; rijen: string[][] }
-  /** Knoppen "Gratis intakegesprek" en "Online afspraak inplannen" */
+  /** Knoppen "Gratis intakegesprek" en "Neem contact op" (site.afspraakKnop) */
   | { t: 'knoppen' }
 
 export type Dienst = {

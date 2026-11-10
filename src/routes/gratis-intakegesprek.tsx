@@ -23,7 +23,7 @@ function Intake() {
         <Container>
           <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
             <div className="min-[992px]:w-1/2 min-[992px]:pr-4">
-              <h2 className="mb-4">Boek hier jouw gratis intakegesprek</h2>
+              <h2 className="mb-4">Vraag hier jouw gratis intakegesprek aan</h2>
               <p className="mb-8">Laat je gegevens achter, en wij regelen een gratis intakegesprek om te bespreken hoe we jou het beste kunnen helpen</p>
               <div className="max-w-[498px]">
                 <LeadForm formulier="Gratis intakegesprek" variant="gratis" berichtLabel="Waar kan ik je mee helpen?" className="mb-6" />

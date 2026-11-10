@@ -41,8 +41,10 @@ export const SIZES = {
   /** Vrijstaande foto boven de CTA-band (375px breed) */
   cta: '375px',
   /** Home: Peter naast de intro (40% kolom, cover) en het team naast "Geen zorgen" */
-  intro: '(min-width: 992px) 760px, 620px',
-  team: '(min-width: 992px) 660px, 620px',
+  // Onder 992px: vlak van 400px hoog over de volle breedte; een telefoon heeft door de hoogte 600px nodig (geen verspilling, ook al
+  // meldt Lighthouse dat), vanaf 632px is de breedte van het vlak groter (gemeten 2026-11-10: 735px op 767, 959px op 991)
+  intro: '(min-width: 992px) 760px, (min-width: 632px) calc(100vw - 32px), 600px',
+  team: '(min-width: 992px) 660px, (min-width: 632px) calc(100vw - 32px), 600px',
   /** ContactBlok: ronde foto van 200px (vanaf 768px), op een telefoon een banner over de volle breedte */
   contactFoto: '(min-width: 768px) 300px, calc(100vw - 32px)',
   /** /contact/ en /gratis-intakegesprek/: teamfoto in de rechterkolom */

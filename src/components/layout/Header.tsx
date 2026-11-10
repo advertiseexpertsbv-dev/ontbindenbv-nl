@@ -172,7 +172,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg */}
+      {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg. Alleen met een controleerbaar Google-profiel (site.reviews.googleUrl) */}
+      {site.reviews.googleUrl && (
       <div className="bg-textuur hidden min-[992px]:block">
         <Container className="flex items-center gap-2 py-2 text-[14px]">
           <span className="flex text-star" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
@@ -182,14 +183,20 @@ export default function Header() {
           </span>
           <span>
             Een score van <strong>{site.reviews.score}</strong> uit 5 op basis van{' '}
-            {/* Onzichtbaar vergroot tikvlak (44px hoog) zonder dat de regel hoger wordt; de oude site heeft hier geen link */}
-            <Link to="/" hash="reviews" className="relative underline after:absolute after:-inset-x-1 after:-inset-y-[13px] after:content-['']">
+            {/* Onzichtbaar vergroot tikvlak (44px hoog) zonder dat de regel hoger wordt; de link gaat naar het Google-profiel zelf */}
+            <a
+              href={site.reviews.googleUrl}
+              target="_blank"
+              rel="noopener"
+              className="relative underline after:absolute after:-inset-x-1 after:-inset-y-[13px] after:content-['']"
+            >
               {site.reviews.count} reviews
-            </Link>
+            </a>
           </span>
           <GoogleG className="size-5" />
         </Container>
       </div>
+      )}
 
       <header ref={headerRef} className="relative z-50 bg-white min-[992px]:sticky min-[992px]:top-0 min-[992px]:shadow-header">
         <Container className="flex items-center justify-between py-6">
@@ -234,7 +241,7 @@ export default function Header() {
                 Gratis adviesgesprek
               </Button>
               <Button href={site.afspraakHref} arrow variant="yellow" size="header">
-                Online afspraak inplannen
+                {site.afspraakKnop}
               </Button>
             </div>
 
@@ -369,7 +376,7 @@ export default function Header() {
                     Gratis intakegesprek
                   </Button>
                   <Button href={site.afspraakHref} variant="yellow" arrow className="w-full">
-                    Online afspraak inplannen
+                    {site.afspraakKnop}
                   </Button>
                 </div>
               </nav>

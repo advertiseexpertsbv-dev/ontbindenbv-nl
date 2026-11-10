@@ -85,7 +85,7 @@ function Blok({ b, laatste }: { b: DienstBlok; laatste: boolean }) {
             Gratis intakegesprek
           </Button>
           <Button href={site.afspraakHref} variant="yellow" arrow>
-            Online afspraak inplannen
+            {site.afspraakKnop}
           </Button>
         </div>
       )
