@@ -73,23 +73,26 @@ export default function Footer() {
       </Container>
 
       <div className="border-t border-white">
-        <Container className="flex flex-col flex-wrap justify-between gap-4 py-12 min-[992px]:flex-row">
-          <p>©{new Date().getFullYear()} Ontbinden BV - Alle rechten voorbehouden</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <Link to="/cookiebeleid-eu/" className="tik hover:underline">
-              Cookiebeleid
-            </Link>
-            <span aria-hidden="true">-</span>
-            <Link to="/privacyverklaring-eu/" className="tik hover:underline">
-              Privacyverklaring
-            </Link>
-            <span aria-hidden="true" className="max-[479px]:hidden">
-              -
-            </span>
-            <button type="button" className="tik hover:underline max-[479px]:basis-full max-[479px]:text-left" onClick={() => window.dispatchEvent(new Event('open-cookie-voorkeuren'))}>
-              Cookievoorkeuren
-            </button>
+        <Container className="flex flex-col gap-4 py-12">
+          <div className="flex flex-col flex-wrap justify-between gap-4 min-[992px]:flex-row min-[992px]:items-center">
+            <p>©{new Date().getFullYear()} Ontbinden BV - Alle rechten voorbehouden</p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <Link to="/cookiebeleid-eu/" className="tik hover:underline">
+                Cookiebeleid
+              </Link>
+              <span aria-hidden="true">-</span>
+              <Link to="/privacyverklaring-eu/" className="tik hover:underline">
+                Privacyverklaring
+              </Link>
+              <span aria-hidden="true" className="max-[479px]:hidden">
+                -
+              </span>
+              <button type="button" className="tik hover:underline max-[479px]:basis-full max-[479px]:text-left" onClick={() => window.dispatchEvent(new Event('open-cookie-voorkeuren'))}>
+                Cookievoorkeuren
+              </button>
+            </div>
           </div>
+          <p>{site.name} is een handelsnaam van {site.legalName} · KvK {site.kvk}</p>
         </Container>
       </div>
     </footer>

@@ -2,7 +2,8 @@ export const site = {
   name: 'OntbindenBV.nl',
   /** Naam in lopende tekst / merk */
   brand: 'OntbindenBV.nl',
-  legalName: 'OntbindenBV.nl', // TODO: juridische naam bevestigen (KvK 96464054)
+  /** Juridische naam. OntbindenBV.nl is de handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10). */
+  legalName: 'BCF Advies B.V.',
   kvk: '96464054',
   domain: 'ontbindenbv.nl',
   /** Achtervoegsel van de paginatitels, zoals de oude site (Rank Math): 'Contact - BV ontbinden?' */
