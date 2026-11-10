@@ -121,7 +121,7 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
       })
     } catch {
       // Geen verbinding of serverfout: het formulier blijft bruikbaar en de bezoeker krijgt het nummer
-      res = { ok: false, fout: `Er ging iets mis. Bel ons gerust, dan lossen we het direct op: ${site.phone}.` }
+      res = { ok: false, fout: site.phone ? `Er ging iets mis. Bel ons gerust, dan lossen we het direct op: ${site.phone}.` : `Er ging iets mis. Mail ons gerust, dan lossen we het direct op: ${site.email}.` }
     } finally {
       bezigRef.current = false
       setBezig(false)

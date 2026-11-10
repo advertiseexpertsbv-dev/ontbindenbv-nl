@@ -6,7 +6,7 @@ import { Button, Container } from '../ui'
 /**
  * Blauwe CTA-band "Dus waar wacht je nog op?" met het verloop van de oude site, een vrijstaande foto (300px kolom) die tegen de
  * onderrand staat en boven de band uitsteekt, tekst in het midden en de knoppen rechts. Onder 768px is de foto verborgen.
- * bel: tweede knop "Bel direct met een specialist" (dienstpagina's) in plaats van "Online afspraak inplannen".
+ * bel: tweede knop "Bel direct met een specialist" (dienstpagina's) in plaats van "Online afspraak inplannen" (alleen met een nummer).
  */
 export default function CtaBand({ bel = false }: { bel?: boolean }) {
   return (
@@ -31,7 +31,7 @@ export default function CtaBand({ bel = false }: { bel?: boolean }) {
           <Button href="/contact/" variant="yellow" arrow className="w-full min-[992px]:w-auto">
             Plan gratis intake
           </Button>
-          {bel ? (
+          {bel && site.phone ? (
             <Button href={site.phoneHref} variant="white" arrow className="w-full min-[992px]:w-auto">
               Bel direct met een specialist
             </Button>

@@ -11,7 +11,8 @@ import { FaClock, FaEnvelope, FaMarker, FaPhone, IcoAt, IcoNavigatie, IcoPhone }
  */
 export function ContactRijen({ blauw = false }: { blauw?: boolean }) {
   const rijen = [
-    {
+    // Zonder nummer (site.phone leeg) valt de rij weg
+    ...(site.phone ? [{
       titel: 'Telefoonnummer',
       icoon: blauw ? <FaPhone className="size-6" /> : <IcoPhone className="size-4 text-diep" />,
       tekst: (
@@ -19,7 +20,7 @@ export function ContactRijen({ blauw = false }: { blauw?: boolean }) {
           {site.phone}
         </a>
       ),
-    },
+    }] : []),
     {
       titel: 'Email',
       icoon: blauw ? <FaEnvelope className="size-6" /> : <IcoAt className="size-4 text-diep" />,

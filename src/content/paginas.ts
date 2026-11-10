@@ -32,7 +32,7 @@ export const paginas = {
   contact: {
     title: 'Contact',
     description:
-      'Neem contact op met OntbindenBV.nl voor een gratis intakegesprek over het ontbinden van jouw BV. Bel +31 85 004 8369 of stuur ons een bericht.',
+      'Neem contact op met OntbindenBV.nl voor een gratis intakegesprek over het ontbinden van jouw BV. Mail naar info@ontbindenbv.nl of stuur ons een bericht.',
     path: '/contact/',
   },
   kennisbank: {

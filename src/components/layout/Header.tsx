@@ -198,7 +198,9 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center gap-4 min-[768px]:gap-12 min-[992px]:gap-6 min-[1200px]:gap-12">
-            {/* Telefoon vanaf 768px zoals de oude site (992-1099px: zonder "Bel direct op:", anders past het niet naast de knoppen) */}
+            {/* Telefoon vanaf 768px zoals de oude site (992-1099px: zonder "Bel direct op:", anders past het niet naast de knoppen).
+                Zonder nummer (site.phone leeg) staan telefoonblok en hoorn er niet. */}
+            {site.phone && (
             <div className="hidden items-center gap-4 min-[768px]:flex">
               <PhoneFill className="size-4 shrink-0 text-brand-700" />
               <div>
@@ -214,7 +216,9 @@ export default function Header() {
                 </span>
               </div>
             </div>
+            )}
             {/* Onder 768px heeft de oude header geen telefoon; projectregel: het nummer blijft bereikbaar (nummer waar ruimte is, anders de hoorn) */}
+            {site.phone && (
             <a
               href={site.phoneHref}
               className="tik flex min-h-11 items-center gap-2 text-[14px] font-medium text-brand-700 min-[768px]:hidden"
@@ -223,6 +227,7 @@ export default function Header() {
               <PhoneFill className="size-5 shrink-0 min-[480px]:size-4" />
               <span className="max-[479px]:hidden">{site.phone}</span>
             </a>
+            )}
 
             <div className="hidden items-center gap-4 min-[992px]:flex">
               <Button href="/gratis-intakegesprek/" arrow variant="blue" size="header">

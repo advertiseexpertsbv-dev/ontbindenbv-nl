@@ -29,9 +29,9 @@ export default function Situatie() {
           ))}
         </ul>
         <p className="text-center">
-          <b>Niet gevonden waar u naar op zoek bent?</b> Neem telefonisch contact op via{' '}
-          <a href={site.phoneHref} className="inline-block font-normal whitespace-nowrap text-brand-700">
-            {site.phone}
+          <b>Niet gevonden waar u naar op zoek bent?</b> {site.phone ? 'Neem telefonisch contact op via' : 'Neem contact op via'}{' '}
+          <a href={site.phone ? site.phoneHref : `mailto:${site.email}`} className="inline-block font-normal whitespace-nowrap text-brand-700">
+            {site.phone || site.email}
           </a>
         </p>
       </Container>

@@ -133,7 +133,7 @@ export const faq: FaqItem[] = [
   },
   {
     v: 'Hoe lang duurt het gemiddeld?',
-    a: '<p>Een turbo-liquidatie kan vaak binnen 5 werkdagen rond zijn. Complexere trajecten duren langer, maar wij zorgen voor de snelst mogelijke afronding.</p><p><a href="tel:+31850048369"><em>Bel ons voor een inschatting.</em></a></p>',
+    a: '<p>Een turbo-liquidatie kan vaak binnen 5 werkdagen rond zijn. Complexere trajecten duren langer, maar wij zorgen voor de snelst mogelijke afronding.</p><p><a href="/gratis-intakegesprek/"><em>Vraag een gratis inschatting aan.</em></a></p>',
   },
 ]
 
@@ -164,7 +164,7 @@ export const overOns = {
 } as const
 
 export const contactBlok = {
-  tekst: 'U kunt ons telefonisch bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
+  tekst: 'U kunt ons bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
   formTitel: 'Wij helpen je graag verder met al je vragen',
   formTekst: 'Neem vandaag nog contact op met ons voor een kosteloze intake en laat ons jou helpen met het oplossen van jouw fiscale problemen.',
   telefoon: site.phone,
