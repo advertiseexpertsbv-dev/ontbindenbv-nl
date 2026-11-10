@@ -18,7 +18,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | KvK | 96464054 |
 | Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |
 | Reviews | 4,9 uit 5, 391 reviews (Google) |
-| Hub | site-sleutel `obv` (voorstel), project nog te kiezen (eigen project of onder Belasting Bemiddelaar, id 19) |
+| Hub | project 26 "OntbindenBV", site-sleutel `obv` (aangemaakt 2026-11-10; code-koppeling in hub-PR #30) |
 
 ## Pagina's van de oude site (116 URL's in `ref/seo/seo.json`)
 
@@ -44,9 +44,10 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - [x] BBase-hook van ontbindenbv.nl ingebouwd (2026-11-10), lokaal getest met een nagebootste BBase
 - [ ] Worker-secret `CRM_WEBHOOK_SECRET` (waarde van `OBV_WEBHOOK_SECRET` van de BBase-beheerder) zetten (Steven)
 - [x] HubSpot uit: niet meer nodig (besluit Steven 2026-11-09), `site.hubspotId` leeg
-- [ ] GTM-MB27H2SF vóór de livegang aanpassen (zie "Formulieren en koppelingen"): leadtags op Custom Event `generate_lead`
-- [ ] Hub-koppeling (`obv`) en Resend-domein ontbindenbv.nl (na de DNS-verhuizing)
-- [ ] Livegang (DNS-zone, nameservers, worker-routes) alleen na expliciet akkoord van Steven, nazorg
+- [x] GTM-MB27H2SF versie 7 gepubliceerd (2026-11-10): leadtags op Custom Event `generate_lead`, Complianz-tag eruit
+- [x] Hub-project OntbindenBV (`obv`) en Resend-domein ontbindenbv.nl
+- [x] Livegang (2026-11-09): nameservers naar Cloudflare, domein in het dashboard aan de worker gekoppeld
+- [ ] Domein (route of custom domain) ook in `wrangler.jsonc` vastleggen en `workers_dev` uit; eerst in het dashboard nakijken welke van de twee
 
 ## Bewuste verschillen met de oude site
 
@@ -97,16 +98,15 @@ herhaalregels verschillen (zie hieronder).
   BB-portaal). Met `site.hubspotId` leeg laadt er geen trackingscript, gaat er niets naar de Forms API (ook niet als de secret
   `HUBSPOT_FORMS_API` er staat) en noemt de privacyverklaring HubSpot niet. De code blijft voor als het ooit terug moet.
 - **GTM**: bestaande container `GTM-MB27H2SF` (`site.gtmId`), Consent Mode v2 in `__root.tsx`, alleen op het echte domein.
-  Inhoud (gelezen uit gtm.js, 2026-11-09): Google tag GA4 `G-742VS3JNKX` en conversielinker op alle pagina's; GA4-event `OBV_lead`
-  en Google Ads-conversie `AW-17511513426` (label `25vGCLuB5rUbENL6kZ5B`, waarde 300, enhanced conversions uit) op **gtm.js +
-  URL bevat /bedankt/**; een Complianz-consenttemplate (cookie `cmplz_consent_mode`). Die trigger werkt hier niet: na de submit
-  gaat de site client-side naar /bedankt/ (geen nieuwe gtm.js), dus er zou geen conversie meer tellen. Nodig, zoals BB-versie 4:
-  beide leadtags op Custom Event `generate_lead` (event komt uit `lib/conversie.ts`), Complianz-template eruit (de site zet de
-  consent zelf), eventueel enhanced conversions aan (`user_data` zit in het event). Testen in GTM-preview op workers.dev kan niet
-  (GTM laadt alleen op het echte domein), dus direct na de livegang controleren.
+  Versie 7 (live sinds 2026-11-10): Google tag GA4 `G-742VS3JNKX` en conversielinker op alle pagina's; GA4-event `OBV_lead` en
+  Google Ads-conversie `AW-17511513426` (label `25vGCLuB5rUbENL6kZ5B`, waarde 300, enhanced conversions uit) op Custom Event
+  **`generate_lead`** (komt uit `lib/conversie.ts`). Tot en met versie 6 vuurden ze op paginalading van /bedankt/, wat niet werkt
+  omdat de site na de submit client-side naar /bedankt/ gaat. De Complianz-consenttag is eruit: de site zet de consent zelf. De
+  oude trigger "Bedankt Pagina" staat nog in de container maar wordt niet gebruikt. Eventueel later: enhanced conversions aan
+  (`user_data` zit in het event, zoals BB-versie 4).
 - **Database**: D1 `ontbindenbv-db`, id `5c4f8c21-690b-48ce-b303-c797ed246e86`. Nieuwe migraties: `wrangler d1 migrations apply
   ontbindenbv-db --remote` vóór de deploy (de workflow stopt bij een nieuwe migratie).
-- **Deploy**: bij push naar main naar het test-adres op workers.dev (geen routes, dus niet live). Livegang = routes in
-  `wrangler.jsonc` + DNS, alleen na akkoord van Steven.
+- **Deploy**: elke push naar main gaat direct live. Het domein is in het Cloudflare-dashboard aan de worker gekoppeld (niet in
+  `wrangler.jsonc`); een deploy laat die koppeling staan.
 
 De interne BB-intake (`/intake-nieuwe-klant/`) is hier verwijderd; die van BB wordt gebruikt (zie CRM BBase).
