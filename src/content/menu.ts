@@ -13,7 +13,6 @@ export const hoofdmenu: MenuItem[] = [
     menu: [
       { label: 'BV hoge schulden', slug: 'bv-hoge-schulden' },
       { label: 'BV met schulden', slug: 'bv-met-schulden' },
-      { label: 'BV met activa', slug: 'bv-met-activa' },
       { label: 'Lege BV', slug: 'lege-bv-turbo-liquidatie' },
     ],
   },
@@ -56,7 +55,6 @@ export const footerDiensten: MenuDienst[] = [
   { label: 'Eenmanszaak omzetten naar BV', slug: 'eenmanszaak-omzetten-naar-bv' },
   { label: 'BV hoge schulden', slug: 'bv-hoge-schulden' },
   { label: 'BV met schulden', slug: 'bv-met-schulden' },
-  { label: 'BV met activa', slug: 'bv-met-activa' },
   { label: 'Lege BV (Turbo liquidatie)', slug: 'lege-bv-turbo-liquidatie' },
 ]
 

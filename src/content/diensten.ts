@@ -27,7 +27,7 @@ export type Dienst = {
   sub: string
   seoTitle: string
   description: string
-  /** Vinkjes in de titelbalk (HTML), alleen bij de zeven hoofddiensten */
+  /** Vinkjes in de titelbalk (HTML), alleen bij de hoofddiensten */
   bannerPunten: string[]
   /** Hoofddienst: met werkwijze en CTA-band onder de tekst */
   uitgebreid: boolean

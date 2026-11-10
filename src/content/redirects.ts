@@ -26,12 +26,10 @@ export const REDIRECTS: Record<string, string> = {
   '/stichting-liquideren-kvk-vereffening-2025': '/',
   // Liquidatiegids met prijzen ("turboliquidatie vanaf €289", "reguliere liquidatie €750–€1.000"): naar turboliquidatie
   '/ontbindenbv-nl-bv-liquideren': '/dienst/lege-bv-turbo-liquidatie/',
-  // Dubbele kostenartikelen met bedragen: naar het ene kostenartikel (zonder bedragen)
-  '/wat-kost-het-ontbinden-van-een-bv-2': '/wat-kost-het-ontbinden-van-een-bv/',
-  '/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289': '/wat-kost-het-ontbinden-van-een-bv/',
-  '/wat-kost-het-ontbinden-van-een-bv-2025-kosten-tips': '/wat-kost-het-ontbinden-van-een-bv/',
-  // Door de verwijderde artikelen is de kennisbank een pagina korter (69 artikelen, 7 pagina's)
-  '/kennisbank/page/8': '/kennisbank/',
+  // Kostenartikel zonder bedragen: de oude slug noemde een prijs
+  '/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289': '/wat-kost-het-ontbinden-van-een-bv-2025/',
+  // Dienst "BV met activa" geschrapt (klant 2026-11-10: geen reguliere liquidatie): naar turboliquidatie
+  '/dienst/bv-met-activa': '/dienst/lege-bv-turbo-liquidatie/',
 }
 
 /**

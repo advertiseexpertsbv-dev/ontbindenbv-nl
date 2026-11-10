@@ -25,7 +25,7 @@ export const kaart = {
 export const introHome = {
   titel: 'Dé specialist in BV ontbinden',
   alinea:
-    'Welkom bij OntbindenBV.nl, dé expert in Nederland voor het beëindigen en liquideren van jouw BV. Of het nu gaat om een lege BV, een BV met activa of zelfs een BV met schulden – wij staan voor je klaar. Wij begrijpen dat het ontbinden van een onderneming vaak gepaard gaat met stress en onzekerheid. Juist in die periode wil je een partij die alles uit handen neemt en jou volledig ontzorgt.',
+    'Welkom bij OntbindenBV.nl, dé expert in Nederland voor het beëindigen en liquideren van jouw BV. Of het nu gaat om een lege BV of een BV met schulden – wij staan voor je klaar. Wij begrijpen dat het ontbinden van een onderneming vaak gepaard gaat met stress en onzekerheid. Juist in die periode wil je een partij die alles uit handen neemt en jou volledig ontzorgt.',
   vraag: 'En wat doen wij dan?',
   /** HTML: de vette woorden zoals op de oude site */
   antwoord:
@@ -43,13 +43,13 @@ export const situatie = {
 } as const
 
 export const werkwijzeIntro =
-  'OntbindenBV.nl werkt transparant en efficiënt. Wij willen het proces van het ontbinden van jouw BV zo soepel en stressvrij mogelijk maken. Of het nu gaat om een lege BV, een BV met activa of met schulden: wij nemen alles uit handen. Daarom volgen we de volgende stappen om jouw BV veilig en correct te beëindigen:'
+  'OntbindenBV.nl werkt transparant en efficiënt. Wij willen het proces van het ontbinden van jouw BV zo soepel en stressvrij mogelijk maken. Of het nu gaat om een lege BV of een BV met schulden: wij nemen alles uit handen. Daarom volgen we de volgende stappen om jouw BV veilig en correct te beëindigen:'
 
 export const werkwijze = [
   {
     titel: 'Gratis intake',
     tekst:
-      'We starten altijd met een gratis intake. Hierin brengen we jouw situatie in kaart en bekijken we of het gaat om een lege BV, een BV met activa of schulden.',
+      'We starten altijd met een gratis intake. Hierin brengen we jouw situatie in kaart en bekijken we of turboliquidatie mogelijk is, ook als je BV nog schulden heeft.',
   },
   {
     titel: 'Plan van aanpak',
@@ -149,7 +149,7 @@ export const team = [
 export const overOns = {
   titel: 'jouw partner in BV-ontbinding',
   alineas: [
-    'OntbindenBV.nl is een betrokken familiebedrijf met meer dan 25 jaar ervaring in het ontbinden van ondernemingen. Wij ondersteunen ondernemers in heel Nederland—of je nu een lege BV hebt, één met activa of zelfs schulden—met een persoonlijke en complete aanpak.',
+    'OntbindenBV.nl is een betrokken familiebedrijf met meer dan 25 jaar ervaring in het ontbinden van ondernemingen. Wij ondersteunen ondernemers in heel Nederland—of je nu een lege BV hebt of een BV met schulden—met een persoonlijke en complete aanpak.',
     'Onze missie: jouw ontzorgen tijdens het vaak lastige proces van BV-ontbinding. Van intake tot KVK-uitschrijving: wij staan naast je, zorgen dat alles juridisch correct gebeurt en jij krijgt vanaf dag één een helder plan. De kosten bespreken we vooraf met je.',
   ],
   waarom: 'Waarom kies je voor OntbindenBV.nl?',
@@ -158,7 +158,7 @@ export const overOns = {
     'Meer dan <b>1.200 ontbindingen</b> succesvol afgerond',
     '<b>Familiebedrijf</b>, met persoonlijke service en heldere communicatie',
     'Direct inzicht: <b>gratis intake</b> en een helder plan, de kosten bespreken we vooraf met je',
-    'Expertise in elk scenario: van eenvoudig tot complex (zoals activa of schulden)',
+    'Expertise in elk scenario: van eenvoudig tot complex (zoals een BV met schulden)',
     'Volledig compliance: je bent verzekerd dat het proces correct en foutloos verloopt',
   ],
 } as const

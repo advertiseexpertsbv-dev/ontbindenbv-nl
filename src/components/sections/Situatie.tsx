@@ -6,7 +6,7 @@ import { Container } from '../ui'
 
 /**
  * "Wat is je situatie?": lichtblauwe sectie met patroon. Op de oude site stond hier een lege keuzelijst onder "Selecteer
- * hieronder wat het beste bij je past"; hier staan de zeven hoofddiensten als tegels (4 / 2 / 1 kolommen).
+ * hieronder wat het beste bij je past"; hier staan de zes hoofddiensten als tegels (3 / 2 / 1 kolommen).
  * De kop was op de oude site een tweede h1; hier een h2 in dezelfde maat.
  */
 export default function Situatie() {
@@ -15,7 +15,7 @@ export default function Situatie() {
       <Container>
         <h2 className="kop-h1 mb-4">{situatie.titel}</h2>
         <p className="mb-8">{situatie.tekst}</p>
-        <ul className="mb-8 grid gap-4 min-[481px]:grid-cols-2 min-[992px]:grid-cols-4">
+        <ul className="mb-8 grid gap-4 min-[481px]:grid-cols-2 min-[992px]:grid-cols-3">
           {footerDiensten.map((d) => (
             <li key={d.slug}>
               <Link

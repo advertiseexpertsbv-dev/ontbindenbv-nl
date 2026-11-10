@@ -105,15 +105,14 @@ test('sitemap_index.xml blijft de sitemap zelf; stylesheet en overige /wp- paden
   }
 })
 
-test('verwijderde artikelen (stichting, liquidatiegids) gaan permanent naar een passende pagina', async () => {
+test('verwijderde pagina’s (stichting, liquidatiegids, BV met activa) gaan permanent naar een passende pagina', async () => {
   for (const [pad, doel] of [
     ['/stichting-opheffen-eenvoudig-zonder-notaris/', 'https://ontbindenbv.nl/'],
     ['/stichting-liquideren-kvk-vereffening-2025/', 'https://ontbindenbv.nl/'],
     ['/stichting-opheffen-met-schulden', 'https://ontbindenbv.nl/'],
     ['/ontbindenbv-nl-bv-liquideren/', 'https://ontbindenbv.nl/dienst/lege-bv-turbo-liquidatie/'],
-    ['/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289/', 'https://ontbindenbv.nl/wat-kost-het-ontbinden-van-een-bv/'],
-    ['/wat-kost-het-ontbinden-van-een-bv-2/', 'https://ontbindenbv.nl/wat-kost-het-ontbinden-van-een-bv/'],
-    ['/kennisbank/page/8/', 'https://ontbindenbv.nl/kennisbank/'],
+    ['/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289/', 'https://ontbindenbv.nl/wat-kost-het-ontbinden-van-een-bv-2025/'],
+    ['/dienst/bv-met-activa/', 'https://ontbindenbv.nl/dienst/lege-bv-turbo-liquidatie/'],
   ]) {
     const r = await locatie(pad)
     assert.equal(r.status, 301, pad)
