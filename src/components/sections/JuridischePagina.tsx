@@ -18,7 +18,7 @@ export default function JuridischePagina({ titel, html }: { titel: string; html:
   return (
     <>
       <PaginaKop titel={titel} kruimels={[{ label: titel }]} />
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container>
           <div className={tekst} dangerouslySetInnerHTML={{ __html: html }} />
         </Container>

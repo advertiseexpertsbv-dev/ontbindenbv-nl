@@ -15,7 +15,7 @@ function GroteKaart({ p }: { p: K }) {
     <Link
       to="/$slug/"
       params={{ slug: p.slug }}
-      className="group relative isolate flex min-h-[360px] items-end overflow-hidden rounded-sm bg-brand-700 p-8 text-white min-[992px]:row-span-3 min-[992px]:min-h-0"
+      className="group relative isolate flex min-h-[360px] items-end overflow-hidden rounded-2xl bg-brand-700 p-8 text-white min-[992px]:row-span-3 min-[992px]:min-h-0"
     >
       {p.image && (
         <img
@@ -44,7 +44,7 @@ function GroteKaart({ p }: { p: K }) {
 function KleineKaart({ p }: { p: K }) {
   return (
     <Link to="/$slug/" params={{ slug: p.slug }} className="group grid grid-cols-[140px_minmax(0,1fr)] items-center gap-4 min-[480px]:grid-cols-[200px_minmax(0,1fr)] min-[480px]:gap-8">
-      <span className="bg-textuur block aspect-[4/3] overflow-hidden rounded-sm">
+      <span className="bg-textuur block aspect-[4/3] overflow-hidden rounded-xl">
         {p.image && (
           <img
             src={p.image}
@@ -90,7 +90,7 @@ export default function KennisbankOverzicht({ pagina, aantalPaginas, kaarten }: 
         titel="Kennisbank"
         kruimels={pagina > 1 ? [{ label: 'Kennisbank', to: '/kennisbank/' }, { label: `Pagina ${pagina}` }] : [{ label: 'Kennisbank' }]}
       />
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container>
           <div className="grid gap-12 min-[992px]:grid-cols-2">
             {eerste && <GroteKaart p={eerste} />}

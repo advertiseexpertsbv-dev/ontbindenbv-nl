@@ -25,7 +25,7 @@ function OverOns() {
   return (
     <>
       <PaginaKop titel="Over ons" kruimels={[{ label: 'Over ons' }]} />
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container>
           <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
             <div className="min-[992px]:w-[60%] min-[992px]:pr-4">
@@ -39,7 +39,7 @@ function OverOns() {
               <Vinken items={overOns.punten} />
             </div>
             <div className="flex flex-col max-[991px]:-order-1 min-[992px]:w-[40%] min-[992px]:pl-4">
-              <div className="bg-textuur relative mb-8 rounded-sm border border-bkg-light p-8 min-[992px]:-mt-[125px] min-[992px]:p-12">
+              <div className="bg-textuur relative mb-8 rounded-2xl border border-line p-6 shadow-zwevend sm:p-8 min-[992px]:-mt-[125px] min-[992px]:p-10">
                 <Vinken items={vertrouwenKaart} />
               </div>
               <FotoVlak className="min-[992px]:flex-1">
@@ -50,14 +50,14 @@ function OverOns() {
                   decoding="async"
                   width={1600}
                   height={1066}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
               </FotoVlak>
             </div>
           </div>
         </Container>
       </section>
-      <section className="py-[72px]" data-reveal suppressHydrationWarning>
+      <section className="py-sectie" data-reveal suppressHydrationWarning>
         <Container>
           <h2 className="mb-4">Ons Team</h2>
           <ul className="grid grid-cols-1 gap-4 min-[768px]:grid-cols-2 min-[992px]:grid-cols-3">
@@ -70,9 +70,9 @@ function OverOns() {
                   decoding="async"
                   width={800}
                   height={1200}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
-                <div className="bg-textuur absolute bottom-4 left-4 w-[calc(100%-2rem)] rounded-sm border border-bkg-light p-8">
+                <div className="bg-textuur absolute bottom-4 left-4 w-[calc(100%-2rem)] rounded-xl border border-line p-6 shadow-kaart sm:p-8">
                   <h3 className="mb-4">{m.naam}</h3>
                   <p>{m.rol}</p>
                 </div>

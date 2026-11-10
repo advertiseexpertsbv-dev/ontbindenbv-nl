@@ -138,7 +138,7 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
   }
 
   return (
-    <form onSubmit={verzend} className={`flex flex-col gap-3 ${className}`} noValidate data-hs-do-not-collect="true">
+    <form onSubmit={verzend} className={`flex flex-col gap-4 ${className}`} noValidate data-hs-do-not-collect="true">
       <p className="sr-only">Velden met een sterretje zijn verplicht.</p>
       {samenvatting > 0 && (
         <p key={samenvatting} role="alert" className="sr-only">
@@ -152,29 +152,26 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
           {veld('email', 'E-mailadres')}
         </>
       ) : (
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           {veld('email', 'E-mailadres')}
           {veld('telefoon', 'Telefoonnummer')}
         </div>
       )}
-      {/* Het oude tekstvak laat onder zich een regelrest staan (9,6px, op mobiel 8,2px) */}
       {!kort && (
-        <div className="pb-[8.2px] md:pb-[9.6px]">
-          <Veld label={berichtLabel} htmlFor={`${id}-bericht`}>
-            <textarea id={`${id}-bericht`} name="bericht" className={inputClass} />
-          </Veld>
-        </div>
+        <Veld label={berichtLabel} htmlFor={`${id}-bericht`}>
+          <textarea id={`${id}-bericht`} name="bericht" className={inputClass} />
+        </Veld>
       )}
       {variant === 'gratis' && (
         // Zoals de oude site: gewone radioknoppen (13px) onder elkaar, label 15px/27px (14px/25,2px onder 768px), geen rand of vulling
         <fieldset className="min-w-0">
-          <legend className="mb-2 text-[14px] font-normal leading-[25.2px] text-body md:text-[16px] md:leading-[28.8px]">
+          <legend className="mb-1.5 text-[14px] font-semibold leading-[1.4] text-ink md:text-[15px]">
             <span className="pe-[0.125em]">Welk moment komt jou uit?</span>
           </legend>
           <div>
             {MOMENTEN.map((m) => (
-              <label key={m} className="flex cursor-pointer items-center text-[14px] leading-[25.2px] text-body md:text-[15px] md:leading-[27px]">
-                <input type="radio" name="moment" value={m} className="m-0 mr-4 size-[13px] shrink-0 cursor-pointer accent-brand-700" />
+              <label key={m} className="flex cursor-pointer items-center py-1 text-[15px] leading-[1.5] text-body">
+                <input type="radio" name="moment" value={m} className="m-0 mr-3 size-4 shrink-0 cursor-pointer accent-brand-700" />
                 {m}
               </label>
             ))}
@@ -189,8 +186,7 @@ export default function LeadForm({ formulier, variant = 'standaard', indeling, b
           <input name="obv_controle_veld" type="text" tabIndex={-1} autoComplete="new-password" />
         </label>
       </div>
-      {/* Knop zoals Gravity Forms: 32,2px onder het tekstvak (op 768px+ 55,6px), 53,5px hoog (op mobiel 50,1px) */}
-      <div className={kort ? 'mt-2' : 'mt-3 md:mt-[34px]'}>
+      <div className="mt-2">
         {fout && (
           <div className="mb-3">
             <Foutmelding tekst={fout} />

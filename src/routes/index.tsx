@@ -33,7 +33,7 @@ function Home() {
     <>
       <Hero />
       <div className="h-0 md:h-[72px]" aria-hidden="true" />
-      <section className="py-[72px]" data-reveal suppressHydrationWarning>
+      <section className="py-sectie" data-reveal suppressHydrationWarning>
         <Container className="flex flex-col gap-16">
           <div className={rij}>
             <div className="min-[992px]:w-[60%] min-[992px]:pr-4">
@@ -51,7 +51,7 @@ function Home() {
                   decoding="async"
                   width={1600}
                   height={1066}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
               </FotoVlak>
             </div>
@@ -66,7 +66,7 @@ function Home() {
                   decoding="async"
                   width={1600}
                   height={1066}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
               </FotoVlak>
             </div>

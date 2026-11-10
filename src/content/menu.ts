@@ -48,7 +48,7 @@ export const hoofdmenu: MenuItem[] = [
   { label: 'Contact', to: '/contact/' },
 ]
 
-/** Footer-kolom "Diensten" en het paneel "Diensten" in het mobiele menu (zelfde lijst op de oude site) */
+/** Footer-kolom "Diensten" en de tegels "Wat is je situatie?" (zelfde lijst op de oude site) */
 export const footerDiensten: MenuDienst[] = [
   { label: 'Bedrijf herstructureren', slug: 'bedrijf-herstructureren' },
   { label: 'VOF omzetten naar BV', slug: 'vof-omzetten-naar-bv' },
@@ -67,9 +67,4 @@ export const footerOver = [
   { label: 'Kennisbank', to: '/kennisbank/' },
 ] as const
 
-/** Mobiel menu: na "Diensten" alleen deze links, zoals de oude site */
-export const mobielNav = [
-  { label: 'Over ons', to: '/over-ons/' },
-  { label: 'Onze werkwijze', to: '/onze-werkwijze/' },
-  { label: 'Contact', to: '/contact/' },
-] as const
+/** Het mobiele menu gebruikt sinds de ontwerpronde van 2026-11-10 dezelfde indeling als het desktopmenu (hoofdmenu) */

@@ -26,7 +26,7 @@ export function Section({
       id={id}
       {...(reveal ? { 'data-reveal': true } : {})}
       suppressHydrationWarning
-      className={`py-[72px] ${className}`}
+      className={`py-sectie ${className}`}
     >
       <Container>{children}</Container>
     </section>
@@ -45,13 +45,13 @@ type ButtonProps = {
   arrow?: boolean
 }
 
-/* Knop van de oude site: pil, padding 16px 32px, Manrope 18px halfvet, regelhoogte 1,4. Blauw en geel met een verloop van boven
-   naar beneden; bij hover verandert alleen het pijltje (schuift in 0,3s van rechts naar links), zoals de oude site. */
+/* Knop: pil, Manrope 16-17px vet. Blauw en geel met een verloop van boven naar beneden en een zachte gekleurde schaduw; bij hover
+   schuift het pijltje van rechts naar links (zoals de oude site) en wordt de schaduw iets dieper. */
 const base =
-  'group inline-flex items-center justify-center rounded-full font-semibold leading-[1.4] tracking-[-0.1px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-px whitespace-nowrap'
+  'group inline-flex items-center justify-center rounded-full font-bold leading-[1.3] tracking-[-0.01em] cursor-pointer transition-[box-shadow,filter,background-color,color] duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:translate-y-px whitespace-nowrap'
 const variants = {
-  blue: 'knop-blauw text-white',
-  yellow: 'knop-geel text-text',
+  blue: 'knop-blauw text-white shadow-[0_6px_16px_rgba(68,135,228,0.28)] hover:shadow-[0_8px_22px_rgba(68,135,228,0.38)] hover:brightness-[0.96]',
+  yellow: 'knop-geel text-text shadow-[0_6px_16px_rgba(230,184,0,0.25)] hover:shadow-[0_8px_22px_rgba(230,184,0,0.35)] hover:brightness-[0.98]',
   // Wit met blauwe tekst; bij hover blauw met witte tekst
   white: 'bg-white text-brand-700 hover:bg-brand-700 hover:text-white',
   outline: 'bg-transparent text-brand-700 ring-2 ring-brand-700 hover:bg-brand-700 hover:text-white',
@@ -60,11 +60,11 @@ const variants = {
 }
 const sizes = {
   sm: 'px-6 py-2.5 text-[14px]',
-  md: 'px-8 py-4 text-[18px]',
-  // De oude site kent één knopmaat; lg blijft beschikbaar voor bestaande aanroepen
-  lg: 'px-8 py-4 text-[18px]',
-  // Header op 992-1239px: compacter, zodat logo, telefoon en beide knoppen op één regel passen (de oude header loopt daar over)
-  header: 'px-5 py-4 text-[15px] min-[1100px]:px-6 min-[1240px]:px-8 min-[1240px]:text-[18px]',
+  md: 'px-7 py-4 text-[16px] md:text-[17px]',
+  // Eén knopmaat; lg blijft beschikbaar voor bestaande aanroepen
+  lg: 'px-7 py-4 text-[16px] md:text-[17px]',
+  // Header: compacter, zodat logo, telefoon en beide knoppen op één regel passen
+  header: 'px-5 py-3 text-[15px] min-[1240px]:px-6 min-[1240px]:text-[16px]',
 }
 
 export function Button({ children, href, onClick, variant = 'blue', size = 'md', type = 'button', className = '', disabled, arrow }: ButtonProps) {

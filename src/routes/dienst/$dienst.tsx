@@ -56,11 +56,11 @@ function Blok({ b, laatste }: { b: DienstBlok; laatste: boolean }) {
       // Oude site: blauw raster (auto/1fr), kopregel en cellen 8px/16px binnenruimte. De celtekst was daar donker op blauw;
       // hier wit, zodat hij leesbaar is.
       return (
-        <table className={`w-full overflow-hidden rounded-sm bg-brand-700 text-white ${mb}`}>
+        <table className={`w-full overflow-hidden rounded-2xl bg-brand-700 text-[16px] text-white ${mb}`}>
           <thead>
             <tr>
               {b.kop.map((k) => (
-                <th key={k} scope="col" className="px-4 py-2 text-left align-top font-light">
+                <th key={k} scope="col" className="border-b border-white/20 bg-brand-800 px-5 py-3 text-left align-top font-bold">
                   {k}
                 </th>
               ))}
@@ -69,10 +69,10 @@ function Blok({ b, laatste }: { b: DienstBlok; laatste: boolean }) {
           <tbody>
             {b.rijen.map(([a, c]) => (
               <tr key={a}>
-                <th scope="row" className="w-[45%] px-4 py-2 text-left align-top font-normal">
+                <th scope="row" className="w-[45%] border-t border-white/10 px-5 py-3 text-left align-top font-semibold">
                   {a}
                 </th>
-                <td className="px-4 py-2 align-top">{c}</td>
+                <td className="border-t border-white/10 px-5 py-3 align-top text-white/90">{c}</td>
               </tr>
             ))}
           </tbody>
@@ -104,10 +104,10 @@ function Dienstpagina() {
       <PaginaKop titel={d.h1} sub={d.sub}>
         {d.bannerPunten.length > 0 && <Vinken items={d.bannerPunten} licht className="mt-8" />}
       </PaginaKop>
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:items-start min-[992px]:gap-0">
           <div className="min-w-0 min-[992px]:w-[60%] min-[992px]:pr-4">
-            <ul className="tekst-vink -mt-12 mb-16 flex flex-wrap items-center justify-between gap-4">
+            <ul className="tekst-vink -mt-6 mb-12 flex flex-wrap items-center gap-x-8 gap-y-3 min-[992px]:-mt-12">
               {vertrouwenDienst.map((t) => (
                 <li key={t} className="flex items-center">
                   <Vink kleur="blauw" className="mr-2" />
@@ -119,7 +119,7 @@ function Dienstpagina() {
               <Blok key={i} b={b} laatste={i === d.blokken.length - 1} />
             ))}
           </div>
-          <div className="min-w-0 min-[992px]:sticky min-[992px]:top-[13rem] min-[992px]:w-[40%] min-[992px]:pl-4">
+          <div className="min-w-0 min-[992px]:sticky min-[992px]:top-[11rem] min-[992px]:w-[40%] min-[992px]:pl-4">
             <KaartFormulier formulier={`Dienst: ${d.naam}`} />
           </div>
         </Container>

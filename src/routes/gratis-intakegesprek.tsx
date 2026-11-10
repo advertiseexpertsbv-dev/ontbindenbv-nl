@@ -19,7 +19,7 @@ function Intake() {
   return (
     <>
       <PaginaKop titel="Gratis Intakegesprek" kruimels={[{ label: 'Gratis intakegesprek' }]} />
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container>
           <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
             <div className="min-[992px]:w-1/2 min-[992px]:pr-4">
@@ -30,7 +30,7 @@ function Intake() {
               </div>
             </div>
             <div className="flex flex-col min-[992px]:w-1/2 min-[992px]:pl-4">
-              <div className="bg-textuur relative mb-8 rounded-sm border border-bkg-light p-8 min-[992px]:-mt-[125px] min-[992px]:p-12">
+              <div className="bg-textuur relative mb-8 rounded-2xl border border-line p-6 shadow-zwevend sm:p-8 min-[992px]:-mt-[125px] min-[992px]:p-10">
                 <Vinken items={vertrouwenKaart} />
               </div>
               <ol className="mb-8 flex flex-col gap-4">
@@ -52,7 +52,7 @@ function Intake() {
                   decoding="async"
                   width={1600}
                   height={1066}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
               </FotoVlak>
             </div>

@@ -4,7 +4,7 @@ import { beeld, SIZES } from '../../lib/beeld'
 import { Container } from '../ui'
 
 /**
- * Titelbalk van onderliggende pagina's, zoals de oude site: padding 72px, kruimelpad ("Home" halfvet) en titel (h1).
+ * Titelbalk van onderliggende pagina's: kruimelpad ("Home" halfvet) en titel (h1).
  *
  * variant="blauw" (standaard): het blauwe verloop met rechtsonder de grote letters "BV" (600px, vanaf 768px), witte tekst
  * (over ons, contact, diensten, juridisch). Onder de titel optioneel een ondertitel (22px) en vinkjes (dienstpagina's).
@@ -37,9 +37,9 @@ export default function PaginaKop({
           className="pointer-events-none absolute right-0 bottom-0 -z-10 hidden h-auto w-[600px] md:block"
         />
       )}
-      <Container className="py-[72px]">
+      <Container className="py-14 md:py-20">
         {kruimels.length > 0 && (
-          <nav aria-label="Kruimelpad" className={tekst}>
+          <nav aria-label="Kruimelpad" className={`mb-3 text-[15px] ${licht ? 'text-brand-700' : 'text-white/85'}`}>
             <Link to="/" className="tik inline-block font-semibold hover:underline">
               Home
             </Link>
@@ -58,7 +58,7 @@ export default function PaginaKop({
           </nav>
         )}
         <h1 className={`w-fit ${licht ? '!text-brand-700' : '!text-white'} ${sub || children ? 'mb-4' : ''}`}>{titel}</h1>
-        {sub && <p className={`text-[18px] leading-[1.125] font-normal md:text-[22px] ${tekst}`}>{sub}</p>}
+        {sub && <p className={`max-w-[760px] text-[18px] leading-[1.45] font-medium md:text-[21px] ${licht ? tekst : 'text-white/90'}`}>{sub}</p>}
         {children}
       </Container>
     </section>
