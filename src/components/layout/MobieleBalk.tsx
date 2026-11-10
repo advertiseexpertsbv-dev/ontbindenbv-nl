@@ -21,7 +21,7 @@ export default function MobieleBalk() {
       <div className="h-[64px] md:hidden" aria-hidden="true" />
       <nav
         aria-label="Snel contact"
-        className="fixed inset-x-0 bottom-0 z-90 flex gap-2 border-t border-line bg-white px-3 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden"
+        className="mobiele-balk fixed inset-x-0 bottom-0 z-90 flex gap-2 border-t border-line bg-white px-3 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden"
       >
         {site.phone ? (
           <a

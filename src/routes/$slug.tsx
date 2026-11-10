@@ -85,17 +85,17 @@ function Artikel() {
     <>
       <ArtikelKop titel={p.title} datum={p.date} taal={p.taal} />
       {/* 184px: de titelkaart hangt 120px onder de balk, daarna 64px ruimte (zoals de oude site) */}
-      <section className="pt-[184px] pb-[72px]">
+      <section className="pt-[184px] pb-sectie">
         <Container className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:items-start min-[992px]:gap-0">
           {/* lang: vijf artikelen zijn Engelstalig; de rest van de pagina (formulier, menu) blijft Nederlands */}
           <article lang={p.taal} className="min-w-0 min-[992px]:w-[60%] min-[992px]:pr-4">
             {p.toc.length > 1 && (
-              <details className="group mb-8">
-                <summary className="flex w-fit cursor-pointer list-none items-center gap-3 [&::-webkit-details-marker]:hidden">
+              <details className="group mb-8 rounded-xl border border-line bg-brand-50/50 px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-brand-800 [&::-webkit-details-marker]:hidden">
                   {p.taal === 'en' ? 'Table of contents' : 'Inhoudsopgave'}
                   <FaqIcoon open={false} className="size-3 text-brand-700 transition-transform group-open:rotate-45" />
                 </summary>
-                <ol className="mt-4 flex list-decimal flex-col gap-2 pl-6">
+                <ol className="mt-4 flex list-decimal flex-col gap-2 pl-6 text-[16px] marker:text-brand-600">
                   {p.toc.map((t) => (
                     <li key={t.id}>
                       <a href={`#${t.id}`} className="underline-offset-2 hover:text-brand-700 hover:underline">
@@ -114,13 +114,13 @@ function Artikel() {
                 height={p.imageH ?? undefined}
                 fetchPriority="high"
                 decoding="async"
-                className="mb-8 block h-auto max-h-[1024px] w-auto max-w-full"
+                className="mb-8 block h-auto max-h-[1024px] w-auto max-w-full rounded-2xl"
               />
             )}
             <div className="artikel-post" dangerouslySetInnerHTML={{ __html: p.html }} />
           </article>
           <div className="min-w-0 min-[992px]:w-[40%] min-[992px]:pl-4">
-            <div className="bg-textuur mb-8 rounded-sm border border-bkg-light p-8 min-[992px]:p-12">
+            <div className="bg-textuur mb-8 rounded-2xl border border-line p-6 sm:p-8 min-[992px]:p-10">
               <Vinken items={vertrouwenKaart} />
             </div>
             <KaartFormulier formulier={`Artikel: ${p.slug}`} titel="Waar kunnen we je mee helpen?" />

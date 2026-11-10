@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
-/** Invoerveld en tekstvak: stijl staat in BLOK-D van src/styles.css (zwarte rand, 4px hoeken, 52px/100px hoog, padding 16px 32px) */
+/** Invoerveld en tekstvak: stijl staat in BLOK-D van src/styles.css (grijsblauwe rand, 10px hoeken, 52px/110px hoog, padding 16px) */
 export const inputClass = 'form-invoer'
 
 /**
- * Veld met label (16px, 14px onder 768px), klein rood sterretje en een eventuele foutmelding direct onder het veld.
+ * Veld met label (15px halfvet, 14px onder 768px), klein rood sterretje en een eventuele foutmelding direct onder het veld.
  * Bij een fout wordt het label rood, zoals bij Gravity Forms. Het veld zelf krijgt aria-invalid en aria-describedby van de aanroeper.
  */
 export function Veld({
@@ -24,7 +24,7 @@ export function Veld({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className={`mb-2 block text-[14px] font-normal leading-[1.4] md:text-[16px] ${fout ? 'text-form-fout' : 'text-body'}`}>
+      <label htmlFor={htmlFor} className={`mb-1.5 block text-[14px] font-semibold leading-[1.4] md:text-[15px] ${fout ? 'text-form-fout' : 'text-ink'}`}>
         <span className="pe-[0.125em]">{label}</span>
         {required && (
           <span className="ml-0.5 text-[13.008px] text-form-fout" aria-hidden="true">
@@ -34,7 +34,7 @@ export function Veld({
       </label>
       {children}
       {fout && (
-        <p id={foutId} className="mt-2 text-[12px] font-normal leading-[1.8] text-form-fout">
+        <p id={foutId} className="mt-1.5 text-[13px] font-medium leading-[1.5] text-form-fout">
           {fout}
         </p>
       )}

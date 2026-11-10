@@ -11,7 +11,7 @@ import { Button, Container } from '../ui'
 export default function CtaBand({ bel = false }: { bel?: boolean }) {
   return (
     <section className="bg-verloop relative text-white">
-      <Container className="grid grid-cols-1 gap-8 py-[72px] min-[768px]:grid-cols-[300px_minmax(0,1fr)] min-[992px]:grid-cols-[300px_minmax(0,1fr)_auto]">
+      <Container className="grid grid-cols-1 gap-8 py-16 min-[992px]:py-20 min-[768px]:grid-cols-[300px_minmax(0,1fr)] min-[992px]:grid-cols-[300px_minmax(0,1fr)_auto]">
         <div className="relative hidden min-[768px]:row-span-2 min-[768px]:block min-[992px]:row-span-1">
           <img
             {...beeld('/images/site/cta.webp', SIZES.cta)}
@@ -20,12 +20,12 @@ export default function CtaBand({ bel = false }: { bel?: boolean }) {
             decoding="async"
             width={750}
             height={1017}
-            className="absolute right-0 -bottom-[72px] aspect-[750/1017] h-auto w-[375px] max-w-none"
+            className="absolute right-0 -bottom-16 aspect-[750/1017] min-[992px]:-bottom-20 h-auto w-[375px] max-w-none"
           />
         </div>
         <div>
           <h2 className="mb-4 !text-white">{cta.titel}</h2>
-          <p className="text-white">{cta.tekst}</p>
+          <p className="text-[17px] text-white/90 md:text-[18px]">{cta.tekst}</p>
         </div>
         <div className="flex flex-col items-start gap-4 min-[992px]:justify-center">
           <Button href="/gratis-intakegesprek/" variant="yellow" arrow className="w-full min-[992px]:w-auto">

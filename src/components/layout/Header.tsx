@@ -2,23 +2,26 @@ import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { Link, useLocation } from '@tanstack/react-router'
 import { site } from '../../lib/site'
 import { beeld, SIZES } from '../../lib/beeld'
-import { footerDiensten, hoofdmenu, mobielNav } from '../../content/menu'
-import { Button, Container, PhoneFill, StarFill } from '../ui'
+import { hoofdmenu } from '../../content/menu'
+import { Button, ChevronDown, Container, PhoneFill, StarFill } from '../ui'
 import { GoogleG } from '../sections/icons'
 
 /*
- * Header zoals de oude site:
+ * Header:
  *  - vanaf 992px: reviewbalk (scrolt weg) + plakkend blok met logo/telefoon/knoppen en hoofdmenu (schaduw)
- *  - onder 992px: logo, telefoon (vanaf 768px) en hamburger; het menu klapt open onder de header
+ *  - onder 992px: compacte balk met logo, telefoon (vanaf 768px) en hamburger; het menu vult het scherm onder de header
  *
- * Bediening (naast de oude site):
- *  - drie dropdowns (BV ontbinden, BV met Schulden, Bedrijf herstructureren), elk één kolom zoals de oude site
+ * Bediening:
+ *  - drie dropdowns (BV ontbinden, BV met Schulden, Bedrijf herstructureren), elk één kolom in een witte zwevende kaart
  *  - dropdown: muis (hover), tik (wisselt), toetsenbord (Enter/spatie, pijltjestoetsen, Escape sluit en geeft de focus terug)
- *  - mobiel menu: scrollt de pagina niet mee (scrollslot), het paneel scrolt zelf als het niet in beeld past;
- *    Escape sluit het en geeft de focus terug, de pagina erachter is inert (Tab blijft in het menu)
+ *  - mobiel menu (ontwerpronde 2026-11-10): dezelfde indeling als het desktopmenu, groepen klappen open als uitklaplijst.
+ *    Wit paneel tot de onderkant van het scherm, scrollt zelf; de pagina erachter scrollt niet (scrollslot) en is inert
+ *    (Tab blijft in het menu); de vaste balk onderaan verdwijnt zolang het menu open is. Escape sluit en geeft de focus terug.
  */
 
-const mobielRij = 'w-[calc(100%+2rem)] -mx-4 border-b border-white p-4 text-left text-[18px] text-brand-700'
+const mobielRij = 'flex w-full items-center justify-between gap-4 py-4 text-left text-[17px] font-semibold text-ink'
+const navLink =
+  "relative py-4 text-[16px] font-semibold text-text transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-2.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-brand-700 after:transition-transform after:duration-200 after:content-[''] hover:text-brand-700 hover:after:scale-x-100 min-[1200px]:text-[17px]"
 
 export default function Header() {
   const { pathname } = useLocation()
@@ -26,10 +29,10 @@ export default function Header() {
   const [mobielPad, setMobielPad] = useState<string | null>(null)
   // Welke dropdown open is, met de pagina waarop hij geopend werd ("<pad>|<label>")
   const [menuPad, setMenuPad] = useState<string | null>(null)
-  const [mobielDiensten, setMobielDiensten] = useState(false)
-  // Onderkant van de header op het moment van openen (px vanaf de bovenkant van het scherm) en hoogte van het dienstenpaneel
-  const [menuTop, setMenuTop] = useState(103)
-  const [dienstenHoogte, setDienstenHoogte] = useState(0)
+  // Welke groep in het mobiele menu open is (label), of geen
+  const [mobielGroep, setMobielGroep] = useState<string | null>(null)
+  // Onderkant van de header op het moment van openen (px vanaf de bovenkant van het scherm)
+  const [menuTop, setMenuTop] = useState(72)
   const mobielOpen = mobielPad === pathname
   const menuOpen = menuPad?.startsWith(`${pathname}|`) ?? false
   const openLabel = menuOpen ? menuPad!.slice(pathname.length + 1) : null
@@ -41,10 +44,6 @@ export default function Header() {
   const dropdownKnoppen = useRef<Record<string, HTMLButtonElement | null>>({})
   const dropdownPanelen = useRef<Record<string, HTMLDivElement | null>>({})
   const mobielKnopRef = useRef<HTMLButtonElement>(null)
-  const dienstenKnopRef = useRef<HTMLButtonElement>(null)
-  const dienstenPaneelRef = useRef<HTMLDivElement>(null)
-  const terugKnopRef = useRef<HTMLButtonElement>(null)
-  const inDienstenPaneel = useRef(false)
   // Hoe is het menu-item het laatst bediend? Een muisklik mag het (door hover geopende) menu niet sluiten.
   const laatsteInvoer = useRef<string>('')
 
@@ -77,6 +76,7 @@ export default function Header() {
   // Scrollslot achter het open mobiele menu. De pagina staat op html (overflow-x: clip in styles.css),
   // dus het slot moet daar op. Een eventuele scrollbalk wordt opgevangen zodat de pagina niet verspringt.
   // De pagina erachter (main, footer en de skip-link, de buren van de header) is `inert`: Tab en schermlezer blijven in het menu.
+  // De klasse menu-open op html verbergt de vaste balk onderaan (MobieleBalk), die anders over het menu heen zou liggen.
   // Wordt het venster breed genoeg voor het desktopmenu (tablet draaien), dan sluit het mobiele menu.
   useEffect(() => {
     if (!mobielOpen) return
@@ -86,6 +86,7 @@ export default function Header() {
     const eerderPadding = body.style.paddingRight
     const balk = window.innerWidth - html.clientWidth
     html.style.overflow = 'hidden'
+    html.classList.add('menu-open')
     if (balk > 0) body.style.paddingRight = `${balk}px`
     const achter = Array.from(headerRef.current?.parentElement?.querySelectorAll(':scope > main, :scope > footer, :scope > a[href="#hoofdinhoud"]') ?? [])
     achter.forEach((el) => el.setAttribute('inert', ''))
@@ -97,35 +98,16 @@ export default function Header() {
     return () => {
       breed.removeEventListener('change', sluitBijBreed)
       achter.forEach((el) => el.removeAttribute('inert'))
+      html.classList.remove('menu-open')
       html.style.overflow = eerderHtml
       body.style.paddingRight = eerderPadding
     }
   }, [mobielOpen])
 
-  // Focus volgt het tweede paneel van het mobiele menu: naar de terugknop bij openen, terug naar "Diensten" bij sluiten
-  useEffect(() => {
-    if (!mobielOpen) {
-      inDienstenPaneel.current = false
-      return
-    }
-    if (mobielDiensten) {
-      terugKnopRef.current?.focus({ preventScroll: true })
-      inDienstenPaneel.current = true
-    } else if (inDienstenPaneel.current) {
-      dienstenKnopRef.current?.focus({ preventScroll: true })
-      inDienstenPaneel.current = false
-    }
-  }, [mobielOpen, mobielDiensten])
-
   const openMobiel = () => {
-    if (!mobielOpen) setMenuTop(Math.round(headerRef.current?.getBoundingClientRect().bottom ?? 103))
-    setMobielDiensten(false)
+    if (!mobielOpen) setMenuTop(Math.max(0, Math.round(headerRef.current?.getBoundingClientRect().bottom ?? 72)))
+    setMobielGroep(null)
     setMobielOpen(!mobielOpen)
-  }
-
-  const openDiensten = () => {
-    setDienstenHoogte(dienstenPaneelRef.current?.scrollHeight ?? 0)
-    setMobielDiensten(true)
   }
 
   // Pijltjestoetsen in een dropdown (één kolom): omlaag/omhoog = volgend/vorig item, Home/End = eerste/laatste
@@ -168,8 +150,6 @@ export default function Header() {
     links[volgende]?.focus()
   }
 
-  const beschikbaar = `calc(100dvh - ${menuTop}px)`
-
   return (
     <>
       {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg. Alleen met een controleerbaar Google-profiel (site.reviews.googleUrl) */}
@@ -199,9 +179,15 @@ export default function Header() {
       )}
 
       <header ref={headerRef} className="relative z-50 bg-white min-[992px]:sticky min-[992px]:top-0 min-[992px]:shadow-header">
-        <Container className="flex items-center justify-between py-6">
+        <Container className="flex items-center justify-between py-3.5 min-[768px]:py-4 min-[992px]:py-5">
           <Link to="/" aria-label={`${site.name}, naar de homepage`} className="shrink-0">
-            <img {...beeld('/images/brand/logo.webp', SIZES.logoHeader)} alt={site.name} width={212} height={55} className="aspect-[424/110] h-[55px] w-auto" />
+            <img
+              {...beeld('/images/brand/logo.webp', SIZES.logoHeader)}
+              alt={site.name}
+              width={212}
+              height={55}
+              className="aspect-[424/110] h-[44px] w-auto min-[768px]:h-[50px] min-[1200px]:h-[55px]"
+            />
           </Link>
 
           <div className="flex items-center gap-4 min-[768px]:gap-12 min-[992px]:gap-6 min-[1200px]:gap-12">
@@ -236,7 +222,7 @@ export default function Header() {
             </a>
             )}
 
-            <div className="hidden items-center gap-4 min-[992px]:flex">
+            <div className="hidden items-center gap-3 min-[992px]:flex">
               <Button href="/gratis-intakegesprek/" arrow variant="blue" size="header">
                 Gratis adviesgesprek
               </Button>
@@ -265,7 +251,7 @@ export default function Header() {
         </Container>
 
         {/* Hoofdmenu desktop */}
-        <nav ref={navRef} aria-label="Hoofdmenu" className="hidden border-t border-bkg-light min-[992px]:block">
+        <nav ref={navRef} aria-label="Hoofdmenu" className="hidden border-t border-line min-[992px]:block">
           <Container className="relative flex items-center justify-between">
             {hoofdmenu.map((item) => {
               if ('menu' in item) {
@@ -288,7 +274,7 @@ export default function Header() {
                         dropdownKnoppen.current[item.label] = el
                       }}
                       type="button"
-                      className={`flex cursor-pointer items-center py-4 text-[18px] font-semibold transition-colors duration-300 hover:text-brand-700 ${open ? 'text-brand-700' : 'text-text'}`}
+                      className={`flex cursor-pointer items-center py-4 text-[16px] font-semibold transition-colors duration-200 hover:text-brand-700 min-[1200px]:text-[17px] ${open ? 'text-brand-700' : 'text-text'}`}
                       aria-expanded={open}
                       aria-controls={id}
                       onPointerDown={(e) => {
@@ -302,7 +288,7 @@ export default function Header() {
                       }}
                     >
                       {item.label}
-                      <span aria-hidden="true" className="ml-[0.5em] size-[0.35em] rotate-135 border-t-[0.1em] border-r-[0.1em] border-current" />
+                      <ChevronDown className={`ml-1 size-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
                     </button>
                     {/* Altijd aanwezig (zoals de verborgen submenu's van de oude site), zodat aria-controls klopt en de links in de HTML staan */}
                     <div
@@ -310,14 +296,14 @@ export default function Header() {
                       ref={(el) => {
                         dropdownPanelen.current[item.label] = el
                       }}
-                      className={`bg-textuur absolute top-full left-0 z-[60] -ml-8 max-h-[calc(100vh-176px)] w-max flex-col overflow-y-auto rounded-b-sm px-8 py-4 whitespace-nowrap ${open ? 'flex' : 'hidden'}`}
+                      className={`absolute top-full left-0 z-[60] -ml-3 max-h-[calc(100vh-176px)] w-max min-w-[260px] flex-col overflow-y-auto rounded-xl border border-line bg-white p-2 whitespace-nowrap shadow-zwevend ${open ? 'flex' : 'hidden'}`}
                     >
                       {item.menu.map((d) => (
                         <Link
                           key={d.label}
                           to="/dienst/$dienst/"
                           params={{ dienst: d.slug }}
-                          className="block py-3 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] font-medium text-text transition-colors duration-150 hover:bg-brand-50 hover:text-brand-700 focus-visible:bg-brand-50"
                           onClick={() => setMenuOpen(null)}
                         >
                           {d.label}
@@ -329,12 +315,12 @@ export default function Header() {
               }
               if ('dienst' in item)
                 return (
-                  <Link key={item.label} to="/dienst/$dienst/" params={{ dienst: item.dienst }} className="py-4 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700">
+                  <Link key={item.label} to="/dienst/$dienst/" params={{ dienst: item.dienst }} className={navLink}>
                     {item.label}
                   </Link>
                 )
               return (
-                <Link key={item.label} to={item.to} className="py-4 text-[18px] font-semibold text-text transition-colors duration-300 hover:text-brand-700">
+                <Link key={item.label} to={item.to} className={navLink}>
                   {item.label}
                 </Link>
               )
@@ -342,36 +328,73 @@ export default function Header() {
           </Container>
         </nav>
 
-        {/* Mobiel menu: lichtblauw vlak onder de header; "Diensten" schuift een tweede paneel in.
-            Een tik op een link sluit het menu, ook als je al op die pagina bent. */}
+        {/* Mobiel menu: wit paneel van de onderkant van de header tot de onderkant van het scherm, met de indeling van het
+            desktopmenu. Een tik op een link sluit het menu, ook als je al op die pagina bent. */}
         {mobielOpen && (
           <div
             id="mobiel-menu"
-            className="bg-bkg-light absolute inset-x-0 top-full z-[15] overflow-hidden min-[992px]:hidden"
-            style={{ maxHeight: beschikbaar, height: mobielDiensten && dienstenHoogte ? `min(${dienstenHoogte}px, ${beschikbaar})` : undefined }}
+            className="fixed inset-x-0 bottom-0 z-[15] overflow-y-auto overscroll-contain border-t border-line bg-white min-[992px]:hidden"
+            style={{ top: menuTop }}
             onClick={(e) => {
               if ((e.target as HTMLElement).closest('a')) setMobielOpen(false)
             }}
           >
-            <div className="overflow-y-auto overscroll-contain" style={{ maxHeight: beschikbaar }} inert={mobielDiensten}>
-              <nav aria-label="Mobiel menu" className="px-4 py-8">
-                <button
-                  ref={dienstenKnopRef}
-                  type="button"
-                  className={`${mobielRij} flex cursor-pointer items-center justify-between`}
-                  aria-expanded={mobielDiensten}
-                  aria-controls="mobiel-diensten"
-                  onClick={openDiensten}
-                >
-                  Diensten
-                  <span aria-hidden="true" className="h-3 w-2 bg-brand-700 [clip-path:polygon(40%_0,100%_50%,40%_100%,0_100%,60%_50%,0_0)]" />
-                </button>
-                {mobielNav.map((item, i) => (
-                  <Link key={item.label} to={item.to} className={`${mobielRij} block ${i === mobielNav.length - 1 ? 'border-b-0' : ''}`}>
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="mt-8 grid gap-4">
+            <nav aria-label="Mobiel menu">
+              <Container className="pt-2 pb-10">
+                <ul>
+                  {hoofdmenu.map((item) => {
+                    if ('menu' in item) {
+                      const open = mobielGroep === item.label
+                      const id = `mobiel-${item.label.toLowerCase().replace(/[^a-z]+/g, '-')}`
+                      return (
+                        <li key={item.label} className="border-b border-line">
+                          <button
+                            type="button"
+                            className={`${mobielRij} cursor-pointer ${open ? 'text-brand-700' : ''}`}
+                            aria-expanded={open}
+                            aria-controls={id}
+                            onClick={() => setMobielGroep(open ? null : item.label)}
+                          >
+                            {item.label}
+                            <span
+                              aria-hidden="true"
+                              className={`grid size-8 shrink-0 place-items-center rounded-full transition-colors duration-200 ${open ? 'bg-brand-700 text-white' : 'bg-brand-50 text-brand-700'}`}
+                            >
+                              <ChevronDown className={`size-4 transition-transform duration-200 motion-reduce:transition-none ${open ? 'rotate-180' : ''}`} />
+                            </span>
+                          </button>
+                          <ul id={id} hidden={!open} className="mb-4 ml-1 border-l-2 border-brand-100 pl-4">
+                            {item.menu.map((d) => (
+                              <li key={d.label}>
+                                <Link
+                                  to="/dienst/$dienst/"
+                                  params={{ dienst: d.slug }}
+                                  className="block py-2.5 text-[16px] font-medium text-body transition-colors hover:text-brand-700"
+                                >
+                                  {d.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      )
+                    }
+                    return (
+                      <li key={item.label} className="border-b border-line">
+                        {'dienst' in item ? (
+                          <Link to="/dienst/$dienst/" params={{ dienst: item.dienst }} className={mobielRij}>
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <Link to={item.to} className={mobielRij}>
+                            {item.label}
+                          </Link>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+                <div className="mt-8 grid gap-3">
                   <Button href="/gratis-intakegesprek/" arrow className="w-full">
                     Gratis intakegesprek
                   </Button>
@@ -379,43 +402,21 @@ export default function Header() {
                     {site.afspraakKnop}
                   </Button>
                 </div>
-              </nav>
-            </div>
-
-            <div
-              id="mobiel-diensten"
-              ref={dienstenPaneelRef}
-              className={`bg-bkg-light absolute inset-0 z-[1] overflow-y-auto overscroll-contain px-4 py-8 transition-transform duration-300 motion-reduce:transition-none ${mobielDiensten ? 'translate-x-0' : 'translate-x-full'}`}
-              inert={!mobielDiensten}
-            >
-              <button
-                ref={terugKnopRef}
-                type="button"
-                className="relative -mt-3 -ml-3 mb-1 grid size-11 cursor-pointer place-items-center"
-                aria-label="Terug naar het menu"
-                onClick={() => setMobielDiensten(false)}
-              >
-                <span className="relative block size-5" aria-hidden="true">
-                  <span className="absolute inset-x-0 top-[9px] h-0.5 rotate-45 rounded-full bg-brand-700" />
-                  <span className="absolute inset-x-0 top-[9px] h-0.5 -rotate-45 rounded-full bg-brand-700" />
-                </span>
-              </button>
-              <nav aria-label="Diensten">
-                <ul>
-                  {footerDiensten.map((d, i) => (
-                    <li key={d.label}>
-                      <Link
-                        to="/dienst/$dienst/"
-                        params={{ dienst: d.slug }}
-                        className={`${mobielRij} block ${i === footerDiensten.length - 1 ? 'border-b-0' : ''}`}
-                      >
-                        {d.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
+                <p className="mt-6 text-center text-[14px] text-muted">
+                  {site.phone ? (
+                    <a href={site.phoneHref} className="font-semibold text-brand-700">
+                      {site.phone}
+                    </a>
+                  ) : (
+                    <a href={`mailto:${site.email}`} className="font-semibold text-brand-700">
+                      {site.email}
+                    </a>
+                  )}
+                  <br />
+                  {site.belTijden}
+                </p>
+              </Container>
+            </nav>
           </div>
         )}
       </header>

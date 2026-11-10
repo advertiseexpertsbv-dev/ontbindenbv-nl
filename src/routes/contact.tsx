@@ -18,7 +18,7 @@ function Contact() {
   return (
     <>
       <PaginaKop titel="Contact" kruimels={[{ label: 'Contact' }]} />
-      <section className="py-[72px]">
+      <section className="py-sectie">
         <Container>
           <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
             <div className="min-[992px]:w-[60%] min-[992px]:pr-4">
@@ -30,7 +30,7 @@ function Contact() {
               <LeadForm formulier="Contact" className="mb-6" />
             </div>
             <div className="flex flex-col min-[992px]:w-[40%] min-[992px]:pl-4">
-              <div className="bg-textuur relative mb-8 rounded-sm border border-bkg-light p-8 min-[992px]:-mt-[125px] min-[992px]:p-12">
+              <div className="bg-textuur relative mb-8 rounded-2xl border border-line p-6 shadow-zwevend sm:p-8 min-[992px]:-mt-[125px] min-[992px]:p-10">
                 <h2 className="mb-4">Neem contact op</h2>
                 <p className="mb-8">
                   OntbindenBV.nl staat voor je klaar om jouw BV op de juiste manier te beëindigen. Plan een gratis intake en ontdek hoe wij je snel,
@@ -46,7 +46,7 @@ function Contact() {
                   decoding="async"
                   width={1600}
                   height={1066}
-                  className="absolute inset-0 size-full rounded-sm object-cover"
+                  className="absolute inset-0 size-full rounded-2xl object-cover"
                 />
               </FotoVlak>
             </div>

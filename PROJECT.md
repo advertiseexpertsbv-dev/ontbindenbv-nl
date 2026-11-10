@@ -34,7 +34,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - [x] Sjabloon overgenomen, identiteit (2026-11-09)
 - [x] Inhoud geïmporteerd: pagina's, 18 diensten (`scripts/bouw-diensten.py`), 80 artikelen (`scripts/bouw-blog.py`),
       beelden (`scripts/site-beelden.mjs`, `scripts/beelden.mjs`, `scripts/beelden-varianten.mjs`) (2026-11-09)
-- [x] Ontwerp 1-op-1: Oxygen + Twenty Twenty-Five-typografie (Manrope 300, koppen 400), kleuren, knoppen, verloop, alle secties
+- [x] Ontwerp 1-op-1: Oxygen + Twenty Twenty-Five-typografie (Manrope 300, koppen 400), kleuren, knoppen, verloop, alle secties (typografie en spacing herzien in de ontwerpronde van 2026-11-10, zie hieronder)
 - [x] URL-check: `node scripts/parity.mjs http://localhost:3000` → 116/116 (status, titel, canonical, één h1)
 - [x] Koppelingen zoals belastingbemiddelaar.nl (besluit Steven 2026-11-09), zie "Formulieren en koppelingen"
 - [x] D1 `ontbindenbv-db` aangemaakt (WEUR) met migraties 0001–0004, ook geregistreerd in `d1_migrations` (2026-11-09)
@@ -52,7 +52,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 ## Bewuste verschillen met de oude site
 
 - Reviews naast elkaar (3 kolommen vanaf 992px); oud stonden ze onder elkaar in een halve kolom.
-- Veelgestelde vragen: alle antwoorden open zoals oud, maar per vraag in- en uitklapbaar.
+- Veelgestelde vragen: uitklaplijst met afgeronde kaarten; de eerste vraag staat open, de rest dicht (antwoorden staan wel in de HTML).
 - "Wat is je situatie?" toont de 6 hoofddiensten als tegels (sinds BV met activa weg is: 3 kolommen); de lijst was op de oude site leeg.
 - Tweede h1 op een pagina (homepage, over ons, bedankt) is een h2 in dezelfde maat.
 - "Volg ons online" in de footer weggelaten: de links (Facebook, Instagram, LinkedIn) wezen naar `#`. Echte URL's nodig.
@@ -64,6 +64,12 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 - Lege `#`-links in dienstteksten: "Bel…" → `tel:`, overige → `/gratis-intakegesprek/`; kapotte link `/gratis-intakesprek/` hersteld.
 - Adres: nieuw adres (Houtzaagmolen 99, Ridderkerk) i.p.v. Nieuwerkerk aan den IJssel.
 - Mobiele balk onderaan (Bel direct / Gratis intake) is een toevoeging uit het sjabloon.
+- Ontwerpronde 2026-11-10 (Steven vond lettertype, lettergrootte, witruimte, FAQ en mobiel menu niet mooi): het 1-op-1-ontwerp is
+  losgelaten waar het lelijk was. Manrope blijft, maar tekst is 400 i.p.v. 300 (16px mobiel, 18px desktop i.p.v. 14/22px), koppen
+  700/800 met een duidelijke trap; sectieruimte 64/96px (`py-sectie`); invoervelden met grijsblauwe rand en 10px hoeken; witte kaarten
+  met zachte schaduw (`--shadow-kaart`, `--shadow-zwevend`); donkerder verloop over de hero; footer 15px. Mobiel menu: wit paneel tot
+  de onderkant van het scherm met de indeling van het desktopmenu (groepen klappen open), de vaste balk verdwijnt zolang het open is.
+  Teksten, URL's, SEO-elementen en de formulier/GTM-tracking zijn niet veranderd.
 - Campagnecontrole 2026-11-10 (externe audit, door Claude beoordeeld): gele knop "Online afspraak inplannen" heet nu "Neem contact op"
   (`site.afspraakKnop`; er is geen agenda, het is het contactformulier); verstuurknop "Vraag gratis advies aan" met een privacyregel
   eronder; geen garanties op het uitblijven van bestuurdersaansprakelijkheid; FAQ en turbopagina noemen de deponering binnen 14 dagen

@@ -15,15 +15,15 @@ const footerRegels = [
 ]
 
 /*
- * Footer zoals de oude site: merkblauw, hoofdblok met 72px padding (logo + tekst max 300px links, rechts de kolommen Diensten
- * en Over), onderbalk met witte rand en 48px padding. Tekst en links in de gewone tekstmaat (22px op desktop, 14px mobiel).
+ * Footer: merkblauw, hoofdblok met logo + tekst (max 380px) links en rechts de kolommen Diensten en Over, onderbalk met een
+ * lichte scheidingslijn. Tekst 15px in iets gedempt wit, links worden bij hover helder wit (ontwerpronde 2026-11-10).
  * De band "Volg ons online" van de oude site linkte nergens heen (#) en staat er daarom (nog) niet.
  */
 export default function Footer() {
   return (
-    <footer className="bg-brand-700 text-white">
-      <Container className="grid grid-cols-1 gap-12 py-18 min-[992px]:grid-cols-[minmax(0,300px)_auto] min-[992px]:justify-between">
-        <div className="max-w-[300px]">
+    <footer className="bg-brand-700 text-[15px] leading-[1.7] text-white/85">
+      <Container className="grid grid-cols-1 gap-12 py-16 min-[992px]:grid-cols-[minmax(0,380px)_auto] min-[992px]:justify-between min-[992px]:py-20">
+        <div className="max-w-[380px]">
           <img
             {...beeld('/images/brand/logo-wit.webp', SIZES.logoFooter)}
             alt={site.name}
@@ -33,8 +33,8 @@ export default function Footer() {
             decoding="async"
             className="aspect-[580/150] h-[75px] w-auto"
           />
-          <p className="mt-8">Neem vandaag nog contact op voor een kosteloze intake en laat ons je helpen met het veilig en snel beëindigen van jouw BV.</p>
-          <p className="mt-[1.4em]">
+          <p className="mt-6 text-white">Neem vandaag nog contact op voor een kosteloze intake en laat ons je helpen met het veilig en snel beëindigen van jouw BV.</p>
+          <p className="mt-5 text-[14px] leading-[1.75] text-white/75">
             {footerRegels.map((r, i) => (
               <span key={r}>
                 {i > 0 && <br />}
@@ -44,13 +44,13 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-12 min-[768px]:flex-row">
+        <div className="flex flex-col gap-10 min-[768px]:flex-row min-[768px]:gap-16">
           <nav aria-label="Diensten">
-            <h2 className="mb-4 text-[18px] !text-white md:text-[22px]">Diensten</h2>
-            <ul className="flex flex-col gap-4">
+            <h2 className="mb-4 text-[17px] !text-white">Diensten</h2>
+            <ul className="flex flex-col gap-2.5">
               {footerDiensten.map((d) => (
                 <li key={d.slug}>
-                  <Link to="/dienst/$dienst/" params={{ dienst: d.slug }} className="tik block hover:underline">
+                  <Link to="/dienst/$dienst/" params={{ dienst: d.slug }} className="tik block transition-colors hover:text-white hover:underline">
                     {d.label}
                   </Link>
                 </li>
@@ -58,11 +58,11 @@ export default function Footer() {
             </ul>
           </nav>
           <nav aria-label="Over">
-            <h2 className="mb-4 text-[18px] !text-white md:text-[22px]">Over</h2>
-            <ul className="flex flex-col gap-4">
+            <h2 className="mb-4 text-[17px] !text-white">Over</h2>
+            <ul className="flex flex-col gap-2.5">
               {footerOver.map((l) => (
                 <li key={l.label}>
-                  <Link to={l.to} className="tik block hover:underline">
+                  <Link to={l.to} className="tik block transition-colors hover:text-white hover:underline">
                     {l.label}
                   </Link>
                 </li>
@@ -72,8 +72,8 @@ export default function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-white">
-        <Container className="flex flex-col gap-4 py-12">
+      <div className="border-t border-white/20 text-[14px] text-white/75">
+        <Container className="flex flex-col gap-3 py-8">
           <div className="flex flex-col flex-wrap justify-between gap-4 min-[992px]:flex-row min-[992px]:items-center">
             <p>©{new Date().getFullYear()} Ontbinden BV - Alle rechten voorbehouden</p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">

@@ -14,11 +14,11 @@ export default function ArtikelKop({ titel, datum, taal }: { titel: string; datu
         <img {...beeld('/images/site/banner-bv.webp', SIZES.bannerBv)} alt="" width={600} height={475} decoding="async" className="absolute right-0 bottom-0 hidden h-auto w-[600px] md:block" />
       </div>
       <Container className="relative -mb-[120px] pt-10">
-        <div className="bg-textuur rounded-sm p-12 max-[767px]:px-8">
+        <div className="rounded-2xl border border-line bg-white p-8 shadow-zwevend md:p-12">
           <h1 lang={taal} className="mb-4 hyphens-auto [hyphenate-limit-chars:12_4_4] md:hyphens-manual">
             {titel}
           </h1>
-          <div className="flex items-center gap-4 text-text">
+          <div className="flex items-center gap-4 text-[15px] text-body">
             <img src="/images/site/auteur.webp" alt="" width={50} height={50} className="size-[50px] shrink-0 rounded-full object-cover" />
             <p>
               <b>Geplaatst door:</b>

@@ -59,10 +59,10 @@ export function ContactRijen({ blauw = false }: { blauw?: boolean }) {
     <ul className="flex flex-col gap-4">
       {rijen.map((r) => (
         <li key={r.titel} className="grid grid-cols-[auto_minmax(0,1fr)] items-start md:grid-cols-[auto_1fr]">
-          <span className={`mr-4 grid size-[50px] shrink-0 place-items-center rounded-full ${blauw ? 'bg-brand-700 text-bkg-light' : 'bg-bkg-light'}`}>{r.icoon}</span>
-          <div className="flex items-center text-[14px] [overflow-wrap:anywhere] md:[overflow-wrap:normal]">
+          <span className={`mr-4 grid size-12 shrink-0 place-items-center rounded-full ${blauw ? 'bg-brand-700 text-bkg-light' : 'bg-brand-50'}`}>{r.icoon}</span>
+          <div className="flex min-h-12 items-center text-[15px] leading-[1.5] text-body [overflow-wrap:anywhere] md:[overflow-wrap:normal]">
             <div>
-              <b className="text-[16px]">{r.titel}</b>
+              <b className="text-[16px] text-ink">{r.titel}</b>
               <br />
               {r.tekst}
             </div>
@@ -79,7 +79,7 @@ export function ContactRijen({ blauw = false }: { blauw?: boolean }) {
  */
 export default function ContactBlok({ titel = contactBlok.formTitel }: { titel?: string }) {
   return (
-    <section id="contact" className="py-[72px]" data-reveal suppressHydrationWarning>
+    <section id="contact" className="py-sectie" data-reveal suppressHydrationWarning>
       <Container>
         <div className="flex flex-col gap-10 min-[992px]:flex-row min-[992px]:gap-0">
           <div className="min-[992px]:w-1/2 min-[992px]:pr-4">
@@ -91,19 +91,19 @@ export default function ContactBlok({ titel = contactBlok.formTitel }: { titel?:
                 decoding="async"
                 width={1200}
                 height={800}
-                className="h-[50vw] min-h-[200px] w-full rounded-sm object-cover md:aspect-square md:h-auto md:min-h-0 md:w-[200px] md:self-start md:rounded-full"
+                className="h-[50vw] min-h-[200px] w-full rounded-2xl object-cover md:aspect-square md:h-auto md:min-h-0 md:w-[200px] md:self-start md:rounded-full"
               />
-              <div className="pt-8">
+              <div className="pt-8 md:pt-4">
                 <h2 className="mb-4">Neem contact op</h2>
-                <p className="mb-8">{contactBlok.tekst}</p>
+                <p className="mb-8 text-body">{contactBlok.tekst}</p>
                 <ContactRijen />
               </div>
             </div>
           </div>
           <div className="min-[992px]:w-1/2 min-[992px]:pl-4">
-            <div className="bg-textuur rounded-sm border border-bkg-light p-8 md:p-12">
-              <h2 className="mb-4">{titel}</h2>
-              <p className="mb-8">{contactBlok.formTekst}</p>
+            <div className="bg-textuur rounded-2xl border border-brand-100 p-6 sm:p-8 md:p-10">
+              <h2 className="mb-3">{titel}</h2>
+              <p className="mb-8 text-body">{contactBlok.formTekst}</p>
               <LeadForm formulier="Contact" className="mb-6" />
             </div>
           </div>

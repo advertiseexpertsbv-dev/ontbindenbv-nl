@@ -41,11 +41,13 @@
   --color-accent-dark: #e6b800;
   --color-accent-light: #ffd733;
 
-  --color-ink: #111111;
-  /* Lopende tekst van de oude site (#111, Manrope 300) */
-  --color-body: #111111;
-  --color-muted: #5f7280;
-  --color-line: #e4e7ec;
+  --color-ink: #0f1d2c;
+  /* Lopende tekst: donker leisteenblauw i.p.v. puur zwart (zachter, 15:1 op wit) */
+  --color-body: #1e2b38;
+  --color-muted: #5a6a78;
+  --color-line: #e2e8f0;
+  /* Rand van invoervelden: 3,6:1 op wit (WCAG 1.4.11 vraagt 3:1) */
+  --color-veldrand: #7b8796;
   --color-light: #f6fbff;
   --color-star: #fcb410;
 
@@ -67,43 +69,63 @@
   --shadow-banner: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   --radius-s: 10px;
+
+  /* Ontwerpronde 2026-11-10: zachte schaduwen voor kaarten, formulierkaart en uitklapmenu */
+  --shadow-kaart: 0 1px 2px rgba(15, 40, 70, 0.06), 0 4px 16px rgba(15, 40, 70, 0.06);
+  --shadow-kaart-hover: 0 2px 4px rgba(15, 40, 70, 0.08), 0 12px 28px rgba(15, 40, 70, 0.12);
+  --shadow-zwevend: 0 10px 40px rgba(8, 38, 64, 0.18);
 }
 
-/* Typografie zoals de oude site (WordPress-thema Twenty Twenty-Five over Oxygen heen):
-   - tekst Manrope 300, regelhoogte 1,4, letterafstand -0,1px; onder 768px 14px, daarboven 18-22px (vloeiend, 22px vanaf ca. 1040px)
-   - koppen Manrope 400, regelhoogte 1,125; onder 768px h1 30, h2 24, h3 18, h4 16px; daarboven vloeiend tot h1 48, h2 32, h3 22, h4 18px
-   - vet (b/strong) is 400: één stap boven de 300 van de tekst */
+/* Ruimte boven en onder een sectie: 64px op mobiel, 96px vanaf 992px (was overal 72px) */
+:root { --sectie: 64px; }
+@media (min-width: 992px) {
+  :root { --sectie: 96px; }
+}
+@utility py-sectie { padding-block: var(--sectie); }
+@utility pb-sectie { padding-bottom: var(--sectie); }
+
+/* Typografie (herzien 2026-11-10, ontwerpronde): de oude site gebruikte Manrope 300 met een sprong van 14px (mobiel) naar 22px
+   (desktop). Dat oogde dun en op desktop te groot. Nu:
+   - tekst Manrope 400, 16px op mobiel, vloeiend naar 18px op desktop, regelhoogte 1,65, kleur iets zachter dan zwart
+   - koppen Manrope 700 (h1 800) met iets strakkere letterafstand; een duidelijke trap h1 > h2 > h3 > tekst
+   - vet (b/strong) is 600 */
 @layer base {
   /* Geen scroll-behavior: smooth: oude site springt direct, en een routewissel mag niet zichtbaar naar boven animeren */
   html {
     overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   body {
     background-color: #fff;
     color: var(--color-body);
     overflow-x: clip;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.4;
-    letter-spacing: -0.1px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
   }
+  b, strong { font-weight: 600; }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 400;
-    color: var(--color-brand-700);
-    line-height: 1.125;
-    letter-spacing: -0.1px;
+    font-weight: 700;
+    color: var(--color-brand-800);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
-  h1 { font-size: 30px; }
-  h2 { font-size: 24px; }
-  h3 { font-size: 18px; }
-  h4 { font-size: 16px; }
+  h1 { font-size: 34px; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
+  h2 { font-size: 28px; line-height: 1.18; }
+  h3 { font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; }
+  h4 { font-size: 18px; line-height: 1.35; letter-spacing: -0.01em; }
+  p { text-wrap: pretty; }
   @media (min-width: 768px) {
-    body { font-size: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.392), 1.375rem); }
-    h1 { font-size: clamp(2.15rem, 2.15rem + ((1vw - 0.2rem) * 1.333), 3rem); }
-    h2 { font-size: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 0.392), 2rem); }
-    h3 { font-size: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.392), 1.375rem); }
-    h4 { font-size: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.196), 1.125rem); }
+    body { font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem); }
+    h1 { font-size: clamp(2.5rem, 1.6rem + 1.9vw, 3.5rem); }
+    h2 { font-size: clamp(1.875rem, 1.4rem + 0.95vw, 2.5rem); }
+    h3 { font-size: clamp(1.25rem, 1.1rem + 0.3vw, 1.4rem); }
+    h4 { font-size: 1.125rem; }
   }
   /* Lange woorden mogen op 320px niet buiten de kolom lopen (WCAG 1.4.10). break-word grijpt alleen in als het woord niet past;
      'anywhere' in knoppen binnen een kop laat de gridkolom krimpen (FAQ-vragen). Onder 381px mag een woord van 12+ tekens met
@@ -117,18 +139,17 @@
   button:not(:disabled), [role="button"]:not([aria-disabled="true"]) { cursor: pointer; }
   /* De plakkende header (vanaf 992px) mag ankers niet afdekken */
   @media (min-width: 992px) {
-    html { scroll-padding-top: 190px; }
+    html { scroll-padding-top: 176px; }
   }
 }
 
-/* Vinkjeslijsten van de oude site (hero, intro, banner, dienstteksten): 18px op elke breedte */
-.tekst-vink { font-size: 18px; line-height: 1.4; }
-
-/* Een kop in de maat van h1 (de oude site had op enkele pagina's een tweede h1; hier een h2 in dezelfde maat) */
-.kop-h1 { font-size: 30px; }
+/* Vinkjeslijsten (hero, intro, banner, dienstteksten): iets voller dan de lopende tekst */
+.tekst-vink { font-size: 16px; line-height: 1.45; font-weight: 500; }
 @media (min-width: 768px) {
-  .kop-h1 { font-size: clamp(2.15rem, 2.15rem + ((1vw - 0.2rem) * 1.333), 3rem); }
+  .tekst-vink { font-size: 17px; }
 }
+
+/* .kop-h1 (een kop die op de oude site een tweede h1 was) heeft geen eigen maat meer: hij volgt de h2 */
 
 /* Lichte vlakken met de bg-full-textuur van de oude site (reviewbalk, dropdown, kaarten) */
 .bg-textuur {
@@ -214,20 +235,25 @@
   display: flow-root;
 }
 .artikel-post > * { margin-block: 1em; }
-.artikel-post :is(h2, h3, h4) { margin-block: 0.875em 0.5em; font-weight: 700; }
+.artikel-post :is(h2, h3, h4) { margin-block: 1.6em 0.5em; font-weight: 700; }
 .artikel-post :is(h2, h3, h4) :is(strong, b) { font-weight: 700; }
-.artikel-post h2 { font-size: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 0.392), 2rem); }
-/* Koppen die scripts/bouw-blog.py een niveau omhoog heeft gezet (de titel is de h1) houden de maat van hun oude niveau */
-.artikel-post .kop-3 { font-size: 18px; }
-.artikel-post .kop-4 { font-size: 16px; }
+.artikel-post h2 { font-size: 24px; }
 @media (min-width: 768px) {
-  .artikel-post .kop-3 { font-size: clamp(1.125rem, 1.125rem + ((1vw - 0.2rem) * 0.392), 1.375rem); }
-  .artikel-post .kop-4 { font-size: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.196), 1.125rem); }
+  .artikel-post h2 { font-size: clamp(1.5rem, 1.2rem + 0.6vw, 1.875rem); }
 }
+/* Koppen die scripts/bouw-blog.py een niveau omhoog heeft gezet (de titel is de h1) houden de maat van hun oude niveau */
+.artikel-post .kop-3 { font-size: 20px; }
+.artikel-post .kop-4 { font-size: 18px; }
+@media (min-width: 768px) {
+  .artikel-post .kop-3 { font-size: clamp(1.25rem, 1.1rem + 0.3vw, 1.4rem); }
+  .artikel-post .kop-4 { font-size: 1.125rem; }
+}
+.artikel-post li + li { margin-top: 0.35em; }
+.artikel-post li::marker { color: var(--color-brand-600); }
 @media (max-width: 767px) {
   .artikel-post h2 { hyphens: auto; hyphenate-limit-chars: 16 4 4; }
 }
-.artikel-post a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.artikel-post a { color: var(--color-brand-700); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .artikel-post a:hover { color: var(--color-brand-700); }
 .artikel-post ul, .artikel-post ol { padding-left: 40px; }
 .artikel-post ul { list-style: disc; }
@@ -236,12 +262,13 @@
 .artikel-post img { display: block; max-width: 100%; height: auto; }
 .artikel-post figure { margin-inline: 0; overflow-x: auto; }
 .artikel-post table { width: 100%; border-collapse: collapse; }
-.artikel-post td, .artikel-post th { border: 1px solid currentColor; padding: 0.5em; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.artikel-post td, .artikel-post th { border: 1px solid var(--color-line); padding: 0.6em 0.75em; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.artikel-post th, .artikel-post thead td { background-color: var(--color-brand-50); font-weight: 600; }
 .artikel-post .video { position: relative; aspect-ratio: 16 / 9; }
 .artikel-post .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 /* Koppen in de tekst: onder de plakkende header uitkomen als je via de inhoudsopgave springt */
 @media (min-width: 992px) {
-  .artikel-post [id] { scroll-margin-top: 13rem; }
+  .artikel-post [id] { scroll-margin-top: 11rem; }
 }
 /* ==== EINDE artikelen ==== */
 
@@ -268,70 +295,67 @@
 /* ==== BEGIN BLOK-D (formulieren, intake): alleen agent D ==== */
 /* Tokens uit de Gravity Forms van de oude site: rand van de velden, foutrood, placeholder, lijn onder intake-koppen */
 @theme {
-  --color-form-rand: #010101;
+  --color-form-rand: var(--color-veldrand);
   --color-form-fout: #c02b0a;
   --color-form-placeholder: #757575;
   --color-form-kop: #cccccc;
   --color-form-berekend: #f1f3f5;
 }
 
-/* Invoerveld en tekstvak zoals de oude site: zwarte rand, 4px hoeken, 52px (tekstvak 100px) hoog, padding 16px 32px.
-   Staat bewust buiten @layer, zodat de focusstijl (blauwe rand + 1px outline) wint van de globale :focus-visible-regel. */
+/* Invoerveld en tekstvak (ontwerpronde 2026-11-10): grijsblauwe rand (3,6:1), 10px hoeken, 52px hoog, 16px binnenruimte.
+   De tekst is 16px op elke breedte: iOS Safari zoomt bij focus op velden kleiner dan 16px de hele pagina in.
+   Staat bewust buiten @layer, zodat de focusstijl (blauwe rand + zachte ring) wint van de globale :focus-visible-regel. */
 .form-invoer {
   display: block;
   width: 100%;
   height: 52px;
-  padding: 16px 32px;
+  padding: 0 16px;
   border: 1px solid var(--color-form-rand);
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: white;
-  color: black;
-  font-size: 15px;
-  line-height: 15px;
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-textarea.form-invoer { height: 100px; line-height: 22.5px; }
-@media (min-width: 768px) {
-  textarea.form-invoer { line-height: 17.25px; }
-}
-/* Onder 768px 16px i.p.v. 15px: iOS Safari zoomt bij focus op velden kleiner dan 16px de hele pagina in. De regelhoogte volgt de
-   binnenruimte van het veld (52px - 2px rand - 32px padding = 18px) zodat de tekst niet wordt afgesneden. */
-@media (max-width: 767px) {
-  .form-invoer { font-size: 16px; line-height: 18px; }
-  textarea.form-invoer { line-height: 24px; }
-}
+.form-invoer:hover { border-color: var(--color-brand-600); }
+textarea.form-invoer { height: 110px; padding: 12px 16px; line-height: 1.5; resize: vertical; }
 /* Berekend veld (intake: overwaarde uit woning min hypotheek): niet te typen en lichtgrijs, zodat het niet als invulveld oogt */
 .form-invoer[readonly] { background-color: var(--color-form-berekend); }
 .form-invoer::placeholder { color: var(--color-form-placeholder); opacity: 1; }
 .form-invoer:focus,
 .form-invoer:focus-visible {
   border-color: var(--color-brand-700);
-  border-radius: 4px;
   outline: 1px solid var(--color-brand-700);
   outline-offset: 0;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-brand-500) 18%, transparent);
 }
+.form-invoer[aria-invalid="true"] { border-color: var(--color-form-fout); }
 
-/* Versturen-knop zoals de oude site: Manrope 18px/600, blauwe verlooppil (zoals de andere knoppen) over de volle breedte, 68px hoog.
+/* Versturen-knop: Manrope 17px/700, blauwe verlooppil (zoals de andere knoppen) over de volle breedte, 60px hoog.
    Tijdens het verzenden blijft de knop staan en komt er een draaiend icoon in het midden (de tekst wordt onzichtbaar). */
 .form-knop {
   position: relative;
   display: flex;
   width: 100%;
-  min-height: 68px;
+  min-height: 60px;
   align-items: center;
   justify-content: center;
   padding: 16px 32px;
   border-radius: 9999px;
   background-image: linear-gradient(to bottom, #4487e4 0%, #4487e4 50%, #689ee9 100%);
+  box-shadow: 0 6px 16px rgba(68, 135, 228, 0.3);
   color: white;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   cursor: pointer;
-  transition: filter 0.3s;
+  transition: filter 0.2s, box-shadow 0.2s, transform 0.2s;
 }
-.form-knop:hover { filter: brightness(0.92); }
+.form-knop:hover { filter: brightness(0.94); box-shadow: 0 8px 22px rgba(68, 135, 228, 0.38); }
+.form-knop:active { transform: translateY(1px); }
 .form-knop[aria-busy="true"] { cursor: progress; }
 .form-spinner {
   position: absolute;
@@ -350,11 +374,18 @@ textarea.form-invoer { height: 100px; line-height: 22.5px; }
 }
 /* ==== EINDE BLOK-D ==== */
 
-/* Antwoorden in de veelgestelde vragen (HTML uit de oude site): alinea's zonder tussenruimte, de cursieve CTA-regel als link in tekstkleur */
+/* Antwoorden in de veelgestelde vragen (HTML uit content/): alinea's met wat ruimte, de CTA-regel (link met <em>) als blauwe
+   link met pijltje in plaats van cursief in tekstkleur */
+.faq-antwoord { color: var(--color-body); }
 .faq-antwoord p { margin: 0; }
-.faq-antwoord a { color: inherit; text-decoration: none; }
-.faq-antwoord a:hover, .faq-antwoord a:focus-visible { text-decoration: underline; }
-.faq-antwoord { font-weight: 400; }
+.faq-antwoord p + p { margin-top: 0.75em; }
+.faq-antwoord a { color: var(--color-brand-700); font-weight: 600; text-decoration: none; }
+.faq-antwoord a em { font-style: normal; }
+.faq-antwoord a:has(em)::after { content: " →"; }
+.faq-antwoord a:hover, .faq-antwoord a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Tekst uit de oude site met <br> en vet (dienstpagina's, intro): links in merkblauw */
 .tekst-html a { color: var(--color-brand-700); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Zolang het mobiele menu open is (klasse op html, gezet door Header) staat de vaste contactbalk onderaan niet over het menu */
+.menu-open .mobiele-balk { display: none; }
