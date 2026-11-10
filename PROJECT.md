@@ -13,7 +13,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | Juridische naam | BCF Advies B.V. OntbindenBV.nl is een handelsnaam (KvK-register via TransFirm, goedgekeurd door Steven 2026-11-10) |
 | Domein | ontbindenbv.nl (www → apex 301 in `src/server.ts`) |
 | Telefoon | **Tijdelijk geen nummer** (Steven 2026-11-10): +31 85 004 8369 is nu van subsidiehulp.nl, nieuw nummer via Goedemorgen-Goedemiddag volgt. `site.phone` en `site.phoneHref` zijn leeg; dan verdwijnen header-telefoon, "Bel direct", bel-knoppen en de telefoonrij in het contactblok, en staat er e-mail. Nieuw nummer = beide velden invullen. Ook het BB-nummer (+31 85 130 0867) is uit 14 artikelen gehaald |
-| Contactblok | ma t/m vr 08:30–17:30 (zo op de oude site; intakeformulier noemt 8.00–17.00) |
+| Openingstijden | ma t/m vr 08:30–17:30, overal één versie (klant 2026-11-10, gelijk aan het blok Openingstijden op belastingbemiddelaar.nl). Ook `site.belTijden` naast het telefoonnummer; het terugbelmoment in het intakeformulier noemt nog 8.00–17.00 |
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |
 | Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |
@@ -24,7 +24,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 
 - 9 pagina's: `/`, `/over-ons/`, `/onze-werkwijze/`, `/contact/`, `/gratis-intakegesprek/`, `/bedankt/`, `/privacyverklaring-eu/`,
   `/cookiebeleid-eu/`, `/sample-page/` (WP-standaard, nu 301 naar `/`)
-- 18 diensten onder `/dienst/<slug>/` (CPT `dienst`, Oxygen)
+- 17 diensten onder `/dienst/<slug>/` (CPT `dienst`, Oxygen). "BV met activa" is geschrapt (klant 2026-11-10: alleen turboliquidatie, ook met schulden, en herstructurering), 301 naar Lege BV / turboliquidatie
 - 80 artikelen op `/<slug>/` (ook de twee "landingspagina's" `/turboliquidatie-bv/` en
   `/bv-ontbinding-turboliquidatie-bv-beeindiging/` zijn gewone posts), overzicht `/kennisbank/` + `/kennisbank/page/2-8/`
   (10 per pagina), `/category/uncategorized/` (nu 301 naar `/kennisbank/`)
@@ -53,7 +53,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 
 - Reviews naast elkaar (3 kolommen vanaf 992px); oud stonden ze onder elkaar in een halve kolom.
 - Veelgestelde vragen: alle antwoorden open zoals oud, maar per vraag in- en uitklapbaar.
-- "Wat is je situatie?" toont de 7 hoofddiensten als tegels; de lijst was op de oude site leeg.
+- "Wat is je situatie?" toont de 6 hoofddiensten als tegels (sinds BV met activa weg is: 3 kolommen); de lijst was op de oude site leeg.
 - Tweede h1 op een pagina (homepage, over ons, bedankt) is een h2 in dezelfde maat.
 - "Volg ons online" in de footer weggelaten: de links (Facebook, Instagram, LinkedIn) wezen naar `#`. Echte URL's nodig.
 - Tabel "Voordelen / Wat wij doen" op de dienstpagina's: witte tekst op blauw (oud donker op blauw, slecht leesbaar).

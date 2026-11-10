@@ -42,7 +42,7 @@ function Home() {
               <FotoVlak>
                 <img
                   {...beeld('/images/site/intro.webp', SIZES.intro)}
-                  alt="Peter Brouwers, oprichter van OntbindenBV.nl"
+                  alt="Peter Brouwers, fiscaal specialist bij OntbindenBV.nl"
                   loading="lazy"
                   decoding="async"
                   width={1600}

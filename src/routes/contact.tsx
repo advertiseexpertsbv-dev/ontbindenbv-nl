@@ -25,7 +25,7 @@ function Contact() {
               <h2 className="mb-4">Wij helpen je graag verder met al je vragen</h2>
               <p className="mb-8">
                 Neem vandaag nog contact op met OntbindenBV.nl voor een gratis en vrijblijvend intakegesprek. Samen kijken we welke ontbindingsvorm het
-                beste past bij jouw situatie – of het nu gaat om een lege BV, een BV met activa of een BV met (hoge) schulden.
+                beste past bij jouw situatie – of het nu gaat om een lege BV of een BV met (hoge) schulden.
               </p>
               <LeadForm formulier="Contact" className="mb-6" />
             </div>

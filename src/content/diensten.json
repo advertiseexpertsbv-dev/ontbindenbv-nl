@@ -5,15 +5,15 @@
   "h1": "Problemen met vennootschapsbelasting binnen je BV?",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Problemen met vennootschapsbelasting binnen je BV?",
-  "description": "Heeft jouw BV achterstanden of betalingsproblemen bij de vennootschapsbelasting (Vpb)? Onbetaalde vennootschapsbelasting kan snel oplopen door rente en…",
+  "description": "Kan je BV de vennootschapsbelasting (Vpb) niet meer betalen? Ook met een Vpb-schuld kun je je BV beëindigen via een turboliquidatie. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV achterstanden of betalingsproblemen bij de vennootschapsbelasting (Vpb)?<br>Onbetaalde vennootschapsbelasting kan snel oplopen door rente en boetes.",
-     "Wij helpen ondernemers met een BV om de Vpb-schuld op te lossen, te regelen of te saneren."
+     "Heeft jouw BV een achterstand in de vennootschapsbelasting (Vpb) die niet meer te betalen is?<br>Onbetaalde vennootschapsbelasting kan snel oplopen door rente en boetes.",
+     "Zie je geen toekomst meer voor de BV? Dan kun je de BV ook met een Vpb-schuld beëindigen via een turboliquidatie. Wij begeleiden je daarbij, van intake tot uitschrijving bij de KvK."
     ]
    },
    {
@@ -45,86 +45,58 @@
    },
    {
     "t": "h",
-    "x": "Hoe wij helpen bij vennootschapsbelasting"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
    },
    {
     "t": "p",
     "alineas": [
-     "Wij bieden praktische en juridische begeleiding voor ondernemers met een BV:"
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "Gratis analyse van de schuldpositie",
-     "Onderhandeling met de Belastingdienst over betaling, regeling of kwijtschelding",
-     "Opstellen van een sanerings- of afbetalingsplan",
-     "Begeleiding bij juridische en fiscale risico’s voor bestuurders",
-     "Eén aanspreekpunt voor het volledige traject"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Met de juiste aanpak vermijd je boetes, rente en persoonlijke aansprakelijkheid."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Vennootschapsbelasting kwijtschelden of regelen"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Soms kan een vennootschapsbelastingschuld:"
-    ]
+    "x": "Wat wij voor je doen"
    },
    {
     "t": "ul",
     "items": [
-     "gedeeltelijk worden kwijtgescholden,",
-     "via een betalingsregeling in termijnen worden voldaan,",
-     "of worden meegenomen in een saneringstraject."
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Wij weten precies welke documenten en berekeningen nodig zijn om dit kansrijk aan te vragen."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
     ]
    },
    {
     "t": "h",
-    "x": "Vennootschapsbelasting kwijtschelden of regelen"
+    "x": "Wat kost het?"
    },
    {
     "t": "p",
     "alineas": [
-     "Wanneer kwijtschelding niet mogelijk is, begeleiden wij je bij:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "een realistische afbetalingsregeling,",
-     "een sanering van de BV,",
-     "of het veilig afwikkelen van bestuurdersverplichtingen."
-    ]
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Vaak kan de schuld zo worden opgelost zonder dat dit leidt tot persoonlijke aansprakelijkheid."
-    ]
-   },
-   {
-    "t": "h",
-    "x": "Wat kost hulp bij vennootschapsbelasting?"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "De eerste analyse is altijd gratis en vrijblijvend.<br>Daarna werken we met vaste tarieven per traject, zodat je vooraf weet waar je aan toe bent."
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -133,16 +105,20 @@
   ],
   "faq": [
    {
-    "v": "Kan een vennootschapsbelastingschuld worden kwijtgescholden?",
-    "a": "<p>In sommige situaties kan dit, vooral bij sanering of beëindiging van de BV. Wij begeleiden de volledige aanvraag.</p>"
+    "v": "Kan ik mijn BV opheffen met een Vpb-schuld?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
     "v": "Wat gebeurt er als de Vpb niet wordt betaald?",
     "a": "<p>De Belastingdienst kan beslag leggen of bestuurders aansprakelijk stellen. Tijdig handelen voorkomt escalatie.</p>"
    },
    {
-    "v": "Kan ik mijn BV ontbinden met een Vpb-schuld?",
-    "a": "<p>Ja, mits dit zorgvuldig en juridisch correct gebeurt. Wij zorgen dat alles netjes wordt afgehandeld.</p>"
+    "v": "Helpen jullie ook met een betalingsregeling of kwijtschelding van de Vpb?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
+   },
+   {
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -152,66 +128,85 @@
   "h1": "Schuldsanering BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Schuldsanering BV",
-  "description": "Heeft jouw BV of onderneming financiële problemen en te maken met schulden bij de Belastingdienst of andere partijen?",
+  "description": "Schuldsanering voor je BV? Heeft de BV geen toekomst meer, dan is een turboliquidatie vaak de oplossing, ook met schulden. Wij begeleiden je daarbij.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV of onderneming financiële problemen en te maken met schulden bij de Belastingdienst of andere partijen?",
-     "Onze specialisten helpen BV’s en bedrijven bij schuldsanering, schuldregeling of kwijtschelding, zodat jouw onderneming een nieuw startpunt krijgt zonder dat jij als bestuurder persoonlijk risico loopt."
+     "Heeft jouw BV schulden bij de Belastingdienst of andere partijen die niet meer op te lossen zijn?",
+     "Veel ondernemers zoeken dan naar schuldsanering voor hun BV. Heeft de BV geen toekomst meer, dan is een turboliquidatie vaak de beste oplossing: je beëindigt de BV, ook als er nog schulden zijn. Wij begeleiden je daarbij."
     ]
    },
    {
     "t": "knoppen"
    },
    {
-    "t": "p",
-    "alineas": [
-     "Schuldsanering voor een BV houdt in dat de bestaande schulden van de onderneming structureel worden aangepakt, met als doel dat de BV weer financieel gezond wordt.<br> Onze experts begeleiden je bij:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "Analyse van de volledige schuldpositie",
-     "Overleg met de Belastingdienst en crediteuren",
-     "Opstellen van een realistisch saneringsplan",
-     "Kwijtschelding of minnelijke regeling waar mogelijk",
-     "Bescherming van bestuurders tegen persoonlijke aansprakelijkheid"
-    ]
+    "t": "h",
+    "x": "Schuldsanering of turboliquidatie?"
    },
    {
     "t": "p",
     "alineas": [
-     "Met professionele begeleiding zorg je dat schuldsanering juridisch correct en fiscaal veilig verloopt."
+     "Bij schuldsanering probeer je de schulden af te lossen of te regelen, zodat de BV verder kan. Dat is een traject met de Belastingdienst en andere schuldeisers dat lang kan duren en niet altijd lukt.",
+     "Heeft de BV geen activiteiten of bezittingen meer, dan kun je haar ook beëindigen via een turboliquidatie. Daarin zijn wij gespecialiseerd."
     ]
    },
    {
     "t": "h",
-    "x": "Onze diensten zijn speciaal gericht op:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
+    ]
    },
    {
     "t": "ul",
     "items": [
-     "Schuldsanering BV: voor vennootschapsbelastingen, loonheffing en courantschulden",
-     "Schuldsanering bedrijf: voor werkmaatschappijen en kleine ondernemingen",
-     "Schuldsanering onderneming: voor grotere ondernemingen en holdings",
-     "Schuldsanering voor bedrijven: compleet traject inclusief regeling en kwijtschelding",
-     "Zakelijke schuldsanering: advies, onderhandeling en begeleiding richting crediteuren"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "We zorgen voor een praktisch en haalbaar plan, zodat de onderneming verder kan zonder onnodige risico’s."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat wij voor je doen"
+   },
+   {
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste intake is altijd gratis en vrijblijvend. Daarna ontvang je een duidelijk voorstel met vaste tarieven per traject, zodat je precies weet waar je aan toe bent."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -220,16 +215,16 @@
   ],
   "faq": [
    {
-    "v": "Wat is het verschil tussen schuldsanering voor een BV en privé?",
-    "a": "<p>Bij een BV gaat het om zakelijke schulden. Onze aanpak richt zich op het oplossen van schulden binnen de onderneming, waarbij bestuurders beschermd blijven.</p>"
+    "v": "Helpen jullie ook met schuldsanering voor mijn BV?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Kan ik alle schulden laten saneren?",
-    "a": "<p>In veel gevallen kan een aanzienlijk deel van de schulden via een regeling of kwijtschelding worden opgelost. Wij analyseren wat haalbaar is.</p>"
+    "v": "Kan ik mijn BV opheffen met schulden?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Is het traject ingewikkeld?",
-    "a": "<p>Onze specialisten begeleiden het volledige traject van intake tot akkoord bij de Belastingdienst en crediteuren, zodat jij overzicht houdt.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -239,66 +234,85 @@
   "h1": "Schuldregeling BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Schuldregeling BV",
-  "description": "Heeft jouw BV of onderneming te maken met achterstanden of schulden bij de Belastingdienst of andere partijen?",
+  "description": "Een schuldregeling voor je BV? Heeft de BV geen toekomst meer, dan kun je haar ook met schulden beëindigen via een turboliquidatie. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV of onderneming te maken met achterstanden of schulden bij de Belastingdienst of andere partijen?",
-     "Onze specialisten helpen BV’s en bedrijven bij schuldregeling, sanering of herstructurering, zodat jouw onderneming weer financieel gezond wordt en bestuurders beschermd blijven tegen persoonlijke aansprakelijkheid."
+     "Heeft jouw BV achterstanden of schulden bij de Belastingdienst of andere partijen?",
+     "Een schuldregeling is niet altijd haalbaar. Heeft de BV geen toekomst meer, dan kun je haar ook beëindigen via een turboliquidatie, ook als er nog schulden zijn. Wij begeleiden je daarbij."
     ]
    },
    {
     "t": "knoppen"
    },
    {
-    "t": "p",
-    "alineas": [
-     "Schuldregeling voor een BV betekent dat de bestaande schulden van de onderneming systematisch en juridisch correct worden aangepakt.<br> Onze experts begeleiden je bij:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "Analyse van alle schulden en financiële verplichtingen",
-     "Onderhandelingen met de Belastingdienst en crediteuren",
-     "Opstellen van een realistisch en haalbaar afbetalingsplan",
-     "Mogelijke kwijtschelding of minnelijke regeling",
-     "Bescherming van bestuurders tegen persoonlijke aansprakelijkheid"
-    ]
+    "t": "h",
+    "x": "Schuldregeling of turboliquidatie?"
    },
    {
     "t": "p",
     "alineas": [
-     "Zo weet je zeker dat je BV weer stabiel wordt, terwijl je privé geen onnodige risico’s loopt."
+     "Met een schuldregeling maak je afspraken met schuldeisers om de schulden (deels) af te lossen, zodat de BV verder kan.",
+     "Heeft de BV geen activiteiten of bezittingen meer, dan is een turboliquidatie vaak de snellere oplossing: de BV houdt op te bestaan. Daarin zijn wij gespecialiseerd."
     ]
    },
    {
     "t": "h",
-    "x": "Onze diensten zijn specifiek gericht op:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
+    ]
    },
    {
     "t": "ul",
     "items": [
-     "<b>Schuldregeling BV: </b>voor vennootschapsbelasting, loonheffing, courantschulden",
-     "<b>Schuldregeling bedrijf:</b> voor werkmaatschappijen en kleine BV’s",
-     "<b>Schuldregeling onderneming:</b> voor grotere ondernemingen en holdings",
-     "<b>Schuldregeling voor bedrijven:</b> compleet traject inclusief onderhandelingen en betalingsregeling",
-     "<b>Zakelijke schuldregeling:</b> begeleiding en advies richting crediteuren en Belastingdienst"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "We zorgen voor een praktisch, juridisch correct en haalbaar plan, zodat de onderneming verder kan zonder onnodige financiële druk."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat wij voor je doen"
+   },
+   {
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste intake is altijd gratis en vrijblijvend. Daarna ontvang je een duidelijk voorstel met vaste tarieven per traject, zodat je precies weet waar je aan toe bent."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -307,16 +321,16 @@
   ],
   "faq": [
    {
-    "v": "Wat is het verschil tussen schuldregeling voor een BV en privé?",
-    "a": "<p>Bij een BV gaat het om zakelijke schulden. Onze aanpak richt zich op het oplossen van schulden binnen de onderneming, waarbij bestuurders beschermd blijven.</p>"
+    "v": "Helpen jullie ook met een schuldregeling voor mijn BV?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Kan ik alle schulden laten regelen?",
-    "a": "<p>In veel gevallen kan een aanzienlijk deel van de schulden via een regeling of afbetalingsplan worden opgelost. Wij analyseren wat haalbaar is.</p>"
+    "v": "Kan ik mijn BV opheffen met schulden?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Is een schuldregeling ingewikkeld?",
-    "a": "<p>Onze specialisten begeleiden het volledige traject van intake tot akkoord bij de Belastingdienst en crediteuren, zodat jij overzicht houdt.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -326,65 +340,85 @@
   "h1": "Schuldhulpverlening BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Schuldhulpverlening BV",
-  "description": "Heeft jouw BV of onderneming te maken met schulden of financiële problemen? Onze specialisten bieden schuldhulpverlening op maat voor BV’s en bedrijven,…",
+  "description": "Schuldhulpverlening voor je BV? Wil je stoppen met de BV, dan begeleiden wij de turboliquidatie, ook als er nog schulden zijn.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV of onderneming te maken met schulden of financiële problemen?<br> Onze specialisten bieden schuldhulpverlening op maat voor BV’s en bedrijven, zodat schulden kunnen worden opgelost, geregeld of gesaneerd zonder dat bestuurders persoonlijk risico lopen."
+     "Heeft jouw BV schulden of financiële problemen, en zie je geen uitweg meer?",
+     "Wil je stoppen met de BV, dan kun je haar beëindigen via een turboliquidatie, ook als er nog schulden zijn. Wij begeleiden je daarbij, zorgvuldig en juridisch correct."
     ]
    },
    {
     "t": "knoppen"
    },
    {
-    "t": "p",
-    "alineas": [
-     "Schuldhulpverlening voor een BV betekent dat wij samen met jou een praktisch en juridisch correct plan opstellen om de financiële situatie van de onderneming te stabiliseren.<br> Onze experts begeleiden je bij:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "Analyse van de volledige schuldpositie",
-     "Onderhandelingen met de Belastingdienst en andere schuldeisers",
-     "Opstellen van een haalbaar afbetalings- of saneringsplan",
-     "Mogelijke kwijtschelding of minnelijke regeling",
-     "Bescherming van bestuurders tegen persoonlijke aansprakelijkheid"
-    ]
+    "t": "h",
+    "x": "Schuldhulpverlening voor een BV: wat kan wel?"
    },
    {
     "t": "p",
     "alineas": [
-     "Zo kan jouw BV weer gezond functioneren, terwijl jij als bestuurder veilig blijft."
+     "Gemeentelijke schuldhulpverlening is vooral bedoeld voor privéschulden. Voor de schulden van een BV ligt dat anders: de BV is zelf verantwoordelijk voor haar schulden.",
+     "Heeft de BV geen activiteiten of bezittingen meer, dan is een turboliquidatie vaak de oplossing. Daarin zijn wij gespecialiseerd."
     ]
    },
    {
     "t": "h",
-    "x": "Onze diensten zijn specifiek gericht op:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
+    ]
    },
    {
     "t": "ul",
     "items": [
-     "<b>Schuldhulpverlening BV:</b> voor vennootschapsbelasting, loonheffing, omzetbelasting en courantschulden",
-     "<b>Schuldhulpverlening bedrijf:</b> voor kleinere werkmaatschappijen",
-     "<b>Schuldhulpverlening onderneming:</b> voor grotere ondernemingen en holdings",
-     "<b>Zakelijke schuldhulpverlening:</b> compleet traject inclusief onderhandelingen en regeling",
-     "<b>Zakelijke schuldhulp:</b> advies en begeleiding richting crediteuren en Belastingdienst"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "We zorgen voor een praktisch, veilig en haalbaar plan, zodat de onderneming weer grip krijgt op haar financiële situatie."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat wij voor je doen"
+   },
+   {
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste intake is altijd gratis en vrijblijvend. Daarna ontvang je een voorstel met vaste tarieven per traject, zodat je vooraf weet waar je aan toe bent."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -393,16 +427,16 @@
   ],
   "faq": [
    {
-    "v": "Wat kan schuldhulpverlening voor mijn BV betekenen?",
-    "a": "<p>Van het oplossen van achterstanden bij de Belastingdienst tot het regelen van afbetalingsregelingen of sanering, wij begeleiden het gehele traject.</p>"
+    "v": "Helpen jullie ook met schuldhulpverlening of een betalingsregeling?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Wanneer heb ik schuldhulpverlening nodig?",
-    "a": "<p>Zodra er schulden zijn die je niet zelfstandig kunt oplossen, of als er risico bestaat op boetes of bestuurdersaansprakelijkheid.</p>"
+    "v": "Kan ik mijn BV opheffen met schulden?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Is het traject ingewikkeld?",
-    "a": "<p>Onze specialisten nemen het volledige proces uit handen, van intake tot akkoord bij de Belastingdienst en crediteuren.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -412,7 +446,7 @@
   "h1": "Schulden Belastingdienst BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Schulden Belastingdienst BV",
-  "description": "Heeft jouw BV moeite om de Belastingdienst te betalen? Achterstanden in btw, loonheffing of vennootschapsbelasting kunnen snel oplopen – en de…",
+  "description": "Schulden bij de Belastingdienst die je BV niet meer kan betalen? Ook dan kun je de BV beëindigen via een turboliquidatie. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
@@ -423,9 +457,8 @@
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV moeite om de Belastingdienst te betalen?<br> Achterstanden in btw, loonheffing of vennootschapsbelasting kunnen snel oplopen – en de Belastingdienst is vaak de eerste die actie onderneemt.",
-     "Wij helpen ondernemers met een BV of onderneming bij het oplossen, saneren of kwijtschelden van schulden bij de Belastingdienst.",
-     "Onze specialisten weten exact hoe je dit veilig en juridisch correct aanpakt."
+     "Heeft jouw BV schulden bij de Belastingdienst die niet meer te betalen zijn?<br>Achterstanden in btw, loonheffing of vennootschapsbelasting kunnen snel oplopen, en de Belastingdienst is vaak de eerste die actie onderneemt.",
+     "Zie je geen toekomst meer voor de BV? Dan kun je haar ook met schulden bij de Belastingdienst beëindigen via een turboliquidatie. Wij begeleiden je daarbij."
     ]
    },
    {
@@ -456,64 +489,65 @@
     ]
    },
    {
+    "t": "p",
+    "alineas": [
+     "Gaat het om loonheffing of btw? Dan is het belangrijk dat de BV op tijd een melding betalingsonmacht heeft gedaan. Is dat niet gebeurd, dan kan de Belastingdienst jou als bestuurder privé aansprakelijk stellen. In het intakegesprek kijken we naar jouw situatie."
+    ]
+   },
+   {
     "t": "h",
-    "x": "Hoe wij helpen bij schulden bij de Belastingdienst"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
    },
    {
     "t": "p",
     "alineas": [
-     "Wij begeleiden BV’s stap voor stap naar een haalbare oplossing."
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "Gratis financiële scan – we brengen jouw schuldpositie exact in kaart",
-     "Onderhandeling met de Belastingdienst over regeling of kwijtschelding",
-     "Begeleiding bij sanering of herstructurering van de BV",
-     "Advies over aansprakelijkheid, bestuurdersrisico’s en turbo-liquidatie",
-     "Één vaste contactpersoon die het hele traject begeleidt"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Zo weet je zeker dat jouw BV veilig en zorgvuldig wordt geholpen."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Belastingschuld oplossen of kwijtschelden"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "De Belastingdienst biedt in sommige situaties ruimte voor:"
-    ]
+    "x": "Wat wij voor je doen"
    },
    {
     "t": "ul",
     "items": [
-     "betalingsregelingen (in termijnen),",
-     "gedeeltelijke kwijtschelding bij beëindiging of sanering,",
-     "of een minnelijke regeling bij meerdere schuldeisers."
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Wij weten welke voorwaarden de Belastingdienst hanteert en onderbouwen het verzoek met de juiste financiële documentatie.<br> Zo vergroot je de kans op goedkeuring aanzienlijk.",
-     "Tip: Wacht niet tot er beslag is gelegd — zodra een invordering loopt, wordt het veel lastiger om een regeling te treffen."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
     ]
    },
    {
     "t": "h",
-    "x": "Wat kost hulp bij schulden bij de Belastingdienst?"
+    "x": "Wat kost het?"
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste inventarisatie is kosteloos en vrijblijvend.<br>Daarna bieden we vaste tarieven per traject, afhankelijk van de situatie van jouw BV.<br>Je weet vooraf precies wat het kost en wat je kunt verwachten."
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -522,16 +556,16 @@
   ],
   "faq": [
    {
-    "v": "Kan ik een belastingschuld van mijn BV laten kwijtschelden?",
-    "a": "<p>In bepaalde gevallen wel, bijvoorbeeld bij beëindiging van de BV of na een saneringstraject. Wij begeleiden het volledige proces.</p>"
+    "v": "Kan ik mijn BV opheffen met schulden bij de Belastingdienst?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Mag ik mijn BV ontbinden met schulden bij de Belastingdienst?",
-    "a": "<p>Ja, mits dit zorgvuldig en juridisch juist wordt gedaan. Wij zorgen dat alles correct verloopt en dat jij als bestuurder beschermd blijft.</p>"
+    "v": "Helpen jullie ook met een betalingsregeling of kwijtschelding bij de Belastingdienst?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Wat als ik privé aansprakelijk word gesteld?",
-    "a": "<p>Dat hoeft niet altijd. Wij controleren jouw bestuurderspositie en adviseren hoe je privé­aansprakelijkheid kunt voorkomen.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -541,7 +575,7 @@
   "h1": "Omzetbelasting BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Omzetbelasting BV",
-  "description": "Heeft jouw BV een achterstand in de btw-afdracht aan de Belastingdienst? Dan kan de schuld snel oplopen door boetes, rente en invorderingskosten. Onze…",
+  "description": "Kan je BV de omzetbelasting (btw) niet meer betalen? Ook met een btw-schuld kun je je BV beëindigen via een turboliquidatie. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
@@ -552,7 +586,8 @@
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV een achterstand in de btw-afdracht aan de Belastingdienst?<br> Dan kan de schuld snel oplopen door boetes, rente en invorderingskosten.<br> Onze specialisten helpen dagelijks BV’s en ondernemingen om omzetbelastingschulden op te lossen, te regelen of deels kwijt te schelden."
+     "Heeft jouw BV een achterstand in de btw-afdracht aan de Belastingdienst?<br>Dan kan de schuld snel oplopen door boetes, rente en invorderingskosten.",
+     "Zie je geen toekomst meer voor de BV? Dan kun je haar ook met een btw-schuld beëindigen via een turboliquidatie. Wij begeleiden je daarbij."
     ]
    },
    {
@@ -584,76 +619,65 @@
     ]
    },
    {
+    "t": "p",
+    "alineas": [
+     "Gaat het om loonheffing of btw? Dan is het belangrijk dat de BV op tijd een melding betalingsonmacht heeft gedaan. Is dat niet gebeurd, dan kan de Belastingdienst jou als bestuurder privé aansprakelijk stellen. In het intakegesprek kijken we naar jouw situatie."
+    ]
+   },
+   {
     "t": "h",
-    "x": "Hulp bij achterstand in omzetbelasting (BV)"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
    },
    {
     "t": "p",
     "alineas": [
-     "Wij helpen ondernemers die via hun BV schulden hebben opgebouwd in de btw-afdracht.<br> Onze aanpak is praktisch, juridisch correct en volledig gericht op behoud van jouw onderneming."
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "We doen een gratis schuldscan van je huidige situatie",
-     "We nemen contact op met de Belastingdienst voor uitstel of betalingsregeling",
-     "We onderzoeken kwijtscheldingsmogelijkheden of sanering",
-     "We beschermen jouw persoonlijke aansprakelijkheid als bestuurder"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Met de juiste aanpak kun je voorkomen dat de Belastingdienst overgaat tot invordering of bestuurders­aansprakelijkheid."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Omzetbelasting oplossen of kwijtschelden"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Bij liquiditeitsproblemen kan de Belastingdienst onder voorwaarden:"
-    ]
+    "x": "Wat wij voor je doen"
    },
    {
     "t": "ul",
     "items": [
-     "een betalingsregeling toestaan,",
-     "(gedeeltelijke) kwijtschelding verlenen bij beëindiging of sanering van de BV,",
-     "of akkoord gaan met een minnelijke schuldregeling."
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Onze specialisten weten exact welke bewijzen, overzichten en argumentatie nodig zijn om zo’n verzoek kansrijk te maken.<br> Zo vergroot je de kans op een goedgekeurde regeling of kwijtschelding aanzienlijk."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
     ]
    },
    {
     "t": "h",
-    "x": "Wat kost hulp bij omzetbelastingschulden?"
+    "x": "Wat kost het?"
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste analyse van je situatie is altijd gratis en vrijblijvend.<br> Na het intakegesprek weet je:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "welke oplossingen er zijn,",
-     "wat jouw kansen zijn op kwijtschelding of regeling,",
-     "en welke kosten van toepassing zijn."
-    ]
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Wij werken met vaste tarieven per traject, zodat je vooraf precies weet waar je aan toe bent."
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -662,16 +686,20 @@
   ],
   "faq": [
    {
-    "v": "Kan mijn BV een btw-schuld laten kwijtschelden?",
-    "a": "<p>In sommige situaties wel, vooral als blijkt dat de BV structureel niet meer levensvatbaar is of wordt gesaneerd. Wij helpen bij de volledige aanvraag en onderbouwing.</p>"
+    "v": "Kan ik mijn BV opheffen met een btw-schuld?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
     "v": "Wat gebeurt er als mijn BV de omzetbelasting niet betaalt?",
     "a": "<p>De Belastingdienst kan beslag leggen of aansprakelijkheid onderzoeken. Met tijdige hulp is dit meestal te voorkomen.</p>"
    },
    {
-    "v": "Mag ik mijn BV ontbinden met een btw-schuld?",
-    "a": "<p>Ja, mits dit op de juiste manier gebeurt. Wij zorgen dat alles juridisch correct wordt afgewikkeld en dat jij privé beschermd blijft.</p>"
+    "v": "Helpen jullie ook met een betalingsregeling of kwijtschelding van de btw?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
+   },
+   {
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -681,82 +709,81 @@
   "h1": "Hulp bij Loonbelasting (BV)",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Hulp bij Loonbelasting (BV)",
-  "description": "Heeft jouw BV achterstanden in de loonbelasting / loonheffing? Onbetaalde loonheffing kan snel tot boetes, invordering of persoonlijke aansprakelijkheid van…",
+  "description": "Kan je BV de loonbelasting (loonheffing) niet meer betalen? Ook met een loonheffingsschuld kun je je BV beëindigen via een turboliquidatie.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV achterstanden in de loonbelasting / loonheffing? Onbetaalde loonheffing kan snel tot boetes, invordering of persoonlijke aansprakelijkheid van bestuurders leiden. Onze specialisten helpen BV‑bestuurders om loonbelastingschulden te oplossen, regelen of (gedeeltelijk) kwijtschelden — snel, discreet en juridisch correct.",
+     "Heeft jouw BV achterstanden in de loonbelasting (loonheffing) die niet meer te betalen zijn? Onbetaalde loonheffing kan snel leiden tot boetes, invordering of persoonlijke aansprakelijkheid van bestuurders.",
      "Loonbelasting (loonheffing) is de belasting die een BV afdraagt over salarissen en vergoedingen aan personeel, inclusief sociale premies. Wanneer deze niet (tijdig) wordt afgedragen, ontstaat een schuld bij de Belastingdienst. Dit kan voortkomen uit liquiditeitsproblemen, administratieve fouten of onvoorziene bedrijfskosten.",
-     "De Belastingdienst kan incassomaatregelen nemen, boetes opleggen en — in ernstige gevallen — bestuurders persoonlijk aansprakelijk stellen. Tijdig professional hulp inschakelen beperkt risico’s en vergroot de kans op een haalbare regeling."
+     "Zie je geen toekomst meer voor de BV? Dan kun je haar ook met een loonheffingsschuld beëindigen via een turboliquidatie. Wij begeleiden je daarbij."
     ]
    },
    {
     "t": "knoppen"
    },
    {
-    "t": "h",
-    "x": "Onze aanpak is praktisch, ervaren en gericht op jouw zakelijke continuïteit:"
-   },
-   {
-    "t": "ul",
-    "items": [
-     "Gratis en vertrouwelijke schuldscan van de loonheffingpositie",
-     "Directe onderhandelingen met de Belastingdienst over uitstel, betalingsregeling of kwijtschelding",
-     "Opstellen van een afbetalingsplan of saneringsvoorstel",
-     "Controle op bestuurdersaansprakelijkheid en advies ter voorkoming van persoonlijk risico",
-     "Juridische en fiscale begeleiding tijdens het hele traject",
-     "Eén vast aanspreekpunt voor overzicht en rust"
-    ]
-   },
-   {
     "t": "p",
     "alineas": [
-     "Kort: wij regisseren het contact met de fiscus en zorgen dat jouw BV een realistisch pad naar oplossing heeft."
+     "Gaat het om loonheffing of btw? Dan is het belangrijk dat de BV op tijd een melding betalingsonmacht heeft gedaan. Is dat niet gebeurd, dan kan de Belastingdienst jou als bestuurder privé aansprakelijk stellen. In het intakegesprek kijken we naar jouw situatie."
     ]
    },
    {
     "t": "h",
-    "x": "Soms kan een loonbelastingschuld:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
+    ]
    },
    {
     "t": "ul",
     "items": [
-     "gedeeltelijk worden kwijtgescholden,",
-     "via een betalingsregeling in termijnen worden voldaan,",
-     "of worden meegenomen in een saneringstraject."
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Wij weten welke onderbouwing en cijfers de Belastingdienst nodig heeft. Daarmee vergroten we de kans op een akkoord aanzienlijk."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Wanneer kwijtschelding niet mogelijk is, begeleiden wij je bij:"
+    "x": "Wat wij voor je doen"
    },
    {
     "t": "ul",
     "items": [
-     "een realistische afbetalingsregeling,",
-     "een sanering van de BV,",
-     "of het veilig afwikkelen van bestuurdersverplichtingen."
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Vaak kan de schuld zo worden opgelost zonder dat dit leidt tot persoonlijke aansprakelijkheid."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
     ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste analyse is altijd gratis en vrijblijvend. Daarna werken we met vaste tarieven per traject, zodat je vooraf weet waar je aan toe bent."
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -765,20 +792,16 @@
   ],
   "faq": [
    {
-    "v": "Kan de loonbelastingschuld van mijn BV worden kwijtgescholden?",
-    "a": "<p>In sommige gevallen kan (een deel van) de schuld worden kwijtgescholden, maar dat vereist een sterke financiële onderbouwing en juridische argumentatie. Wij begeleiden dit proces.</p>"
+    "v": "Kan ik mijn BV opheffen met een loonheffingsschuld?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Wat als ik als DGA privé aansprakelijk wordt gesteld?",
-    "a": "<p>Wij controleren snel of er sprake kan zijn van bestuurdersaansprakelijkheid en adviseren over maatregelen om privé‑risico’s te beperken.</p>"
+    "v": "Helpen jullie ook met een betalingsregeling of kwijtschelding van de loonheffing?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Is een betalingsregeling met de Belastingdienst mogelijk?",
-    "a": "<p>Vaak is een gespreide afbetaling mogelijk als je een realistisch en onderbouwd plan aanbiedt. Wij stellen dat plan voor je op en onderhandelen namens je BV.</p>"
-   },
-   {
-    "v": "Wat als er loonstrafrente of boetes zijn?",
-    "a": "<p>We onderzoeken opties om boetes te verminderen of uitstel te bereiken; soms is beperking of matiging van kosten mogelijk bij tijdige en juiste aanpak.</p>"
+    "v": "Wat als ik als DGA privé aansprakelijk word gesteld?",
+    "a": "<p>Bij loonheffing hangt dat er onder meer van af of de BV op tijd een melding betalingsonmacht heeft gedaan. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -788,15 +811,15 @@
   "h1": "Courantschuld binnen je BV? Wij helpen je verder.",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Courantschuld binnen je BV? Wij helpen je verder.",
-  "description": "Een courantschuld ontstaat vaak tussen jouw BV en jouzelf als DGA (directeur-grootaandeelhouder). Wat eerst een tijdelijk saldo leek, kan op papier…",
+  "description": "Een courantschuld tussen jou als DGA en je BV? Wij leggen uit wat dat betekent als je de BV wilt beëindigen via een turboliquidatie.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Een <b>courantschuld</b> ontstaat vaak tussen jouw BV en jouzelf als DGA (directeur-grootaandeelhouder).<br>Wat eerst een tijdelijk saldo leek, kan op papier uitgroeien tot een s<b>chuldpositie richting de BV of juist richting jou als ondernemer</b>. Zonder tijdige actie kan dit leiden tot belastingproblemen of aansprakelijkheid.",
-     "Onze specialisten helpen dagelijks ondernemers om <b>courantschulden te saneren, op te lossen of juridisch correct te verrekenen</b>."
+     "Een <b>courantschuld</b> ontstaat vaak tussen jouw BV en jouzelf als DGA (directeur-grootaandeelhouder).<br>Wat eerst een tijdelijk saldo leek, kan op papier uitgroeien tot een <b>schuldpositie richting de BV of juist richting jou als ondernemer</b>.",
+     "Wil je je BV beëindigen? Dan moet de rekening-courant goed geregeld zijn voordat een turboliquidatie kan. Wij begeleiden je daarbij."
     ]
    },
    {
@@ -828,109 +851,69 @@
    },
    {
     "t": "h",
-    "x": "Gevolgen van een te hoge courantschuld"
+    "x": "Turboliquidatie met een rekening-courant"
    },
    {
     "t": "p",
     "alineas": [
-     "Een te hoge courantschuld kan grote gevolgen hebben:"
+     "Heeft de BV een schuld aan jou als DGA? Dan is dat een schuld van de BV. Dat staat een turboliquidatie niet in de weg.",
+     "Heb jij als DGA juist een schuld aan de BV? Dan is dat een vordering van de BV, en dus een bezitting. Die moet eerst worden opgelost, bijvoorbeeld door terugbetaling of verrekening, voordat een turboliquidatie kan. In het intakegesprek kijken we hoe dat in jouw situatie fiscaal het beste kan."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "De Belastingdienst kan de lening aanmerken als verkapte winstuitkering;",
-     "De accountant kan de continuïteit van je BV in twijfel trekken;",
-     "En bij een faillissement kan er sprake zijn van bestuurders­aansprakelijkheid."
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Kortom: laat het niet te ver komen.<br>Onze adviseurs helpen je met een plan dat <b>zowel fiscaal als juridisch klopt</b>."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Hulp bij courantschuld (BV)"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Of het nu gaat om een courantschuld aan de DGA, tussen meerdere BV’s, of een lening die niet meer kan worden afgelost — wij zorgen voor een oplossing die past bij jouw situatie."
-    ]
+    "x": "Wat wij voor je doen"
    },
    {
     "t": "ul",
     "items": [
-     "We analyseren de boekhouding en schuldpositie",
-     "We stemmen af met de Belastingdienst of accountant",
-     "We helpen bij herstructurering, kwijtschelding of sanering",
-     "En we zorgen dat jij privé niet aansprakelijk wordt gesteld"
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Een goed onderbouwde regeling voorkomt dat de fiscus de schuld als inkomen of dividend aanmerkt."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
     ]
    },
    {
     "t": "h",
-    "x": "Courantschuld kwijtschelden of saneren"
+    "x": "Wat kost het?"
    },
    {
     "t": "p",
     "alineas": [
-     "Een courantschuld kan onder voorwaarden worden kwijtgescholden of gesaneerd.<br>Dit vereist een juiste juridische en fiscale onderbouwing.<br>Bijvoorbeeld:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "bij beëindiging van de BV,",
-     "bij sanering van groepsmaatschappijen,",
-     "of bij een herstructurering van de onderneming."
-    ]
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Wij begeleiden het hele proces — van analyse tot akkoord van de Belastingdienst — zodat je dossier juridisch sluitend is."
-    ]
-   },
-   {
-    "t": "h",
-    "x": "Courantschuld oplossen of afbetalen"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "In veel gevallen is aflossing in termijnen of verrekening met andere posten mogelijk.<br>We bekijken samen:"
-    ]
-   },
-   {
-    "t": "ul",
-    "items": [
-     "of de schuld daadwerkelijk bestaat,",
-     "of er verrekeningen mogelijk zijn,",
-     "en of kwijtschelding (gedeeltelijk) fiscaal voordelig kan zijn."
-    ]
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Onze ervaring: in meer dan 80% van de gevallen is een regeling mogelijk zonder directe aflossing."
-    ]
-   },
-   {
-    "t": "h",
-    "x": "Wat kost hulp bij courantschuld BV?"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "De eerste inventarisatie is gratis.<br>Daarna ontvang je een vast voorstel per traject, zonder verrassingen.<br>Je weet direct wat de stappen zijn en wat de kansen zijn op een succesvolle afwikkeling."
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -939,16 +922,16 @@
   ],
   "faq": [
    {
+    "v": "Kan ik mijn BV ontbinden met een courantschuld?",
+    "a": "<p>Heeft de BV een schuld aan jou, dan kan dat via een turboliquidatie. Heb jij een schuld aan de BV, dan moet die eerst worden opgelost. Wij kijken met je mee hoe dat fiscaal het beste kan.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
+   },
+   {
     "v": "Wat als ik geld schuldig ben aan mijn BV?",
     "a": "<p>Dan kan dit fiscaal worden gezien als een lening. Wij helpen je te voorkomen dat de Belastingdienst dit aanmerkt als een winstuitkering.</p>"
    },
    {
-    "v": "Kan ik een courantschuld kwijtschelden?",
-    "a": "<p>Ja, in sommige situaties kan dat – mits goed onderbouwd en verantwoord in de administratie.</p>"
-   },
-   {
-    "v": "Kan ik mijn BV ontbinden met een courantschuld?",
-    "a": "<p>Dat is mogelijk, maar er moet dan een correcte verrekening plaatsvinden. Wij regelen dat juridisch en fiscaal volledig.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -958,15 +941,15 @@
   "h1": "Betalingsproblemen BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Betalingsproblemen BV",
-  "description": "Heeft jouw BV of onderneming betalingsproblemen met de Belastingdienst of andere schuldeisers?",
+  "description": "Betalingsproblemen in je BV en geen uitweg meer? Dan kun je de BV beëindigen via een turboliquidatie, ook met schulden. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV of onderneming <b>betalingsproblemen</b> met de Belastingdienst of andere schuldeisers?",
-     "Onze specialisten helpen BV’s en bedrijven bij het o<b>plossen, regelen of saneren van achterstanden</b>, zodat jouw onderneming financieel gezond blijft en bestuurders beschermd blijven tegen persoonlijke aansprakelijkheid."
+     "Heeft jouw BV <b>betalingsproblemen</b> met de Belastingdienst of andere schuldeisers, en zie je geen uitweg meer?",
+     "Dan kun je de BV beëindigen via een turboliquidatie, ook als er nog schulden zijn. Wij begeleiden je daarbij, zorgvuldig en juridisch correct."
     ]
    },
    {
@@ -986,39 +969,59 @@
     ]
    },
    {
-    "t": "p",
-    "alineas": [
-     "Onze experts begeleiden je bij een <b>structurele oplossing</b>, zodat je niet in de problemen blijft hangen en de Belastingdienst of crediteuren op een correcte manier wordt benaderd."
-    ]
-   },
-   {
     "t": "h",
-    "x": "Onze diensten zijn specifiek gericht op:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
    },
    {
     "t": "p",
     "alineas": [
-     "Wij begeleiden ondernemers stap voor stap naar een structurele oplossing."
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "<b>Betalingsproblemen BV:</b> voor vennootschapsbelasting, loonheffing, omzetbelasting en courantschulden",
-     "<b>Betalingsproblemen bedrijf:</b> voor kleinere werkmaatschappijen",
-     "<b>Betalingsproblemen onderneming:</b> voor grotere ondernemingen en holdings"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "We zorgen voor een praktisch en haalbaar plan, inclusief contact met de Belastingdienst en crediteuren, zodat je BV weer overzicht en rust krijgt."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat wij voor je doen"
+   },
+   {
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste intake is altijd <b>gratis en vrijblijvend</b>. Daarna ontvang je een duidelijk voorstel met <b>vaste tarieven per traject</b>, zodat je precies weet waar je aan toe bent."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -1027,16 +1030,16 @@
   ],
   "faq": [
    {
-    "v": "Wat kan ik doen bij betalingsproblemen in mijn BV?",
-    "a": "<p>Wij begeleiden het traject van analyse, contact met de Belastingdienst en crediteuren tot het opstellen van een regeling of saneringsplan.</p>"
+    "v": "Kan ik mijn BV opheffen met betalingsproblemen en schulden?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Kan ik mijn schuld volledig laten kwijtschelden?",
-    "a": "<p>In sommige gevallen kan (gedeeltelijke) kwijtschelding worden aangevraagd, maar dit hangt af van de situatie van de BV. Wij onderzoeken de mogelijkheden.</p>"
+    "v": "Helpen jullie ook met een betalingsregeling of sanering?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Is het traject ingewikkeld?",
-    "a": "<p>Onze specialisten nemen het volledige traject uit handen, zodat je overzicht en controle behoudt.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -1046,15 +1049,15 @@
   "h1": "Belastingadviseur BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Belastingadviseur BV",
-  "description": "Heeft jouw BV of onderneming behoefte aan een deskundige belastingadviseur ? Of het nu gaat om vennootschapsbelasting, loonbelasting, omzetbelasting of…",
+  "description": "Een belastingadviseur voor je BV met belastingschulden? Onze fiscaal specialisten begeleiden de turboliquidatie van je BV, ook met schulden.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV of onderneming behoefte aan een <b>deskundige belastingadviseur</b>?<br> Of het nu gaat om <b>vennootschapsbelasting, loonbelasting, omzetbelasting of courantschulden</b>, een ervaren belastingadviseur helpt je met het correct en efficiënt regelen van je fiscale verplichtingen.",
-     "Onze specialisten begeleiden dagelijks <b>ondernemers en BV’s</b>, zodat belastingen op tijd worden afgehandeld, boetes worden voorkomen en mogelijkheden zoals <b>kwijtschelding</b>, <b>regeling</b> of <b>sanering</b> optimaal worden benut."
+     "Zoek je een <b>belastingadviseur voor je BV</b> omdat er belastingschulden zijn die niet meer te betalen zijn?",
+     "Wij zijn fiscaal specialisten in het beëindigen van BV’s, ook als er nog schulden zijn bij de Belastingdienst. Wij begeleiden de turboliquidatie van je BV van intake tot uitschrijving bij de KvK."
     ]
    },
    {
@@ -1062,59 +1065,77 @@
    },
    {
     "t": "h",
-    "x": "Een belastingadviseur voor je BV of onderneming helpt je:"
+    "x": "Wanneer heb je een fiscaal specialist nodig bij het beëindigen van je BV?"
    },
    {
     "t": "ul",
     "items": [
-     "inzicht te krijgen in alle fiscale verplichtingen,",
-     "betalingsregelingen of kwijtschelding aan te vragen bij de Belastingdienst,",
-     "te voorkomen dat er boetes of bestuurdersaansprakelijkheid ontstaan,",
-     "je administratie fiscaal correct in te richten en te controleren,",
-     "strategisch advies te geven over belastingoptimalisatie en risicovermijding."
+     "er staan nog aanslagen open voor btw, loonheffing of vennootschapsbelasting,",
+     "er is een rekening-courant tussen jou als DGA en de BV,",
+     "je wilt weten of je als bestuurder privé risico loopt,",
+     "je wilt zeker weten dat de slotbalans en de stukken voor de KvK kloppen."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Met de juiste begeleiding hou je grip op de financiële gezondheid van je onderneming en voorkom je onverwachte problemen."
+     "Voor algemeen belastingadvies, aangiftes of een betalingsregeling voor een BV die doorgaat, zijn wij niet de juiste partij. Wij richten ons op het zorgvuldig beëindigen van je BV."
     ]
    },
    {
     "t": "h",
-    "x": "Wij bieden belastingadvies specifiek voor:"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
+    ]
    },
    {
     "t": "ul",
     "items": [
-     "<b>Belastingadviseur BV</b><br>voor vennootschapsbelasting, loonheffing, btw en courantschulden",
-     "<b>Belastingadviseur bedrijf<br></b>voor kleinere BV’s en werkmaatschappijen",
-     "<b>Belastingadviseur onderneming<br></b>voor grotere structuren en holdings",
-     "<b>Zakelijke belastingadviseur<br></b>strategisch advies en planning",
-     "<b>Bedrijfsbelastingadviseur<br></b>praktische begeleiding bij dagelijkse fiscale verplichtingen"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Onze aanpak is volledig <b>praktisch, discreet en juridisch correct</b>. We nemen het contact met de Belastingdienst of accountant voor je uit handen en begeleiden je van intake tot afronding van het traject."
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Bedrijfschuld oplossen of kwijtschelden"
+    "x": "Wat wij voor je doen"
    },
    {
-    "t": "p",
-    "alineas": [
-     "In sommige situaties is <b>kwijtschelding van (een deel van) de bedrijfschuld</b> mogelijk, bijvoorbeeld bij oninbare schulden of als de BV wordt beëindigd.<br>Wij onderzoeken altijd eerst of dit juridisch en fiscaal haalbaar is.<br>Is dat niet het geval, dan begeleiden we je bij een <b>realistische afbetalingsregeling</b> of een <b>saneringstraject</b>.",
-     "Wist je dat bij een goed onderbouwd plan de Belastingdienst soms bereid is om (gedeeltelijke) kwijtschelding te verlenen?"
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste intake is gratis en vrijblijvend, zodat we samen een plan kunnen maken dat past bij jouw situatie. Daarna werken we met vaste tarieven per traject, zodat je precies weet wat de investering is en geen verrassingen hebt."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -1123,16 +1144,16 @@
   ],
   "faq": [
    {
-    "v": "Wat kan een belastingadviseur voor mijn BV doen?",
-    "a": "<p>Van het oplossen van achterstanden in vennootschapsbelasting en loonheffing tot het regelen van kwijtschelding of sanering, een goede adviseur begeleidt het hele traject.</p>"
+    "v": "Wat kan een fiscaal specialist voor mijn BV doen?",
+    "a": "<p>Wij controleren of je BV via een turboliquidatie kan worden beëindigd, stellen alle stukken op en zorgen dat je schuldeisers, ook de Belastingdienst, correct worden geïnformeerd.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Wanneer heb ik een belastingadviseur nodig?",
-    "a": "<p>Zodra er fiscale vragen, betalingsachterstanden of risico’s op boetes of bestuurdersaansprakelijkheid zijn, is het verstandig direct advies in te winnen.</p>"
+    "v": "Helpen jullie ook met belastingaangiftes of een betalingsregeling?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Is een belastingadviseur duur?",
-    "a": "<p>Wij bieden transparante tarieven per traject en starten altijd met een gratis intake om jouw situatie in kaart te brengen.</p>"
+    "v": "Wat kost het?",
+    "a": "<p>Het intakegesprek is gratis. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie.</p>"
    }
   ]
  },
@@ -1142,16 +1163,16 @@
   "h1": "Hulp bij bedrijfschuld voor ondernemers met een BV",
   "sub": "De Ontbinden BV staat voor je klaar!",
   "seoTitle": "Hulp bij bedrijfschuld voor ondernemers met een BV",
-  "description": "Heeft jouw BV te maken met een bedrijfschuld of openstaande rekeningen bij de Belastingdienst, leveranciers of bank?",
+  "description": "Een bedrijfschuld die je BV niet meer kan betalen? Dan kun je de BV beëindigen via een turboliquidatie, ook met schulden. Wij begeleiden je.",
   "bannerPunten": [],
   "uitgebreid": false,
   "blokken": [
    {
     "t": "p",
     "alineas": [
-     "Heeft jouw BV te maken met een bedrijfschuld of openstaande rekeningen bij de Belastingdienst, leveranciers of bank?",
-     "Wij helpen dagelijks bestuurders van besloten vennootschappen om hun <b>bedrijfs­schuld op te lossen, te saneren of kwijt te schelden.</b>",
-     "Krijg vandaag nog gratis advies van een ervaren financieel specialist – <b>volledig vertrouwelijk en zonder verplichtingen.</b>"
+     "Heeft jouw BV een bedrijfschuld of openstaande rekeningen bij de Belastingdienst, leveranciers of de bank die niet meer te betalen zijn?",
+     "Zie je geen toekomst meer voor de BV? Dan kun je haar beëindigen via een turboliquidatie, ook als er nog schulden zijn. Wij begeleiden je daarbij.",
+     "Krijg vandaag nog gratis advies van een fiscaal specialist, <b>volledig vertrouwelijk en zonder verplichtingen.</b>"
     ]
    },
    {
@@ -1183,50 +1204,58 @@
    },
    {
     "t": "h",
-    "x": "Hoe wij helpen bij bedrijfschuld"
+    "x": "Je BV met schulden beëindigen via turboliquidatie"
    },
    {
     "t": "p",
     "alineas": [
-     "Wij begeleiden ondernemers stap voor stap naar een structurele oplossing."
+     "Een turboliquidatie is de snelste manier om een BV te beëindigen. Dat kan ook als de BV nog schulden heeft, zolang er geen bezittingen meer zijn. De BV houdt dan direct op te bestaan.<br>Sinds 15 november 2023 gelden daarbij strengere regels:"
     ]
    },
    {
     "t": "ul",
     "items": [
-     "Gratis inventarisatie van jouw financiële situatie",
-     "Onderhandeling met schuldeisers of de Belastingdienst",
-     "Opstellen van een schuldregeling of saneringsplan",
-     "Advies over herstructurering of gecontroleerde beëindiging",
-     "Begeleiding door juridische en fiscale specialisten",
-     "Altijd één vast aanspreekpunt"
+     "de BV heeft geen bezittingen meer: geen geld op de rekening, geen voorraad of inventaris en geen vorderingen,",
+     "je stelt een slotbalans op, met een toelichting en een overzicht van de schulden,",
+     "die stukken liggen binnen 14 dagen na de ontbinding bij de KvK,",
+     "en je informeert alle schuldeisers, ook de Belastingdienst."
     ]
    },
    {
     "t": "p",
     "alineas": [
-     "Of je nu wilt afbetalen, saneren of de BV ontbinden, wij zorgen dat het traject zorgvuldig en veilig verloopt."
-    ]
-   },
-   {
-    "t": "h",
-    "x": "Bedrijfschuld oplossen of kwijtschelden"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "In sommige situaties is <b>kwijtschelding van (een deel van) de bedrijfschuld</b> mogelijk, bijvoorbeeld bij oninbare schulden of als de BV wordt beëindigd.<br>Wij onderzoeken altijd eerst of dit juridisch en fiscaal haalbaar is.<br>Is dat niet het geval, dan begeleiden we je bij een <b>realistische afbetalingsregeling</b> of een <b>saneringstraject</b>.",
-     "Wist je dat bij een goed onderbouwd plan de Belastingdienst soms bereid is om (gedeeltelijke) kwijtschelding te verlenen?"
+     "Gaat hier iets mis, dan kunnen schuldeisers bezwaar maken en kan de bestuurder aansprakelijk worden gesteld. Daarom begeleiden wij je bij elke stap."
     ]
    },
    {
     "t": "h",
-    "x": "Wat kost hulp bij bedrijfschuld?"
+    "x": "Wat wij voor je doen"
+   },
+   {
+    "t": "ul",
+    "items": [
+     "Gratis intakegesprek: we bekijken of turboliquidatie bij jouw BV kan",
+     "Controle van de balans: zijn er echt geen bezittingen meer?",
+     "Het ontbindingsbesluit en alle documenten voor de KvK",
+     "Slotbalans, toelichting en schuldenoverzicht, op tijd gedeponeerd",
+     "Het informeren van de schuldeisers",
+     "Advies over jouw positie als bestuurder"
+    ]
    },
    {
     "t": "p",
     "alineas": [
-     "De eerste analyse is <b>gratis</b>.<br>Daarna werken wij met <b>duidelijke vaste tarieven per traject</b> — geen verborgen kosten.<br>Je weet vooraf precies waar je aan toe bent."
+     "Wij treffen geen betalingsregelingen en bieden geen apart schuldsanerings- of schuldhulptraject. Wij helpen je om je BV met schulden zorgvuldig en juridisch correct te beëindigen."
+    ]
+   },
+   {
+    "t": "h",
+    "x": "Wat kost het?"
+   },
+   {
+    "t": "p",
+    "alineas": [
+     "Het intakegesprek is gratis en vrijblijvend. De kosten bespreken we vooraf met je, want die hangen af van jouw situatie."
     ]
    },
    {
@@ -1235,16 +1264,16 @@
   ],
   "faq": [
    {
-    "v": "Kan een BV bedrijfs­schulden laten kwijtschelden?",
-    "a": "<p>Ja, in specifieke situaties kan dit, bijvoorbeeld bij beëindiging of bij een akkoord met de Belastingdienst. Wij helpen bij het onderbouwen van zo’n verzoek.</p>"
+    "v": "Kan ik mijn BV opheffen met een bedrijfschuld?",
+    "a": "<p>Ja, via een turboliquidatie, als de BV geen bezittingen meer heeft. Je moet dan wel een slotbalans, toelichting en schuldenoverzicht bij de KvK deponeren en je schuldeisers informeren. Wij regelen dat voor je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan je gratis intakegesprek.</em></a></p>"
    },
    {
-    "v": "Wat als ik privé aansprakelijk ben?",
-    "a": "<p>Wij controleren altijd eerst of er sprake is van bestuurders­aansprakelijkheid. In veel gevallen kan dit worden voorkomen door tijdig te handelen.</p>"
+    "v": "Helpen jullie ook met een schuldregeling of kwijtschelding?",
+    "a": "<p>Nee. Wij treffen geen betalingsregelingen en bieden geen apart schuldtraject. Wij helpen je om je BV met schulden zorgvuldig te beëindigen via een turboliquidatie.</p>"
    },
    {
-    "v": "Kan ik mijn BV met schulden ontbinden?",
-    "a": "<p>Ja, via een gecontroleerde ontbinding of turbo-liquidatie, mits goed juridisch voorbereid. Wij begeleiden het volledige traject van a tot z.</p>"
+    "v": "Ben ik als bestuurder privé aansprakelijk?",
+    "a": "<p>Dat hangt af van je situatie. Wie de regels van de turboliquidatie volgt en de schuldeisers goed informeert, beperkt dat risico flink. In het gratis intakegesprek kijken we naar jouw positie als bestuurder.</p>"
    }
   ]
  },
@@ -1259,7 +1288,7 @@
    "25 jaar ervaring met complexe herstructureringen",
    "Gratis intakegesprek",
    "Oplossingen op maat voor elke BV",
-   "Transparante vaste prijs vooraf"
+   "Gratis intakegesprek, de kosten bespreken we vooraf met je"
   ],
   "uitgebreid": true,
   "blokken": [
@@ -1284,7 +1313,7 @@
     "items": [
      "Ruim 25 jaar ervaring met herstructureringen en liquidaties",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1332,7 +1361,7 @@
    },
    {
     "v": "Wat kost herstructureren?",
-    "a": "<p>De kosten hangen af van de complexiteit. Je krijgt altijd vooraf een vaste prijs.</p><p><a href=\"/gratis-intakegesprek/\"><em>Vraag vandaag nog je vrijblijvende offerte aan.</em></a></p>"
+    "a": "<p>De kosten hangen af van de complexiteit. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p><p><a href=\"/gratis-intakegesprek/\"><em>Plan vandaag nog je gratis intakegesprek.</em></a></p>"
    },
    {
     "v": "Hoe lang duurt het gemiddeld?",
@@ -1351,7 +1380,7 @@
    "1.200 omzettingen en ontbindingen",
    "Gratis intakegesprek",
    "Vanaf 2 werkdagen geregeld",
-   "Vaste prijs vooraf"
+   "Kosten vooraf besproken"
   ],
   "uitgebreid": true,
   "blokken": [
@@ -1375,7 +1404,7 @@
     "items": [
      "Ruim 25 jaar ervaring met het omzetten van VOF’s naar BV’s",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1427,7 +1456,7 @@
    },
    {
     "v": "Wat kost het om een VOF om te zetten naar een BV?",
-    "a": "<p>De kosten verschillen per situatie. Je krijgt altijd vooraf een vaste prijs en weet dus exact waar je aan toe bent.</p>"
+    "a": "<p>De kosten verschillen per situatie. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p>"
    },
    {
     "v": "Kan dit ook zonder specialist?",
@@ -1450,7 +1479,7 @@
    "1.200 ontbindingen",
    "Gratis intakegesprek",
    "Vanaf 2 werkdagen geregeld",
-   "Vaste prijs vooraf"
+   "Kosten vooraf besproken"
   ],
   "uitgebreid": true,
   "blokken": [
@@ -1474,7 +1503,7 @@
     "items": [
      "Ruim 25 jaar ervaring met omzetten van VOF’s naar BV",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1526,7 +1555,7 @@
    },
    {
     "v": "Wat kost het om mijn eenmanszaak of VOF om te zetten naar een BV?",
-    "a": "<p>De kosten verschillen per situatie. Je krijgt altijd vooraf een vaste prijs en weet dus exact waar je aan toe bent.</p><p><a href=\"/gratis-intakegesprek/\">Vraag vandaag nog je vrijblijvende offerte aan.</a></p>"
+    "a": "<p>De kosten verschillen per situatie. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p><p><a href=\"/gratis-intakegesprek/\">Plan vandaag nog je gratis intakegesprek.</a></p>"
    },
    {
     "v": "Kan ik dit zelf regelen zonder specialist?",
@@ -1580,7 +1609,7 @@
    {
     "t": "p",
     "alineas": [
-     "Faillissement lijkt vaak de enige uitweg, maar dat is lang niet altijd zo. In veel gevallen is ontbinding een betere oplossing: sneller, minder kostbaar en met meer controle. Wij analyseren jouw situatie en geven eerlijk advies: soms is een faillissement onvermijdelijk, maar vaak is een gecontroleerde ontbinding slimmer en veiliger.",
+     "Faillissement lijkt vaak de enige uitweg, maar dat is lang niet altijd zo. Heeft de BV geen bezittingen meer, dan kan ze ook met hoge schulden worden beëindigd via een turboliquidatie: sneller, minder kostbaar en met meer controle. Wij analyseren jouw situatie en geven eerlijk advies: soms is een faillissement onvermijdelijk, maar vaak is een turboliquidatie met goede begeleiding slimmer en veiliger.",
      "<b>Meer dan 25 jaar ervaring</b> en<b> &gt;1.200 ondernemers</b> die je voorgingen zijn ons bewijs dat wij zelfs de lastigste situaties tot een goede oplossing brengen.",
      "<b>Maar geen zorgen, ook jij bent bij ons in goede handen en maken wij alles zo eenvoudig en zorgeloos mogelijk.</b>"
     ]
@@ -1594,8 +1623,8 @@
     "items": [
      "Ruim 25 jaar ervaring met BV-ontbindingen",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
-     "Van lege BV tot BV met activa of schulden: altijd de juiste oplossing",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
+     "Turboliquidatie met begeleiding, ook als je BV schulden heeft",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1631,7 +1660,7 @@
   "faq": [
    {
     "v": "Wat doet OntbindenBV.nl precies?",
-    "a": "<p>Wij helpen ondernemers bij het beëindigen van hun BV, stichting of vennootschap. Van turbo-liquidatie tot complexe gevallen met activa of schulden: wij nemen het hele traject uit handen.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
+    "a": "<p>Wij helpen ondernemers om hun BV te beëindigen via een turboliquidatie, ook als de BV nog schulden heeft. Daarnaast begeleiden we herstructureringen als apart traject.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
    },
    {
     "v": "Wanneer moet ik een specialist inschakelen?",
@@ -1639,7 +1668,7 @@
    },
    {
     "v": "Wat zijn de voordelen van OntbindenBV.nl?",
-    "a": "<p>Transparante vaste prijs vooraf, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
+    "a": "<p>Een gratis intakegesprek, de kosten bespreken we vooraf met je, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
    },
    {
     "v": "Hoe kan OntbindenBV.nl helpen bij een turbo-liquidatie?",
@@ -1647,11 +1676,11 @@
    },
    {
     "v": "Wat is het verschil tussen een turbo- en een reguliere liquidatie?",
-    "a": "<p>Turbo is alleen mogelijk zonder activa en schulden. In alle andere gevallen begeleiden wij de reguliere route.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij adviseren welke vorm geschikt is.</a></p>"
+    "a": "<p>Een turboliquidatie kan als de BV geen bezittingen meer heeft, ook als er nog schulden zijn. Bij een reguliere liquidatie worden eerst de bezittingen verdeeld. Wij zijn gespecialiseerd in turboliquidatie, ook van een BV met schulden.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij kijken of turboliquidatie bij jouw BV kan.</a></p>"
    },
    {
     "v": "Wat kost het om mijn BV te ontbinden?",
-    "a": "<p>De kosten hangen af van jouw situatie (lege BV, activa, schulden). Je krijgt altijd vooraf een vaste prijs.</p><p><a href=\"/gratis-intakegesprek/\">Vraag vandaag nog je vrijblijvende offerte aan.</a></p>"
+    "a": "<p>De kosten hangen af van jouw situatie. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p><p><a href=\"/gratis-intakegesprek/\">Plan vandaag nog je gratis intakegesprek.</a></p>"
    },
    {
     "v": "Kan ik zelf een BV ontbinden?",
@@ -1669,7 +1698,7 @@
   "h1": "BV met schulden ontbinden",
   "sub": "Zorgvuldige aanpak, minimale risico’s en maximale zekerheid",
   "seoTitle": "BV met schulden",
-  "description": "Een BV met openstaande schulden ontbinden vraagt om een zeer zorgvuldige aanpak. Turbo-liquidatie is in dit geval niet toegestaan . Alle crediteuren moeten…",
+  "description": "Ook een BV met schulden kun je beëindigen via een turboliquidatie, als er geen bezittingen meer zijn. Wij begeleiden je bij elke stap, zorgvuldig en juridisch correct.",
   "bannerPunten": [
    "<b>Correcte afhandeling</b> – alle schuldeisers worden netjes meegenomen",
    "<b>Voorkom risico’s</b> – wij zorgen dat je geen bestuurders­aansprakelijkheid loopt",
@@ -1684,7 +1713,7 @@
    {
     "t": "p",
     "alineas": [
-     "Een BV met openstaande schulden ontbinden vraagt om een zeer zorgvuldige aanpak. Turbo-liquidatie is in dit geval <b>niet toegestaan</b>. Alle crediteuren moeten netjes worden meegenomen en er bestaat risico op persoonlijke aansprakelijkheid voor bestuurders als het verkeerd wordt aangepakt."
+     "Een BV met openstaande schulden ontbinden vraagt om een zorgvuldige aanpak. Het goede nieuws: ook met schulden kan je BV via een <b>turboliquidatie</b> worden beëindigd, als er geen bezittingen meer zijn. Sinds 15 november 2023 gelden daarbij wel strengere regels, en er bestaat risico op persoonlijke aansprakelijkheid voor bestuurders als het verkeerd wordt aangepakt."
     ]
    },
    {
@@ -1694,7 +1723,7 @@
    {
     "t": "p",
     "alineas": [
-     "Bij OntbindenBV.nl begeleiden we je stap voor stap door dit complexe traject. Wij zorgen dat alle schuldeisers worden geïnformeerd, maken een sluitende eindbalans en bewaken dat alles juridisch correct verloopt. Zo voorkom je onnodige claims of heropening van de BV en weet je dat het proces veilig wordt afgerond.",
+     "Bij OntbindenBV.nl begeleiden we je stap voor stap. Wij controleren of de BV echt geen bezittingen meer heeft, maken een sluitende slotbalans met toelichting en schuldenoverzicht, deponeren die op tijd bij de KvK en zorgen dat alle schuldeisers worden geïnformeerd. Zo voorkom je onnodige claims of heropening van de BV en weet je dat het proces veilig wordt afgerond.",
      "<b>Meer dan 25 jaar ervaring</b> en <b>&gt;1.200 ondernemers</b> die je voorgingen zijn ons bewijs dat wij zelfs de lastigste situaties tot een goede oplossing brengen.",
      "<b>Maar geen zorgen, ook jij bent bij ons in goede handen en maken wij alles zo eenvoudig en zorgeloos mogelijk.</b>"
     ]
@@ -1708,8 +1737,8 @@
     "items": [
      "Ruim 25 jaar ervaring met BV-ontbindingen",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
-     "Van lege BV tot BV met activa of schulden: altijd de juiste oplossing",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
+     "Turboliquidatie met begeleiding, ook als je BV schulden heeft",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1741,7 +1770,7 @@
   "faq": [
    {
     "v": "Wat doet OntbindenBV.nl precies?",
-    "a": "<p>Wij helpen ondernemers bij het beëindigen van hun BV, stichting of vennootschap. Van turbo-liquidatie tot complexe gevallen met activa of schulden: wij nemen het hele traject uit handen.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
+    "a": "<p>Wij helpen ondernemers om hun BV te beëindigen via een turboliquidatie, ook als de BV nog schulden heeft. Daarnaast begeleiden we herstructureringen als apart traject.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
    },
    {
     "v": "Wanneer moet ik een specialist inschakelen?",
@@ -1749,7 +1778,7 @@
    },
    {
     "v": "Wat zijn de voordelen van OntbindenBV.nl?",
-    "a": "<p>Transparante vaste prijs vooraf, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
+    "a": "<p>Een gratis intakegesprek, de kosten bespreken we vooraf met je, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
    },
    {
     "v": "Hoe kan OntbindenBV.nl helpen bij een turbo-liquidatie?",
@@ -1757,122 +1786,11 @@
    },
    {
     "v": "Wat is het verschil tussen een turbo- en een reguliere liquidatie?",
-    "a": "<p>Turbo is alleen mogelijk zonder activa en schulden. In alle andere gevallen begeleiden wij de reguliere route.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij adviseren welke vorm geschikt is.</a></p>"
+    "a": "<p>Een turboliquidatie kan als de BV geen bezittingen meer heeft, ook als er nog schulden zijn. Bij een reguliere liquidatie worden eerst de bezittingen verdeeld. Wij zijn gespecialiseerd in turboliquidatie, ook van een BV met schulden.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij kijken of turboliquidatie bij jouw BV kan.</a></p>"
    },
    {
     "v": "Wat kost het om mijn BV te ontbinden?",
-    "a": "<p>De kosten hangen af van jouw situatie (lege BV, activa, schulden). Je krijgt altijd vooraf een vaste prijs.</p><p><a href=\"/gratis-intakegesprek/\">Vraag vandaag nog je vrijblijvende offerte aan.</a></p>"
-   },
-   {
-    "v": "Kan ik zelf een BV ontbinden?",
-    "a": "<p>In theorie wel, maar de risico’s zijn groot (aansprakelijkheid, fouten bij schulden). Met ons weet je zeker dat het goed en veilig gebeurt.</p><p><a href=\"/gratis-intakegesprek/\">Bespreek je situatie gratis met ons team.</a></p>"
-   },
-   {
-    "v": "Hoe lang duurt het gemiddeld?",
-    "a": "<p>Een turbo-liquidatie kan vaak binnen 5 werkdagen rond zijn. Complexere trajecten duren langer, maar wij zorgen voor de snelst mogelijke afronding.</p><p><a href=\"/gratis-intakegesprek/\">Vraag een gratis inschatting aan.</a></p>"
-   }
-  ]
- },
- {
-  "slug": "bv-met-activa",
-  "naam": "BV met activa",
-  "h1": "BV met activa ontbinden",
-  "sub": "Correcte afwikkeling, juridische zekerheid en volledige ontzorging",
-  "seoTitle": "BV met activa",
-  "description": "Welkom bij OntbindenBV.nl, dé expert in het ontbinden van BV’s mét activa. Heb je nog geld op de bank, openstaande vorderingen of bezittingen in de BV? Dan…",
-  "bannerPunten": [
-   "<b>Zorgvuldige afwikkeling</b> – alle activa en verplichtingen netjes geregeld",
-   "<b>Juridisch correct</b> – volledig volgens de regels en zonder risico’s",
-   "<b>Veilig begeleid</b> – wij nemen het hele liquidatieproces voor je uit handen"
-  ],
-  "uitgebreid": true,
-  "blokken": [
-   {
-    "t": "h",
-    "x": "Dé specialist in BV’s ontbinden met activa"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Welkom bij OntbindenBV.nl, dé expert in het ontbinden van BV’s mét activa. Heb je nog geld op de bank, openstaande vorderingen of bezittingen in de BV? Dan kan turbo-liquidatie meestal niet. In dat geval is een zorgvuldige liquidatie de juiste weg en die regelen wij voor je."
-    ]
-   },
-   {
-    "t": "h",
-    "x": "En hoe werkt dat dan?"
-   },
-   {
-    "t": "p",
-    "alineas": [
-     "Bij een BV met activa moet er altijd een vereffeningsprocedure worden gevolgd. Dit betekent dat alle baten netjes verdeeld en verplichtingen correct afgehandeld moeten worden. Ons team begeleidt je in dit traject van A tot Z: van de opmaak van de slotbalans en deponering bij de KvK tot de volledige juridische afronding. Zo weet je zeker dat alles klopt, en voorkom je aansprakelijkheid of fouten die later problemen kunnen geven.",
-     "Met meer dan <b>25 jaar ervaring</b> en ruim <b>1.200 ondernemers die je voorgingen</b>, weten wij precies welke route jouw BV nodig heeft en hoe we dat efficiënt en veilig uitvoeren.",
-     "Maar geen zorgen, ook in de meest complexe situaties zorgen wij dat jij volledig wordt ontzorgd.",
-     "<b>Maar geen zorgen, ook jij bent bij ons in goede handen en maken wij alles zo eenvoudig en zorgeloos mogelijk.</b>"
-    ]
-   },
-   {
-    "t": "h",
-    "x": "Daarom kiezen ondernemers voor ons"
-   },
-   {
-    "t": "ul",
-    "items": [
-     "Ruim 25 jaar ervaring met BV-ontbindingen",
-     "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
-     "Van lege BV tot BV met activa of schulden: altijd de juiste oplossing",
-     "Persoonlijke begeleiding door ervaren specialisten"
-    ]
-   },
-   {
-    "t": "tabel",
-    "kop": [
-     "Voordelen",
-     "Wat wij doen"
-    ],
-    "rijen": [
-     [
-      "Veilig en juridisch correct",
-      "Wij begeleiden het volledige traject, inclusief slotbalans en vereffening."
-     ],
-     [
-      "Volledige ontzorging",
-      "Jij levert de stukken aan, wij regelen de afwikkeling met KVK en instanties."
-     ],
-     [
-      "Transparant en ervaren",
-      "Met >25 jaar ervaring zorgen wij dat alles foutloos en zonder verrassingen wordt afgerond."
-     ]
-    ]
-   },
-   {
-    "t": "knoppen"
-   }
-  ],
-  "faq": [
-   {
-    "v": "Wat doet OntbindenBV.nl precies?",
-    "a": "<p>Wij helpen ondernemers bij het beëindigen van hun BV, stichting of vennootschap. Van turbo-liquidatie tot complexe gevallen met activa of schulden: wij nemen het hele traject uit handen.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
-   },
-   {
-    "v": "Wanneer moet ik een specialist inschakelen?",
-    "a": "<p>Zodra je BV geen activiteiten meer heeft, of wanneer schulden en risico’s het verstandig maken om te stoppen.</p><p><a href=\"/gratis-intakegesprek/\">Vraag een intake aan en ontdek de beste route.</a></p>"
-   },
-   {
-    "v": "Wat zijn de voordelen van OntbindenBV.nl?",
-    "a": "<p>Transparante vaste prijs vooraf, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
-   },
-   {
-    "v": "Hoe kan OntbindenBV.nl helpen bij een turbo-liquidatie?",
-    "a": "<p>Wij checken of jouw BV voldoet aan de voorwaarden, stellen alle documenten op en zorgen dat je snel bent uitgeschreven bij de KVK.</p><p><a href=\"/gratis-intakegesprek/\">Laat ons gratis je BV checken.</a></p>"
-   },
-   {
-    "v": "Wat is het verschil tussen een turbo- en een reguliere liquidatie?",
-    "a": "<p>Turbo is alleen mogelijk zonder activa en schulden. In alle andere gevallen begeleiden wij de reguliere route.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij adviseren welke vorm geschikt is.</a></p>"
-   },
-   {
-    "v": "Wat kost het om mijn BV te ontbinden?",
-    "a": "<p>De kosten hangen af van jouw situatie (lege BV, activa, schulden). Je krijgt altijd vooraf een vaste prijs.</p><p><a href=\"/gratis-intakegesprek/\">Vraag vandaag nog je vrijblijvende offerte aan.</a></p>"
+    "a": "<p>De kosten hangen af van jouw situatie. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p><p><a href=\"/gratis-intakegesprek/\">Plan vandaag nog je gratis intakegesprek.</a></p>"
    },
    {
     "v": "Kan ik zelf een BV ontbinden?",
@@ -1915,7 +1833,7 @@
    {
     "t": "p",
     "alineas": [
-     "Wanneer je BV géén activa of schulden meer heeft, kan een turbo-liquidatie meestal direct worden uitgevoerd. Voor jou betekent dit: minimale rompslomp, maximale zekerheid. Ons team controleert of je voldoet aan de voorwaarden, stelt alle documenten op en regelt de volledige afhandeling. Zo weet jij zeker dat alles juridisch klopt en hoef je je nergens zorgen over te maken.",
+     "Wanneer je BV géén bezittingen (activa) meer heeft, kan een turbo-liquidatie meestal direct worden uitgevoerd, ook als er nog schulden zijn. Voor jou betekent dit: minimale rompslomp, maximale zekerheid. Ons team controleert of je voldoet aan de voorwaarden, stelt alle documenten op en regelt de volledige afhandeling. Zo weet jij zeker dat alles juridisch klopt en hoef je je nergens zorgen over te maken.",
      "<b>Maar geen zorgen, ook jij bent bij ons in goede handen – wij maken turbo-liquidatie zo eenvoudig en zorgeloos mogelijk.</b>"
     ]
    },
@@ -1928,8 +1846,8 @@
     "items": [
      "Ruim 25 jaar ervaring met BV-ontbindingen",
      "Meer dan 1.200 tevreden klanten gingen je voor",
-     "Transparante werkwijze met vaste prijs vooraf",
-     "Van lege BV tot BV met activa of schulden: altijd de juiste oplossing",
+     "Gratis intakegesprek, de kosten bespreken we vooraf met je",
+     "Turboliquidatie met begeleiding, ook als je BV schulden heeft",
      "Persoonlijke begeleiding door ervaren specialisten"
     ]
    },
@@ -1941,16 +1859,16 @@
     ],
     "rijen": [
      [
-      "Beperkte aansprakelijkheid",
-      "Wij regelen alle juridische documenten en notariële aktes."
+      "Snel geregeld",
+      "Wij stellen alle documenten op en regelen de uitschrijving bij de KVK."
      ],
      [
-      "Fiscaal voordeel",
-      "We zorgen dat de omzetting op het gunstigste moment plaatsvindt."
+      "Juridisch correct",
+      "Wij controleren of je BV aan de voorwaarden voldoet, ook als er nog schulden zijn."
      ],
      [
-      "Professionele uitstraling",
-      "Begeleiding bij inschrijving KVK en aanpassen contracten."
+      "Geen notaris nodig",
+      "Een turboliquidatie gaat zonder notaris en zonder vereffening."
      ]
     ]
    },
@@ -1961,7 +1879,7 @@
   "faq": [
    {
     "v": "Wat doet OntbindenBV.nl precies?",
-    "a": "<p>Wij helpen ondernemers bij het beëindigen van hun BV, stichting of vennootschap. Van turbo-liquidatie tot complexe gevallen met activa of schulden: wij nemen het hele traject uit handen.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
+    "a": "<p>Wij helpen ondernemers om hun BV te beëindigen via een turboliquidatie, ook als de BV nog schulden heeft. Daarnaast begeleiden we herstructureringen als apart traject.</p><p><a href=\"/gratis-intakegesprek/\">Plan direct je gratis intake.</a></p>"
    },
    {
     "v": "Wanneer moet ik een specialist inschakelen?",
@@ -1969,7 +1887,7 @@
    },
    {
     "v": "Wat zijn de voordelen van OntbindenBV.nl?",
-    "a": "<p>Transparante vaste prijs vooraf, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
+    "a": "<p>Een gratis intakegesprek, de kosten bespreken we vooraf met je, &gt;1.200 ondernemers gingen je voor, snelle afhandeling en volledige ontzorging.</p><p><a href=\"/gratis-intakegesprek/\">Plan je gratis intake vandaag nog.</a></p>"
    },
    {
     "v": "Hoe kan OntbindenBV.nl helpen bij een turbo-liquidatie?",
@@ -1977,11 +1895,11 @@
    },
    {
     "v": "Wat is het verschil tussen een turbo- en een reguliere liquidatie?",
-    "a": "<p>Turbo is alleen mogelijk zonder activa en schulden. In alle andere gevallen begeleiden wij de reguliere route.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij adviseren welke vorm geschikt is.</a></p>"
+    "a": "<p>Een turboliquidatie kan als de BV geen bezittingen meer heeft, ook als er nog schulden zijn. Bij een reguliere liquidatie worden eerst de bezittingen verdeeld. Wij zijn gespecialiseerd in turboliquidatie, ook van een BV met schulden.</p><p><a href=\"/gratis-intakegesprek/\">Gratis intake: wij kijken of turboliquidatie bij jouw BV kan.</a></p>"
    },
    {
     "v": "Wat kost het om mijn BV te ontbinden?",
-    "a": "<p>De kosten hangen af van jouw situatie (lege BV, activa, schulden). Je krijgt altijd vooraf een vaste prijs.</p><p>Vraag vandaag nog je vrijblijvende offerte aan.</p>"
+    "a": "<p>De kosten hangen af van jouw situatie. Het intakegesprek is gratis en de kosten bespreken we vooraf met je.</p><p><a href=\"/gratis-intakegesprek/\">Plan vandaag nog je gratis intakegesprek.</a></p>"
    },
    {
     "v": "Kan ik zelf een BV ontbinden?",

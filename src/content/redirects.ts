@@ -16,6 +16,20 @@ export const REDIRECTS: Record<string, string> = {
   '/wp-sitemap-posts-dienst-1.xml': '/sitemap.xml',
   '/wp-sitemap-taxonomies-category-1.xml': '/sitemap.xml',
   '/wp-sitemap-users-1.xml': '/sitemap.xml',
+  // Verwijderde artikelen (klant 2026-11-10). Stichtingen heffen we niet op: naar de homepage.
+  '/stichting-liquideren': '/',
+  '/stichting-opheffen-eenvoudig-zonder-notaris': '/',
+  '/stichting-opheffen-met-schulden': '/',
+  '/automatische-conceptenstichting-opheffen-ontbinden-kvk': '/',
+  '/stichting-opheffen-kvk-ontbinden-2025': '/',
+  '/stichting-opheffen-ontbinden-kvk-2025': '/',
+  '/stichting-liquideren-kvk-vereffening-2025': '/',
+  // Liquidatiegids met prijzen ("turboliquidatie vanaf €289", "reguliere liquidatie €750–€1.000"): naar turboliquidatie
+  '/ontbindenbv-nl-bv-liquideren': '/dienst/lege-bv-turbo-liquidatie/',
+  // Kostenartikel zonder bedragen: de oude slug noemde een prijs
+  '/wat-kost-het-ontbinden-van-een-bv-2025-vanaf-e289': '/wat-kost-het-ontbinden-van-een-bv-2025/',
+  // Dienst "BV met activa" geschrapt (klant 2026-11-10: geen reguliere liquidatie): naar turboliquidatie
+  '/dienst/bv-met-activa': '/dienst/lege-bv-turbo-liquidatie/',
 }
 
 /**

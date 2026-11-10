@@ -15,7 +15,7 @@ export const privacyverklaring = `
 <h2>Welke gegevens verwerken wij?</h2>
 <ul>
 <li><strong>Contactformulieren</strong> (hoofdformulier, contactpagina en gratis intakegesprek): naam, e-mailadres, telefoonnummer, je bericht en, bij het intakeformulier, je voorkeursmoment om gebeld te worden.</li>
-<li><strong>Intakegesprek</strong>: wat je ons vertelt over je BV of stichting (bijvoorbeeld activa, schulden en de gewenste vorm van ontbinding). Deze gegevens leggen onze medewerkers vast in je dossier.</li>
+<li><strong>Intakegesprek</strong>: wat je ons vertelt over je BV (bijvoorbeeld activa, schulden en de gewenste vorm van ontbinding). Deze gegevens leggen onze medewerkers vast in je dossier.</li>
 <li><strong>Herkomst van je bezoek</strong>: de bron en campagne waarmee je op onze site kwam (bijvoorbeeld een Google-advertentie of zoekresultaat), de pagina waarop je het formulier invulde en het type apparaat. We bewaren dit bij je aanvraag om te zien welke kanalen werken.</li>
 <li><strong>Beveiliging tegen misbruik</strong>: je IP-adres slaan we niet op, alleen een daarvan afgeleide, gehashte code die elke dag verandert. Daarmee voorkomen we dat iemand het formulier massaal invult.</li>
 <li><strong>Websitegebruik</strong>: paginastatistieken zonder cookies en zonder IP-adressen op te slaan, en, alleen met jouw toestemming, statistiek- en marketingcookies (zie het <a href="/cookiebeleid-eu/">cookiebeleid</a>).</li>
