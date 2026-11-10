@@ -70,9 +70,13 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
   en het informeren van schuldeisers (`TURBO_UITLEG` in `content/home.ts`); doorlooptijd overal "binnen 24 uur van start" en
   "vaak binnen een week geregeld"; garantie- en 9,4-claims uit de artikelen. Telefoons krijgen een uitsnede van de hero
   (`hero-mobiel.webp`, `scripts/hero-mobiel.mjs`, 39 kB i.p.v. 107 kB).
-- Open uit die controle: ruim 20 kennisbankartikelen noemen nog "geen schulden" als voorwaarde voor turboliquidatie (juridisch onjuist:
-  het gaat om baten op het moment van ontbinding, en de dienst is juist turboliquidatie mét schulden); artikelen gebruiken u, de rest
-  van de site je; dubbele artikelen (o.a. turbo vs reguliere liquidatie, -2) nog samenvoegen met 301's.
+- Kennisbank turbo-uitleg (2026-11-10): 43 artikelen noemden "geen schulden" of "geen passiva" als voorwaarde voor turboliquidatie.
+  Nu overal: geen baten op het moment van ontbinding, schulden mogen blijven staan, binnen 14 dagen balans, staat van baten en lasten
+  en toelichting deponeren en schuldeisers informeren; heropening alleen als er later baten opduiken. Zijn er nog bezittingen en
+  schulden, dan gaan die bezittingen eerst eerlijk naar de schuldeisers, niet naar de aandeelhouders. Uitspraken over een gewone
+  liquidatie mét vermogen (eerst schulden betalen, dan uitkeren) zijn correct en blijven staan. Nieuwe artikelen op dezelfde lijn.
+- Open: artikelen gebruiken u (sommige je), de rest van de site je; dubbele artikelen (o.a. turbo vs reguliere liquidatie, -2) nog
+  samenvoegen met 301's.
 - `/bedankt/` staat op noindex (oud: index).
 
 ## Werkwijze import (reproduceerbaar)
