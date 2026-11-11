@@ -20,10 +20,10 @@ export default function Reviews() {
             </h2>
             <p className="text-muted">Lees wat onze tevreden klanten over ons zeggen</p>
           </div>
-          {/* Score met Google-logo alleen als het Google-profiel gekoppeld is (site.reviews.googleUrl), anders niet controleerbaar */}
-          {site.reviews.googleUrl && (
-          <div className="flex items-start justify-end">
-            <a href={site.reviews.googleUrl} target="_blank" rel="noopener" className="flex items-center gap-2 text-[14px]">
+          {/* Score van Belasting Bemiddelaar (site.reviews.bron), met de herkomst erbij. Google-logo en link alleen met een
+              controleerbaar Google-profiel (site.reviews.googleUrl). */}
+          <div className="flex flex-col items-start gap-1 text-[14px] min-[992px]:items-end">
+            <div className="flex items-center gap-2">
               <span className="flex text-star" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
                 {[0, 1, 2, 3, 4].map((i) => (
                   <FaStar key={i} className="size-4" />
@@ -32,10 +32,16 @@ export default function Reviews() {
               <span>
                 <b>{site.reviews.score}</b> uit 5
               </span>
-              <GoogleG className="size-5" />
-            </a>
+              {site.reviews.googleUrl && (
+                <a href={site.reviews.googleUrl} target="_blank" rel="noopener" aria-label="Bekijk de reviews op Google">
+                  <GoogleG className="size-5" />
+                </a>
+              )}
+            </div>
+            <p className="text-muted">
+              {site.reviews.count} reviews van {site.reviews.bron}, hetzelfde team
+            </p>
           </div>
-          )}
         </div>
         <ul className="grid gap-5 min-[992px]:grid-cols-3 min-[992px]:gap-6">
           {reviews.map((r) => (

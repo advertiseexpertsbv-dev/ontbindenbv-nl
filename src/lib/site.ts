@@ -45,12 +45,13 @@ export const site = {
    */
   intakeUrl: 'https://belastingbemiddelaar.nl/intake-nieuwe-klant/',
   /**
-   * Google-score uit de oude site. Wordt alleen getoond (reviewbalk boven de header, score bij de reviews) als googleUrl naar het
-   * openbare Google-profiel van OntbindenBV.nl wijst, zodat een bezoeker score en aantal kan controleren. Er was geen profiel te
-   * vinden en de oude link ging naar de drie reviews op de eigen pagina (campagnecontrole 2026-11-10). Profiel-URL invullen =
-   * score en aantal staan weer overal (controleer dan ook of 4,9 en 391 nog kloppen).
+   * Reviewscore van Belasting Bemiddelaar: hetzelfde bedrijf en team (Steven, 2026-11-11: "je mag de reviews van belasting
+   * bemiddelaar gebruiken"). Er bestaat geen eigen profiel van OntbindenBV.nl, dus de herkomst (`bron`) staat er altijd bij,
+   * in de reviewbalk en bij de reviews. Score en aantal zoals belastingbemiddelaar.nl ze toont (2026-11-11: 4,9 uit 5, 391 reviews;
+   * daar zonder link naar Google). Het Google-logo en een link naar buiten komen er alleen bij als googleUrl naar het openbare
+   * Google-profiel wijst, zodat een bezoeker score en aantal kan controleren. Wijzigt de score daar, dan hier ook.
    */
-  reviews: { score: '4,9', count: 391, googleUrl: '' as string },
+  reviews: { score: '4,9', count: 391, bron: 'Belasting Bemiddelaar', googleUrl: '' as string },
   /**
    * Gele knop naar het contactformulier. Op de oude site heette hij "Online afspraak inplannen", maar er is geen agenda: het is een
    * gewoon formulier. Daarom "Neem contact op" (campagnecontrole 2026-11-10). De blauwe knop gaat naar /gratis-intakegesprek/.
