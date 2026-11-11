@@ -17,7 +17,7 @@ Migratieplan: Claude Doc "Migratieplan ontbindenbv.nl naar Cloudflare" (https://
 | E-mail | info@ontbindenbv.nl |
 | KvK | 96464054 |
 | Adres | Houtzaagmolen 99, 2986 GE Ridderkerk, Nederland (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak. Het KvK-register noemt nog Hoogeveenenweg 100 unit 2.11, Nieuwerkerk aan den IJssel (oude site, soms unit 2.01, postcode 2913 LV); de site blijft het bevestigde bezoekadres tonen |
-| Reviews | 4,9 uit 5, 391 reviews (Google), van de oude site. **Niet getoond** zolang `site.reviews.googleUrl` leeg is: er was geen Google-profiel van OntbindenBV.nl te vinden en de oude link ging naar de eigen reviews (campagnecontrole 2026-11-10). Profiel-URL invullen = reviewbalk en score terug (cijfers dan nakijken). De drie klantreviews op de pagina blijven |
+| Reviews | 4,9 uit 5, 391 reviews **van Belasting Bemiddelaar** (hetzelfde bedrijf en team; Steven 2026-11-11). De herkomst staat er altijd bij (`site.reviews.bron`), in de reviewbalk en bij de reviews; de balk linkt naar `/#reviews`. Geen eigen Google-profiel van OntbindenBV.nl gevonden, en belastingbemiddelaar.nl linkt zelf ook niet naar Google: daarom geen Google-logo. Google-profiel-URL in `site.reviews.googleUrl` = logo en link naar Google erbij. De drie klantreviews op de pagina blijven |
 | Hub | project 26 "OntbindenBV", site-sleutel `obv` (aangemaakt 2026-11-10; code-koppeling in hub-PR #30) |
 
 ## Pagina's van de oude site (116 URL's in `ref/seo/seo.json`)

@@ -152,8 +152,9 @@ export default function Header() {
 
   return (
     <>
-      {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg. Alleen met een controleerbaar Google-profiel (site.reviews.googleUrl) */}
-      {site.reviews.googleUrl && (
+      {/* Reviewbalk: alleen vanaf 992px, scrolt met de pagina mee weg. De reviews zijn van Belasting Bemiddelaar (site.reviews.bron),
+          dat staat er altijd bij. Met een Google-profiel (site.reviews.googleUrl) linkt het aantal daarheen en staat het Google-logo
+          erbij; anders linkt het naar de reviews op de homepage. */}
       <div className="bg-textuur hidden min-[992px]:block">
         <Container className="flex items-center gap-2 py-2 text-[14px]">
           <span className="flex text-star" role="img" aria-label={`${site.reviews.score} van 5 sterren`}>
@@ -163,20 +164,19 @@ export default function Header() {
           </span>
           <span>
             Een score van <strong>{site.reviews.score}</strong> uit 5 op basis van{' '}
-            {/* Onzichtbaar vergroot tikvlak (44px hoog) zonder dat de regel hoger wordt; de link gaat naar het Google-profiel zelf */}
+            {/* Onzichtbaar vergroot tikvlak (44px hoog) zonder dat de regel hoger wordt */}
             <a
-              href={site.reviews.googleUrl}
-              target="_blank"
-              rel="noopener"
+              href={site.reviews.googleUrl || '/#reviews'}
+              {...(site.reviews.googleUrl ? { target: '_blank', rel: 'noopener' } : {})}
               className="relative underline after:absolute after:-inset-x-1 after:-inset-y-[13px] after:content-['']"
             >
               {site.reviews.count} reviews
-            </a>
+            </a>{' '}
+            van {site.reviews.bron}, hetzelfde team
           </span>
-          <GoogleG className="size-5" />
+          {site.reviews.googleUrl && <GoogleG className="size-5" />}
         </Container>
       </div>
-      )}
 
       <header ref={headerRef} className="relative z-50 bg-white min-[992px]:sticky min-[992px]:top-0 min-[992px]:shadow-header">
         <Container className="flex items-center justify-between py-3.5 min-[768px]:py-4 min-[992px]:py-5">
