@@ -1,16 +1,30 @@
+import type { ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import { site } from '../../lib/site'
 import { beeld, SIZES } from '../../lib/beeld'
 import { footerDiensten, footerOver } from '../../content/menu'
 import { Container } from '../ui'
 
-/** Tekst links in de footer, regel voor regel zoals de oude site (adres: het nieuwe adres) */
-const footerRegels = [
+/**
+ * Tekst links in de footer, regel voor regel zoals de oude site (adres: het nieuwe adres). Telefoon is nieuw (2026-11-13) en
+ * valt weg als site.phone leeg is.
+ */
+const footerRegels: ReactNode[] = [
   'Wij bieden adviesdiensten aan ondernemers.',
   'Wij bieden geen krediet, schuldafkoop of schuldverwerking.',
   'Wij adviseren uitsluitend over bedrijfsbeëindiging, herstructurering en schuldhulptrajecten.',
   `Kamer van Koophandel: ${site.kvk}`,
   `Adres: ${site.address.street}, ${site.address.postalCode} ${site.address.city}`,
+  ...(site.phone
+    ? [
+        <>
+          Telefoon:{' '}
+          <a href={site.phoneHref} className="whitespace-nowrap underline-offset-3 transition-colors hover:text-white hover:underline">
+            {site.phone}
+          </a>
+        </>,
+      ]
+    : []),
   'Kosten: Advies gesprek is altijd kosteloos en eventuele kosten zullen vooraf worden besproken.',
 ]
 
@@ -36,7 +50,7 @@ export default function Footer() {
           <p className="mt-6 text-white">Neem vandaag nog contact op voor een kosteloze intake en laat ons je helpen met het veilig en snel beëindigen van jouw BV.</p>
           <p className="mt-5 text-[14px] leading-[1.75] text-white/75">
             {footerRegels.map((r, i) => (
-              <span key={r}>
+              <span key={i}>
                 {i > 0 && <br />}
                 {r}
               </span>

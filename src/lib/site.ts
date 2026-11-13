@@ -12,12 +12,12 @@ export const site = {
   description:
     'BV ontbinden? Wij regelen de volledige beëindiging snel, correct en betaalbaar. Gratis intakegesprek, de kosten bespreken we vooraf met je.',
   /**
-   * Telefoonnummer: tijdelijk leeg (besluit Steven 2026-11-10). Het oude nummer +31 85 004 8369 is nu van subsidiehulp.nl;
-   * een nieuw nummer (Goedemorgen-Goedemiddag) volgt. Leeg = nergens een nummer of bel-knop, wel e-mail en formulieren.
-   * Nieuw nummer: vul beide velden in (phoneHref als 'tel:+31…'), dan staat het overal weer.
+   * Telefoonnummer, nieuw sinds 2026-11-13 (Steven, via Goedemorgen-Goedemiddag). Het oude nummer +31 85 004 8369 is nu van
+   * subsidiehulp.nl en mag nergens meer staan. Weergave in dezelfde vorm als voorheen; phoneHref zonder spaties.
+   * Leeg maken (beide velden) = nergens een nummer of bel-knop, dan wordt bellen overal e-mail.
    */
-  phone: '' as string,
-  phoneHref: '' as string,
+  phone: '+31 85 018 7378' as string,
+  phoneHref: 'tel:+31850187378' as string,
   email: 'info@ontbindenbv.nl',
   address: {
     street: 'Houtzaagmolen 99', // nieuw adres (hub-taak 174, bevestigd door Steven 2026-11-09), bezoek alleen op afspraak

@@ -1,3 +1,5 @@
+import { site } from '../lib/site'
+
 /**
  * Vaste pagina's: titel en meta description (seo() in de head() van de route) en pad, in de volgorde van de sitemap.
  * Eén bron voor de routes, de sitemap (src/server.ts) en /llms.txt (src/server/llms.ts), zodat ze niet uit elkaar lopen.
@@ -32,7 +34,7 @@ export const paginas = {
   contact: {
     title: 'Contact',
     description:
-      'Neem contact op met OntbindenBV.nl voor een gratis intakegesprek over het ontbinden van jouw BV. Mail naar info@ontbindenbv.nl of stuur ons een bericht.',
+      `Neem contact op met OntbindenBV.nl voor een gratis intakegesprek over het ontbinden van jouw BV. ${site.phone ? `Bel ${site.phone}` : `Mail naar ${site.email}`} of stuur ons een bericht.`,
     path: '/contact/',
   },
   kennisbank: {

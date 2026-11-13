@@ -173,7 +173,7 @@ export const overOns = {
 } as const
 
 export const contactBlok = {
-  tekst: 'Je kunt ons bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.',
+  tekst: `Je kunt ons${site.phone ? ' telefonisch' : ''} bereiken op werkdagen, van maandag tot en met vrijdag van 08:30 uur tot 17:30 uur.`,
   formTitel: 'Wij helpen je graag verder met al je vragen',
   formTekst: 'Neem vandaag nog contact met ons op voor een kosteloze intake. Wij helpen je graag bij het ontbinden van je BV.',
   telefoon: site.phone,
